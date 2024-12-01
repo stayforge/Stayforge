@@ -25,8 +25,6 @@ class Branch(BranchInput):
 
     @classmethod
     def from_mongo(cls, document: dict | list):
-        if isinstance(document, list):
-            return [cls.from_mongo(doc) for doc in document]
         if document:
             document["id"] = str(document["_id"])
             del document["_id"]
