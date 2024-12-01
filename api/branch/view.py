@@ -19,7 +19,7 @@ async def create_branch(request: Request, data: BranchInput):
     d = await branch_repository.find_one(query={"_id": ObjectId(_id)})
     if not d:
         raise HTTPException(status_code=404, detail="Resource maybe created. But can not access it.")
-    return Branch.from_mongo(d)
+    return Branch.from_mongo(d).model_dump()
 
 
 @router.get("/", response_model=List[Branch])
@@ -35,3 +35,12 @@ async def get_branch(
              value}
     ds = await branch_repository.find_many(query=query, request=request)
     return Branch.from_mongo(ds)
+
+
+@router.get("/<id>", response_model=Branch)
+async def get_branch(
+        request: Request,
+        id: str
+):
+    d = await branch_repository.find_one(query={"_id": ObjectId(id)}, request=request)
+    return Branch.from_mongo(d).model_dump()

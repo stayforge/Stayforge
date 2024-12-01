@@ -1,4 +1,3 @@
-
 from pydantic import BaseModel
 from typing import Optional
 
@@ -25,7 +24,7 @@ class Branch(BranchInput):
     id: Optional[str]
 
     @classmethod
-    def from_mongo(cls, document: dict):
+    def from_mongo(cls, document: dict | list):
         if isinstance(document, list):
             return [cls.from_mongo(doc) for doc in document]
         if document:
