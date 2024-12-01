@@ -28,6 +28,8 @@ class Branch(BranchInput):
         if document:
             document["id"] = str(document["_id"])
             del document["_id"]
+            if document is None:
+                raise ValueError("Document is None")
         return cls(**document)
 
 
