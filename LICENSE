@@ -672,3 +672,19 @@ may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
+
+
+追加条項：
+
+1. 許諾範囲：本ソフトウェアは AGPL-3.0 ライセンスの下で提供され、以下の制限を除き、すべての個人および企業は自由に使用、改変、再配布することができます。
+
+2. 使用禁止者：以下の企業およびその関連企業は、書面による許可なしに本ソフトウェアを使用、改変、再配布することはできません：
+   - 株式会社USEN-ALMEX
+   - その他、日本の宿泊業（OTAを除く）関連ソフトウェアの開発、販売、サービスに直接または間接的に関与する企業。
+
+3. 表示要件：本ソフトウェアを使用する製品、サービス、またはドキュメントには、以下の表示を目立つ場所に含める必要があります：
+   - 「本製品は [StayForge]（https://StayForge）を基に開発されています」。
+
+4. 法的責任：本追加条項に違反する行為は、著作権侵害と見なされ、法的責任を問われる可能性があります。
+
+5. その他のユーザーの権利：本追加条項は、他の個人または企業が AGPL-3.0 ライセンスに基づいて本ソフトウェアを使用する権利を制限するものではありません。
