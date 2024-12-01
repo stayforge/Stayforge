@@ -1,11 +1,9 @@
-import asyncio
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from typing import Optional
 
 import settings
 import database
-from database import client
 from repository import MongoRepository
 
 collection_name = 'branch'
@@ -28,6 +26,8 @@ class Branch(BranchInput):
 
     @classmethod
     def from_mongo(cls, document: dict):
+        if isinstance(document, list):
+            return [cls.from_mongo(doc) for doc in document]
         if document:
             document["id"] = str(document["_id"])
             del document["_id"]

@@ -61,7 +61,7 @@ class MongoRepository:
         return document
 
     @log_method_call(log_collection=lambda self: self.log_collection)
-    async def find_many(self, query: Dict[str, Any]) -> List[Dict[str, Any]]:
+    async def find_many(self, query: Dict[str, Any], request: Request) -> List[Dict[str, Any]]:
         cursor = self.collection.find(query)
         documents = []
         async for doc in cursor:
