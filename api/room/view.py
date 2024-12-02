@@ -10,12 +10,12 @@ from ..schemas import BaseResponses
 router = APIRouter()
 
 
-class BranchResponses(BaseResponses):
-    data: Optional[List[Branch]]
+class RoomResponses(BaseResponses):
+    data: Optional[List[Room]]
 
 
-@router.get("/", response_model=BranchResponses)
-async def get_branches(
+@router.get("/", response_model=RoomResponses)
+async def get_rooms(
         request: Request,
         name: str = Query(default=None),
         address: str = Query(default=None),
@@ -26,13 +26,13 @@ async def get_branches(
         query = {key: value for key, value in {
             "name": name, "address": address, "telephone": telephone
         }.items() if value}
-        ds = await branch_repository.find_many(query=query, request=request)
+        ds = await room_repository.find_many(query=query, request=request)
 
         result = []
         for d in ds:
-            result.append(Branch.from_mongo(d))
+            result.append(Room.from_mongo(d))
 
-        return BranchResponses(
+        return RoomResponses(
             data=result,
             used_time=(time.perf_counter() - str_time) * 1000
         )
@@ -41,54 +41,54 @@ async def get_branches(
         return handle_error(e, str_time)
 
 
-@router.get("/<id>", response_model=BranchResponses)
-async def get_branch(
+@router.get("/<id>", response_model=RoomResponses)
+async def get_room(
         request: Request,
         id: str
 ):
     str_time = time.perf_counter()
     try:
         if not ObjectId.is_valid(id):
-            return BranchResponses(
+            return RoomResponses(
                 status=400,
                 detail="Invalid ID format",
                 used_time=(time.perf_counter() - str_time) * 1000,
                 data=None
             )
-        d = await branch_repository.find_one(query={"_id": ObjectId(id)}, request=request)
+        d = await room_repository.find_one(query={"_id": ObjectId(id)}, request=request)
         if not d:
             return handle_resource_not_found_error(str_time)
 
-        return BranchResponses(
-            data=[Branch.from_mongo(d)],
+        return RoomResponses(
+            data=[Room.from_mongo(d)],
             used_time=(time.perf_counter() - str_time) * 1000
         )
     except Exception as e:
         return handle_error(e, str_time)
 
 
-@router.post("/", response_model=BranchResponses, responses={
+@router.post("/", response_model=RoomResponses, responses={
     409: {
         "description": "Resource maybe created. But can't found it.",
     }
 })
-async def create_branch(request: Request, data: BranchInput):
+async def create_room(request: Request, data: RoomInput):
     str_time = time.perf_counter()
     try:
-        _id = await branch_repository.insert_one(data.model_dump(), request=request)
-        d = await branch_repository.find_one(query={"_id": ObjectId(_id)})
+        _id = await room_repository.insert_one(data.model_dump(), request=request)
+        d = await room_repository.find_one(query={"_id": ObjectId(_id)})
         if not d:
             return handle_after_write_resource_not_found_error(str_time)
-        return BranchResponses(
-            data=[Branch.from_mongo(d)],
+        return RoomResponses(
+            data=[Room.from_mongo(d)],
             used_time=(time.perf_counter() - str_time) * 1000
         )
     except Exception as e:
         return handle_error(e, str_time)
 
 
-@router.delete("/<id>", response_model=BranchResponses)
-async def delete_branch(
+@router.delete("/<id>", response_model=RoomResponses)
+async def delete_room(
         request: Request,
         id: str
 ):
@@ -96,11 +96,11 @@ async def delete_branch(
     try:
         if not ObjectId.is_valid(id):
             return handle_invalid_id_format_error(str_time)
-        d = await branch_repository.delete_one(query={"_id": ObjectId(id)}, request=request)
+        d = await room_repository.delete_one(query={"_id": ObjectId(id)}, request=request)
         if not d:
             return handle_resource_not_found_error(str_time)
 
-        return BranchResponses(
+        return RoomResponses(
             data=None,
             used_time=(time.perf_counter() - str_time) * 1000,
             detail=f"Successfully. [{d}] Resource(s) deleted."
@@ -109,27 +109,27 @@ async def delete_branch(
         return handle_error(e, str_time)
 
 
-@router.put("/{id}", response_model=BranchResponses, responses={
+@router.put("/{id}", response_model=RoomResponses, responses={
     409: {
         "description": "Resource maybe changed. But can't found it.",
     }
 })
-async def put_branch(
+async def put_room(
         request: Request,
         id: str,
-        data: BranchInput
+        data: RoomInput
 ):
     str_time = time.perf_counter()
     try:
         if not ObjectId.is_valid(id):
             return handle_invalid_id_format_error(str_time)
-        await branch_repository.update_one(query={"_id": ObjectId(id)}, update=data.model_dump(),
+        await room_repository.update_one(query={"_id": ObjectId(id)}, update=data.model_dump(),
                                            request=request)
-        d = await branch_repository.find_one(query={"_id": ObjectId(id)}, request=request)
+        d = await room_repository.find_one(query={"_id": ObjectId(id)}, request=request)
         if not d:
             return handle_after_write_resource_not_found_error(str_time)
-        return BranchResponses(
-            data=[Branch.from_mongo(d)],
+        return RoomResponses(
+            data=[Room.from_mongo(d)],
             used_time=(time.perf_counter() - str_time) * 1000
         )
     except Exception as e:

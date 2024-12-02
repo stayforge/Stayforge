@@ -1,6 +1,6 @@
 from fastapi import *
 
-from api.responses import Stayforge
+from api.schemas import Stayforge
 
 router = APIRouter()
 

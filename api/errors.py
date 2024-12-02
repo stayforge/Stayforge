@@ -1,6 +1,6 @@
 import time
 
-from api.responses import BaseResponses
+from api.schemas import BaseResponses
 from settings import logger
 
 

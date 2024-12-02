@@ -5,7 +5,7 @@ from fastapi import *
 
 from .models import *
 from ..errors import *
-from ..responses import BaseResponses
+from ..schemas import BaseResponses
 
 router = APIRouter()
 
