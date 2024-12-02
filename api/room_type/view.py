@@ -123,7 +123,7 @@ async def delete_room(
         return handle_error(e, str_time)
 
 
-@router.put("/{id}", response_model=RoomTypeResponses, responses={
+@router.put("/<id>", response_model=RoomTypeResponses, responses={
     409: {
         "description": "Resource maybe changed. But can't found it.",
     }

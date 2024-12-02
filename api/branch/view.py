@@ -108,7 +108,7 @@ async def delete_branch(
         return handle_error(e, str_time)
 
 
-@router.put("/{id}", response_model=BranchResponses, responses={
+@router.put("/<id>", response_model=BranchResponses, responses={
     409: {
         "description": "Resource maybe changed. But can't found it.",
     }
