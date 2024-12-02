@@ -1,7 +1,6 @@
-fastapi[all]
-pymongo[srv]
-pydantic
-motor
-uvicorn
-python-dotenv
-Faker
+pymongo~=4.9.2
+fastapi~=0.115.5
+pydantic~=2.10.2
+Faker~=33.1.0
+motor~=3.6.0
+python-dotenv~=1.0.1
