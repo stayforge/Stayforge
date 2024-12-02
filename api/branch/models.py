@@ -1,10 +1,8 @@
-from datetime import datetime
-
 from pydantic import BaseModel
-from typing import Optional
 
 import settings
 import database
+from api.schemas import StayForgeModel
 from repository import MongoRepository
 
 collection_name = 'branch'
@@ -22,24 +20,5 @@ class BranchInput(BaseModel):
     telephone: str
 
 
-class Branch(BranchInput):
-    id: Optional[str]
-    create_at: Optional[datetime]
-    update_at: Optional[datetime]
-
-    @classmethod
-    def from_mongo(cls, document: dict | list):
-        if document:
-            document["id"] = str(document["_id"])
-            del document["_id"]
-            if document is None:
-                raise ValueError("Document is None")
-        return cls(**document)
-
-
-async def create_unique_index():
-    try:
-        result = await database[collection_name].create_index("name", unique=True)
-        print(f"Unique index created: {result}")
-    except Exception as e:
-        print(f"Error creating unique index: {e}")
+class Branch(BranchInput, StayForgeModel):
+    pass

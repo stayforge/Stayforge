@@ -14,7 +14,7 @@ room_repository = MongoRepository(
 )
 
 
-class RoomType(BaseModel):
+class RoomTypeInput(BaseModel):
     name: str = Field(
         ..., description="The Type of RoomType"
     )
@@ -36,13 +36,5 @@ class RoomType(BaseModel):
     )
 
 
-class RoomTypeInput(RoomType, StayForgeModel):
+class RoomType(RoomTypeInput, StayForgeModel):
     pass
-
-
-async def create_unique_index():
-    try:
-        result = await database[collection_name].create_index("name", unique=True)
-        print(f"Unique index created: {result}")
-    except Exception as e:
-        print(f"Error creating unique index: {e}")

@@ -6,6 +6,7 @@ from typing import Optional, List
 
 import settings
 import database
+from api.schemas import StayForgeModel
 from repository import MongoRepository
 
 collection_name = 'order'
@@ -45,20 +46,7 @@ class OrderInput(BaseModel):
         return f"ON-{datetime.now().strftime('%Y%m%d')}-{''.join([str(uuid.uuid4().int % 10) for _ in range(10)])}"
 
 
-class Order(OrderInput):
-    id: Optional[str]
-    create_at: datetime
-
-    @classmethod
-    def from_mongo(cls, document: dict | list):
-        if document:
-            document["id"] = str(document["_id"])
-            del document["_id"]
-            if document is None:
-                raise ValueError("Document is None")
-        return cls(**document)
-
-
+class Order(OrderInput, StayForgeModel):
     @classmethod
     def order_types(cls) -> List[dict]:
         return [

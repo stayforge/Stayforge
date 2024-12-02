@@ -1,4 +1,4 @@
-from typing import List
+from typing import *
 from bson import ObjectId
 from fastapi import *
 

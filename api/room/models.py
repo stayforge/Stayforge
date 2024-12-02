@@ -14,7 +14,7 @@ room_repository = MongoRepository(
 )
 
 
-class Room(BaseModel):
+class RoomInput(BaseModel):
     branch_id: str = Field(
         None, description="Reference ID of the branch."
     )
@@ -30,13 +30,6 @@ class Room(BaseModel):
     )
 
 
-class RoomInput(Room, StayForgeModel):
+class Room(RoomInput, StayForgeModel):
     pass
 
-
-async def create_unique_index():
-    try:
-        result = await database[collection_name].create_index("name", unique=True)
-        print(f"Unique index created: {result}")
-    except Exception as e:
-        print(f"Error creating unique index: {e}")
