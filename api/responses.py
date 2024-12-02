@@ -14,4 +14,4 @@ class BaseResponses(BaseModel):
     detail: str = "Successfully."
     status: int = 200
     used_time: Optional[float] = None
-    stayforge: Stayforge
+    stayforge: Stayforge = Stayforge()
