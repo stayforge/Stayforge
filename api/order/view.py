@@ -33,7 +33,10 @@ async def get_order_types():
 async def create_order(request: Request, data: OrderInput):
     str_time = time.perf_counter()
     try:
-        _id = await order_repository.insert_one(data.model_dump(), request=request)
+        data = data.model_dump()
+        if not data['num']:
+            data['num'] = OrderInput.generate_num()
+        _id = await order_repository.insert_one(data, request=request)
         d = await order_repository.find_one(query={"_id": ObjectId(_id)})
         if not d:
             return handle_after_write_resource_not_found_error(str_time)
