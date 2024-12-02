@@ -58,7 +58,7 @@ async def get_order_by_id(
                 detail="Invalid ID format",
                 used_time=(time.perf_counter() - str_time) * 1000,
                 data=None
-            )
+            ), 400
         d = await order_repository.find_one(query={"_id": ObjectId(id)}, request=request)
         if not d:
             return handle_resource_not_found_error(str_time)

@@ -13,7 +13,7 @@ def handle_error(
         detail=custom_detail if custom_detail else str(exception),
         used_time=time.perf_counter() - str_time,
         data=None
-    )
+    ), 500
 
 
 def handle_invalid_id_format_error(
@@ -24,7 +24,7 @@ def handle_invalid_id_format_error(
         detail="Invalid ID format",
         used_time=(time.perf_counter() - str_time) * 1000,
         data=None
-    )
+    ), 400
 
 
 def handle_resource_not_found_error(
@@ -35,7 +35,7 @@ def handle_resource_not_found_error(
         detail=detail,
         used_time=(time.perf_counter() - str_time) * 1000,
         data=None
-    )
+    ), 404
 
 
 def handle_after_write_resource_not_found_error(
@@ -47,4 +47,4 @@ def handle_after_write_resource_not_found_error(
         detail=detail,
         used_time=(time.perf_counter() - str_time) * 1000,
         data=None
-    )
+    ), 409
