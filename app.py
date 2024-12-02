@@ -1,11 +1,14 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI
 
+import settings
 from api import router as api_router
+
+
 
 app = FastAPI(
     title="Stayforge API",
     description="This is a basic API description.",
-    version="1.0.0",
+    version=settings.__version__,
     docs_url="/docs"
 )
 
