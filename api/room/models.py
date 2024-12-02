@@ -1,3 +1,6 @@
+from random import randint
+
+from bson import ObjectId
 from pydantic import BaseModel, Field
 
 import settings
@@ -16,13 +19,13 @@ room_repository = MongoRepository(
 
 class RoomInput(BaseModel):
     branch_id: str = Field(
-        None, description="Reference ID of the branch."
+        str(ObjectId()), description="Reference ID of the branch."
     )
     room_type_id: str = Field(
-        "", description="Reference ID of the RoomType."
+        str(ObjectId()), description="Reference ID of the RoomType."
     )
     number: str = Field(
-        ..., description="The number of rooms, e.g., 203."
+        f"{randint(1, 9)}0{randint(1, 9)}", description="The number of rooms, e.g., 203."
     )
     priority: int = Field(
         ..., description="The OTA system will give priority to rooms with a higher value to guests. "
@@ -32,4 +35,3 @@ class RoomInput(BaseModel):
 
 class Room(RoomInput, StayForgeModel):
     pass
-

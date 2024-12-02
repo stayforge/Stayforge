@@ -4,3 +4,4 @@ pydantic
 motor
 uvicorn
 python-dotenv
+Faker

@@ -1,7 +1,8 @@
 from datetime import datetime
 from typing import List, Optional
 
-from pydantic import BaseModel
+from bson import ObjectId
+from pydantic import BaseModel, Field
 
 import settings
 
@@ -11,7 +12,9 @@ class Stayforge(BaseModel):
 
 
 class StayForgeModel(BaseModel):
-    id: Optional[str]
+    id: str = Field(
+        str(ObjectId()), description="Reference ID of the branch."
+    )
     create_at: Optional[datetime]
     update_at: Optional[datetime]
 
