@@ -10,8 +10,8 @@ COPY . .
 RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-RUN pip install --no-cache-dir -r requirements.txt --root-user-action
-RUN pip install uvicorn --root-user-action
+RUN pip install --no-cache-dir -r requirements.txt --root-user-action=ignore
+RUN pip install uvicorn --root-user-action=ignore
 
 EXPOSE 80
 
