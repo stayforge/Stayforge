@@ -1,3 +1,7 @@
+import random
+from decimal import Decimal
+
+from faker.proxy import Faker
 from pydantic import BaseModel, Field
 
 import settings
@@ -13,26 +17,36 @@ room_repository = MongoRepository(
     client=database.client
 )
 
+faker = Faker('ja_JP')
+
 
 class RoomTypeInput(BaseModel):
     name: str = Field(
-        ..., description="The Type of RoomType"
+        ...,
+        examples=['スタンダード', 'プレミアム'],
+        description="The Type of RoomType"
     )
     description: str = Field(
-        None, description="Description of the room_type type"
+        None, description="Description of the room type."
     )
-    price: int = Field(
-        ..., description="Current price. If you deploy a price controller, this value will be updated automatically."
+    price: Decimal = Field(
+        ...,
+        examples=[random.randint(8000, 50000)],
+        description="Current price. If you deploy a price controller, this value will be updated automatically."
     )
     price_policy: str = Field(
         None,
         description="The price controller will modify the corresponding price field based on the price policy ID."
     )
-    price_max: int = Field(
-        None, description="The max of price."
+    price_max: Decimal = Field(
+        None,
+        examples=[random.randint(15000, 30000)],
+        description="The max of price."
     )
-    price_min: int = Field(
-        ..., description="The min of price."
+    price_min: Decimal = Field(
+        ...,
+        examples=[random.randint(7000, 12000)],
+        description="The min of price."
     )
 
 

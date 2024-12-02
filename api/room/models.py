@@ -25,7 +25,9 @@ class RoomInput(BaseModel):
         str(ObjectId()), description="Reference ID of the RoomType."
     )
     number: str = Field(
-        f"{randint(1, 9)}0{randint(1, 9)}", description="The number of rooms, e.g., 203."
+        ...,
+        examples=[f"{randint(1, 9)}0{randint(1, 9)}"],
+        description="The number of rooms, e.g., 203."
     )
     priority: int = Field(
         ..., description="The OTA system will give priority to rooms with a higher value to guests. "

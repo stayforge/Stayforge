@@ -16,7 +16,7 @@ class OrderResponses(BaseResponses):
 
 @router.get(
     "/order_types",
-    description="Call this to see the order types you can use."
+    description="Call this API or Click `Try it out` and `Execute` to see the order types you can use."
 )
 async def get_order_types():
     return Order.order_types()

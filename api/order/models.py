@@ -1,7 +1,8 @@
 import uuid
 from datetime import datetime
 
-from pydantic import BaseModel, Field
+from faker.proxy import Faker
+from pydantic import BaseModel, Field, AnyUrl
 from typing import Optional, List
 
 import settings
@@ -17,20 +18,67 @@ order_repository = MongoRepository(
     client=database.client
 )
 
+faker = Faker('ja_JP')
+
+
+class IDDocument(BaseModel):
+    MRZ: str = Field(
+        None,
+        examples=["P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<"
+                  "L898902C36UTO7408122F1204159ZE184226B<<<<<10"]
+    )
+    photocopy: Optional[AnyUrl | str] = Field(
+        None,
+        examples=["https://a.s3storage.address/photocopy/1970010112839010/1.jpg"]
+    )
+
 
 class Guest(BaseModel):
-    first_name: str = Field(None)
-    middle_name: str = Field(None)
-    last_name: str = Field(None)
-    gender: str = Field(None)
-    birthday: str = Field(None)
-    nationality: str = Field(None)
-    email: str = Field(None)
-    phone_number: str = Field(None)
-    address: str = Field(None)
-    occupation: str = Field(None)
-    passport: str = Field(None)
-    id_photocopy: str = Field(None)
+    first_name: str = Field(
+        None,
+        examples=[faker.first_name()],
+    )
+    middle_name: str = Field(
+        None,
+        examples=[""],
+    )
+    last_name: str = Field(
+        None,
+        examples=[faker.last_name()],
+    )
+    gender: str = Field(
+        None,
+        examples=["M", "F", "..."],
+    )
+    birthday: str = Field(
+        None,
+        examples=[faker.date_of_birth()],
+    )
+    nationality: str = Field(
+        None,
+        examples=["JPN"],
+    )
+    email: str = Field(
+        None,
+        examples=[faker.email()],
+    )
+    phone_number: str = Field(
+        None,
+        examples=[faker.phone_number()],
+    )
+    address: str = Field(
+        None,
+        examples=[faker.address()],
+    )
+    occupation: str = Field(
+        None,
+        examples=[faker.job()],
+    )
+    passport_number: str = Field(
+        None,
+        examples=["FH254787"],
+    )
+    id_document: Optional[IDDocument]
 
 
 class OrderInput(BaseModel):
