@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import BaseModel
 from typing import Optional
 
@@ -22,6 +24,8 @@ class BranchInput(BaseModel):
 
 class Branch(BranchInput):
     id: Optional[str]
+    create_at: Optional[datetime]
+    update_at: Optional[datetime]
 
     @classmethod
     def from_mongo(cls, document: dict | list):

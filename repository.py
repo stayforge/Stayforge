@@ -51,7 +51,6 @@ class MongoRepository:
         result = await self.collection.insert_one({
             **data,
             "create_at": datetime.now(timezone.utc),
-            "update_at": datetime.now(timezone.utc),
         })
         return str(result.inserted_id)
 
