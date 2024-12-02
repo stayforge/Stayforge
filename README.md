@@ -1,1 +1,1 @@
-![Repository Icon](.github/stayforge.png)
+![stayforge-readme.png](.github/logos/logo-readme.png)
