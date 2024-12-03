@@ -1,11 +1,10 @@
-from fastapi import *
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI
 from starlette.middleware import Middleware
 
 import settings
-from settings import logger
 from api import router as api_router
 from webhook.middleware import WebhooksMiddleware
+
 middleware = [
     Middleware(WebhooksMiddleware)
 ]
@@ -18,3 +17,11 @@ app = FastAPI(
 )
 
 app.include_router(api_router.router, prefix="/api")
+
+if __name__ == '__main__':
+    import json
+
+    with open("openapi.json", "w") as f:
+        api_spec = app.openapi()
+        f.write(json.dumps(api_spec))
+    exit(0)
