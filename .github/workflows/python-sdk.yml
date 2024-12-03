@@ -58,7 +58,7 @@ jobs:
             -i openapi.json \
             -g python \
             -o ./output \
-            -c ./.github/openapi/python/config.yaml \
+            -c ./.github/openapi/config.yaml \
             --additional-properties=packageVersion=${TAG},appVersion=${TAG}
 
       # Step 8: Push Python SDK to target repository
