@@ -16,7 +16,7 @@ class StayForgeModel(BaseModel):
         str(ObjectId()), description="Reference ID of the key."
     )
     create_at: Optional[datetime]
-    update_at: Optional[datetime]
+    update_at: Optional[datetime] = None
 
     @classmethod
     def from_mongo(cls, document: dict | list):
@@ -26,7 +26,6 @@ class StayForgeModel(BaseModel):
             if document is None:
                 raise ValueError("Document is None")
         return cls(**document)
-
 
 
 class BaseResponses(BaseModel):
