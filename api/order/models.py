@@ -1,6 +1,7 @@
 import uuid
 from datetime import datetime
 
+from bson import ObjectId
 from faker.proxy import Faker
 from pydantic import BaseModel, Field, AnyUrl
 from typing import Optional, List
@@ -82,10 +83,10 @@ class Guest(BaseModel):
 
 
 class OrderInput(BaseModel):
-    num: str = Field(default_factory=lambda: OrderInput.generate_num(), description="Order number")
-    room_id: str = Field(None, description="Room ID")
+    num: str = Field(None, examples=["ON-20231115-1234567890"], description="Order number")
+    room_id: str = Field(None, examples=[str(ObjectId())], description="Room ID")
     guest: Guest = Field(None, description="Guest information")
-    type: str = Field(..., description="OrderType")
+    type: str = Field(..., examples=['booked'], description="OrderType")
     scheduled_checkin_at: datetime = Field(None, description="Creation timestamp")
     scheduled_checkout_at: datetime = Field(None, description="Creation timestamp")
 
@@ -96,8 +97,8 @@ class OrderInput(BaseModel):
 
 class Order(OrderInput, StayForgeModel):
     @classmethod
-    def order_types(cls) -> List[dict]:
-        return [
+    def order_types(cls, simple_list=False) -> List[dict]:
+        _ = [
             {'booked': {'room_using': False,
                         "description": "If a room is set to order and 'room_using': True, the room will be marked as in use."}},
             {'staying': {'room_using': True}},
@@ -116,6 +117,9 @@ class Order(OrderInput, StayForgeModel):
                                "Used for planned maintenance."}},
             {'close': {'room_using': True, "description": "Room is closing for maintenance."}},
         ]
+        if simple_list:
+            return [__ for __ in _]
+        return _
 
 
 async def create_unique_index():

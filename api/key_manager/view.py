@@ -13,33 +13,6 @@ class KeyResponses(BaseResponses):
     data: Optional[List[Key]]
 
 
-@router.get("/", response_model=KeyResponses)
-async def get_keys(
-        request: Request,
-        name: str = Query(default=None),
-        address: str = Query(default=None),
-        telephone: str = Query(default=None)
-):
-    str_time = time.perf_counter()
-    try:
-        query = {key: value for key, value in {
-            "name": name, "effective": address, "telephone": telephone
-        }.items() if value}
-        ds = await key_repository.find_many(query=query, request=request)
-
-        result = []
-        for d in ds:
-            result.append(Key.from_mongo(d))
-
-        return KeyResponses(
-            data=result,
-            used_time=(time.perf_counter() - str_time) * 1000
-        )
-    except Exception as e:
-        logger.error(e, exc_info=True)
-        return handle_error(e, str_time)
-
-
 @router.get("/<id>", response_model=KeyResponses)
 async def get_key(
         request: Request,
@@ -63,6 +36,29 @@ async def get_key(
             used_time=(time.perf_counter() - str_time) * 1000
         )
     except Exception as e:
+        return handle_error(e, str_time)
+
+
+@router.get("/num/<num>", response_model=KeyResponses)
+async def get_key_by_num(
+        request: Request,
+        num: str = Query(default=None)
+):
+    str_time = time.perf_counter()
+    try:
+        query = {key: value for key, value in {"num": num}.items() if value}
+        ds = await key_repository.find_many(query=query, request=request)
+
+        result = []
+        for d in ds:
+            result.append(Key.from_mongo(d))
+
+        return KeyResponses(
+            data=result,
+            used_time=(time.perf_counter() - str_time) * 1000
+        )
+    except Exception as e:
+        logger.error(e, exc_info=True)
         return handle_error(e, str_time)
 
 
@@ -123,7 +119,7 @@ async def put_key(
         if not ObjectId.is_valid(id):
             return handle_invalid_id_format_error(str_time)
         await key_repository.update_one(query={"_id": ObjectId(id)}, update=data.model_dump(),
-                                           request=request)
+                                        request=request)
         d = await key_repository.find_one(query={"_id": ObjectId(id)}, request=request)
         if not d:
             return handle_after_write_resource_not_found_error(str_time)
