@@ -1,4 +1,4 @@
-name: Update Python SDK OpenAPI JSON
+name: Generate and Update Python SDK
 
 on:
   push:
@@ -7,40 +7,59 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-openapi:
+  generate-sdk:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out code
+      # Step 1: Check out source repository
       - name: Checkout source repository
         uses: actions/checkout@v3
 
-      # Step 2: Install Python environment
+      # Step 2: Get the current branch name
+      - name: Get current branch name
+        id: vars
+        run: echo "branch_name=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+
+      # Step 3: Install Python environment
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.13'  # Python version used
 
-      # Step 3: Install dependencies
+      # Step 4: Install dependencies
       - name: Install dependencies
         run: |
           pip install --no-cache-dir -r requirements.txt
 
-      # Step 4: Run `app.py` to generate openapi.json
+      # Step 5: Generate OpenAPI JSON
       - name: Generate OpenAPI JSON
         run: |
           python app.py
 
-      #Step 5: Push openapi.json to the target warehouse
-      - name: Push OpenAPI JSON to target repository
+      # Step 6: Download OpenAPI Generator CLI
+      - name: Download OpenAPI Generator CLI
+        run: |
+          curl -o openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.9.0/openapi-generator-cli-7.9.0.jar
+
+      # Step 7: Generate Python SDK
+      - name: Generate Python SDK
+        run: |
+          java -jar openapi-generator-cli.jar generate \
+            -i openapi.json \
+            -g python \
+            -o ./output
+
+      # Step 8: Push Python SDK to target repository
+      - name: Push Python SDK to target repository
         run: |
           git config --global user.name "Tokujunsystems-BOT"
           git config --global user.email "190532409+Tokujunsystems-BOT@users.noreply.github.com"
-          git clone https://x-access-token:${BOT_PAT}@github.com/tokujun-t/stayforge-python.git stayforge-python/
-          cp openapi.json stayforge-python/
-          cd stayforge-python
-          git add openapi.json
-          git commit -m "Update OpenAPI JSON [skip ci]"
-          git push origin main
+          git clone --single-branch --branch ${branch_name} https://x-access-token:${BOT_PAT}@github.com/tokujun-t/stayforge-python-sdk.git stayforge-python-sdk || \
+            git clone https://x-access-token:${BOT_PAT}@github.com/tokujun-t/stayforge-python-sdk.git stayforge-python-sdk && cd stayforge-python-sdk && git checkout -b ${branch_name}
+          cp -r ./output/* stayforge-python-sdk/
+          cd stayforge-python-sdk
+          git add .
+          git commit -m "Update Python SDK [skip ci]" || echo "No changes to commit"
+          git push origin ${branch_name}
         env:
           BOT_PAT: ${{ secrets.BOT_PAT }}
