@@ -23,7 +23,7 @@ async def get_rooms(
     str_time = time.perf_counter()
     try:
         query = {key: value for key, value in {
-            "name": name, "address": address, "telephone": telephone
+            "name": name, "effective": address, "telephone": telephone
         }.items() if value}
         ds = await room_repository.find_many(query=query, request=request)
 

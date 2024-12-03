@@ -13,7 +13,7 @@ class Stayforge(BaseModel):
 
 class StayForgeModel(BaseModel):
     id: str = Field(
-        str(ObjectId()), description="Reference ID of the branch."
+        str(ObjectId()), description="Reference ID of the key."
     )
     create_at: Optional[datetime]
     update_at: Optional[datetime]

@@ -18,8 +18,8 @@ room_repository = MongoRepository(
 
 
 class RoomInput(BaseModel):
-    branch_id: str = Field(
-        str(ObjectId()), description="Reference ID of the branch."
+    key_id: str = Field(
+        str(ObjectId()), description="Reference ID of the key."
     )
     room_type_id: str = Field(
         str(ObjectId()), description="Reference ID of the RoomType."
