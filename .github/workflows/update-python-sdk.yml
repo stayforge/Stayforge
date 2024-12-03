@@ -57,8 +57,8 @@ jobs:
           java -jar openapi-generator-cli.jar generate \
             -i openapi.json \
             -g python \
-            -o ./output
-            -c ./.github/openapi/python/config.yaml
+            -o ./output \
+            -c ./.github/openapi/python/config.yaml \
             --additional-properties=packageVersion=${TAG},appVersion=${TAG}
 
       # Step 8: Push Python SDK to target repository
