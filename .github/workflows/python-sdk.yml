@@ -60,7 +60,7 @@ jobs:
             -g python \
             -o ./output \
             -c ./.github/openapi/config.yaml \
-            --additional-properties=packageVersion=${TAG},appVersion=${TAG}
+                --additional-properties=packageVersion=${TAG},appVersion=${TAG}
 
       # Step 8: Push Python SDK to target repository
       - name: Push Python SDK to target repository

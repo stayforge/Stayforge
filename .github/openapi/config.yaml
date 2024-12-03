@@ -7,6 +7,9 @@ gitHost: github.com
 gitUserId: tokujun-t
 gitRepoId: stayforge-python
 
+appVersion: 1.0.0-test
+packageVersion: 1.0.0-test
+
 apiPackage: apis
 modelPackage: models
 pythonVersion: ">=3.7"
