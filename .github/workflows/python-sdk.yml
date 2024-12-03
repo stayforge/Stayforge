@@ -66,21 +66,13 @@ jobs:
         run: |
           git config --global user.name "Tokujunsystems-BOT"
           git config --global user.email "190532409+Tokujunsystems-BOT@users.noreply.github.com"
-          
-          git clone https://x-access-token:${BOT_PAT}@github.com/tokujun-t/stayforge-python.git stayforge-python/
+          git clone https://x-access-token:${BOT_PAT}@github.com/tokujun-t/stayforge-python.git stayforge-python
           cd stayforge-python
-          
-          if git rev-parse --verify ${branch_name}; then
-            echo "Branch ${branch_name} already exists. Switching to it."
-            git checkout ${branch_name}
-          else
-            echo "Branch ${branch_name} does not exist. Creating it."
-            git checkout -b ${branch_name}
-          fi
-          
+          git checkout dev || git checkout -b dev
+          git pull origin dev --rebase
           cp -r ../output/* .
           git add .
           git commit -m "Update Python SDK [skip ci]" || echo "No changes to commit"
-          git push origin ${branch_name}
+          git push origin dev
         env:
           BOT_PAT: ${{ secrets.BOT_PAT }}
