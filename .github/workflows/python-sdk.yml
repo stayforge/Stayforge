@@ -29,6 +29,7 @@ jobs:
             SHORT_SHA=$(git rev-parse --short HEAD)
             echo "TAG=${SHORT_SHA}" >> $GITHUB_ENV
           fi
+          echo ${TAG}
 
       # Step 3: Install Python environment
       - name: Setup Python
