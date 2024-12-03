@@ -56,7 +56,7 @@ async def get_room_types(
 
 
 @router.get("/<id>", response_model=RoomTypeResponses)
-async def get_room(
+async def get_room_type(
         request: Request,
         id: str
 ):
@@ -86,7 +86,7 @@ async def get_room(
         "description": "Resource maybe created. But can't found it.",
     }
 })
-async def create_room(request: Request, data: RoomTypeInput):
+async def create_room_type(request: Request, data: RoomTypeInput):
     str_time = time.perf_counter()
     try:
         _id = await room_repository.insert_one(data.model_dump(), request=request)
@@ -102,7 +102,7 @@ async def create_room(request: Request, data: RoomTypeInput):
 
 
 @router.delete("/<id>", response_model=RoomTypeResponses)
-async def delete_room(
+async def delete_room_type(
         request: Request,
         id: str
 ):
@@ -128,7 +128,7 @@ async def delete_room(
         "description": "Resource maybe changed. But can't found it.",
     }
 })
-async def put_room(
+async def put_room_type(
         request: Request,
         id: str,
         data: RoomTypeInput
