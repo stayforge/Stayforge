@@ -20,23 +20,26 @@ async def get_webhooks_profile(
         request: Request,
 
         webhook_name: str = Query(
-            ...,
+            None,
             description="A friendly name you can remember."
         ),
         endpoint: str = Query(
-            ...,
+            None,
             regex="^(https?|http|https)://[a-zA-Z,\\*\\s]+/?$",
             description="The URL endpoint where the webhook is to be sent, e.g., `https://youapplocation/webhook/endpoint`."
         ),
         catch_path: str = Query(
-            ...,
+            None,
             regex="^(/[^/ ]*)+/?$",
             description="This refers to the API within Stayforage, the path part of its URL e.g., `/api/order/`."
         ),
         catch_method: str = Query(
-            "*",
-            regex="^[a-zA-Z,\\*\\s]+$",
-            description="The HTTP methods (e.g., `GET,POST` or `*`) that the webhook is configured to capture."
+            None,
+            description="Only configured HTTP methods (e.g., `POST`) that the request will capture."
+        ),
+        catch_status: int = Query(
+            None,
+            description="Only configured HTTP status code (e.g., `200`) that the request will capture."
         ),
 ):
     str_time = time.perf_counter()
@@ -44,9 +47,9 @@ async def get_webhooks_profile(
     try:
         query = {key: value for key, value in {
             "webhook_name": webhook_name, "endpoint": endpoint,
-            "catch_path": catch_path, "catch_method": catch_method,
+            "catch_path": catch_path, "catch_method": catch_method, "catch_status": catch_status
         }.items() if value}
-        ds = await room_repository.find_many(query=query, request=request)
+        ds = await webhooks_manager_repository.find_many(query=query, request=request)
 
         result = []
         for d in ds:
@@ -75,7 +78,7 @@ async def get_webhooks_profile(
                 used_time=(time.perf_counter() - str_time) * 1000,
                 data=None
             )
-        d = await room_repository.find_one(query={"_id": ObjectId(id)}, request=request)
+        d = await webhooks_manager_repository.find_one(query={"_id": ObjectId(id)}, request=request)
         if not d:
             return handle_resource_not_found_error(str_time)
 
@@ -95,8 +98,8 @@ async def get_webhooks_profile(
 async def create_webhooks_profile(request: Request, data: WebhooksManagerInput):
     str_time = time.perf_counter()
     try:
-        _id = await room_repository.insert_one(data.model_dump(), request=request)
-        d = await room_repository.find_one(query={"_id": ObjectId(_id)})
+        _id = await webhooks_manager_repository.insert_one(data.model_dump(), request=request)
+        d = await webhooks_manager_repository.find_one(query={"_id": ObjectId(_id)})
         if not d:
             return handle_after_write_resource_not_found_error(str_time)
         return WebhooksManagerResponses(
@@ -116,7 +119,7 @@ async def delete_webhooks_profile(
     try:
         if not ObjectId.is_valid(id):
             return handle_invalid_id_format_error(str_time)
-        d = await room_repository.delete_one(query={"_id": ObjectId(id)}, request=request)
+        d = await webhooks_manager_repository.delete_one(query={"_id": ObjectId(id)}, request=request)
         if not d:
             return handle_resource_not_found_error(str_time)
 
@@ -143,9 +146,9 @@ async def put_webhooks_profile(
     try:
         if not ObjectId.is_valid(id):
             return handle_invalid_id_format_error(str_time)
-        await room_repository.update_one(query={"_id": ObjectId(id)}, update=data.model_dump(),
-                                         request=request)
-        d = await room_repository.find_one(query={"_id": ObjectId(id)}, request=request)
+        await webhooks_manager_repository.update_one(query={"_id": ObjectId(id)}, update=data.model_dump(),
+                                                     request=request)
+        d = await webhooks_manager_repository.find_one(query={"_id": ObjectId(id)}, request=request)
         if not d:
             return handle_after_write_resource_not_found_error(str_time)
         return WebhooksManagerResponses(

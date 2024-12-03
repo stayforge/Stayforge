@@ -1,34 +1,35 @@
+import asyncio
+
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
 from starlette.responses import Response
+from api.webhooks_manager.models import *
+from settings import logger
+from webhook import sender
 
 
 class WebhooksMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
-        # 捕获请求内容
-        body = await request.body()
-        print(f"Request PATH: {request.url.path}")
-        print(f"Request Method: {request.method}")
-        print(f"Request Headers: {request.headers}")
-        print(f"Request Body: {body.decode('utf-8')}")
+        try:
+            # Get response
+            response = await call_next(request)
 
-        # 获取响应
-        response = await call_next(request)
+            # Capture response body
+            response_body = b""
+            async for chunk in response.body_iterator:
+                response_body += chunk
 
-        # 捕获响应内容
-        response_body = b""
-        async for chunk in response.body_iterator:
-            response_body += chunk
+            # Log request and response details
+            logger.debug(
+                f'WEBHOOK MANAGER - "catch_path": {request.url.path}, "catch_method": {request.method.upper()}, "catch_status": {response.status_code}'
+            )
 
-        print(response)
+            # Create a task for the worker coroutine
+            asyncio.create_task(sender.worker(request=request, response=response))
 
-        print(f"Response Status Code: {response.status_code}")
-        print(f"Response Body: {response_body.decode('utf-8')}")
+        except Exception as e:
+            logger.error(f"Error occurred in middleware: {str(e)}")
+            return Response("Internal Server Error", status_code=500)
 
-        # 返回新的响应
-        return Response(
-            content=response_body,
-            status_code=response.status_code,
-            headers=dict(response.headers),
-            media_type=response.media_type,
-        )
+        # Return original response
+        return Response(content=response_body, status_code=response.status_code, headers=dict(response.headers))
