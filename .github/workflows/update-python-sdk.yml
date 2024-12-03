@@ -1,0 +1,46 @@
+name: Update Python SDK OpenAPI JSON
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update-openapi:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out code
+      - name: Checkout source repository
+        uses: actions/checkout@v3
+
+      # Step 2: Install Python environment
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'  # Python version used
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          pip install --no-cache-dir -r requirements.txt
+
+      # Step 4: Run `app.py` to generate openapi.json
+      - name: Generate OpenAPI JSON
+        run: |
+          python app.py
+
+      #Step 5: Push openapi.json to the target warehouse
+      - name: Push OpenAPI JSON to target repository
+        run: |
+          git config --global user.name "Tokujunsystems-BOT"
+          git config --global user.email "190532409+Tokujunsystems-BOT@users.noreply.github.com"
+          git clone https://github.com/tokujun-t/stayforge-python.git stayforge-python
+          cp openapi.json stayforge-python/
+          cd stayforge-python
+          git add openapi.json
+          git commit -m "Update OpenAPI JSON [skip ci]"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
