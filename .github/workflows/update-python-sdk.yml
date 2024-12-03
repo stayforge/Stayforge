@@ -43,4 +43,4 @@ jobs:
           git commit -m "Update OpenAPI JSON [skip ci]"
           git push origin main
         env:
-          GITHUB_TOKEN: ${{ secrets.BOT_PAT }}
+          BOT_PAT: ${{ secrets.BOT_PAT }}
