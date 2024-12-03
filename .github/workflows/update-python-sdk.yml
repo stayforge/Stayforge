@@ -15,10 +15,19 @@ jobs:
       - name: Checkout source repository
         uses: actions/checkout@v3
 
-      # Step 2: Get the current branch name
-      - name: Get current branch name
+      # Step 2: Get the current branch name and tag
+      - name: Get current branch name and tag
         id: vars
-        run: echo "branch_name=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+        run: |
+          if [[ "${GITHUB_REF}" == refs/heads/* ]]; then
+            echo "branch_name=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+          elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            TAG=${GITHUB_REF#refs/tags/}
+            echo "TAG=${TAG}" >> $GITHUB_ENV
+          else
+            SHORT_SHA=$(git rev-parse --short HEAD)
+            echo "TAG=${SHORT_SHA}" >> $GITHUB_ENV
+          fi
 
       # Step 3: Install Python environment
       - name: Setup Python
@@ -48,6 +57,8 @@ jobs:
             -i openapi.json \
             -g python \
             -o ./output
+            -c ./.github/openapi/python/config.yaml
+            --additional-properties=packageVersion=${TAG},appVersion=${TAG}
 
       # Step 8: Push Python SDK to target repository
       - name: Push Python SDK to target repository
