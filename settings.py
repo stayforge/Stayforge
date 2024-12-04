@@ -9,6 +9,14 @@ import logging
 # Stayforge_version
 __version__ = "1.0.0"
 
+# Metadata
+
+TITLE = "Stayforge API"
+OPENAPI_URL = '/openapi.json'
+FAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'
+REDOC_WITH_GOOGLE_FONTS=True
+
+
 # Create a logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
