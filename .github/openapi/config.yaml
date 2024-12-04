@@ -7,8 +7,8 @@ gitHost: github.com
 gitUserId: tokujun-t
 gitRepoId: stayforge-python
 
-appVersion: 1.0.0.dev1
-packageVersion: 1.0.0.dev1
+appVersion: 0.0.0
+packageVersion: 0.0.0
 
 apiPackage: apis
 modelPackage: models
@@ -21,6 +21,8 @@ skipOverwrite: true
 generateSourceCodeOnly: false
 
 hideGenerationTimestamp: false
+infoName: StayForge Team
+infoEmail: support@stayforge.io
 infoUrl: https://github.com/tokujun-t/stayforge-python
 
 additionalProperties:
