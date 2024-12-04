@@ -6,7 +6,7 @@
 
 - [Python SDK](https://github.com/tokujun-t/stayforge-python)
 
-We provide an SDK (currently only the Python version is provided).
+We provided SDKs (currently only the Python version is provided).
 Before deciding to call the API directly, you may wish to try the SDK to speed up your development.
 
 ![GitHub Workflow Status](https://github.com/tokujun-t/Stayforge/actions/workflows/python-sdk.yml/badge.svg)
