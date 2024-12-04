@@ -14,7 +14,7 @@ packageVersion: 0.0.0
 
 apiPackage: apis
 modelPackage: models
-pythonVersion: ">=3.11"
+pythonVersion: ">=3.13"
 typeMappings:
   integer: int
   number: float
