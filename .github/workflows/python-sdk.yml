@@ -1,10 +1,9 @@
 name: Generate and Update Python SDK
 
 on:
-  push:
-    branches:
-      - main
-      - dev
+  release:
+    types:
+      - published
   workflow_dispatch:
 
 jobs:
@@ -21,20 +20,28 @@ jobs:
         id: vars
         run: |
           if [[ "${GITHUB_REF}" == refs/heads/* ]]; then
-            echo "branch_name=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+
+            BRANCH_NAME=${GITHUB_REF#refs/heads/}
+            echo "branch_name=${BRANCH_NAME}" >> $GITHUB_ENV
+            echo "TAG=" >> $GITHUB_ENV  # 清空 TAG
+            echo "No version tag found for branch '${BRANCH_NAME}'"
           elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+
             TAG=${GITHUB_REF#refs/tags/}
             echo "TAG=${TAG}" >> $GITHUB_ENV
           else
-            SHORT_SHA=$(git rev-parse --short HEAD)
-            echo "TAG=${SHORT_SHA}" >> $GITHUB_ENV
+
+            echo "No valid ref found, skipping version assignment."
+            echo "TAG=" >> $GITHUB_ENV
           fi
+          
+          echo "Generated TAG=${TAG}"
 
       # Step 3: Install Python environment
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.13'  # Python version used
+          python-version: '3.10'  # Python version used
 
       # Step 4: Install dependencies
       - name: Install dependencies
@@ -46,23 +53,35 @@ jobs:
         run: |
           python app.py
 
-      # Step 6: Download OpenAPI Generator CLI
+      # Step 6: Update package version in config.yaml
+      - name: Update package version in config.yaml
+        run: |
+          if [[ -f ".github/openapi/config.yaml" ]]; then
+            sed -i "s/^packageVersion:.*$/packageVersion: ${TAG}/" .github/openapi/config.yaml
+          else
+            echo "Error: .github/openapi/config.yaml not found!"
+            exit 1
+          fi
+
+      # Step 7: Download OpenAPI Generator CLI
       - name: Download OpenAPI Generator CLI
         run: |
           curl -o openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.9.0/openapi-generator-cli-7.9.0.jar
 
-      # Step 7: Generate Python SDK
+      # Step 8: Generate Python SDK
+        if: env.TAG != ''
       - name: Generate Python SDK
         run: |
           java -jar openapi-generator-cli.jar generate \
-            -i openapi.json \
-            -g python \
-            -o ./output \
-            -c ./.github/openapi/config.yaml \
-            --additional-properties=packageVersion=${TAG},appVersion=${TAG}
+          -i ./openapi.json \
+          -g python \
+          -o ./output \
+          -c .github/openapi/config.yaml \
+          --enable-post-process-file
 
-      # Step 8: Push Python SDK to target repository
+      # Step 9: Push Python SDK to target repository
       - name: Push Python SDK to target repository
+        if: env.TAG != ''
         run: |
           git config --global user.name "Tokujunsystems-BOT"
           git config --global user.email "190532409+Tokujunsystems-BOT@users.noreply.github.com"
