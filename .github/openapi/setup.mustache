@@ -3,6 +3,7 @@
 {{>partial_header}}
 
 from setuptools import setup, find_packages  # noqa: H301
+import os
 
 # To install the library, run the following
 #
@@ -12,8 +13,9 @@ from setuptools import setup, find_packages  # noqa: H301
 # http://pypi.python.org/pypi/setuptools
 #
 
+
 NAME = "{{{projectName}}}"
-VERSION = "{{packageVersion}}"
+VERSION = os.getenv("PACKAGE_VERSION", "0.0.0")
 PYTHON_REQUIRES = ">= 3.8"
 {{#apiInfo}}
 {{#apis}}
