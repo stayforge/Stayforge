@@ -55,12 +55,12 @@ jobs:
       # Step 7: Generate Python SDK
       - name: Generate Python SDK
         run: |
-          java -jar openapi-generator-cli.jar generate \
-            -i openapi.json \
-            -g python \
-            -o ./output \
-            -c ./.github/openapi/config.yaml \
-                --additional-properties=packageVersion=${TAG},appVersion=${TAG}
+          openapi-generator generate \
+          -i ./openapi.json \
+          -g python \
+          -o ./output \
+          -c .github/openapi/config.yaml \
+          --enable-post-process-file
 
       # Step 8: Push Python SDK to target repository
       - name: Push Python SDK to target repository

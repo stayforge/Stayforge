@@ -35,3 +35,7 @@ additionalProperties:
     - Generator version: {{generatorVersion}}
     - Build package: {{generatorClass}}
   common_README: true
+
+servers:
+  - url: https://api.example.com
+    description: Change it to yourself server
