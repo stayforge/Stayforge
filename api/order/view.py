@@ -48,7 +48,7 @@ async def create_order(request: Request, data: OrderInput):
         return handle_error(e, str_time)
 
 
-@router.get("/{id}", response_model=OrderResponses)
+@router.get("/<id>", response_model=OrderResponses)
 async def get_order_by_id(
         request: Request,
         id: str
@@ -106,7 +106,7 @@ async def get_order_by_num(
 
 
 @router.delete(
-    "/_delete/{id}", response_model=OrderResponses,
+    "/_delete/<id>", response_model=OrderResponses,
     description="**WARING:** Order generally does not need to be deleted. You only need to **create a new one to overwrite it**."
 )
 async def delete_order(

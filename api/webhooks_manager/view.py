@@ -64,7 +64,7 @@ async def get_webhooks_profile(
         return handle_error(e, str_time)
 
 
-@router.get("/{id}", response_model=WebhooksManagerResponses)
+@router.get("/<id>", response_model=WebhooksManagerResponses)
 async def get_webhooks_profile(
         request: Request,
         id: str
@@ -110,7 +110,7 @@ async def create_webhooks_profile(request: Request, data: WebhooksManagerInput):
         return handle_error(e, str_time)
 
 
-@router.delete("/{id}", response_model=WebhooksManagerResponses)
+@router.delete("/<id>", response_model=WebhooksManagerResponses)
 async def delete_webhooks_profile(
         request: Request,
         id: str
@@ -132,7 +132,7 @@ async def delete_webhooks_profile(
         return handle_error(e, str_time)
 
 
-@router.put("/{id}", response_model=WebhooksManagerResponses, responses={
+@router.put("/<id>", response_model=WebhooksManagerResponses, responses={
     409: {
         "description": "Resource maybe changed. But can't found it.",
     }
