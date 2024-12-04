@@ -8,9 +8,11 @@ from webhook.middleware import WebhooksMiddleware
 middleware = [
     Middleware(WebhooksMiddleware)
 ]
+with open('description.md', 'r', encoding='utf-8') as file:
+    description = file.read()
 app = FastAPI(
     title="Stayforge API",
-    description="This is a basic API description.",
+    description=description,
     version=settings.__version__,
     docs_url="/docs",
     middleware=middleware

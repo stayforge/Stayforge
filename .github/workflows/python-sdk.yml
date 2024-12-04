@@ -21,7 +21,10 @@ jobs:
         id: vars
         run: |
           if [[ "${GITHUB_REF}" == refs/heads/* ]]; then
-            echo "branch_name=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+            BRANCH_NAME=${GITHUB_REF#refs/heads/}
+            SHORT_SHA=$(git rev-parse --short HEAD)
+            echo "branch_name=${BRANCH_NAME}" >> $GITHUB_ENV
+            echo "TAG=${BRANCH_NAME}-${SHORT_SHA}" >> $GITHUB_ENV
           elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
             TAG=${GITHUB_REF#refs/tags/}
             echo "TAG=${TAG}" >> $GITHUB_ENV
@@ -29,7 +32,7 @@ jobs:
             SHORT_SHA=$(git rev-parse --short HEAD)
             echo "TAG=${SHORT_SHA}" >> $GITHUB_ENV
           fi
-          echo ${TAG}
+          echo "Generated TAG=${TAG}"
 
       # Step 3: Install Python environment
       - name: Setup Python
@@ -47,14 +50,25 @@ jobs:
         run: |
           python app.py
 
-      # Step 6: Download OpenAPI Generator CLI
+      # Step 6: Generate OpenAPI JSON
+      - name: Update package version in config.yaml
+        run: |
+          if [[ -f ".github/openapi/config.yaml" ]]; then
+            sed -i "s/^packageVersion:.*$/packageVersion: ${TAG}/" .github/openapi/config.yaml
+          else
+            echo "Error: .github/openapi/config.yaml not found!"
+            exit 1
+          fi
+
+      # Step 7: Download OpenAPI Generator CLI
       - name: Download OpenAPI Generator CLI
         run: |
           curl -o openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.9.0/openapi-generator-cli-7.9.0.jar
 
-      # Step 7: Generate Python SDK
+      # Step 8: Generate Python SDK
       - name: Generate Python SDK
         run: |
+          sed -i "s/^packageVersion:.*$/packageVersion: ${TAG}/" .github/openapi/config.yaml
           java -jar openapi-generator-cli.jar generate \
           -i ./openapi.json \
           -g python \
@@ -62,7 +76,7 @@ jobs:
           -c .github/openapi/config.yaml \
           --enable-post-process-file
 
-      # Step 8: Push Python SDK to target repository
+      # Step 9: Push Python SDK to target repository
       - name: Push Python SDK to target repository
         run: |
           git config --global user.name "Tokujunsystems-BOT"
