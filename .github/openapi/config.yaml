@@ -15,7 +15,7 @@ packageUrl: https://github.com/tokujun-t/stayforge-python
 
 apiPackage: apis
 modelPackage: models
-pythonVersion: ">=3.13"
+pythonVersion: ">=3.10"
 typeMappings:
   integer: int
   number: float
