@@ -2,6 +2,8 @@ name: Generate and Update Python SDK
 
 on:
   release:
+    types:
+      - published
   workflow_dispatch:
 
 jobs:
