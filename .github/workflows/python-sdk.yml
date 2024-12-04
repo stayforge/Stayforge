@@ -1,4 +1,4 @@
-name: Generate and Update Python SDK
+name: Python SDK CI
 
 on:
   release:
