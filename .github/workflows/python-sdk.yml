@@ -1,10 +1,7 @@
 name: Generate and Update Python SDK
 
 on:
-  push:
-    branches:
-      - main
-      - dev
+  release:
   workflow_dispatch:
 
 jobs:
@@ -21,17 +18,21 @@ jobs:
         id: vars
         run: |
           if [[ "${GITHUB_REF}" == refs/heads/* ]]; then
+
             BRANCH_NAME=${GITHUB_REF#refs/heads/}
-            SHORT_SHA=$(git rev-parse --short HEAD)
             echo "branch_name=${BRANCH_NAME}" >> $GITHUB_ENV
-            echo "TAG=${BRANCH_NAME}-${SHORT_SHA}" >> $GITHUB_ENV
+            echo "TAG=" >> $GITHUB_ENV  # 清空 TAG
+            echo "No version tag found for branch '${BRANCH_NAME}'"
           elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+
             TAG=${GITHUB_REF#refs/tags/}
             echo "TAG=${TAG}" >> $GITHUB_ENV
           else
-            SHORT_SHA=$(git rev-parse --short HEAD)
-            echo "TAG=${SHORT_SHA}" >> $GITHUB_ENV
+
+            echo "No valid ref found, skipping version assignment."
+            echo "TAG=" >> $GITHUB_ENV
           fi
+          
           echo "Generated TAG=${TAG}"
 
       # Step 3: Install Python environment
@@ -78,6 +79,7 @@ jobs:
 
       # Step 9: Push Python SDK to target repository
       - name: Push Python SDK to target repository
+        if: env.TAG != ''
         run: |
           git config --global user.name "Tokujunsystems-BOT"
           git config --global user.email "190532409+Tokujunsystems-BOT@users.noreply.github.com"
