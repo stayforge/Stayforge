@@ -55,7 +55,7 @@ jobs:
       # Step 7: Generate Python SDK
       - name: Generate Python SDK
         run: |
-          openapi-generator generate \
+          java -jar openapi-generator-cli.jar generate \
           -i ./openapi.json \
           -g python \
           -o ./output \
