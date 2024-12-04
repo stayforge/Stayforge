@@ -13,7 +13,7 @@ class KeyResponses(BaseResponses):
     data: Optional[List[Key]]
 
 
-@router.get("/<id>", response_model=KeyResponses)
+@router.get("/{id}", response_model=KeyResponses)
 async def get_key(
         request: Request,
         id: str
@@ -82,7 +82,7 @@ async def create_key(request: Request, data: KeyInput):
         return handle_error(e, str_time)
 
 
-@router.delete("/<id>", response_model=KeyResponses)
+@router.delete("/{id}", response_model=KeyResponses)
 async def delete_key(
         request: Request,
         id: str
@@ -104,7 +104,7 @@ async def delete_key(
         return handle_error(e, str_time)
 
 
-@router.put("/<id>", response_model=KeyResponses, responses={
+@router.put("/{id}", response_model=KeyResponses, responses={
     409: {
         "description": "Resource maybe changed. But can't found it.",
     }
