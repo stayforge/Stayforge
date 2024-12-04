@@ -10,7 +10,7 @@ from api.webhooks_manager.view import router as webhooks_manager
 
 router = APIRouter()
 
-router.include_router(healthcheck, prefix="/healthcheck", tags=["Healthcheck"])
+router.include_router(healthcheck, prefix="/healthcheck", tags=["Healthcheck"], include_in_schema=False)
 router.include_router(webhooks_manager, prefix="/webhooks_manager", tags=["Webhooks Manager"])
 
 router.include_router(branch, prefix="/branch", tags=["Branches"])

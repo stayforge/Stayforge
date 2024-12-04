@@ -5,5 +5,3 @@
 ![PyPI Version](https://img.shields.io/pypi/v/stayforge)
 ![PyPI Downloads](https://img.shields.io/pypi/dm/stayforge)
 ![GitHub Workflow Status](https://github.com/tokujun-t/Stayforge/actions/workflows/python-sdk.yml/badge.svg)
-
-![stayforge_icon.jpg](.github/logos/stayforge_icon.jpg)
