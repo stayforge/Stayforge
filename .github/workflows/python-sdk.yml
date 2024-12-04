@@ -39,7 +39,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.13'  # Python version used
+          python-version: '3.7'  # Python version used
 
       # Step 4: Install dependencies
       - name: Install dependencies
@@ -51,7 +51,7 @@ jobs:
         run: |
           python app.py
 
-      # Step 6: Generate OpenAPI JSON
+      # Step 6: Update package version in config.yaml
       - name: Update package version in config.yaml
         run: |
           if [[ -f ".github/openapi/config.yaml" ]]; then
@@ -67,9 +67,9 @@ jobs:
           curl -o openapi-generator-cli.jar https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.9.0/openapi-generator-cli-7.9.0.jar
 
       # Step 8: Generate Python SDK
+        if: env.TAG != ''
       - name: Generate Python SDK
         run: |
-          sed -i "s/^packageVersion:.*$/packageVersion: ${TAG}/" .github/openapi/config.yaml
           java -jar openapi-generator-cli.jar generate \
           -i ./openapi.json \
           -g python \

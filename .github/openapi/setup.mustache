@@ -3,7 +3,6 @@
 {{>partial_header}}
 
 from setuptools import setup, find_packages  # noqa: H301
-import os
 
 # To install the library, run the following
 #
@@ -13,9 +12,8 @@ import os
 # http://pypi.python.org/pypi/setuptools
 #
 
-
 NAME = "{{{projectName}}}"
-VERSION = os.getenv("PACKAGE_VERSION", "0.0.0")
+VERSION = "{{packageVersion}}"
 PYTHON_REQUIRES = ">= 3.8"
 {{#apiInfo}}
 {{#apis}}
@@ -49,7 +47,7 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
-    license="MIT",
+    license="MIT License",
     long_description_content_type='text/markdown',
     long_description="""\
     {{appDescription}}
