@@ -1,11 +1,14 @@
 import asyncio
 
+import logging
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
 from starlette.responses import Response
-from api.webhooks_manager.models import *
-from settings import logger
+
+import settings
 from webhook import sender
+
+logger = settings.getLogger(__name__)
 
 
 class WebhooksMiddleware(BaseHTTPMiddleware):

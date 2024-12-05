@@ -1,9 +1,6 @@
 from fastapi import FastAPI
-from fastapi.openapi.docs import get_swagger_ui_html, get_redoc_html
 from fastapi.openapi.utils import get_openapi
 from starlette.middleware import Middleware
-from starlette.responses import RedirectResponse
-from starlette.staticfiles import StaticFiles
 
 import settings
 from api import router as api_router
