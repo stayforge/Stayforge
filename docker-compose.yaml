@@ -1,10 +1,9 @@
 services:
   stayforge:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: tokujunsystem/stayforge:latest
+    container_name: stayforge
     ports:
-      - "51001:80"
+      - "80:80"
     depends_on:
       - mongodb
     environment:
