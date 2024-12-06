@@ -1,0 +1,29 @@
+services:
+  stayforge:
+    build:
+      context: .
+    #    image: tokujunsystem/stayforge:latest
+    container_name: stayforge
+    ports:
+      - "80:80"
+    environment:
+      - MONGO_URL=$MONGO_URL
+
+#    depends_on:
+#      - mongodb
+#    networks:
+#      - database
+#
+#  mongodb:
+#    image: mongo:latest
+#    container_name: mongodb
+#    volumes:
+#      - data:/data/db
+#    networks:
+#      - database
+
+#networks:
+#  database:
+#    internal: true
+#volumes:
+#  data:

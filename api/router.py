@@ -12,7 +12,6 @@ router = APIRouter()
 
 router.include_router(healthcheck, prefix="/healthcheck", tags=["Healthcheck"], include_in_schema=False)
 router.include_router(webhooks_manager, prefix="/webhooks_manager", tags=["Webhooks Manager"])
-
 router.include_router(branch, prefix="/branch", tags=["Branches"])
 router.include_router(room, prefix="/room", tags=["Rooms"])
 router.include_router(room_type, prefix="/room_type", tags=["Room Types"])
