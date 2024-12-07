@@ -1,7 +1,9 @@
 import time
 
+import settings
 from api.schemas import BaseResponses
-from settings import logger
+
+logger = settings.getLogger(__name__)
 
 
 def handle_error(

@@ -1,11 +1,10 @@
-import json
-import logging
 from datetime import timezone, datetime
-
 import httpx
 
+import settings
 from api.webhooks_manager.models import webhooks_manager_repository, webhook_logger_repository
-from settings import logger
+
+logger = settings.getLogger(__name__)
 
 WEBHOOK_FORMAT = {
     "content": "",
