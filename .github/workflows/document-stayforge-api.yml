@@ -29,7 +29,7 @@ jobs:
         with:
           organization: 'tokujunsystems'
           project: 'stayforge'
-          mountPath: '/apis/api'
+          mountPath: '/apis/'
           files: './openapi.json'
           domain: 'https://app.cloud.redocly.com'
         env:
