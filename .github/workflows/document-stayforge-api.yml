@@ -21,6 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --no-cache-dir -r requirements.txt
+          pip install --no-cache-dir docs
       - name: Generate OpenAPI JSON
         run: |
           python app.py
