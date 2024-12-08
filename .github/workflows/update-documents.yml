@@ -7,7 +7,7 @@ on:
 
 
 jobs:
-  push-docs:
+  wiki:
     runs-on: ubuntu-latest
 
     steps:
@@ -63,22 +63,25 @@ jobs:
             exit 1
           fi
 
-      # Step 7: Push openapi.json to target repository
-      - name: Push Python SDK to target repository
-        if: env.TAG != ''
+      # Step 7: Check out Wiki repository
+      - name: Clone Wiki repository
         run: |
-          git config --global user.name "Tokujunsystems-BOT"
-          git config --global user.email "190532409+Tokujunsystems-BOT@users.noreply.github.com"
-          git clone https://x-access-token:${BOT_PAT}@github.com/tokujun-t/Stayforge-Docs.git Stayforge-Docs
-          cd Stayforge-Docs
-          git checkout dev || git checkout -b dev
-          git pull origin dev --rebase
-          cp -r ../output/* .
+          git clone https://github.com/tokujun-t/Stayforge.wiki.git wiki
+
+      - name: Convert OpenAPI JSON to Markdown
+        run: |
+          mkdir -p wiki/api-docs
+          redocly bundle openapi.json --output wiki/api-docs/api.md
+
+      # Step 8:  Push updates to Wiki repository
+      - name: Push updates to Wiki
+        run: |
+          cd wiki
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
           git add .
-          git commit -m "Update Documents [skip ci]" || echo "No changes to commit"
-          git push origin dev
-        env:
-          BOT_PAT: ${{ secrets.BOT_PAT }}
+          git commit -m "Update API documentation"
+          git push
 
 #  push:
 #    runs-on: ubuntu-latest
