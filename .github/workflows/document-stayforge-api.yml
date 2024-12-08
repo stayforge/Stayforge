@@ -19,8 +19,8 @@ jobs:
         with:
           organization: 'tokujunsystems'
           project: 'stayforge'
-          mountPath: '/docs/StayforgeAPI'
-          files: ''
+          mountPath: '/docs/api'
+          files: '/'
           domain: 'https://app.cloud.redocly.com'
         env:
           REDOCLY_AUTHORIZATION: ${{ secrets.REDOCLY_AUTHORIZATION }}
