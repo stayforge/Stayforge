@@ -5,6 +5,9 @@ on:
     types:
       - published
   workflow_dispatch:
+  push:
+    branches:
+      - dev
 
 jobs:
   generate-sdk:
