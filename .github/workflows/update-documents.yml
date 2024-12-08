@@ -1,0 +1,110 @@
+name: 'Update API Documents'
+
+on:
+  push:
+    branches:
+      - '**'
+
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out source repository
+      - name: Checkout source repository
+        uses: actions/checkout@v3
+
+      # Step 2: Get the current branch name and tag
+      - name: Get current branch name and tag
+        id: vars
+        run: |
+          if [[ "${GITHUB_REF}" == refs/heads/* ]]; then
+
+            BRANCH_NAME=${GITHUB_REF#refs/heads/}
+            echo "branch_name=${BRANCH_NAME}" >> $GITHUB_ENV
+            echo "TAG=" >> $GITHUB_ENV  # 清空 TAG
+            echo "No version tag found for branch '${BRANCH_NAME}'"
+          elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+
+            TAG=${GITHUB_REF#refs/tags/}
+            echo "TAG=${TAG}" >> $GITHUB_ENV
+          else
+
+            echo "No valid ref found, skipping version assignment."
+            echo "TAG=" >> $GITHUB_ENV
+          fi
+
+          echo "Generated TAG=${TAG}"
+
+      # Step 3: Install Python environment
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'  # Python version used
+
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        run: |
+          pip install --no-cache-dir -r requirements.txt
+
+      # Step 5: Generate OpenAPI JSON
+      - name: Generate OpenAPI JSON
+        run: |
+          python app.py
+
+      # Step 6: Update package version in config.yaml
+      - name: Update package version in config.yaml
+        run: |
+          if [[ -f ".github/openapi/config.yaml" ]]; then
+            sed -i "s/^packageVersion:.*$/packageVersion: ${TAG}/" .github/openapi/config.yaml
+          else
+            echo "Error: .github/openapi/config.yaml not found!"
+            exit 1
+          fi
+
+      # Step 7: Push openapi.json to target repository
+      - name: Push Python SDK to target repository
+        if: env.TAG != ''
+        run: |
+          git config --global user.name "Tokujunsystems-BOT"
+          git config --global user.email "190532409+Tokujunsystems-BOT@users.noreply.github.com"
+          git clone https://x-access-token:${BOT_PAT}@github.com/tokujun-t/Stayforge-Docs.git Stayforge-Docs
+          cd Stayforge-Docs
+          git checkout dev || git checkout -b dev
+          git pull origin dev --rebase
+          cp -r ../output/* .
+          git add .
+          git commit -m "Update Documents [skip ci]" || echo "No changes to commit"
+          git push origin dev
+        env:
+          BOT_PAT: ${{ secrets.BOT_PAT }}
+
+  push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      statuses: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: |
+          pip install --no-cache-dir -r requirements.txt
+      - name: Generate OpenAPI JSON
+        run: |
+          python app.py
+      - name: 'Push files and wait for deployment'
+        uses: redocly/reunite-push-action@v1
+        with:
+          organization: 'tokujunsystems'
+          project: 'stayforge'
+          mountPath: '/'
+          files: '/'
+          domain: 'https://app.cloud.redocly.com'
+        env:
+          REDOCLY_AUTHORIZATION: ${{ secrets.REDOCLY_AUTHORIZATION }}
