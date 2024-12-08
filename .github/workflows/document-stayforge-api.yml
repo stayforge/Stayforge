@@ -6,6 +6,7 @@ on:
       - '**'
 
 jobs:
+
   push:
     runs-on: ubuntu-latest
     permissions:
@@ -14,6 +15,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Generate OpenAPI JSON
+        run: |
+          python app.py
       - name: 'Push files and wait for deployment'
         uses: redocly/reunite-push-action@v1
         with:
