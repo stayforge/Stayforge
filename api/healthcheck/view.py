@@ -1,5 +1,8 @@
 import uuid
+
+from bson import ObjectId
 from fastapi import *
+from httpcore import request
 
 import database
 import settings
@@ -18,7 +21,7 @@ async def _database_healthcheck(field: str = str(uuid.uuid4())) -> dict:
         )
 
         # Step 1: Create random data
-        random_data = {"field": field}
+        random_data = {"_id": ObjectId(), "field": field}
 
         # Step 2: Insert random data
         insertion_result = await healthcheck_repository.insert_one(random_data)
