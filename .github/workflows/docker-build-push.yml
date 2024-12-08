@@ -6,6 +6,11 @@ on:
       - published
   workflow_dispatch:
   push:
+    branches:
+      - main
+      - alpha
+      - beta
+      - dev
 
 jobs:
   build:

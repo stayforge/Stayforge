@@ -6,7 +6,6 @@ import settings
 app = APIRouter()
 
 
-
 @app.get("/", include_in_schema=False)
 async def custom_redoc_ui_html():
     return get_redoc_html(
