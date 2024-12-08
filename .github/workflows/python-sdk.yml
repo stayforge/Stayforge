@@ -23,19 +23,19 @@ jobs:
         id: vars
         run: |
           if [[ "${GITHUB_REF}" == refs/heads/* ]]; then
-
             BRANCH_NAME=${GITHUB_REF#refs/heads/}
             echo "branch_name=${BRANCH_NAME}" >> $GITHUB_ENV
-            echo "TAG=" >> $GITHUB_ENV  # 清空 TAG
-            echo "No version tag found for branch '${BRANCH_NAME}'"
+      
+            # 使用当前提交的短 SHA 作为默认 TAG
+            COMMIT_SHA=$(git rev-parse --short HEAD)
+            echo "TAG=${COMMIT_SHA}" >> $GITHUB_ENV
+            echo "No version tag found for branch '${BRANCH_NAME}', using commit SHA '${COMMIT_SHA}' as TAG"
           elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
-
             TAG=${GITHUB_REF#refs/tags/}
             echo "TAG=${TAG}" >> $GITHUB_ENV
           else
-
             echo "No valid ref found, skipping version assignment."
-            echo "TAG=" >> $GITHUB_ENV
+            echo "TAG=dev" >> $GITHUB_ENV
           fi
           
           echo "Generated TAG=${TAG}"
