@@ -3,6 +3,7 @@ from pydantic import BaseModel, Field
 import settings
 import database
 from api.schemas import StayForgeModel
+from docs.tools import get_description_md
 from repository import MongoRepository
 
 collection_name = 'room_type'
@@ -21,31 +22,34 @@ plugin_logger_repository = MongoRepository(
 
 
 class PluginsManagerInput(BaseModel):
-    plugin_name: str = Field(
+    plugin: str = Field(
         ...,
-        examples=['Your application'],
-        description="The Type of PluginsManager"
+        examples=[
+            "demo-plugin",
+            "demo/demo-plugin",
+            "https://market.stayforge.io/plugin/demo/demo-plugin"
+        ],
+        description="The host URL of the plugin. This is used to generate webhook URLs and other plugin-related paths."
     )
-    endpoint: str = Field(
+    plugin_version: str = Field(
         ...,
-        examples=['https://youapplocation/plugin/endpoint'],
-        description="Description of the room type."
+        examples=['1.0.0', '2.1.3'],
+        description="The version of the plugin. This helps in tracking updates and ensuring compatibility."
     )
-    catch_path: str = Field(
-        ...,
-        examples=["/api/order/"],
-        description="Current price. If you deploy a price controller, this value will be updated automatically."
+    permissions: dict = Field(
+        "auto",
+        examples=["Auto", "auto", {
+            "room": {"_methods": {
+                "_post": {
+                    "_allow": True,
+                    "_webhook": True,
+                    "_webhook_path": "/webhook/room_post"
+                }
+            }}
+        }],
+        description=get_description_md('plugins_manager', 'PluginsManagerInput', 'permissions.md')
     )
-    catch_method: str = Field(
-        ...,
-        description="HTTP method to be captured.",
-        examples=["POST", "GET"],
-    )
-    catch_status: int = Field(
-        200,
-        description="HTTP status to be captured.",
-        examples=[200, 400, 500],
-    )
+
 
 
 class PluginsManager(PluginsManagerInput, StayForgeModel):

@@ -1,6 +1,7 @@
 import os
 import logging
 import json
+from pathlib import Path
 
 from dotenv import load_dotenv
 
@@ -11,6 +12,7 @@ import logging
 # Stayforge_version
 __version__ = "1.0.0"
 DEBUG = json.loads(os.getenv("DEBUG", "false").lower())
+BASE_PATH = Path(__file__).parent
 
 # Metadata
 
@@ -62,3 +64,6 @@ if DEBUG:
 # Mongodb
 MONGO_URL = os.getenv("MONGO_URL", "mongodb://mongo:27017/")
 DATABASE_NAME = os.getenv("DATABASE_NAME", "stayforge")
+
+# API descriptions file dir
+DOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'
