@@ -1,5 +1,4 @@
 import os
-import logging
 import json
 from pathlib import Path
 
@@ -67,3 +66,7 @@ DATABASE_NAME = os.getenv("DATABASE_NAME", "stayforge")
 
 # API descriptions file dir
 DOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'
+
+# Default plugins source and namespace
+DEFAULT_PLUGIN_SOURCE = os.getenv("DEFAULT_PLUGIN_MARKET", "https://market.stayforge.io/plugin/")
+DEFAULT_PLUGIN_NAMESPACE = os.getenv("DEFAULT_PLUGIN_NAMESPACE", "stayforge")

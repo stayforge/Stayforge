@@ -1,0 +1,18 @@
+plugin:
+  name: demo    # Name rule: A-Za-z and -
+  name_visible:
+    en: Demo Plugin
+    ja_JP: デモプラグイン
+  description: A demo plugin. Description supported `Markdown`.
+  version: 0.0.1
+  console_entry: http://stayforge-plugin-basic
+  depend:
+    required:
+      - demo-a
+    optional:
+      - demo-b
+  author:
+    name: Tokujun T Corp.
+    email: support@stayforge.io
+    author_link: https://stayforge.io
+    repo_link: https://github.com/tokujun-t/stayforge-plugin-basic

@@ -1,0 +1,14 @@
+pymongo
+fastapi
+pydantic
+uuid
+Faker
+starlette
+httpx
+logging
+motor
+python-dotenv
+httpcore
+PyYAML~=6.0.2
+Flask
+requests

@@ -7,7 +7,7 @@ import database
 from api.schemas import StayForgeModel
 from repository import MongoRepository
 
-collection_name = 'room_type'
+collection_name = 'webhook'
 
 webhooks_manager_repository = MongoRepository(
     database=settings.DATABASE_NAME,

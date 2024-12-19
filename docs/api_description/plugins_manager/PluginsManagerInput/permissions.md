@@ -1,8 +1,8 @@
 ### Example
 
-`String 'auto'` or `JSON Started dict`.
+`null` or `JSON Started dict`.
 
-When the value is auto, the content in the plug-in configuration `permissions.json` is used.
+When the value is null, the content in the plug-in configuration `permissions.json` is used.
 
 Stayforge APIs that can be called by the plugin, starting with `_` are method names.
 
