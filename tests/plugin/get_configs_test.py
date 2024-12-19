@@ -10,6 +10,7 @@ import multiprocessing
 from api.plugins_manager import Plugin
 from mock_plugin import app as mock_plugin_app
 
+script_path = os.path.dirname(os.path.abspath(__file__))
 
 def find_free_port():
     """Find an unused port."""
@@ -48,7 +49,7 @@ class TestPluginConfig(unittest.TestCase):
         cls.plugin_process.start()
 
         # Load the configuration
-        config_file_path = 'plugin.yaml'
+        config_file_path = os.path.join(script_path, 'plugin.yaml')
         if not os.path.exists(config_file_path):
             raise FileNotFoundError(f"{config_file_path} not found.")
 
