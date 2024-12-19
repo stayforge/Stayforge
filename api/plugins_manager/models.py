@@ -25,8 +25,6 @@ plugin_logger_repository = MongoRepository(
 )
 
 
-
-
 class PluginsManagerInput(BaseModel):
     plugin: str = Field(
         ...,

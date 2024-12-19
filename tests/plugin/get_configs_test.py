@@ -79,12 +79,6 @@ class TestPluginConfig(unittest.TestCase):
     def tearDownClass(cls):
         """Clean up and stop the mock plugin server."""
         if cls.plugin_process.is_alive():
-            # Send a shutdown request to Flask server
-            try:
-                requests.get(f'{cls.plugin_server_url}/shutdown')  # Assuming you implement a shutdown route in Flask
-            except requests.exceptions.RequestException as e:
-                logging.debug(f"Error shutting down Flask server: {e}")
-
             cls.plugin_process.terminate()  # Forcefully terminate the Flask process
             cls.plugin_process.join(timeout=2)
             if cls.plugin_process.is_alive():
@@ -92,11 +86,49 @@ class TestPluginConfig(unittest.TestCase):
                 raise Exception("Plugin server did not shut down in time.")
 
     def test_get_by_plugin_full_url_success(self):
-        """Test successful reading of plugin configuration."""
-        plugin_url = f'{self.plugin_server_url}/{self.namespace}/{self.plugin_name}/'
+        """Test successful reading of plugin configuration (Full URL)."""
+        plugin_url = f'{self.plugin_server_url}/{self.namespace}/{self.plugin_name}'
         logging.info(f"Plugin URL: {plugin_url}")
 
-        plugin = Plugin(plugin_path=plugin_url)
+        plugin = Plugin(plugin_url=plugin_url)
+
+        async def run_test():
+            """Run the async test."""
+            config = await plugin.get_plugin_configs()
+            self.assertEqual(config, self.config_data)
+
+        # Run the async test
+        asyncio.run(run_test())
+
+    def test_get_by_namespace_no_source_success(self):
+        """Test successful reading of plugin configuration (Namespace and Name)."""
+        plugin_url = f'{self.namespace}/{self.plugin_name}'
+        logging.info(f"Plugin URL: {plugin_url}")
+
+        plugin = Plugin(
+            plugin_url=plugin_url,
+            default_source=self.plugin_server_url,
+            default_namespace=self.namespace,
+        )
+
+        async def run_test():
+            """Run the async test."""
+            config = await plugin.get_plugin_configs()
+            self.assertEqual(config, self.config_data)
+
+        # Run the async test
+        asyncio.run(run_test())
+
+    def test_get_only_by_name_success(self):
+        """Test successful reading of plugin configuration (Only name)."""
+        plugin_url = f'{self.plugin_name}'
+        logging.info(f"Plugin URL: {plugin_url}")
+
+        plugin = Plugin(
+            plugin_url=plugin_url,
+            default_source=self.plugin_server_url,
+            default_namespace=self.namespace,
+        )
 
         async def run_test():
             """Run the async test."""
