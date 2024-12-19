@@ -9,6 +9,9 @@ logging
 motor
 python-dotenv
 httpcore
-PyYAML~=6.0.2
+PyYAML
 Flask
 requests
+pytest
+pytest-cov
+codecov
