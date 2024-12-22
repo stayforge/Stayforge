@@ -33,11 +33,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Check out source repository
+      #1 Check out source repository
       - name: Checkout source repository
         uses: actions/checkout@v3
 
-      #  Get the current branch name and tag
+      #2  Get the current branch name and tag
       - name: Get current branch name and tag
         id: vars
         run: |
@@ -63,7 +63,7 @@ jobs:
           
           echo "Generated TAG=${TAG}"
 
-      # Install Python environment
+      #3 Install Python environment
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
@@ -76,33 +76,33 @@ jobs:
             mv "${filename}.md" docs-repo/
           done
 
-      # Install dependencies
+      #4 Install dependencies
       - name: Install dependencies
         run: |
           pip install --no-cache-dir -r requirements.txt
 
-      # Generate OpenAPI JSON
+      #5 Generate OpenAPI JSON
       - name: Generate OpenAPI JSON
         run: |
           python app.py
 
-      # Setup Node.js
+      #6 Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 16
 
-      # Install widdershins
+      #7 Install widdershins
       - name: Install Widdershins
         run: npm install -g widdershins
 
-      # Generate Markdown Docs
+      #8 Generate Markdown Docs
       - name: Generate Markdown Docs
         run: |
           widdershins openapi.json -o api-docs.md
           echo "Generated api-docs.md"
 
-      #  Push Python SDK to target repository
+      #9  Push Python SDK to target repository
       - name: Push Python SDK to target repository
         if: env.TAG != ''
         run: |
