@@ -1,80 +1,87 @@
-Welcome to the Stayforge Wiki! This guide provides information on deploying Stayforge, 
+Welcome to the Stayforge Wiki! This guide provides information on deploying Stayforge,
 using its APIs and webhooks, and developing plugins for Stayforge.
 
 # Deploy Stayforge
 
-請先安裝Docker。
+Start by installing Docker.
 
-然後，clone Stayforge倉庫，運行`docker compose up -d`來啟動容器。確保您的`80`端口沒用被佔用，
-並且防火牆允許內部的`80`端口流量。
+Next, clone the Stayforge repository and run `docker compose up -d` to start the container. Ensure port `80` is not in
+use,
+and configure your firewall to allow internal traffic on port `80`.
 
-    ⚠️注意：單個Stayforge實例並不為高併發設計。您不應該讓Stayforge直接承受流量。
-    在Stayforge之前，您必須配置一個Load balancer/Api Getaways以保證Stayforge的穩定性。
+    ⚠️ Note: A single Stayforge instance is not designed for high concurrency. Avoid sending direct traffic to Stayforge.
+    Always configure a load balancer or API gateway in front of Stayforge to ensure stability.
 
+### Configure SSL
 
-### 如何配置SSL？
+We recommend configuring SSL on your reverse proxy to enable HTTPS encryption and setting robust firewall rules for
+security purposes.
+If required by compliance or for additional needs, you can directly configure an SSL certificate on Stayforge, enabling
+end-to-end encryption.
 
-我們建議您在前置反向代理之上配置SSL來實現Https加密，並配置合理的防火牆規則以保證安全性。
-若因合規性或您有任何進一步需求，您可以在Stayforge上配置SSL證書，使得流量可以得到全段加密。
+[Reverse proxy configuration guide]()
 
-[反向代理配置指南]()
+#### Strict Encryption with SSL on Stayforge
 
+For detailed instructions on configuring SSL certificates on Stayforge, visit [Configuring Traffic on Stayforge]().
 
-#### 在Stayforge上配置SSL實現嚴格加密
+# Secondary Development
 
-關於在Stayforge上配置SSL證書，敬請訪問[在Stayforge上配置流量]()。
+Stayforge's functionality is powered entirely by its robust API and Webhook system, providing extensive opportunities
+for developers.
 
-# 二次開發
-
-Stayforge的所有功能依賴於強大的Stayforge API & Webhook。正因如此，您有足夠的可能對Stayforge進行二次開發。
-
-我們提供了Python、Javascript、Rust、Java等語言的SDK，但您仍然可以用自己喜歡的任何語言來開發Stayforge插件。
+SDKs are available for Python, Javascript, Rust, Java, and more. However, you can create Stayforge plugins in any
+programming language of your choice.
 
 ## Stayforge API & Webhook
-The Stayforge API and webhook system enable seamless integration with all Stayforge functionalities. 
-By utilizing these tools, you can achieve extensive customization and automation.
-The Stayforge plug-in is also implemented in basic form by calling the Stayforge API.
-For specific Stayforge Plugins development tutorial implementation, please refer to the Plugins documentation.
 
-### Stayforge API Documentation Access
+The Stayforge API and webhook systems enable smooth integration with Stayforge's powerful features, allowing for
+advanced customization and automation.
+Essentially, Stayforge plugins utilize the API for requests and the webhook for responses.
+For detailed tutorials on plugin development, please refer to the Plugins documentation.
 
-- Within the Stayforge Instance: Access detailed API documentation directly from your Stayforge dashboard.
-- Official Stayforge Website: Find the latest static API documentation for offline reference.
+### Accessing Stayforge API Documentation
 
-API and Webhook Usage
+- From within Stayforge: Access detailed API documentation directly from the Stayforge dashboard.
+- From the official website: Find the latest static API documentation for offline use.
 
--	Calling the Stayforge API: Allows interaction with Stayforge’s core functionalities programmatically.
--	Receiving the Stayforge Webhook: Enables automated responses to events triggered within Stayforge.
+API and Webhook Capabilities:
 
-For more advanced development, Stayforge Plugins can also leverage these APIs and webhooks. 
-Detailed implementation tutorials are available in the Plugins documentation.
+- **API Calls:** Programmatically interact with Stayforge's core features.
+- **Webhooks:** Automate responses to specific events triggered within Stayforge.
 
-### Stayforge Webhook
+Stayforge Plugins can take full advantage of these APIs and webhooks. Detailed implementation guides are available in
+the Plugins documentation.
 
-您可以通過調用Stayforge Webhooks Manager API來設定您想捕獲的在Stayforge API文檔上顯示的任何API。
-當API被調用時，Stayforge Webhook Middleware 將會捕獲`Request`以及`Response`的內容並通過JSON提交到您的`Endpoint`。
+### Stayforge Webhooks
 
+You can capture any API activity by using the Stayforge Webhook Manager API, as detailed in the Stayforge API
+documentation.
+When triggered, the Stayforge webhook middleware captures the `Request` and `Response` contents and sends them to your
+configured `Endpoint` in JSON format.
 
 # Stayforge Plugins
 
-Stayforge offers a robust plugin engine to extend its capabilities. Plugins are powered by 
-the StayforgeAPI and webhooks, allowing extensive customization.
+Stayforge offers a powerful plugin engine for extending its capabilities through API and webhook integration, enabling
+deep customization.
 
-Stayforge provides a powerful plug-in engine. The basic form is implemented by calling 
-the Stayforge API and receiving the Stayforge Webhook.
-Stayforge Plugins are distributed in the form of container images. In a production environment, you need to deploy Plugins as a container to run with Stayforge.
-So, in theory, you can make Stayforge Plugins in any programming language you like.
+Plugins are distributed as container images. In a production environment, these plugins must run as containers alongside
+Stayforge.
+This design allows plugin development in any programming language.
 
-Of course, we provide SDK Tools for Python, Node.js (scheduled), Java (scheduled), and Rust (scheduled).
+Stayforge also provides SDK tools to simplify development, with support for Python currently available, and support for
+Node.js, Java, and Rust coming soon.
 
 ### Plugin Development
 
-- Container-Based Deployment: Stayforge Plugins are distributed as container images. In production, these plugins must be deployed as containers to run alongside Stayforge.
-- Language Flexibility: Plugins can be developed in any programming language of your choice.
+- **Container-Based Deployment:** Plugins are distributed as container images and must be deployed alongside Stayforge
+  in a containerized environment.
+- **Language Flexibility:** Create Stayforge plugins in any programming language.
 
 ### SDK Tools
 
-To simplify plugin development, Stayforge provides SDK tools:
-•	Available Now: Python
-•	Scheduled: Node.js, Java, and Rust
+To streamline plugin development, Stayforge provides SDK tools:
+
+- **Available Now:** Python
+- **Coming Soon:** Node.js, Java, and Rust
 
