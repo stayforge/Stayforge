@@ -1,5 +1,5 @@
 Welcome to the Stayforge Wiki! This guide provides information on deploying Stayforge,
-using its APIs and webhooks, and developing plugins for Stayforge.
+using its APIs and webhooks, and developing models for Stayforge.
 
 # Deploy Stayforge
 
@@ -30,15 +30,15 @@ For detailed instructions on configuring SSL certificates on Stayforge, visit [C
 Stayforge's functionality is powered entirely by its robust API and Webhook system, providing extensive opportunities
 for developers.
 
-SDKs are available for Python, Javascript, Rust, Java, and more. However, you can create Stayforge plugins in any
+SDKs are available for Python, Javascript, Rust, Java, and more. However, you can create Stayforge models in any
 programming language of your choice.
 
 ## Stayforge API & Webhook
 
 The Stayforge API and webhook systems enable smooth integration with Stayforge's powerful features, allowing for
 advanced customization and automation.
-Essentially, Stayforge plugins utilize the API for requests and the webhook for responses.
-For detailed tutorials on plugin development, please refer to the Plugins documentation.
+Essentially, Stayforge models utilize the API for requests and the webhook for responses.
+For detailed tutorials on model development, please refer to the Models documentation.
 
 ### Accessing Stayforge API Documentation
 
@@ -50,8 +50,8 @@ API and Webhook Capabilities:
 - **API Calls:** Programmatically interact with Stayforge's core features.
 - **Webhooks:** Automate responses to specific events triggered within Stayforge.
 
-Stayforge Plugins can take full advantage of these APIs and webhooks. Detailed implementation guides are available in
-the Plugins documentation.
+Stayforge Models can take full advantage of these APIs and webhooks. Detailed implementation guides are available in
+the Models documentation.
 
 ### Stayforge Webhooks
 
@@ -60,27 +60,27 @@ documentation.
 When triggered, the Stayforge webhook middleware captures the `Request` and `Response` contents and sends them to your
 configured `Endpoint` in JSON format.
 
-# Stayforge Plugins
+# Stayforge Models
 
-Stayforge offers a powerful plugin engine for extending its capabilities through API and webhook integration, enabling
+Stayforge offers a powerful model engine for extending its capabilities through API and webhook integration, enabling
 deep customization.
 
-Plugins are distributed as container images. In a production environment, these plugins must run as containers alongside
+Models are distributed as container images. In a production environment, these models must run as containers alongside
 Stayforge.
-This design allows plugin development in any programming language.
+This design allows model development in any programming language.
 
 Stayforge also provides SDK tools to simplify development, with support for Python currently available, and support for
 Node.js, Java, and Rust coming soon.
 
-### Plugin Development
+### Model Development
 
-- **Container-Based Deployment:** Plugins are distributed as container images and must be deployed alongside Stayforge
+- **Container-Based Deployment:** Models are distributed as container images and must be deployed alongside Stayforge
   in a containerized environment.
-- **Language Flexibility:** Create Stayforge plugins in any programming language.
+- **Language Flexibility:** Create Stayforge models in any programming language.
 
 ### SDK Tools
 
-To streamline plugin development, Stayforge provides SDK tools:
+To streamline model development, Stayforge provides SDK tools:
 
 - **Available Now:** Python
 - **Coming Soon:** Node.js, Java, and Rust
