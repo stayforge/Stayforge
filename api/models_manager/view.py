@@ -64,7 +64,7 @@ async def get_models_profile(
         return handle_error(e, str_time)
 
 
-@router.get("/<id>", response_model=ModelsManagerResponses)
+@router.get("/{id}", response_model=ModelsManagerResponses)
 async def get_models_profile(
         request: Request,
         id: str
@@ -110,7 +110,7 @@ async def create_models_profile(request: Request, data: ModelsManagerInput):
         return handle_error(e, str_time)
 
 
-@router.delete("/<id>", response_model=ModelsManagerResponses)
+@router.delete("/{id}", response_model=ModelsManagerResponses)
 async def delete_models_profile(
         request: Request,
         id: str
@@ -132,7 +132,7 @@ async def delete_models_profile(
         return handle_error(e, str_time)
 
 
-@router.put("/<id>", response_model=ModelsManagerResponses, responses={
+@router.put("/{id}", response_model=ModelsManagerResponses, responses={
     409: {
         "description": "Resource maybe changed. But can't found it.",
     }
