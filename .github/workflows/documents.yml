@@ -1,6 +1,7 @@
 name: Update Wiki Documentation
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - .github/workflows/documents.yml
