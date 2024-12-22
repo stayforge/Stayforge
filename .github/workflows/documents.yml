@@ -26,6 +26,7 @@ jobs:
           cd Stayforge.wiki
           git add .
           git commit -m "Update Wiki Documentation [skip ci]" || echo "No changes to commit"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/tokujun-t/Stayforge.wiki.git
           git push origin master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
