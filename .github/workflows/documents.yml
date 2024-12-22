@@ -29,3 +29,92 @@ jobs:
           git push origin master
         env:
           BOT_PAT: ${{ secrets.BOT_PAT }}
+  update-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out source repository
+      - name: Checkout source repository
+        uses: actions/checkout@v3
+
+      #  Get the current branch name and tag
+      - name: Get current branch name and tag
+        id: vars
+        run: |
+          # Get the latest tag
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "0.0.0")
+          
+          if [[ "${GITHUB_REF}" == refs/heads/* ]]; then
+            BRANCH_NAME=${GITHUB_REF#refs/heads/}
+            echo "branch_name=${BRANCH_NAME}" >> $GITHUB_ENV
+          
+            # Get the short SHA of the current commit
+            COMMIT_SHA=$(git rev-parse --short HEAD)
+            echo "TAG=${LATEST_TAG}-${COMMIT_SHA}" >> $GITHUB_ENV
+            echo "Using branch '${BRANCH_NAME}', generated TAG '${LATEST_TAG}-${COMMIT_SHA}'"
+          elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            # If there is already a label, use the label directly
+            TAG=${GITHUB_REF#refs/tags/}
+            echo "TAG=${TAG}" >> $GITHUB_ENV
+          else
+            # If neither, use the default tag and dev tags
+            echo "TAG=${LATEST_TAG}-dev" >> $GITHUB_ENV
+          fi
+          
+          echo "Generated TAG=${TAG}"
+
+      # Install Python environment
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'  # Python version used
+      - name: Generate Markdown Docs for Multiple Files
+        run: |
+          for file in openapi/*.json; do
+            filename=$(basename "$file" .json)
+            widdershins "$file" -o "${filename}.md"
+            mv "${filename}.md" docs-repo/
+          done
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          pip install --no-cache-dir -r requirements.txt
+
+      # Generate OpenAPI JSON
+      - name: Generate OpenAPI JSON
+        run: |
+          python app.py
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      # Install widdershins
+      - name: Install Widdershins
+        run: npm install -g widdershins
+
+      # Generate Markdown Docs
+      - name: Generate Markdown Docs
+        run: |
+          widdershins openapi.json -o api-docs.md
+          echo "Generated api-docs.md"
+
+      #  Push Python SDK to target repository
+      - name: Push Python SDK to target repository
+        if: env.TAG != ''
+        run: |
+          git config --global user.name "Tokujunsystems-BOT"
+          git config --global user.email "190532409+Tokujunsystems-BOT@users.noreply.github.com"
+          git clone https://x-access-token:${BOT_PAT}@github.com/tokujun-t/Stayforge-Documents.git Stayforge-Documents
+          cd Stayforge-Documents
+          git checkout ${BRANCH_NAME} || git checkout -b ${BRANCH_NAME}
+          git pull origin ${BRANCH_NAME} --rebase
+          cp -r ../output/* .
+          git add .
+          git commit -m "Update Python SDK [skip ci]" || echo "No changes to commit"
+          git push origin ${BRANCH_NAME}
+        env:
+          BOT_PAT: ${{ secrets.BOT_PAT }}
