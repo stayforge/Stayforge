@@ -3,7 +3,6 @@ name: Update Wiki Documentation
 on:
   push:
     paths:
-      - .github/workflows/update-documents.yml
       - docs/wiki/**
 
 jobs:
@@ -11,17 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Check out source repository
       - name: Checkout source repository
         uses: actions/checkout@v3
 
-      # Push changes to the Wiki repository
       - name: Push Documentation to Stayforge.wiki
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        
           git clone https://github.com/tokujun-t/Stayforge.wiki.git Stayforge.wiki
-          cp -r wiki/* Stayforge.wiki/
+          
+          cp -r docs/wiki/* Stayforge.wiki/
+          
           cd Stayforge.wiki
           git add .
           git commit -m "Update Wiki Documentation [skip ci]" || echo "No changes to commit"
