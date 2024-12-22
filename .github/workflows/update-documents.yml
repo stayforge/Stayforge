@@ -1,10 +1,12 @@
-name: Update Documents
+name: Update Wiki Documentation
 
 on:
   push:
+    paths:
+      - docs/wiki/**
 
 jobs:
-  wiki:
+  update-wiki:
     runs-on: ubuntu-latest
 
     steps:
@@ -12,43 +14,16 @@ jobs:
       - name: Checkout source repository
         uses: actions/checkout@v3
 
-      # Get the current branch name and tag
-      - name: Get current branch name and tag
-        id: vars
-        run: |
-          # Get the latest tag
-          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "0.0.0")
-
-          if [[ "${GITHUB_REF}" == refs/heads/* ]]; then
-            BRANCH_NAME=${GITHUB_REF#refs/heads/}
-            COMMIT_SHA=$(git rev-parse --short HEAD)
-            TAG="${LATEST_TAG}-${COMMIT_SHA}"
-          elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
-            TAG=${GITHUB_REF#refs/tags/}
-          else
-            TAG="${LATEST_TAG}-dev"
-          fi
-
-          echo "TAG=${TAG}" >> $GITHUB_ENV
-          echo "branch_name=${BRANCH_NAME:-unknown}" >> $GITHUB_ENV
-          echo "Generated TAG=${TAG}"
-
-      # Push Document to target repository
+      # Push changes to the Wiki repository
       - name: Push Documentation to Stayforge.wiki
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git clone https://github.com/tokujun-t/Stayforge.wiki.git Stayforge.wiki
+          cp -r wiki/* Stayforge.wiki/
           cd Stayforge.wiki
-
-          # Ensure the source directory exists
-          if [ -d "../docs/wiki" ]; then
-            cp -r ../docs/wiki/* .
-            git add .
-            git commit -m "Update Wiki Documentation [skip ci]" || echo "No changes to commit"
-            git push origin main
-          else
-            echo "Documentation source directory does not exist, skipping update."
-          fi
+          git add .
+          git commit -m "Update Wiki Documentation [skip ci]" || echo "No changes to commit"
+          git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
