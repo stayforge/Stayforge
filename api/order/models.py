@@ -87,7 +87,7 @@ async def create_unique_index() -> str:
 
 
 class OrderInput(BaseModel):
-    num: str = Field(create_unique_index(), examples=["ON-20231115-1234567890"], description="Order number")
+    num: str = Field(..., examples=["ON-20231115-1234567890"], description="Order number")
     room_id: str = Field(None, examples=[str(ObjectId())], description="Room ID")
     guest: Guest = Field(None, description="Guest information")
     type: str = Field(..., examples=['booked'], description="OrderType")
