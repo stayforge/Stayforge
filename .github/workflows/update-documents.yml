@@ -1,10 +1,13 @@
-name: 'Update API Documents'
+name: Python SDK CI
 
 on:
+  release:
+    types:
+      - published
+  workflow_dispatch:
   push:
     branches:
-      - '**'
-
+      - dev
 
 jobs:
   wiki:
@@ -19,99 +22,39 @@ jobs:
       - name: Get current branch name and tag
         id: vars
         run: |
+          # Get the latest tag
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "0.0.0")
+      
           if [[ "${GITHUB_REF}" == refs/heads/* ]]; then
-
             BRANCH_NAME=${GITHUB_REF#refs/heads/}
             echo "branch_name=${BRANCH_NAME}" >> $GITHUB_ENV
-            echo "TAG=" >> $GITHUB_ENV  # 清空 TAG
-            echo "No version tag found for branch '${BRANCH_NAME}'"
+      
+            # Get the short SHA of the current commit
+            COMMIT_SHA=$(git rev-parse --short HEAD)
+            echo "TAG=${LATEST_TAG}-${COMMIT_SHA}" >> $GITHUB_ENV
+            echo "Using branch '${BRANCH_NAME}', generated TAG '${LATEST_TAG}-${COMMIT_SHA}'"
           elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
-
+            # If there is already a label, use the label directly
             TAG=${GITHUB_REF#refs/tags/}
             echo "TAG=${TAG}" >> $GITHUB_ENV
           else
-
-            echo "No valid ref found, skipping version assignment."
-            echo "TAG=" >> $GITHUB_ENV
+            # If neither, use the default tag and dev tags
+            echo "TAG=${LATEST_TAG}-dev" >> $GITHUB_ENV
           fi
-
+      
           echo "Generated TAG=${TAG}"
 
-      # Install Python environment
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'  # Python version used
-
-      # Install dependencies
-      - name: Install dependencies
+      # Push Document to target repository
+      - name: Push Documentation to Stayforge.wiki
+        if: env.TAG != ''
         run: |
-          pip install --no-cache-dir -r requirements.txt
-
-      # Install Redocly CLI
-      - name: Install Redocly CLI
-        run: npm install -g @redocly/cli
-
-      # Generate OpenAPI JSON
-      - name: Generate OpenAPI JSON
-        run: |
-          python app.py
-
-      # Update package version in config.yaml
-      - name: Update package version in config.yaml
-        run: |
-          if [[ -f ".github/openapi/config.yaml" ]]; then
-            sed -i "s/^packageVersion:.*$/packageVersion: ${TAG}/" .github/openapi/config.yaml
-          else
-            echo "Error: .github/openapi/config.yaml not found!"
-            exit 1
-          fi
-
-      #  Check out Wiki repository
-      - name: Clone Wiki repository
-        run: |
-          git clone https://github.com/tokujun-t/Stayforge.wiki.git wiki
-
-      - name: Convert OpenAPI JSON to Markdown
-        run: |
-          mkdir -p wiki/api-docs
-          redocly bundle openapi.json --output wiki/api-docs/api.md
-
-      # Push updates to Wiki repository
-      - name: Push updates to Wiki
-        run: |
-          cd wiki
-          git config --local user.name "GitHub Actions"
-          git config --local user.email "actions@github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git clone https://github.com/tokujun-t/Stayforge.wiki.git Stayforge.wiki
+          cd Stayforge.wiki
+          cp -r ../docs/wiki/* .
           git add .
-          git commit -m "Update API documentation"
-          git push
-
-#  push:
-#    runs-on: ubuntu-latest
-#    permissions:
-#      contents: read
-#      statuses: write
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v4
-#      - name: Setup Python
-#        uses: actions/setup-python@v4
-#        with:
-#          python-version: '3.10'
-#      - name: Install dependencies
-#        run: |
-#          pip install --no-cache-dir -r requirements.txt
-#      - name: Generate OpenAPI JSON
-#        run: |
-#          python app.py
-#      - name: 'Push files and wait for deployment'
-#        uses: redocly/reunite-push-action@v1
-#        with:
-#          organization: 'tokujunsystems'
-#          project: 'stayforge'
-#          mountPath: '/'
-#          files: '/'
-#          domain: 'https://app.cloud.redocly.com'
-#        env:
-#          REDOCLY_AUTHORIZATION: ${{ secrets.REDOCLY_AUTHORIZATION }}
+          git commit -m "Update Wiki Documentation [skip ci]" || echo "No changes to commit"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
