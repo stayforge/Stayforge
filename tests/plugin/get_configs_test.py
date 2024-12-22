@@ -1,5 +1,7 @@
 import unittest
 import time
+
+import faker
 import requests
 import socket
 import os
@@ -8,9 +10,11 @@ import yaml
 import logging
 import multiprocessing
 from api.plugins_manager import Plugin
+from api.plugins_manager.errors import PluginNotFoundError, PluginPathError
 from mock_plugin import app as mock_plugin_app
 
 script_path = os.path.dirname(os.path.abspath(__file__))
+
 
 def find_free_port():
     """Find an unused port."""
@@ -138,3 +142,46 @@ class TestPluginConfig(unittest.TestCase):
 
         # Run the async test
         asyncio.run(run_test())
+
+    def test_plg_not_exist(self):
+        """test a plugin not existence."""
+        plugin_url = f'{faker.Faker().first_name()}-{faker.Faker().last_name()}'
+        logging.info(f"Plugin URL: {plugin_url}")
+
+        plugin = Plugin(
+            plugin_url=plugin_url,
+            default_source=self.plugin_server_url,
+            default_namespace=self.namespace,
+        )
+
+        async def run_test():
+            """Run the async test."""
+            try:
+                await plugin.get_plugin_configs()
+            except PluginNotFoundError as e:
+                logging.debug(f"Test Passed. Plugin {e} not found.")
+            else:
+                raise Exception("Cannot catch PluginNotFoundError.")
+
+        # Run the async test
+        asyncio.run(run_test())
+
+    def test_plg_wrong_path(self):
+        """test a plugin with wrong format."""
+        plugin_url = f'{faker.Faker().first_name()}/{faker.Faker().first_name()}/{faker.Faker().first_name()}'
+        logging.info(f"Plugin URL: {plugin_url}")
+
+        async def run_test():
+            """Run the async test."""
+            await plugin.get_plugin_configs()
+
+        try:
+            plugin = Plugin(
+                plugin_url=plugin_url,
+                default_source=self.plugin_server_url,
+                default_namespace=self.namespace,
+            )
+            # Run the async test
+            asyncio.run(run_test())
+        except PluginPathError as e:
+            logging.debug(f"Test Passed. Plugin {e} not found.")

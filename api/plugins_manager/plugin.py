@@ -5,9 +5,11 @@ from urllib.parse import urlparse
 
 import httpx
 import yaml
+from httpx import HTTPError
 
 from requests import Response
 
+from api.plugins_manager.errors import *
 from settings import *
 
 logging.basicConfig(level=logging.DEBUG)
@@ -48,15 +50,15 @@ class Plugin:
         url_pattern = re.compile(r'http(s)?://')
         if url_pattern.match(input_str):
             # Split the URL and check if it has at least two path segments
-            parts = input_str.strip().split('/')[3:]  # Ignore the "http://plugin.exmaple.com"
+            parts = input_str.strip().split('/')[2:]  # Ignore the "http://plugin.exmaple.com"
 
-            if len(parts) < 2:
-                raise ValueError("Complete URL must include namespace/name")
+            if len(parts) <= 2:
+                raise PluginPathError("Complete URL must include `namespace/name`")
 
             # Extract source, namespace, and name from the path
             source = _trim_url(input_str)
-            namespace = parts[0] if len(parts) >= 1 else None
-            name = parts[1] if len(parts) >= 2 else None
+            namespace = parts[-2] if len(parts) >= 1 else None
+            name = parts[-1] if len(parts) >= 2 else None
 
             return source, namespace, name
 
@@ -69,16 +71,17 @@ class Plugin:
             # If only one part, it's treated as name, and namespace is None
             source = None
             namespace = None
-            name = parts[0]
+            name = parts[-1]
         elif len(parts) == 2:
             # If two parts, it's source and name, namespace is None
             source = None
-            namespace = parts[0]
-            name = parts[1]
+            namespace = parts[-2]
+            name = parts[-1]
         else:
             # Raise error if there are more than 2 parts in the relative path
-            raise ValueError(
-                "Invalid path format. For relative paths, the format must be name or namespace/name.")
+            raise PluginPathError(
+                f"Invalid path format: {parts}. For relative paths, the format must be `name` or `namespace/name`."
+            )
 
         return (
             source if source not in (None, '', False) else None,
@@ -97,9 +100,12 @@ class Plugin:
         async with httpx.AsyncClient() as client:
             url = self.config_url
             response = await client.get(url)
-            if response.status_code not in [200, 308]:
-                raise ValueError(f"Failed to fetch plugin config: {response.status_code}")
-            return response
+            if response.status_code in [200, 308]:
+                return response
+            elif response.status_code == 404:
+                raise PluginNotFoundError(f"{response.status_code}, Plugin not found: {url}")
+            else:
+                raise Exception(f"{response.status_code}, Error: {response}")
 
     async def get_plugin_configs(self) -> Any:
         response = await self._fetch_plugin_configs()
