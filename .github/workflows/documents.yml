@@ -16,10 +16,9 @@ jobs:
 
       - name: Push Documentation to Stayforge.wiki
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          git clone https://github.com/tokujun-t/Stayforge.wiki.git Stayforge.wiki
+          git config --global user.name "Tokujunsystems-BOT"
+          git config --global user.email "190532409+Tokujunsystems-BOT@users.noreply.github.com"
+          git clone https://x-access-token:${BOT_PAT}@github.com/tokujun-t/Stayforge.wiki.git Stayforge.wiki
 
           cp -r docs/wiki/* Stayforge.wiki/
 
