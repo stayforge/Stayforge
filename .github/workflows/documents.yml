@@ -3,6 +3,7 @@ name: Update Wiki Documentation
 on:
   push:
     paths:
+      - .github/workflows/documents.yml
       - docs/wiki/**
 
 jobs:
