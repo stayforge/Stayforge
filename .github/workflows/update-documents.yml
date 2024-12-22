@@ -2,9 +2,6 @@ name: Update Documents
 
 on:
   push:
-    branches:
-      - dev
-      - main
 
 jobs:
   wiki:
