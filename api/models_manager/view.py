@@ -11,22 +11,22 @@ from ..schemas import BaseResponses
 router = APIRouter()
 
 
-class PluginsManagerResponses(BaseResponses):
-    data: Optional[List[PluginsManager]]
+class ModelsManagerResponses(BaseResponses):
+    data: Optional[List[ModelsManager]]
 
 
-@router.get("/", response_model=PluginsManagerResponses)
-async def get_plugins_profile(
+@router.get("/", response_model=ModelsManagerResponses)
+async def get_models_profile(
         request: Request,
 
-        plugin_name: str = Query(
+        model_name: str = Query(
             None,
             description="A friendly name you can remember."
         ),
         endpoint: str = Query(
             None,
             regex="^(https?|http|https)://[a-zA-Z,\\*\\s]+/?$",
-            description="The URL endpoint where the plugin is to be sent, e.g., `https://youapplocation/plugin/endpoint`."
+            description="The URL endpoint where the model is to be sent, e.g., `https://youapplocation/model/endpoint`."
         ),
         catch_path: str = Query(
             None,
@@ -46,16 +46,16 @@ async def get_plugins_profile(
 
     try:
         query = {key: value for key, value in {
-            "plugin_name": plugin_name, "endpoint": endpoint,
+            "model_name": model_name, "endpoint": endpoint,
             "catch_path": catch_path, "catch_method": catch_method, "catch_status": catch_status
         }.items() if value}
-        ds = await plugins_manager_repository.find_many(query=query, request=request)
+        ds = await models_manager_repository.find_many(query=query, request=request)
 
         result = []
         for d in ds:
-            result.append(PluginsManager.from_mongo(d))
+            result.append(ModelsManager.from_mongo(d))
 
-        return PluginsManagerResponses(
+        return ModelsManagerResponses(
             data=result,
             used_time=(time.perf_counter() - str_time) * 1000
         )
@@ -64,54 +64,54 @@ async def get_plugins_profile(
         return handle_error(e, str_time)
 
 
-@router.get("/<id>", response_model=PluginsManagerResponses)
-async def get_plugins_profile(
+@router.get("/<id>", response_model=ModelsManagerResponses)
+async def get_models_profile(
         request: Request,
         id: str
 ):
     str_time = time.perf_counter()
     try:
         if not ObjectId.is_valid(id):
-            return PluginsManagerResponses(
+            return ModelsManagerResponses(
                 status=400,
                 detail="Invalid ID format",
                 used_time=(time.perf_counter() - str_time) * 1000,
                 data=None
             )
-        d = await plugins_manager_repository.find_one(query={"_id": ObjectId(id)}, request=request)
+        d = await models_manager_repository.find_one(query={"_id": ObjectId(id)}, request=request)
         if not d:
             return handle_resource_not_found_error(str_time)
 
-        return PluginsManagerResponses(
-            data=[PluginsManager.from_mongo(d)],
+        return ModelsManagerResponses(
+            data=[ModelsManager.from_mongo(d)],
             used_time=(time.perf_counter() - str_time) * 1000
         )
     except Exception as e:
         return handle_error(e, str_time)
 
 
-@router.post("/", response_model=PluginsManagerResponses, responses={
+@router.post("/", response_model=ModelsManagerResponses, responses={
     409: {
         "description": "Resource maybe created. But can't found it.",
     }
 })
-async def create_plugins_profile(request: Request, data: PluginsManagerInput):
+async def create_models_profile(request: Request, data: ModelsManagerInput):
     str_time = time.perf_counter()
     try:
-        _id = await plugins_manager_repository.insert_one(data.model_dump(), request=request)
-        d = await plugins_manager_repository.find_one(query={"_id": ObjectId(_id)})
+        _id = await models_manager_repository.insert_one(data.model_dump(), request=request)
+        d = await models_manager_repository.find_one(query={"_id": ObjectId(_id)})
         if not d:
             return handle_after_write_resource_not_found_error(str_time)
-        return PluginsManagerResponses(
-            data=[PluginsManager.from_mongo(d)],
+        return ModelsManagerResponses(
+            data=[ModelsManager.from_mongo(d)],
             used_time=(time.perf_counter() - str_time) * 1000
         )
     except Exception as e:
         return handle_error(e, str_time)
 
 
-@router.delete("/<id>", response_model=PluginsManagerResponses)
-async def delete_plugins_profile(
+@router.delete("/<id>", response_model=ModelsManagerResponses)
+async def delete_models_profile(
         request: Request,
         id: str
 ):
@@ -119,11 +119,11 @@ async def delete_plugins_profile(
     try:
         if not ObjectId.is_valid(id):
             return handle_invalid_id_format_error(str_time)
-        d = await plugins_manager_repository.delete_one(query={"_id": ObjectId(id)}, request=request)
+        d = await models_manager_repository.delete_one(query={"_id": ObjectId(id)}, request=request)
         if not d:
             return handle_resource_not_found_error(str_time)
 
-        return PluginsManagerResponses(
+        return ModelsManagerResponses(
             data=None,
             used_time=(time.perf_counter() - str_time) * 1000,
             detail=f"Successfully. [{d}] Resource(s) deleted."
@@ -132,27 +132,27 @@ async def delete_plugins_profile(
         return handle_error(e, str_time)
 
 
-@router.put("/<id>", response_model=PluginsManagerResponses, responses={
+@router.put("/<id>", response_model=ModelsManagerResponses, responses={
     409: {
         "description": "Resource maybe changed. But can't found it.",
     }
 })
-async def put_plugins_profile(
+async def put_models_profile(
         request: Request,
         id: str,
-        data: PluginsManagerInput
+        data: ModelsManagerInput
 ):
     str_time = time.perf_counter()
     try:
         if not ObjectId.is_valid(id):
             return handle_invalid_id_format_error(str_time)
-        await plugins_manager_repository.update_one(query={"_id": ObjectId(id)}, update=data.model_dump(),
+        await models_manager_repository.update_one(query={"_id": ObjectId(id)}, update=data.model_dump(),
                                                      request=request)
-        d = await plugins_manager_repository.find_one(query={"_id": ObjectId(id)}, request=request)
+        d = await models_manager_repository.find_one(query={"_id": ObjectId(id)}, request=request)
         if not d:
             return handle_after_write_resource_not_found_error(str_time)
-        return PluginsManagerResponses(
-            data=[PluginsManager.from_mongo(d)],
+        return ModelsManagerResponses(
+            data=[ModelsManager.from_mongo(d)],
             used_time=(time.perf_counter() - str_time) * 1000
         )
     except Exception as e:

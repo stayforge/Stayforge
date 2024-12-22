@@ -5,14 +5,14 @@ import os
 script_path = os.path.dirname(os.path.abspath(__file__))
 
 app = Flask(__name__)
-bp = Blueprint('demo-plugin', __name__)
+bp = Blueprint('demo-model', __name__)
 
 @bp.route('/', methods=['GET'])
-def plugin():
+def model():
     """
-    Serves the 'plugin.yaml' file located in the script directory.
+    Serves the 'model.yaml' file located in the script directory.
     """
-    return send_from_directory(script_path, 'plugin.yaml')
+    return send_from_directory(script_path, 'model.yaml')
 
 @bp.route('/permissions.json', methods=['GET'])
 def permissions():
@@ -23,7 +23,7 @@ def permissions():
 
 
 # Register the blueprint with a namespace and prefix
-app.register_blueprint(bp, url_prefix='/demo-namespace/demo-plugin')
+app.register_blueprint(bp, url_prefix='/demo-namespace/demo-model')
 
 if __name__ == '__main__':
     # Run the Flask application on port 5001

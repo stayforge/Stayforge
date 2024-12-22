@@ -1,4 +1,4 @@
-# plugin.py
+# model.py
 import re
 from typing import Any
 from urllib.parse import urlparse
@@ -9,24 +9,24 @@ from httpx import HTTPError
 
 from requests import Response
 
-from api.plugins_manager.errors import *
+from api.models_manager.errors import *
 from settings import *
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 
-class Plugin:
+class Model:
     def __init__(
             self,
-            plugin_url: str,
-            default_source: str = DEFAULT_PLUGIN_SOURCE,
-            default_namespace: str = DEFAULT_PLUGIN_NAMESPACE
+            model_url: str,
+            default_source: str = DEFAULT_MODEL_SOURCE,
+            default_namespace: str = DEFAULT_MODEL_NAMESPACE
     ):
         self.default_source = default_source
         self.default_namespace = default_namespace
 
-        source, namespace, name = self.parse_url(plugin_url)
+        source, namespace, name = self.parse_url(model_url)
 
         self.source_url = source if source else self.default_source
         self.namespace = namespace if namespace else self.default_namespace
@@ -50,10 +50,10 @@ class Plugin:
         url_pattern = re.compile(r'http(s)?://')
         if url_pattern.match(input_str):
             # Split the URL and check if it has at least two path segments
-            parts = input_str.strip().split('/')[2:]  # Ignore the "http://plugin.exmaple.com"
+            parts = input_str.strip().split('/')[2:]  # Ignore the "http://model.exmaple.com"
 
             if len(parts) <= 2:
-                raise PluginPathError("Complete URL must include `namespace/name`")
+                raise ModelPathError("Complete URL must include `namespace/name`")
 
             # Extract source, namespace, and name from the path
             source = _trim_url(input_str)
@@ -79,7 +79,7 @@ class Plugin:
             name = parts[-1]
         else:
             # Raise error if there are more than 2 parts in the relative path
-            raise PluginPathError(
+            raise ModelPathError(
                 f"Invalid path format: {parts}. For relative paths, the format must be `name` or `namespace/name`."
             )
 
@@ -96,17 +96,17 @@ class Plugin:
         else:
             return url + '/'
 
-    async def _fetch_plugin_configs(self) -> Response:
+    async def _fetch_model_configs(self) -> Response:
         async with httpx.AsyncClient() as client:
             url = self.config_url
             response = await client.get(url)
             if response.status_code in [200, 308]:
                 return response
             elif response.status_code == 404:
-                raise PluginNotFoundError(f"{response.status_code}, Plugin not found: {url}")
+                raise ModelNotFoundError(f"{response.status_code}, Model not found: {url}")
             else:
                 raise Exception(f"{response.status_code}, Error: {response}")
 
-    async def get_plugin_configs(self) -> Any:
-        response = await self._fetch_plugin_configs()
+    async def get_model_configs(self) -> Any:
+        response = await self._fetch_model_configs()
         return yaml.safe_load(response.text)

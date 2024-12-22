@@ -67,6 +67,6 @@ DATABASE_NAME = os.getenv("DATABASE_NAME", "stayforge")
 # API descriptions file dir
 DOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'
 
-# Default plugins source and namespace
-DEFAULT_PLUGIN_SOURCE = os.getenv("DEFAULT_PLUGIN_MARKET", "https://market.stayforge.io/plugin")
-DEFAULT_PLUGIN_NAMESPACE = os.getenv("DEFAULT_PLUGIN_NAMESPACE", "stayforge")
+# Default models source and namespace
+DEFAULT_MODEL_SOURCE = os.getenv("DEFAULT_MODEL_MARKET", "https://market.stayforge.io/model")
+DEFAULT_MODEL_NAMESPACE = os.getenv("DEFAULT_MODEL_NAMESPACE", "stayforge")

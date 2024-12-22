@@ -208,7 +208,7 @@ cython_debug/
 # CMake
 cmake-build-*/
 
-# Mongo Explorer plugin
+# Mongo Explorer model
 .idea/**/mongoSettings.xml
 
 # File-based project format
@@ -217,19 +217,19 @@ cmake-build-*/
 # IntelliJ
 out/
 
-# mpeltonen/sbt-idea plugin
+# mpeltonen/sbt-idea model
 .idea_modules/
 
-# JIRA plugin
-atlassian-ide-plugin.xml
+# JIRA model
+atlassian-ide-model.xml
 
-# Cursive Clojure plugin
+# Cursive Clojure model
 .idea/replstate.xml
 
-# SonarLint plugin
+# SonarLint model
 .idea/sonarlint/
 
-# Crashlytics plugin (for Android Studio and IntelliJ)
+# Crashlytics model (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
