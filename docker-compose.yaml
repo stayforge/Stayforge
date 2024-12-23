@@ -8,7 +8,17 @@ services:
       - MONGO_URL=mongodb://mongodb:27017/
     networks:
       - database
-      -
+      - redis
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    #    volumes:
+    #      - redis
+    networks:
+      - redis
+
+
   mongodb:
     image: mongo:latest
     container_name: mongodb
@@ -19,6 +29,8 @@ services:
 
 networks:
   database:
+    internal: true
+  redis:
     internal: true
 volumes:
   data:

@@ -97,7 +97,6 @@ jobs:
       - name: Generate Markdown Docs
         run: |
           widdershins openapi.json -o api-docs.md
-          echo "Generated api-docs.md"
 
       # Step 8: Push generated documentation to the target repository
       - name: Push Documentation to Target Repository

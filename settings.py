@@ -64,6 +64,9 @@ if DEBUG:
 MONGO_URL = os.getenv("MONGO_URL", "mongodb://mongo:27017/")
 DATABASE_NAME = os.getenv("DATABASE_NAME", "stayforge")
 
+# Redis
+REDIS_URL = os.getenv("REDIS_URL", "redis://redis:6379/")
+
 # API descriptions file dir
 DOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'
 
