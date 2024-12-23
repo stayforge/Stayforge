@@ -42,7 +42,7 @@ async def get_key(
 @router.get("/num/{num}", response_model=KeyResponses)
 async def get_key_by_num(
         request: Request,
-        num: str = Query(default=None)
+        num: str = Query(...)
 ):
     str_time = time.perf_counter()
     try:
