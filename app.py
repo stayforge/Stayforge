@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 from starlette.middleware import Middleware
@@ -8,9 +9,12 @@ from docs import docs as docs
 from webhook.middleware import WebhooksMiddleware
 import json
 
+
 def load_description(file_path: str) -> str:
-    with open(file_path, 'r', encoding='utf-8') as file:
+    abs_path = os.path.join(os.path.dirname(__file__), file_path)
+    with open(abs_path, 'r', encoding='utf-8') as file:
         return file.read()
+
 
 middleware = [
     Middleware(WebhooksMiddleware)
@@ -32,6 +36,7 @@ description = load_description('description.md')
 app.include_router(api_router.router, prefix="/api")
 app.include_router(docs.app, prefix="/docs", include_in_schema=False)
 
+
 def custom_openapi():
     if app.openapi_schema:
         return app.openapi_schema
@@ -47,13 +52,16 @@ def custom_openapi():
     app.openapi_schema = openapi_schema
     return openapi_schema
 
+
 app.openapi = custom_openapi
+
 
 def export_openapi_json(file_path: str):
     with open(file_path, "w") as f:
         api_spec = app.openapi()
         json.dump(api_spec, f, indent=4)
     print(f"OpenAPI JSON exported to {file_path}")
+
 
 if __name__ == '__main__':
     export_openapi_json("openapi.json")
