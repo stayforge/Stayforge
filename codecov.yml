@@ -1,0 +1,47 @@
+# Configuration file for Codecov
+# Documentation: https://docs.codecov.io/docs/codecov-yaml
+codecov:
+  # Version of the configuration format
+  version: 2.0
+
+coverage:
+  # Specify paths or files to ignore in the coverage report
+  ignore:
+    - "tests/*"           # Exclude all files in the 'tests' folder
+    - "migrations/*"      # Exclude database migration files
+    - "**/__init__.py"    # Exclude __init__.py in any folder
+
+  # Adjust the coverage range for thresholds (optional)
+  range: 70..100          # Fail coverage below 70%, max expected 100%
+
+comment:
+  # Enable or disable comments on pull requests
+  layout: "header, diff, files"  # Customize the format of comments
+  behavior: default
+
+upload:
+  # Specify optional settings during upload
+  # Set paths to upload reports (e.g. coverage files)
+  path:
+    - "coverage.xml"      # Ensure the XML report is uploaded
+    - "reports/"          # Upload all files in the 'reports' folder
+
+parsers:
+  # Parser configurations, especially useful for frameworks like Python
+  gcov:
+    branch_detection:
+      conditional: yes    # Detect conditional branches
+      method: no
+
+fixes:
+  # Replace specific paths to make the reports readable
+  - "src/" "."
+
+flags:
+  # Define flags to separate coverage reports (optional)
+  unittests:              # Flag for unit tests
+    paths:
+      - "tests/unit/"     # Only includes coverage for these paths
+  integration:
+    paths:
+      - "tests/integration/"
