@@ -84,3 +84,32 @@ def test_redis_connection_warning():
     with pytest.warns(RedisConnectionWarning, match="Redis connection error:"):
         mq = MessageQueue()  # Create MessageQueue instance
     assert mq.redis_connected is False  # Verify Redis connection state
+
+
+def test_memory_based_queue_operations():
+    """
+    Test memory-based queue behavior when Redis is not available.
+    """
+    # Simulate Redis being unavailable, create a MessageQueue instance
+    mq = MessageQueue()
+    mq.redis_client = None
+    mq.redis_connected = False
+
+    # Test enqueue operation (store to in-memory queue)
+    mq.enqueue("memory_queue_test_message_1")
+    mq.enqueue("memory_queue_test_message_2")
+    assert mq.queue == ["memory_queue_test_message_1", "memory_queue_test_message_2"]
+
+    # Test dequeue operation (retrieve from in-memory queue)
+    message1 = mq.dequeue()
+    assert message1 == "memory_queue_test_message_1"  # Ensure correct message is retrieved from the queue
+    assert mq.queue == ["memory_queue_test_message_2"]  # Verify remaining elements in the in-memory queue
+
+    message2 = mq.dequeue()
+    assert message2 == "memory_queue_test_message_2"
+    assert len(mq.queue) == 0  # Ensure in-memory queue is cleared
+
+    # Test size() method
+    assert mq.size() == 0
+    mq.enqueue("memory_queue_test_message_3")
+    assert mq.size() == 1  # Verify queue size is correctly tracked as messages are added
