@@ -82,8 +82,12 @@ class Guest(BaseModel):
     id_document: Optional[IDDocument]
 
 
+async def create_unique_index() -> str:
+    return await database[collection_name].create_index("name", unique=True)
+
+
 class OrderInput(BaseModel):
-    num: str = Field(None, examples=["ON-20231115-1234567890"], description="Order number")
+    num: str = Field(..., examples=["ON-20231115-1234567890"], description="Order number")
     room_id: str = Field(None, examples=[str(ObjectId())], description="Room ID")
     guest: Guest = Field(None, description="Guest information")
     type: str = Field(..., examples=['booked'], description="OrderType")
@@ -120,11 +124,3 @@ class Order(OrderInput, StayForgeModel):
         if simple_list:
             return [__ for __ in _]
         return _
-
-
-async def create_unique_index():
-    try:
-        result = await database[collection_name].create_index("name", unique=True)
-        print(f"Unique index created: {result}")
-    except Exception as e:
-        print(f"Error creating unique index: {e}")

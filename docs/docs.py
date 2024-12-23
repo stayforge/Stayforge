@@ -1,11 +1,9 @@
 from fastapi import APIRouter
 from fastapi.openapi.docs import get_redoc_html
-from fastapi.openapi.utils import get_openapi
 
 import settings
 
 app = APIRouter()
-
 
 
 @app.get("/", include_in_schema=False)

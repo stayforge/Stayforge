@@ -1,0 +1,11 @@
+{
+  "room": {
+    "_methods": {
+      "_post": {
+        "_allow": true,
+        "_webhook": true,
+        "_webhook_path": "/webhook/room"
+      }
+    }
+  }
+}

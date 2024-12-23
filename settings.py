@@ -1,6 +1,6 @@
 import os
-import logging
 import json
+from pathlib import Path
 
 from dotenv import load_dotenv
 
@@ -11,6 +11,7 @@ import logging
 # Stayforge_version
 __version__ = "1.0.0"
 DEBUG = json.loads(os.getenv("DEBUG", "false").lower())
+BASE_PATH = Path(__file__).parent
 
 # Metadata
 
@@ -62,3 +63,13 @@ if DEBUG:
 # Mongodb
 MONGO_URL = os.getenv("MONGO_URL", "mongodb://mongo:27017/")
 DATABASE_NAME = os.getenv("DATABASE_NAME", "stayforge")
+
+# Redis
+REDIS_URL = os.getenv("REDIS_URL", "redis://redis:6379/")
+
+# API descriptions file dir
+DOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'
+
+# Default models source and namespace
+DEFAULT_MODEL_SOURCE = os.getenv("DEFAULT_MODEL_MARKET", "https://market.stayforge.io/model")
+DEFAULT_MODEL_NAMESPACE = os.getenv("DEFAULT_MODEL_NAMESPACE", "stayforge")

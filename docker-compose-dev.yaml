@@ -8,22 +8,33 @@ services:
       - "80:80"
     environment:
       - MONGO_URL=$MONGO_URL
+      - REDIS_URL=$REDIS_URL
+    depends_on:
+      - mongodb
+    networks:
+      - database
 
-#    depends_on:
-#      - mongodb
-#    networks:
-#      - database
-#
-#  mongodb:
-#    image: mongo:latest
-#    container_name: mongodb
-#    volumes:
-#      - data:/data/db
-#    networks:
-#      - database
+  redis:
+    image: redis:latest
+    container_name: redis
+    #    volumes:
+    #      - redis
+    networks:
+      - redis
 
-#networks:
-#  database:
-#    internal: true
-#volumes:
-#  data:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    volumes:
+      - data:/data/db
+    networks:
+      - database
+
+networks:
+  database:
+    internal: true
+  redis:
+    internal: true
+volumes:
+  data:
+  redis:

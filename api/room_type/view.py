@@ -55,7 +55,7 @@ async def get_room_types(
         return handle_error(e, str_time)
 
 
-@router.get("/<id>", response_model=RoomTypeResponses)
+@router.get("/{id}", response_model=RoomTypeResponses)
 async def get_room_type(
         request: Request,
         id: str
@@ -101,7 +101,7 @@ async def create_room_type(request: Request, data: RoomTypeInput):
         return handle_error(e, str_time)
 
 
-@router.delete("/<id>", response_model=RoomTypeResponses)
+@router.delete("/{id}", response_model=RoomTypeResponses)
 async def delete_room_type(
         request: Request,
         id: str
@@ -123,7 +123,7 @@ async def delete_room_type(
         return handle_error(e, str_time)
 
 
-@router.put("/<id>", response_model=RoomTypeResponses, responses={
+@router.put("/{id}", response_model=RoomTypeResponses, responses={
     409: {
         "description": "Resource maybe changed. But can't found it.",
     }
