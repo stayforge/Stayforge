@@ -82,7 +82,7 @@ jobs:
           java -jar openapi-generator-cli.jar generate \
           -i ./openapi.json \
           -g python \
-          -o ./output \
+          -o ./package_output \
           -c .github/openapi/config.yaml \
           --enable-post-process-file
 
