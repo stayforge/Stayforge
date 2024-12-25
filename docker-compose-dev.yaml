@@ -2,17 +2,18 @@ services:
   stayforge:
     build:
       context: .
-    #    image: tokujunsystem/stayforge:latest
     container_name: stayforge
     ports:
-      - "80:80"
+      - "8000:8000"
     environment:
       - MONGO_URL=$MONGO_URL
       - REDIS_URL=$REDIS_URL
     depends_on:
       - mongodb
     networks:
+      - web
       - database
+      - redis
 
   redis:
     image: redis:latest
@@ -31,6 +32,7 @@ services:
       - database
 
 networks:
+  web:
   database:
     internal: true
   redis:
