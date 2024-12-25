@@ -1,0 +1,19 @@
+### enqueue a message
+POST http://127.0.0.1:8000/api/mq/test_stream
+Content-Type: application/json
+
+{
+  "message": "test_value"
+}
+
+### dequeue a message
+GET http://127.0.0.1:8000/api/mq/test_stream
+Content-Type: application/json
+
+### get stream sized
+GET http://127.0.0.1:8000/api/mq/sized/test_stream
+Content-Type: application/json
+
+### get messages list
+GET http://127.0.0.1:8000/api/mq/messages/test_stream
+Content-Type: application/json

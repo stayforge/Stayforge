@@ -61,7 +61,7 @@ if DEBUG:
     logger.warning("DEBUG MODE ENABLED! DO NOT USE IN PRODUCTION.")
 
 # Mongodb
-MONGO_URL = os.getenv("MONGO_URL", "mongodb://mongodb:27017")
+MONGO_URL = os.getenv("MONGO_URL", "mongodb://mongodb:27017/")
 DATABASE_NAME = os.getenv("DATABASE_NAME", "stayforge")
 
 # Redis

@@ -109,8 +109,52 @@ class MessageQueue:
             except redis.exceptions.ConnectionError as e:
                 logger.error(f"Failed to get size from Redis: {e}")
                 self.redis_connected = False
-        # Fallback to in-memory queue
         queue_size = len(self.queue)
         logger.info(f"Queue size in memory: {queue_size}")
         return queue_size
 
+    def messages(self) -> list:
+        """
+        Retrieve all messages currently in the queue for the given stream.
+        If Redis is connected, fetch messages from Redis.
+        Otherwise, fetch messages from the in-memory queue.
+        """
+        messages = []
+        stream = self.stream_name
+
+        if self.redis_connected:
+            try:
+                # Get all messages in the Redis list for the given stream
+                messages = self.redis_client.lrange(stream, 0, -1)
+                # Decode messages if they are bytes
+                messages = [msg.decode('utf-8') for msg in messages]
+                logger.info(f"Retrieved all messages from Redis for stream '{stream}': {messages}")
+            except redis.exceptions.ConnectionError as e:
+                logger.error(f"Failed to retrieve messages from Redis for stream '{stream}': {e}")
+                self.redis_connected = False
+        if not self.redis_connected:
+            # Fallback to in-memory queue for the given stream
+            if stream == self.stream_name:
+                messages = self.queue.copy()
+            logger.warning(f"Retrieved all messages from in-memory queue for stream '{stream}': {messages}")
+        return messages
+
+    def streams(self):
+        """
+        Retrieve all stream names currently available in Redis.
+        If Redis is disconnected, return an empty list as this feature
+        is Redis-specific and cannot be supported with in-memory fallback.
+        """
+        if self.redis_connected:
+            try:
+                # Use Redis `keys` command to get all streams (keys in Redis)
+                stream_names = self.redis_client.keys('*')
+                stream_names = [stream.decode('utf-8') for stream in stream_names]
+                logger.info(f"Retrieved all stream names from Redis: {stream_names}")
+                return stream_names
+            except redis.exceptions.ConnectionError as e:
+                logger.error(f"Failed to retrieve stream names from Redis: {e}")
+                self.redis_connected = False
+        else:
+            logger.warning("Cannot retrieve stream names as Redis is disconnected.")
+        return []
