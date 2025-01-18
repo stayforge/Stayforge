@@ -5,7 +5,6 @@ from urllib.parse import urlparse
 
 import httpx
 import yaml
-from httpx import HTTPError
 
 from requests import Response
 

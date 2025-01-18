@@ -7,8 +7,6 @@ from api.schemas import StayForgeModel
 from docs.tools import get_description_md
 from repository import MongoRepository
 
-from . import Model
-
 collection_name = 'model'
 logger = settings.getLogger('models_loader')
 

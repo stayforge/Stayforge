@@ -1,1 +1,4 @@
-from .model_cls import Model
+"""
+models_manager
+"""
+from .view import *

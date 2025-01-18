@@ -1,13 +1,14 @@
 from fastapi import APIRouter
 
-from api.healthcheck.view import router as healthcheck
-from api.branch.view import router as branch
-from api.order.view import router as order
-from api.room.view import router as room
-from api.room_type.view import router as room_type
-from api.webhooks_manager.view import router as webhooks_manager
-from api.models_manager.view import router as models_manager
-from api.mq.view import router as mq
+from api.branch import router as branch
+from api.healthcheck import router as healthcheck
+from api.models_manager import router as models_manager
+from api.mq import router as mq
+from api.order import router as order
+from api.room import router as room
+from api.room_type import router as room_type
+from api.webhooks_manager import router as webhooks_manager
+from api.data_manager import router as data_manager
 
 router = APIRouter()
 
@@ -19,3 +20,4 @@ router.include_router(healthcheck, prefix="/healthcheck", tags=["Healthcheck"], 
 router.include_router(webhooks_manager, prefix="/webhooks_manager", tags=["Webhooks Manager"])
 router.include_router(models_manager, prefix="/models_manager", tags=["Models Manager"])
 router.include_router(mq, prefix="/mq", tags=["Message Queue"])
+router.include_router(data_manager, prefix="/db", tags=["Data Manager"])
