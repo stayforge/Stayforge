@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 
 from api.branch import router as branch
+from api.data_manager import router as data_manager
 from api.healthcheck import router as healthcheck
 from api.models_manager import router as models_manager
 from api.mq import router as mq
@@ -8,7 +9,6 @@ from api.order import router as order
 from api.room import router as room
 from api.room_type import router as room_type
 from api.webhooks_manager import router as webhooks_manager
-from api.data_manager import router as data_manager
 
 router = APIRouter()
 

@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, TypeVar
 
 from bson import ObjectId
 from pydantic import BaseModel
@@ -8,6 +8,7 @@ import settings
 from api.schemas import StayForgeModel
 from repository import MongoRepository
 
+T = TypeVar("T")
 
 def repository(collection):
     return MongoRepository(
@@ -15,12 +16,3 @@ def repository(collection):
         collection=collection,
         client=database.client
     )
-
-
-class DBInput(BaseModel):
-    document: Any
-
-
-class DB(DBInput, StayForgeModel):
-    _id: ObjectId
-
