@@ -1,9 +1,13 @@
+"""
+models_manager:view
+"""
+
 from typing import *
-from warnings import catch_warnings
 
 from bson import ObjectId
 from fastapi import *
 
+from .etcd_proxy import etcd_router
 from .models import *
 from ..errors import *
 from ..schemas import BaseResponses
@@ -147,7 +151,7 @@ async def put_models_profile(
         if not ObjectId.is_valid(id):
             return handle_invalid_id_format_error(str_time)
         await models_manager_repository.update_one(query={"_id": ObjectId(id)}, update=data.model_dump(),
-                                                     request=request)
+                                                   request=request)
         d = await models_manager_repository.find_one(query={"_id": ObjectId(id)}, request=request)
         if not d:
             return handle_after_write_resource_not_found_error(str_time)

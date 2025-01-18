@@ -1,4 +1,6 @@
+import json
 import os
+
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 from starlette.middleware import Middleware
@@ -7,7 +9,6 @@ import settings
 from api import router as api_router
 from docs import docs as docs
 from webhook.middleware import WebhooksMiddleware
-import json
 
 
 def load_description(file_path: str) -> str:

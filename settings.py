@@ -1,5 +1,5 @@
-import os
 import json
+import os
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -19,6 +19,9 @@ TITLE = "Stayforge API"
 OPENAPI_URL = '/openapi.json'
 FAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'
 REDOC_WITH_GOOGLE_FONTS = True
+
+# etcd
+ETCD_ENDPOINT = os.getenv("ETCD_ENDPOINT", "etcd://etcd:2379")
 
 
 def getLogger(name="stayforge"):
