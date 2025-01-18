@@ -1,7 +1,6 @@
 """
 mq
 """
-
 from typing import *
 
 from fastapi import *
@@ -18,20 +17,11 @@ class MessageQueueResponses(BaseResponses):
 
 
 @router.post("/{stream}")
-async def enqueue(stream: str, data: MQEnqueue):
+async def enqueue(stream: str, data: MQEnqueue, ttl: int = -1):
     try:
         mq = MessageQueue(stream_name=stream)
         mq.enqueue(data.message)
-        return {"stream": stream, "message": data.message}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@router.get("/{stream}")
-async def dequeue(stream: str):
-    try:
-        mq = MessageQueue(stream_name=stream)
-        return {"stream": stream, "message": mq.dequeue()}
+        return {"last_message": data.message}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

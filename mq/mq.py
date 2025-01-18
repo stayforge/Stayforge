@@ -1,5 +1,8 @@
 import warnings
+from typing import Optional
+
 import redis
+
 import settings
 
 # Logger for Redis Queue
@@ -41,7 +44,7 @@ class MessageQueue:
         # Initialize fallback in-memory queue
         self.queue = []
 
-    def _enqueue(self, message):
+    def _enqueue(self, message, ttl: Optional[int]):
         """
         Low-level enqueue operation. Push message into Redis if connected,
         otherwise fallback to in-memory queue.
@@ -49,7 +52,9 @@ class MessageQueue:
         if self.redis_connected:
             try:
                 self.redis_client.lpush(self.stream_name, message)
-                logger.info(f"Message enqueued in Redis: {message}")
+                if ttl or ttl != -1:
+                    self.redis_client.expire(self.stream_name, ttl)
+                logger.info(f"Message enqueued in Redis: {message}. TTL: {ttl}")
             except redis.exceptions.ConnectionError as e:
                 logger.error(f"Failed to push message to Redis: {e}")
                 self.redis_connected = False
@@ -79,11 +84,11 @@ class MessageQueue:
             return message
         return None
 
-    def enqueue(self, message):
+    def enqueue(self, message, ttl: Optional[int] = None):
         """
         Public method to enqueue a message.
         """
-        self._enqueue(message)
+        self._enqueue(message, ttl)
         logger.debug(f"{self.stream_name} - 'enqueue': {message}")
 
     def dequeue(self):
