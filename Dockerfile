@@ -15,4 +15,4 @@ RUN pip install --no-cache-dir -r requirements.txt --root-user-action=ignore
 
 COPY . .
 
-CMD /bin/sh -c "HOST=${HOST:-0.0.0.0} PORT=${PORT:-80} uvicorn app:app --host $HOST --port $PORT --workers 4"
+CMD ["sh", "-c", "uvicorn app:app --host ${HOST:-0.0.0.0} --port ${PORT:-80} --workers ${WORKERS:-4}"]

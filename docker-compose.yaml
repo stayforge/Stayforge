@@ -6,7 +6,9 @@ services:
     ports:
       - "${PORT:-80}:${PORT:-80}"
     environment:
+      - HOST=${HOST:-0.0.0.0}
       - PORT=${PORT:-80}
+      - WORKERS=${WORKERS:-4}
       - MONGO_URL=$MONGO_URL
       - REDIS_URL=$REDIS_URL
     depends_on:
