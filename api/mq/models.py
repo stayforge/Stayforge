@@ -1,9 +1,8 @@
-from typing import Optional
-
+"""
+mq
+"""
 from pydantic import BaseModel, Field
-
 import settings
-from api.schemas import StayForgeModel
 
 logger = settings.getLogger('models_loader')
 

@@ -1,10 +1,13 @@
+"""
+mq
+"""
+
 from typing import *
 
 from fastapi import *
 
 from mq import MessageQueue
 from .models import *
-from ..errors import *
 from ..schemas import BaseResponses
 
 router = APIRouter()
