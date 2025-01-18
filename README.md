@@ -8,3 +8,13 @@
 ![GitHub Workflow Status](https://github.com/tokujun-t/Stayforge/actions/workflows/python-sdk.yml/badge.svg)
 
 https://www.stayforge.io
+
+## Setup
+
+Set environment variables and run Stayforge through [docker-compose.yml](docker-compose.yaml).
+
+```dotenv
+PORT=80
+MONGO_URL=mongodb://localhost
+REDIS_URL=redis://redis
+```

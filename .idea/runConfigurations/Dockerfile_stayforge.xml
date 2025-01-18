@@ -5,6 +5,14 @@
         <option name="imageTag" value="python3.13-slim_stayforge" />
         <option name="buildCliOptions" value="--target stayforge" />
         <option name="containerName" value="" />
+        <option name="envVars">
+          <list>
+            <DockerEnvVarImpl>
+              <option name="name" value="PORT" />
+              <option name="value" value="28080" />
+            </DockerEnvVarImpl>
+          </list>
+        </option>
         <option name="sourceFilePath" value="Dockerfile" />
       </settings>
     </deployment>
