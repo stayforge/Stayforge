@@ -11,10 +11,12 @@ class KeyValueRequest(BaseModel):
     key: str
     value: str = None
 
+def get_key(model:str, key:str):
+    return f"{model}__{key}"
 
 @etcd_router.post("/{model}/etcd/put")
 async def put_data(request: KeyValueRequest, model: str = Path(...)):
-    full_key = f"{model}{request.key}"
+    full_key = get_key(model, request.key)
     async with httpx.AsyncClient() as client:
         response = await client.post(
             f"{ETCD_ENDPOINT}/v3/kv/put",
@@ -28,7 +30,7 @@ async def put_data(request: KeyValueRequest, model: str = Path(...)):
 # Read
 @etcd_router.get("/{model}/etcd/get/{key}")
 async def get_data(key: str, model: str = Path(...)):
-    full_key = f"{model}{key}"
+    full_key = get_key(model, key)
     async with httpx.AsyncClient() as client:
         response = await client.post(
             f"{ETCD_ENDPOINT}/v3/kv/range",
@@ -46,7 +48,7 @@ async def get_data(key: str, model: str = Path(...)):
 # Delete
 @etcd_router.delete("/{model}/etcd/delete/{key}")
 async def delete_data(key: str, model: str = Path(...)):
-    full_key = f"{model}{key}"
+    full_key = get_key(model, key)
     async with httpx.AsyncClient() as client:
         response = await client.post(
             f"{ETCD_ENDPOINT}/v3/kv/deleterange",
