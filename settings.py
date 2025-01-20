@@ -64,11 +64,11 @@ if DEBUG:
     logger.warning("DEBUG MODE ENABLED! DO NOT USE IN PRODUCTION.")
 
 # Mongodb
-MONGO_URL = os.getenv("MONGO_URL", "mongodb://mongodb:27017/")
+MONGO_URL = os.getenv("MONGO_URL", "mongodb://mongodb:27017")
 DATABASE_NAME = os.getenv("DATABASE_NAME", "stayforge")
 
 # Redis
-REDIS_URL = os.getenv("REDIS_URL", "redis://redis:6379/")
+REDIS_URL = os.getenv("REDIS_URL", "redis://redis:6379")
 
 # API descriptions file dir
 DOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'

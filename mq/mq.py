@@ -1,3 +1,4 @@
+import os
 import warnings
 from typing import Optional
 
@@ -26,7 +27,7 @@ class MessageQueue:
         Initialize the message queue, Redis connection, and fallback in-memory queue.
         """
         # Define Redis URL from settings
-        self.redis_url = settings.REDIS_URL + "stayforge_mq"
+        self.redis_url = os.path.join(settings.REDIS_URL, "stayforge_mq")
 
         # Initialize Redis client
         self.redis_client = self.redis_connector()

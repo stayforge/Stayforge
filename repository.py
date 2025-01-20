@@ -47,7 +47,7 @@ class MongoRepository:
         self.log_collection = self.db[log_collection]
 
     @log_method_call(log_collection=lambda self: self.log_collection)
-    async def insert_one(self, data: Dict[str, Any], request: Request) -> str:
+    async def insert_one(self, data: Dict[str, Any], request: Optional[Request]) -> str:
         result = await self.collection.insert_one({
             **data,
             "create_at": datetime.now(timezone.utc),
@@ -55,12 +55,12 @@ class MongoRepository:
         return str(result.inserted_id)
 
     @log_method_call(log_collection=lambda self: self.log_collection)
-    async def find_one(self, query: Dict[str, Any], request: Request) -> Optional[Dict[str, Any]]:
+    async def find_one(self, query: Dict[str, Any], request: Optional[Request]) -> Optional[Dict[str, Any]]:
         document = await self.collection.find_one(filter=query)
         return document
 
     @log_method_call(log_collection=lambda self: self.log_collection)
-    async def find_many(self, query: Dict[str, Any], request: Request) -> List[Dict[str, Any]]:
+    async def find_many(self, query: Dict[str, Any], request: Optional[Request]) -> List[Dict[str, Any]]:
         cursor = self.collection.find(query)
         documents = []
         async for doc in cursor:
@@ -68,12 +68,12 @@ class MongoRepository:
         return documents
 
     @log_method_call(log_collection=lambda self: self.log_collection)
-    async def update_one(self, query: Dict[str, Any], update: Dict[str, Any], request: Request) -> int:
+    async def update_one(self, query: Dict[str, Any], update: Dict[str, Any], request: Optional[Request]) -> int:
         update["update_at"] = datetime.now(timezone.utc)
         result = await self.collection.update_one(query, {"$set": update})
         return result.modified_count
 
     @log_method_call(log_collection=lambda self: self.log_collection)
-    async def delete_one(self, query: Dict[str, Any], request: Request) -> int:
+    async def delete_one(self, query: Dict[str, Any], request: Optional[Request]) -> int:
         result = await self.collection.delete_one(query)
         return result.deleted_count
