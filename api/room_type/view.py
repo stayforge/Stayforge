@@ -1,3 +1,7 @@
+"""
+Room Type Views
+"""
+
 from typing import List
 
 from bson import ObjectId
