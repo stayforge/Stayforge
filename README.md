@@ -18,3 +18,5 @@ PORT=80
 MONGO_URL=mongodb://localhost
 REDIS_URL=redis://redis
 ```
+
+kubectl apply -f k8s/
