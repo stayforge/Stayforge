@@ -25,12 +25,12 @@ class RoomTypeBase(BaseModel):
     parent: str = Field(
         None,
         examples=[None, "standard", "premium"],
-        description="Parent room type's name. When it is None, "
+        description="Parent room type’s name. If set to None, it will be considered a top-level room type."
     )
     name: str = Field(
         ...,
         examples=['standard', 'premium'],
-        description="Unique name of RoomType"
+        description="Unique name of RoomType."
     )
     nameVisible: str = Field(
         ...,
@@ -64,6 +64,5 @@ class RoomTypeBase(BaseModel):
         True, description="When it True, this type will marked as allowed to extend."
     )
 
-
-class RoomType(RoomTypeBase, StayForgeModel):
+class RoomType(StayForgeModel, RoomTypeBase):
     pass

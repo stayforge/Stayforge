@@ -13,10 +13,27 @@ class Stayforge(BaseModel):
 
 class StayForgeModel(BaseModel):
     id: str = Field(
-        str(ObjectId()), description="Reference ID of the key."
+        str(ObjectId()),
+        description="The unique ID of this object."
     )
-    create_at: Optional[datetime]
-    update_at: Optional[datetime] = None
+    metadata: Optional[dict] = Field(
+        None,
+        examples=[{
+            'picture': '',
+
+        }],
+        description="Metadata of this object."
+    )
+    create_at: Optional[datetime] = Field(
+        ...,
+        examples=[datetime.now()],
+        description="The date of the object being created."
+    )
+    update_at: Optional[datetime] = Field(
+        ...,
+        examples=[datetime.now()],
+        description="The date of the object being updated."
+    )
 
     @classmethod
     def from_mongo(cls, document: dict | list):
