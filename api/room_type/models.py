@@ -55,14 +55,17 @@ class RoomTypeBase(BaseModel):
         description="The price controller will modify the corresponding price field based on the price policy name."
     )
     min_usage: float = Field(
-        8, description="Minimum usage hours."
+        8, examples=[1.5, 8],
+        description="Minimum usage hours."
     )
     max_usage: float = Field(
-        24 * 30, description="Maximum usage hours."
+        24 * 30, examples=[24 * 30],
+        description="Maximum usage hours."
     )
     allowExtension: bool = Field(
         True, description="When it True, this type will marked as allowed to extend."
     )
+
 
 class RoomType(StayForgeModel, RoomTypeBase):
     pass
