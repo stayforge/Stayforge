@@ -1,145 +1,60 @@
-from typing import *
+from typing import List
+
 from bson import ObjectId
-from fastapi import *
+from fastapi import FastAPI, HTTPException
+from motor.motor_asyncio import AsyncIOMotorClient
 
-from .models import *
-from ..errors import *
-from ..schemas import BaseResponses
+import settings
+from models import RoomType, RoomTypeBase
 
-router = APIRouter()
+app = FastAPI()
 
-@router.get("/", response_model=BaseResponses)
-async def get_room_types(
-        request: Request,
-        name: str = Query(
-            ..., description="The Type of RoomTypeType"),
-        description: str = Query(
-            None, description="Description of the room_type type"
-        ),
-        price: int = Query(
-            ...,
-            description="Current price. If you deploy a price controller, this value will be updated automatically."
-        ),
-        price_policy: str = Query(
-            None,
-            description="The price controller will modify the corresponding price field based on the price policy ID."
-        ),
-        price_max: int = Query(
-            None, description="The max of price."),
-        price_min: int = Query(
-            ..., description="The min of price.")
-):
-    str_time = time.perf_counter()
-    try:
-        query = {key: value for key, value in {
-            "description": description, "price": price, "price_policy": price_policy,
-            "price_max": price_max, "price_min": price_min
-        }.items() if value}
-        ds = await room_repository.find_many(query=query, request=request)
-
-        result = []
-        for d in ds:
-            result.append(RoomType.from_mongo(d))
-
-        return BaseResponses(
-            data=result,
-            used_time=(time.perf_counter() - str_time) * 1000
-        )
-    except Exception as e:
-        logger.error(e, exc_info=True)
-        return handle_error(e, str_time)
+client = AsyncIOMotorClient(settings.MONGO_URL)
+db = client[settings.DATABASE_NAME]
+roomType_collection = db["room_type"]
 
 
-@router.get("/{id}", response_model=BaseResponses)
-async def get_room_type(
-        request: Request,
-        id: str
-):
-    str_time = time.perf_counter()
-    try:
-        if not ObjectId.is_valid(id):
-            return BaseResponses(
-                status=400,
-                detail="Invalid ID format",
-                used_time=(time.perf_counter() - str_time) * 1000,
-                data=None
-            )
-        d = await room_repository.find_one(query={"_id": ObjectId(id)}, request=request)
-        if not d:
-            return handle_resource_not_found_error(str_time)
-
-        return BaseResponses(
-            data=[RoomType.from_mongo(d)],
-            used_time=(time.perf_counter() - str_time) * 1000
-        )
-    except Exception as e:
-        return handle_error(e, str_time)
+@app.post("/rooms/", response_model=RoomType)
+async def create_roomType(roomType: RoomTypeBase):
+    new_roomType = roomType.model_dump()
+    result = await roomType_collection.insert_one(new_roomType)
+    new_roomType["id"] = str(result.inserted_id)
+    return new_roomType
 
 
-@router.post("/", response_model=BaseResponses, responses={
-    409: {
-        "description": "Resource maybe created. But can't found it.",
-    }
-})
-async def create_room_type(request: Request, data: RoomTypeInput):
-    str_time = time.perf_counter()
-    try:
-        _id = await room_repository.insert_one(data.model_dump(), request=request)
-        d = await room_repository.find_one(query={"_id": ObjectId(_id)})
-        if not d:
-            return handle_after_write_resource_not_found_error(str_time)
-        return BaseResponses(
-            data=[RoomType.from_mongo(d)],
-            used_time=(time.perf_counter() - str_time) * 1000
-        )
-    except Exception as e:
-        return handle_error(e, str_time)
+@app.get("/rooms/", response_model=List[RoomType])
+async def get_roomTypes():
+    roomTypes = await roomType_collection.find().to_list(100)
+    for roomType in roomTypes:
+        roomType["id"] = str(roomType["_id"])
+    return roomTypes
 
 
-@router.delete("/{id}", response_model=BaseResponses)
-async def delete_room_type(
-        request: Request,
-        id: str
-):
-    str_time = time.perf_counter()
-    try:
-        if not ObjectId.is_valid(id):
-            return handle_invalid_id_format_error(str_time)
-        d = await room_repository.delete_one(query={"_id": ObjectId(id)}, request=request)
-        if not d:
-            return handle_resource_not_found_error(str_time)
-
-        return BaseResponses(
-            data=None,
-            used_time=(time.perf_counter() - str_time) * 1000,
-            detail=f"Successfully. [{d}] Resource(s) deleted."
-        )
-    except Exception as e:
-        return handle_error(e, str_time)
+@app.get("/roomTypes/{roomType_id}", response_model=RoomType)
+async def get_roomType(roomType_id: str):
+    roomType = await roomType_collection.find_one({"_id": ObjectId(roomType_id)})
+    if not roomType:
+        raise HTTPException(status_code=404, detail="Room not found")
+    roomType["id"] = str(roomType["_id"])
+    return roomType
 
 
-@router.put("/{id}", response_model=BaseResponses, responses={
-    409: {
-        "description": "Resource maybe changed. But can't found it.",
-    }
-})
-async def put_room_type(
-        request: Request,
-        id: str,
-        data: RoomTypeInput
-):
-    str_time = time.perf_counter()
-    try:
-        if not ObjectId.is_valid(id):
-            return handle_invalid_id_format_error(str_time)
-        await room_repository.update_one(query={"_id": ObjectId(id)}, update=data.model_dump(),
-                                         request=request)
-        d = await room_repository.find_one(query={"_id": ObjectId(id)}, request=request)
-        if not d:
-            return handle_after_write_resource_not_found_error(str_time)
-        return BaseResponses(
-            data=[RoomType.from_mongo(d)],
-            used_time=(time.perf_counter() - str_time) * 1000
-        )
-    except Exception as e:
-        return handle_error(e, str_time)
+@app.put("/roomTypes/{roomType_id}", response_model=RoomType)
+async def update_roomType(roomType_id: str, roomType: RoomTypeBase):
+    update_result = await roomType_collection.update_one(
+        {"_id": ObjectId(roomType_id)},
+        {"$set": roomType.model_dump(exclude_unset=True)}
+    )
+    if update_result.modified_count == 0:
+        raise HTTPException(status_code=404, detail="Room not found or no update needed")
+    updated_roomType = await roomType_collection.find_one({"_id": ObjectId(roomType_id)})
+    updated_roomType["id"] = str(updated_roomType["_id"])
+    return updated_roomType
+
+
+@app.delete("/roomTypes/{roomType_id}")
+async def delete_roomType(roomType_id: str):
+    delete_result = await roomType_collection.delete_one({"_id": ObjectId(roomType_id)})
+    if delete_result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Room not found")
+    return {"message": "Room deleted successfully"}
