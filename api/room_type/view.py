@@ -8,12 +8,7 @@ from ..schemas import BaseResponses
 
 router = APIRouter()
 
-
-class RoomTypeResponses(BaseResponses):
-    data: Optional[List[RoomType]]
-
-
-@router.get("/", response_model=RoomTypeResponses)
+@router.get("/", response_model=BaseResponses)
 async def get_room_types(
         request: Request,
         name: str = Query(
@@ -46,7 +41,7 @@ async def get_room_types(
         for d in ds:
             result.append(RoomType.from_mongo(d))
 
-        return RoomTypeResponses(
+        return BaseResponses(
             data=result,
             used_time=(time.perf_counter() - str_time) * 1000
         )
@@ -55,7 +50,7 @@ async def get_room_types(
         return handle_error(e, str_time)
 
 
-@router.get("/{id}", response_model=RoomTypeResponses)
+@router.get("/{id}", response_model=BaseResponses)
 async def get_room_type(
         request: Request,
         id: str
@@ -63,7 +58,7 @@ async def get_room_type(
     str_time = time.perf_counter()
     try:
         if not ObjectId.is_valid(id):
-            return RoomTypeResponses(
+            return BaseResponses(
                 status=400,
                 detail="Invalid ID format",
                 used_time=(time.perf_counter() - str_time) * 1000,
@@ -73,7 +68,7 @@ async def get_room_type(
         if not d:
             return handle_resource_not_found_error(str_time)
 
-        return RoomTypeResponses(
+        return BaseResponses(
             data=[RoomType.from_mongo(d)],
             used_time=(time.perf_counter() - str_time) * 1000
         )
@@ -81,7 +76,7 @@ async def get_room_type(
         return handle_error(e, str_time)
 
 
-@router.post("/", response_model=RoomTypeResponses, responses={
+@router.post("/", response_model=BaseResponses, responses={
     409: {
         "description": "Resource maybe created. But can't found it.",
     }
@@ -93,7 +88,7 @@ async def create_room_type(request: Request, data: RoomTypeInput):
         d = await room_repository.find_one(query={"_id": ObjectId(_id)})
         if not d:
             return handle_after_write_resource_not_found_error(str_time)
-        return RoomTypeResponses(
+        return BaseResponses(
             data=[RoomType.from_mongo(d)],
             used_time=(time.perf_counter() - str_time) * 1000
         )
@@ -101,7 +96,7 @@ async def create_room_type(request: Request, data: RoomTypeInput):
         return handle_error(e, str_time)
 
 
-@router.delete("/{id}", response_model=RoomTypeResponses)
+@router.delete("/{id}", response_model=BaseResponses)
 async def delete_room_type(
         request: Request,
         id: str
@@ -114,7 +109,7 @@ async def delete_room_type(
         if not d:
             return handle_resource_not_found_error(str_time)
 
-        return RoomTypeResponses(
+        return BaseResponses(
             data=None,
             used_time=(time.perf_counter() - str_time) * 1000,
             detail=f"Successfully. [{d}] Resource(s) deleted."
@@ -123,7 +118,7 @@ async def delete_room_type(
         return handle_error(e, str_time)
 
 
-@router.put("/{id}", response_model=RoomTypeResponses, responses={
+@router.put("/{id}", response_model=BaseResponses, responses={
     409: {
         "description": "Resource maybe changed. But can't found it.",
     }
@@ -142,7 +137,7 @@ async def put_room_type(
         d = await room_repository.find_one(query={"_id": ObjectId(id)}, request=request)
         if not d:
             return handle_after_write_resource_not_found_error(str_time)
-        return RoomTypeResponses(
+        return BaseResponses(
             data=[RoomType.from_mongo(d)],
             used_time=(time.perf_counter() - str_time) * 1000
         )

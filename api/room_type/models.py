@@ -1,11 +1,9 @@
-import random
 from decimal import Decimal
 
-from faker.proxy import Faker
 from pydantic import BaseModel, Field
 
-import settings
 import database
+import settings
 from api.schemas import StayForgeModel
 from repository import MongoRepository
 
@@ -17,38 +15,45 @@ room_repository = MongoRepository(
     client=database.client
 )
 
-faker = Faker('ja_JP')
 
-
-class RoomTypeInput(BaseModel):
+class RoomTypeBase(BaseModel):
+    parent: str = Field(
+        None,
+        examples=[None, "standard", "premium"],
+        description="Parent room type's name. When it is None, "
+    )
     name: str = Field(
         ...,
-        examples=['スタンダード', 'プレミアム'],
-        description="The Type of RoomType"
+        examples=['standard', 'premium'],
+        description="Unique name of RoomType"
+    )
+    nameVisible: str = Field(
+        ...,
+        examples=['Standard', 'Premium'],
+        description="A visible name of the room type."
     )
     description: str = Field(
         None, description="Description of the room type."
     )
-    price: Decimal = Field(
+    basePrice: Decimal = Field(
         ...,
-        examples=[random.randint(8000, 50000)],
-        description="Current price. If you deploy a price controller, this value will be updated automatically."
+        examples=[8000],
+        description="Base price. If you set a price strategy, the price will automatically increase according to the strategy."
     )
-    price_policy: str = Field(
+    pricePolicy: str = Field(
         None,
-        description="The price controller will modify the corresponding price field based on the price policy ID."
+        description="The price controller will modify the corresponding price field based on the price policy name."
     )
-    price_max: Decimal = Field(
-        None,
-        examples=[random.randint(15000, 30000)],
-        description="The max of price."
+    min_usage: float = Field(
+        8, description="Minimum usage hours."
     )
-    price_min: Decimal = Field(
-        ...,
-        examples=[random.randint(7000, 12000)],
-        description="The min of price."
+    max_usage: float = Field(
+        24 * 30, description="Maximum usage hours."
+    )
+    allowExtension: bool = Field(
+        True, description="When it True, this type will marked as allowed to extend."
     )
 
 
-class RoomType(RoomTypeInput, StayForgeModel):
+class RoomType(RoomTypeBase, StayForgeModel):
     pass
