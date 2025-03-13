@@ -1,5 +1,3 @@
-from pathlib import Path
-
 from fastapi import APIRouter
 
 from api.branch import router as branch
@@ -9,7 +7,7 @@ from api.models_manager import router as models_manager
 from api.mq import router as mq
 from api.order import router as order
 from api.room import router as room
-from api.room_type import router as room_type
+from api.room_type import room_type
 from api.webhooks_manager import router as webhooks_manager
 
 router = APIRouter()

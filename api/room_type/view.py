@@ -5,20 +5,20 @@ Room Type Views
 from typing import List
 
 from bson import ObjectId
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, APIRouter
 from motor.motor_asyncio import AsyncIOMotorClient
 
 import settings
-from models import RoomType, RoomTypeBase
+from .models import RoomType, RoomTypeBase
 
-app = FastAPI()
+room_type = APIRouter()
 
 client = AsyncIOMotorClient(settings.MONGO_URL)
 db = client[settings.DATABASE_NAME]
 room_type_collection = db["room_type"]
 
 
-@app.post("/rooms/", response_model=RoomType)
+@room_type.post("/rooms/", response_model=RoomType)
 async def create_room_type(room_type: RoomTypeBase):
     new_room_type = room_type.model_dump()
     result = await room_type_collection.insert_one(new_room_type)
@@ -26,7 +26,7 @@ async def create_room_type(room_type: RoomTypeBase):
     return new_room_type
 
 
-@app.get("/rooms/", response_model=List[RoomType])
+@room_type.get("/rooms/", response_model=List[RoomType])
 async def get_room_types():
     room_types = await room_type_collection.find().to_list(100)
     for room_type in room_types:
@@ -34,7 +34,7 @@ async def get_room_types():
     return room_types
 
 
-@app.get("/room_types/{room_type_id}", response_model=RoomType)
+@room_type.get("/room_types/{room_type_id}", response_model=RoomType)
 async def get_room_type(room_type_id: str):
     room_type = await room_type_collection.find_one({"_id": ObjectId(room_type_id)})
     if not room_type:
@@ -43,7 +43,7 @@ async def get_room_type(room_type_id: str):
     return room_type
 
 
-@app.put("/room_types/{room_type_id}", response_model=RoomType)
+@room_type.put("/room_types/{room_type_id}", response_model=RoomType)
 async def update_room_type(room_type_id: str, room_type: RoomTypeBase):
     update_result = await room_type_collection.update_one(
         {"_id": ObjectId(room_type_id)},
@@ -56,7 +56,7 @@ async def update_room_type(room_type_id: str, room_type: RoomTypeBase):
     return updated_room_type
 
 
-@app.delete("/room_types/{room_type_id}")
+@room_type.delete("/room_types/{room_type_id}")
 async def delete_room_type(room_type_id: str):
     delete_result = await room_type_collection.delete_one({"_id": ObjectId(room_type_id)})
     if delete_result.deleted_count == 0:

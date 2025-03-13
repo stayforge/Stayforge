@@ -3,6 +3,7 @@ Room Type Models
 """
 
 from decimal import Decimal
+from typing import List
 
 from pydantic import BaseModel, Field
 
@@ -38,6 +39,11 @@ class RoomTypeBase(BaseModel):
     )
     description: str = Field(
         None, description="Description of the room type."
+    )
+    branch: List[str] = Field(
+        None,
+        examples=[None, ["branch1", "branch2"]],
+        description="Branch names that this type is available. If None, it will follow the parent settings or allow all branches by default."
     )
     basePrice: Decimal = Field(
         ...,
