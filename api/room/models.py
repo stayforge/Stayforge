@@ -1,10 +1,14 @@
+"""
+Room Models
+"""
+
 from random import randint
 
 from bson import ObjectId
 from pydantic import BaseModel, Field
 
-import settings
 import database
+import settings
 from api.schemas import StayForgeModel
 from repository import MongoRepository
 
