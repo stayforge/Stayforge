@@ -12,3 +12,4 @@ httpcore
 PyYAML
 requests
 redis
+passlib
