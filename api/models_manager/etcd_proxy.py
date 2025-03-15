@@ -39,7 +39,7 @@ async def get_data(key: str, model: str = Path(...)):
     if response.status_code != 200:
         raise HTTPException(status_code=response.status_code, detail=response.text)
     data = response.json()
-    if not data.get("kvs"):
+    if not data.list("kvs"):
         raise HTTPException(status_code=404, detail="Key not found")
     value = data["kvs"][0]["value"]
     return {"key": full_key, "value": value}

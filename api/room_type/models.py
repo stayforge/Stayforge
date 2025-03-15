@@ -7,18 +7,7 @@ from typing import List
 
 from pydantic import BaseModel, Field
 
-import database
-import settings
 from api.schemas import StayForgeModel
-from repository import MongoRepository
-
-collection_name = 'room_type'
-
-room_repository = MongoRepository(
-    database=settings.DATABASE_NAME,
-    collection=collection_name,
-    client=database.client
-)
 
 
 class RoomTypeBase(BaseModel):
@@ -55,17 +44,18 @@ class RoomTypeBase(BaseModel):
         description="The price controller will modify the corresponding price field based on the price policy name."
     )
     min_usage: float = Field(
-        8, examples=[1.5, 8],
+        ..., examples=[1.5, 8],
         description="Minimum usage hours."
     )
     max_usage: float = Field(
-        24 * 30, examples=[24 * 30],
+        ..., examples=[24 * 30],
         description="Maximum usage hours."
     )
     allowExtension: bool = Field(
-        True, description="When it True, this type will marked as allowed to extend."
+        default_factory=lambda: True,
+        examples=[True, False],
+        description="When it True, this type will marked as allowed to extend."
     )
-
 
 class RoomType(StayForgeModel, RoomTypeBase):
     pass
