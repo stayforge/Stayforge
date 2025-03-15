@@ -3,7 +3,7 @@ API Routers
 """
 from fastapi import APIRouter
 
-from api.auth.view import router as auth
+from api.auth.authenticate_view import router as auth
 from api.healthcheck import router as healthcheck
 from api.models_manager import etcd_router as models_etcd
 from api.models_manager import router as models_manager

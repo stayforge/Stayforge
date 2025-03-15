@@ -6,7 +6,7 @@ from http.client import HTTPException
 from fastapi import APIRouter, Body
 
 from .service_account import *
-from .token_manager import TokenManager
+from .token_manager import TokenManager, TokenRefreshRequest
 
 router = APIRouter()
 
@@ -64,22 +64,24 @@ async def authenticate(
     "/refresh_access_token",
     response_model=TokenResponse,
     summary="Refresh Access Token",
-    description="Think of the `access_token` as the cake, and the Refresh Token as the baker"
-                "—basically, the one that keeps the cake coming. "
-                "When you've finished your cake, ask your baker to make your bread!",
+    description=(
+            "Think of the `access_token` as the cake, and the Refresh Token as the baker"
+            "—basically, the one that keeps the cake coming. "
+            "When you've finished your cake, ask your baker to make your bread!"
+    ),
 )
 async def refresh_access_token(
-        refresh_token: str = Body(
-            ...,
-            examples=[f"{secrets.token_bytes(64).hex()}"],
-            description="Your baker. Valid time {settings.REFRESH_TOKEN_TTL} seconds. "
-                        "If you use it, the valid time will start to calculate again."
-        )
+        body: TokenRefreshRequest
 ):
+    refresh_token = body.refresh_token
+    if not refresh_token:
+        raise HTTPException(status_code=400, detail="Missing refresh_token")
+
     _refresh_token: bytes = bytes.fromhex(refresh_token)
 
     tm = TokenManager()
     access_token: bytes = tm.generate_access_token(refresh_token=_refresh_token)
+
     return TokenResponse(
         access_token=access_token.hex(),
         refresh_token=refresh_token

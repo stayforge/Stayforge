@@ -1,9 +1,9 @@
 """
-AIM Permission Checker
+IAM Permission Checker
 """
 from fastapi import HTTPException
 
-from api.auth import aim_repository
+from api.auth import sa_repository
 
 
 def check_permission(required_permission: str):
@@ -14,7 +14,7 @@ def check_permission(required_permission: str):
     """
 
     def permission_checker(email: str):
-        user = aim_repository.find_one({"email": email})
+        user = sa_repository.find_one({"email": email})
         if not user:
             raise HTTPException(status_code=403, detail="User not found")
 

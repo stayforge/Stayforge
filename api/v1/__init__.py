@@ -5,13 +5,15 @@ from typing import *
 
 from pydantic import BaseModel
 
+from api.auth import sa_repository as service_account
+from api.branch import repository as branch
+from api.order import repository as order
 from api.room import repository as room
 from api.room_type import repository as room_type
-from api.order import repository as order
-from api.branch import repository as branch
 
 # Register the API repositories here.
 repositories = {
+    'service_account': service_account,
     'branch': branch,
     'room_type': room_type,
     'room': room,

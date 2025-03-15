@@ -7,10 +7,11 @@ import logging
 import os
 from typing import List, Type
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
 from . import model_classes
+from ..auth.iam import check_permission
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -45,16 +46,21 @@ def create_api_routes(_model_name: str, _model_class: Type[BaseModel]):
         )
 
     for handler_func, methods, endpoint, operation_id in new_routes:
+        permission = f"{_model_name}:{str(handler_func.__name__).replace('_', '')}"
         router.add_api_route(
             path=f"/{_model_name}{endpoint}",
             endpoint=handler_func,
             methods=methods,
+            dependencies=[Depends(check_permission(permission))],
             response_model=List[_model_class] if methods == ["GET"] else _model_class,
             tags=[_model_name],
             include_in_schema=True,
+            operation_id=operation_id,
             summary=docs.get(operation_id, {}).get('summary', f"{operation_id}"),
             description=docs.get(operation_id, {}).get('description', f"{operation_id} operation for {_model_name}"),
-            operation_id=operation_id
+            openapi_extra={
+                "security": [{"BearerAuth": []}],
+            }
         )
 
 

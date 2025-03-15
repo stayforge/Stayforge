@@ -50,6 +50,14 @@ def custom_openapi():
     openapi_schema["info"]["x-logo"] = {
         "url": "https://raw.githubusercontent.com/tokujun-t/Stayforge/refs/heads/dev/docs/stayforge.png"
     }
+    openapi_schema["components"]["securitySchemes"] = {
+        "BearerAuth": {
+            "type": "http",
+            "scheme": "Bearer",
+            "bearerFormat": "JWT"
+        }
+    }
+
     app.openapi_schema = openapi_schema
     return openapi_schema
 

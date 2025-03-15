@@ -19,8 +19,8 @@ class ServiceAccountBase(BaseModel):
     account: EmailStr | str = Field(
         ...,
         description="Service Account. It must be an email address (it can be non-real). "
-                         "Or a real user email address, usually used when the administrator logs into the panel.",
-        example="serviceaccount@aim.auth.stayforge.io"
+                    "Or a real user email address, usually used when the administrator logs into the panel.",
+        example="serviceaccount@iam.auth.stayforge.io"
     )
     secret: str = Field(
         ...,
@@ -48,17 +48,16 @@ class ServiceAccountBase(BaseModel):
 
 
 class ServiceAccount(ServiceAccountBase, StayForgeModel):
-    aim: List[str] = Field(
+    iam: List[str] = Field(
         ...,
         examples=[
             [
-                "room_type:read",
+                "read",
                 "branch:write",
                 "order:admin"
             ]
         ],
     )
-
 
 class TokenResponse(BaseModel):
     access_token: Optional[str] = Field(

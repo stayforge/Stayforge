@@ -7,7 +7,7 @@ import secrets
 import uuid
 from typing import Optional
 
-from pydantic import EmailStr
+from pydantic import EmailStr, BaseModel, Field
 
 import settings
 from api import RedisClient
@@ -73,13 +73,26 @@ class TokenManager:
         return self.access_token
 
 
+class TokenRefreshRequest(BaseModel):
+    refresh_token: str = Field(
+        ...,
+        examples=[secrets.token_bytes(REFRESH_TOKEN_BYTES).hex()],
+        description=f"Your baker, A {REFRESH_TOKEN_BYTES}-byte random byte stream turned into a fancy hex string."
+    )
+
+
+class TokenResponse(BaseModel):
+    access_token: str
+    refresh_token: str
+
+
 def super_refresh_token() -> str:
     """
     Super refresh_token
 
     This refresh_token is assigned by `SUPER_REFRESH_TOKEN` in the environment variable.
     Each time it is used, it checks whether the ServiceAccount has been created.
-    When the ServiceAccount has been created and has the AIM permission of `admin`,
+    When the ServiceAccount has been created and has the IAM permission of `admin`,
     it will be disabled (the function will return None to prevent abuse).
     This feature is used when creating a root account when first configuring Stayforge.
 
