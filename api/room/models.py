@@ -4,18 +4,17 @@ Room Models
 
 from random import randint
 
-from bson import ObjectId
 from pydantic import BaseModel, Field
 
 from api.schemas import StayForgeModel
 
 
 class RoomBase(BaseModel):
-    key_id: str = Field(
-        str(ObjectId()), description="Reference ID of the key."
-    )
     room_type_id: str = Field(
-        str(ObjectId()), description="Reference ID of the RoomType."
+        ..., description="Reference ID of the RoomType."
+    )
+    branch_id: str = Field(
+        ..., description="Reference ID of the Branch."
     )
     number: str = Field(
         ...,
@@ -23,7 +22,7 @@ class RoomBase(BaseModel):
         description="The number of rooms, e.g., 203."
     )
     priority: int = Field(
-        ...,
+        0,
         description="Stayforge will prioritize rooms with high priority numbers to guests. "
                     "When the priority is the same, it is randomly selected according to certain rules."
     )

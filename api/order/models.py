@@ -1,25 +1,12 @@
 import uuid
 from datetime import datetime
-
-from bson import ObjectId
-from faker.proxy import Faker
-from pydantic import BaseModel, Field, AnyUrl
 from typing import Optional, List
 
-import settings
-import database
+from bson import ObjectId
+from pydantic import BaseModel, Field, AnyUrl
+
+from api.branch import faker
 from api.schemas import StayForgeModel
-from repository import MongoRepository
-
-collection_name = 'order'
-
-order_repository = MongoRepository(
-    database=settings.DATABASE_NAME,
-    collection=collection_name,
-    client=database.client
-)
-
-faker = Faker('ja_JP')
 
 
 class IDDocument(BaseModel):
@@ -82,12 +69,8 @@ class Guest(BaseModel):
     id_document: Optional[IDDocument]
 
 
-async def create_unique_index() -> str:
-    return await database[collection_name].create_index("name", unique=True)
-
-
-class OrderInput(BaseModel):
-    num: str = Field(..., examples=["ON-20231115-1234567890"], description="Order number")
+class OrderBase(BaseModel):
+    num: str = Field(..., examples=["202311151300011234"], description="Order number")
     room_id: str = Field(None, examples=[str(ObjectId())], description="Room ID")
     guest: Guest = Field(None, description="Guest information")
     type: str = Field(..., examples=['booked'], description="OrderType")
@@ -99,7 +82,7 @@ class OrderInput(BaseModel):
         return f"ON-{datetime.now().strftime('%Y%m%d')}-{''.join([str(uuid.uuid4().int % 10) for _ in range(10)])}"
 
 
-class Order(OrderInput, StayForgeModel):
+class Order(OrderBase, StayForgeModel):
     @classmethod
     def order_types(cls, simple_list=False) -> List[dict]:
         _ = [
