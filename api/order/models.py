@@ -3,10 +3,12 @@ from datetime import datetime
 from typing import Optional, List
 
 from bson import ObjectId
+from faker import Faker
 from pydantic import BaseModel, Field, AnyUrl
 
-from api.branch import faker
 from api.schemas import StayForgeModel
+
+faker = Faker('ja_JP')
 
 
 class IDDocument(BaseModel):
@@ -74,8 +76,8 @@ class OrderBase(BaseModel):
     room_id: str = Field(None, examples=[str(ObjectId())], description="Room ID")
     guest: Guest = Field(None, description="Guest information")
     type: str = Field(..., examples=['booked'], description="OrderType")
-    scheduled_checkin_at: datetime = Field(None, description="Creation timestamp")
-    scheduled_checkout_at: datetime = Field(None, description="Creation timestamp")
+    checkin_at: datetime = Field(None, description="這個房間被佔用的開始時間。")
+    checkout_at: datetime = Field(None, description="這個房間被佔用的結束時間。")
 
     @classmethod
     def generate_num(cls) -> str:
@@ -85,25 +87,36 @@ class OrderBase(BaseModel):
 class Order(OrderBase, StayForgeModel):
     @classmethod
     def order_types(cls, simple_list=False) -> List[dict]:
-        _ = [
-            {'booked': {'room_using': False,
-                        "description": "If a room is set to order and 'room_using': True, the room will be marked as in use."}},
-            {'staying': {'room_using': True}},
-            {'expired': {
-                'room_using': True,
-                'bind_datetime_col': 'scheduled_checkout_at',
-                "description": "Automatically listening for orders, when the time in `bind_datetime_col` is reached,"
-                               " than it will initiate a new order, type is ‘expired’"
-            }},
-            {'dirty': {'room_using': True,
-                       "description": "The guest has exited the room. The room is being cleaned or will be cleaned soon."}},
-            {'ready': {'room_using': False, "description": "Room is already for next order."}},  #
-            {'plan_to_close': {
-                "description": "When this room is created in the ready state, it will automatically check whether there is"
-                               "this order in the history, and if so, the room will be changed to the close state. "
-                               "Used for planned maintenance."}},
-            {'close': {'room_using': True, "description": "Room is closing for maintenance."}},
+        _status = [
+            {
+                'booked': {
+                    "description": "Create this order means that the room is booked. "
+                                   "If checkout_at is exceeded and there is no in-using state, it will automatically be converted to close."
+                }
+            },
+            {
+                'in-using': {"description": "Create this order means that the room is in-using. "
+                                            "If checkout_at is exceeded, it will automatically be converted to wait-for-maintain"
+                             }
+            },
+            {
+                'wait-for-maintain': {
+                    "description": "When the guest check-out, the order will automatically change to this state. "
+                                   "This state does not end automatically until the close order is created."
+                }
+            },
+            {
+                'under-maintenance': {
+                    "description": "If you need to close the room for some reason, create an Order for this state. "
+                                   "**It should be noted that even if you reach checkout_at, the room will not be automatically converted to close.**"
+                }
+            },
+            {
+                'close': {
+                    "description": "After creating other types of orders, you must create a close order to end the room's occupation."
+                }
+            },
         ]
         if simple_list:
-            return [__ for __ in _]
-        return _
+            return [__ for __ in _status]
+        return _status

@@ -1,28 +1,14 @@
 """
 branch
 """
-
+from faker import Faker
 from pydantic import BaseModel, Field
 
-import settings
-import database
 from api.schemas import StayForgeModel
-from repository import MongoRepository
-
-from faker import Faker
-
-collection_name = 'branch'
-
-branch_repository = MongoRepository(
-    database=settings.DATABASE_NAME,
-    collection=collection_name,
-    client=database.client
-)
 
 faker = Faker('ja_JP')
 
-
-class BranchInput(BaseModel):
+class BranchBase(BaseModel):
     name: str = Field(
         ...,
         examples=[f"ホテルステイフォージ{faker.town()}"],
@@ -46,5 +32,5 @@ class BranchInput(BaseModel):
     )
 
 
-class Branch(BranchInput, StayForgeModel):
+class Branch(BranchBase, StayForgeModel):
     pass

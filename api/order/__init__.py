@@ -1,13 +1,11 @@
 """
 order
 """
-from faker import Faker
 
 import database
 import settings
-from .. import MongoRepository
 from .models import OrderBase
-
+from .. import MongoRepository
 
 collection_name = 'order'
 
@@ -17,8 +15,6 @@ repository = MongoRepository(
     client=database.client
 )
 
-faker = Faker('ja_JP')
 
 async def create_unique_index() -> str:
     return await database[collection_name].create_index("name", unique=True)
-
