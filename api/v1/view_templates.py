@@ -18,11 +18,11 @@ async def _list():
 
 async def _get(id: str):
     repository = repositories[model_name].repository
-    obj = await repository.find_one({"_id": ObjectId(id)})
-    if not obj:
+    _obj = await repository.find_one({"_id": ObjectId(id)})
+    if not _obj:
         raise HTTPException(status_code=404, detail=f"{model_name} not found")
-    obj["id"] = str(obj["_id"])
-    return obj
+    _obj["id"] = str(_obj["_id"])
+    return _obj
 
 
 async def _create(data: model_class):
