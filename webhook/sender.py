@@ -12,7 +12,7 @@ logger = settings.getLogger(__name__)
 async def add_task(request, response):
     """
     Handles the processing of incoming webhook requests and responses by querying the
-    webhooks manager repository, retrieving matching records based on specific criteria,
+    webhooks manager sa_repository, retrieving matching records based on specific criteria,
     and enqueueing information to a messaging queue for further processing. Operates
     asynchronously to support non-blocking operations.
 

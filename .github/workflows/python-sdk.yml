@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out source repository
-      - name: Checkout source repository
+      # Step 1: Check out source sa_repository
+      - name: Checkout source sa_repository
         uses: actions/checkout@v3
 
       # Step 2: Get the current branch name and tag
@@ -86,8 +86,8 @@ jobs:
           -c .github/openapi/config.yaml \
           --enable-post-process-file
 
-      # Step 9: Push Python SDK to target repository
-      - name: Push Python SDK to target repository
+      # Step 9: Push Python SDK to target sa_repository
+      - name: Push Python SDK to target sa_repository
         if: env.TAG != ''
         run: |
           git config --global user.name "Tokujunsystems-BOT"

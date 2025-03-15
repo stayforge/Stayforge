@@ -13,3 +13,4 @@ PyYAML
 requests
 redis
 passlib
+bcrypt~=4.0.1

@@ -76,3 +76,9 @@ DOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'
 # Default models source and namespace
 DEFAULT_MODEL_SOURCE = os.getenv("DEFAULT_MODEL_MARKET", "https://market.stayforge.io/model")
 DEFAULT_MODEL_NAMESPACE = os.getenv("DEFAULT_MODEL_NAMESPACE", "stayforge")
+
+# Token
+REFRESH_TOKEN_BYTES = os.getenv("REFRESH_TOKEN_BYTES", 64)
+ACCESS_TOKEN_BYTES = os.getenv("ACCESS_TOKEN_BYTES", 32)
+REFRESH_TOKEN_TTL = 60 * 60 * 24 * 30
+ACCESS_TOKEN_TTL = 60 * 10

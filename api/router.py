@@ -1,5 +1,9 @@
+"""
+API Routers
+"""
 from fastapi import APIRouter
 
+from api.auth.view import router as auth
 from api.healthcheck import router as healthcheck
 from api.models_manager import etcd_router as models_etcd
 from api.models_manager import router as models_manager
@@ -14,6 +18,9 @@ router.include_router(webhooks_manager, prefix="/webhooks", tags=["Webhooks Mana
 router.include_router(models_manager, prefix="/models", tags=["Models Manager"])
 router.include_router(models_etcd, prefix="/models", tags=["Models Etcd"])
 router.include_router(mq, prefix="/mq", tags=["Message Queue"])
+
+# Auth API
+router.include_router(auth, prefix="/auth", tags=["Auth"])
 
 # API v1
 router.include_router(v1, prefix="/v1")
