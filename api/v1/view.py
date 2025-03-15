@@ -52,8 +52,8 @@ def create_api_routes(_model_name: str, _model_class: Type[BaseModel]):
             response_model=List[_model_class] if methods == ["GET"] else _model_class,
             tags=[_model_name],
             include_in_schema=True,
-            summary=docs.get(operation_id, {}).get('summary', f"{_model_name} {methods[0]}"),
-            description=docs.get(operation_id, {}).get('description', f"{methods[0]} operation for {_model_name}"),
+            summary=docs.get(operation_id, {}).get('summary', f"{operation_id}"),
+            description=docs.get(operation_id, {}).get('description', f"{operation_id} operation for {_model_name}"),
             operation_id=operation_id
         )
 

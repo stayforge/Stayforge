@@ -57,5 +57,6 @@ class RoomTypeBase(BaseModel):
         description="When it True, this type will marked as allowed to extend."
     )
 
+
 class RoomType(StayForgeModel, RoomTypeBase):
     pass
