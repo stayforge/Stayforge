@@ -9,7 +9,7 @@ from api.v1.view import model_name, model_class
 
 
 async def _list():
-    repository = repositories[model_name].repository
+    repository = repositories[model_name]
     _objects = await repository.find_many({})
     for _object in _objects:
         _object["id"] = str(_object["_id"])
@@ -17,7 +17,7 @@ async def _list():
 
 
 async def _get(id: str):
-    repository = repositories[model_name].repository
+    repository = repositories[model_name]
     _obj = await repository.find_one({"_id": ObjectId(id)})
     if not _obj:
         raise HTTPException(status_code=404, detail=f"{model_name} not found")
@@ -26,7 +26,7 @@ async def _get(id: str):
 
 
 async def _create(data: model_class):
-    repository = repositories[model_name].repository
+    repository = repositories[model_name]
     new_obj = data.model_dump()
     result = await repository.insert_one(new_obj)
     new_obj["id"] = str(result.inserted_id)
@@ -34,7 +34,7 @@ async def _create(data: model_class):
 
 
 async def _update(id: str, data: model_class):
-    repository = repositories[model_name].repository
+    repository = repositories[model_name]
     update_result = await repository.update_one(
         {"_id": ObjectId(id)},
         {"$set": data.model_dump(exclude_unset=True)}
@@ -47,7 +47,7 @@ async def _update(id: str, data: model_class):
 
 
 async def _delete(id: str):
-    repository = repositories[model_name].repository
+    repository = repositories[model_name]
     delete_result = await repository.delete_one({"_id": ObjectId(id)})
     if delete_result.deleted_count == 0:
         raise HTTPException(status_code=404, detail=f"{model_name} not found")

@@ -18,7 +18,12 @@ class ServiceAccountBase(BaseModel):
         ...,
         description="Service Account. It must be **unique** and it is an email address (can be non-real). "
                     "Or a real user email address, usually used when the administrator logs into the panel.",
-        example="serviceaccount@iam.auth.stayforge.io"
+        example="serviceaccount@role.auth.stayforge.io"
+    )
+    role: List[str] | None = Field(
+        None,
+        description="A list of IAM permissions granted to the service account.",
+        example=["read", "branch:write", "order:admin"]
     )
 
     @property
@@ -31,11 +36,6 @@ class ServiceAccount(ServiceAccountBase):
         ...,
         examples=["Password_for_HumanUser", "API_Key_for_M2M"],
         description="`API Key` (For M2M) or `Password` (For human user).",
-    )
-    iam: List[str] | None = Field(
-        None,
-        description="A list of IAM permissions granted to the service account.",
-        example=["read", "branch:write", "order:admin"]
     )
 
     # noinspection PyNestedDecorators

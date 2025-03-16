@@ -86,6 +86,6 @@ REFRESH_TOKEN_TTL = 60 * 60 * 24 * 30
 ACCESS_TOKEN_TTL = 60 * 60 * 24
 
 # Service Account & IAM Settings
-SUPERUSER_ACCOUNT_NAME = os.getenv("SUPERUSER_ACCOUNT_NAME", "superuser@iam.auth.stayforge.net")
+SUPERUSER_ACCOUNT_NAME = os.getenv("SUPERUSER_ACCOUNT_NAME", "superuser@role.auth.stayforge.net")
 SUPERUSER_ACCOUNT_SECRET = os.getenv("SUPERUSER_ACCOUNT_SECRET", uuid.uuid4().hex)
 SUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv("SUPERUSER_ACCOUNT_IAM", '["admin"]'))

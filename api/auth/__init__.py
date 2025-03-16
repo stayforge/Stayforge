@@ -34,7 +34,7 @@ async def create_superuser():
     new_superuser = ServiceAccount(
         account=settings.SUPERUSER_ACCOUNT_NAME,
         secret=settings.SUPERUSER_ACCOUNT_SECRET,
-        iam=settings.SUPERUSER_ACCOUNT_IAM
+        role=settings.SUPERUSER_ACCOUNT_IAM
     )
 
     await repository.collection.insert_one(new_superuser.model_dump())

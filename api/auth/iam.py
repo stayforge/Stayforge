@@ -14,19 +14,19 @@ def role_checker(required_role: str):
     - If the user has 'admin' role, they bypass all permission checks.
     """
 
-    def checker(account: str):
-        user = repository.find_one({"account": account})
+    async def checker(account: str):
+        user = await repository.find_one({"account": account})
         if not user:
             raise HTTPException(status_code=403, detail="User not found")
 
         # **If the user is admin, then pass directly **
-        if user.get("role") == "admin":
-            return user
+        if type(user.role) == list:
+            if "admin" in user.role:
+                return user
 
-        # **Check whether the user has specified permissions**
-        if required_role not in user.get("permissions", []):
-            raise HTTPException(status_code=403, detail="Insufficient permissions")
+            if required_role in user.role:
+                return user
 
-        return user
+        raise HTTPException(status_code=403, detail="Insufficient permissions")
 
     return checker
