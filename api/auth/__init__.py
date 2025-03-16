@@ -1,18 +1,17 @@
 """
+Auth
 """
-from passlib.context import CryptContext
 
 import database
 import settings
-from api.auth.service_account import ServiceAccount
+from api.auth.service_account import ServiceAccount, ServiceAccountBase
 from repository import MongoRepository
-
 
 repository = MongoRepository(
     database=settings.DATABASE_NAME,
     collection='service_account',
     client=database.client,
-    model_class=ServiceAccount
+    model_class=ServiceAccountBase
 )
 
 

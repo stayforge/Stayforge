@@ -1,3 +1,6 @@
+"""
+Webhooks Manager
+"""
 from typing import Literal, Optional, List
 
 from pydantic import BaseModel, Field, HttpUrl

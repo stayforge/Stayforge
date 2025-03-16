@@ -2,7 +2,6 @@
 Service Account Model
 """
 import secrets
-import uuid
 from typing import List, Optional
 
 from passlib.context import CryptContext
@@ -21,10 +20,22 @@ class ServiceAccountBase(BaseModel):
                     "Or a real user email address, usually used when the administrator logs into the panel.",
         example="serviceaccount@iam.auth.stayforge.io"
     )
+
+    @property
+    def validated_account_name(self) -> EmailStr:
+        return EmailStr(self.account)
+
+
+class ServiceAccount(ServiceAccountBase):
     secret: str = Field(
         ...,
         examples=["Password_for_HumanUser", "API_Key_for_M2M"],
         description="`API Key` (For M2M) or `Password` (For human user).",
+    )
+    iam: List[str] | None = Field(
+        None,
+        description="A list of IAM permissions granted to the service account.",
+        example=["read", "branch:write", "order:admin"]
     )
 
     # noinspection PyNestedDecorators
@@ -34,23 +45,6 @@ class ServiceAccountBase(BaseModel):
         if value.startswith("$2b$"):
             return value
         return pwd_context.hash(value)
-
-    @property
-    def validated_account_name(self) -> EmailStr:
-        return EmailStr(self.account)
-
-    @classmethod
-    def generate_secret_key(cls) -> str:
-        """Generate a secure API Key"""
-        return str(uuid.uuid4())
-
-
-class ServiceAccount(ServiceAccountBase):
-    iam: List[str] | None = Field(
-        None,
-        description="A list of IAM permissions granted to the service account.",
-        example=["read", "branch:write", "order:admin"]
-    )
 
 
 class TokenResponse(BaseModel):
