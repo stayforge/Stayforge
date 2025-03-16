@@ -9,7 +9,7 @@ from pydantic import EmailStr
 
 import settings
 from settings import SUPERUSER_ACCOUNT_NAME
-from . import repository
+from . import repository, ServiceAccount
 from .service_account import pwd_context
 from .token_manager import TokenManager, TokenRefreshRequest, TokenResponse
 
@@ -50,8 +50,8 @@ async def authenticate(
                 access_token=access_t.hex(),
                 refresh_token=refresh_t.hex()
             )
-    except AttributeError:
-        pass
+    except AttributeError as e:
+        settings.logger.warning(e, exc_info=True)
 
     raise HTTPException(
         status_code=401,

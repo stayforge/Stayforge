@@ -7,12 +7,16 @@ import secrets
 import uuid
 from typing import Optional
 
+from fastapi import Depends, HTTPException
+from fastapi.security import OAuth2PasswordBearer
 from pydantic import EmailStr, BaseModel, Field
 
 import settings
 from api import RedisClient
 from settings import ACCESS_TOKEN_BYTES, REFRESH_TOKEN_BYTES
 
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 class TokenManager:
     @staticmethod
@@ -71,6 +75,10 @@ class TokenManager:
         self.access_token_client.expire(self.access_token_hash, self.access_token_ttl)
 
         return self.access_token
+
+    def get_account_name_by_accesstoken(self):
+        self.access_token_client.get()
+        return
 
 
 class TokenRefreshRequest(BaseModel):

@@ -13,7 +13,7 @@ from settings import REFRESH_TOKEN_BYTES, ACCESS_TOKEN_BYTES
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
-class ServiceAccountBase(BaseModel):
+class ServiceAccount(BaseModel):
     account: EmailStr | str = Field(
         ...,
         description="Service Account. It must be **unique** and it is an email address (can be non-real). "
@@ -25,13 +25,6 @@ class ServiceAccountBase(BaseModel):
         description="A list of IAM permissions granted to the service account.",
         example=["read", "branch:write", "order:admin"]
     )
-
-    @property
-    def validated_account_name(self) -> EmailStr:
-        return EmailStr(self.account)
-
-
-class ServiceAccount(ServiceAccountBase):
     secret: str = Field(
         ...,
         examples=["Password_for_HumanUser", "API_Key_for_M2M"],
@@ -45,6 +38,10 @@ class ServiceAccount(ServiceAccountBase):
         if value.startswith("$2b$"):
             return value
         return pwd_context.hash(value)
+
+    @property
+    def validated_account_name(self) -> EmailStr:
+        return EmailStr(self.account)
 
 
 class TokenResponse(BaseModel):

@@ -12,9 +12,11 @@ from pydantic import BaseModel
 
 from . import model_classes
 from ..auth.iam import role_checker
+from ..auth.token_manager import TokenManager
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
+token_manager = TokenManager()
 
 
 def create_api_routes(_model_name: str, _model_class: Type[BaseModel]):

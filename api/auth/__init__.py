@@ -4,14 +4,14 @@ Auth
 
 import database
 import settings
-from api.auth.service_account import ServiceAccount, ServiceAccountBase
+from api.auth.service_account import ServiceAccount, ServiceAccount
 from repository import MongoRepository
 
 repository = MongoRepository(
     database=settings.DATABASE_NAME,
     collection='service_account',
     client=database.client,
-    model_class=ServiceAccountBase
+    model_class=ServiceAccount
 )
 
 
@@ -25,7 +25,7 @@ async def ensure_indexes():
 
 
 async def create_superuser():
-    existing_user = await repository.collection.find_one({"account": settings.SUPERUSER_ACCOUNT_NAME})
+    existing_user = await repository.collection.find_one({"account": settings.SUPERUSER_ACCOUNT_NAME},)
 
     if existing_user:
         settings.logger.info(f"Superuser `{settings.SUPERUSER_ACCOUNT_NAME}` already exists.")

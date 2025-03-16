@@ -23,7 +23,15 @@ def log_method_call(log_collection: Callable[[Any], Any]):
             }
 
             try:
-                result = await method(self, *args, request=request, **kwargs)
+                # Check the parameter of the method. If request is not supported, it will not be passed.
+                from inspect import signature
+
+                sig = signature(method)
+                if "request" in sig.parameters:
+                    result = await method(self, *args, request=request, **kwargs)
+                else:
+                    result = await method(self, *args, **kwargs)
+
                 input_data["output"] = str(result)
                 input_data["status"] = "success"
             except Exception as e:
@@ -33,6 +41,7 @@ def log_method_call(log_collection: Callable[[Any], Any]):
             finally:
                 log_collection_instance = log_collection(self)
                 await log_collection_instance.insert_one(input_data)
+
             return result
 
         return wrapper
