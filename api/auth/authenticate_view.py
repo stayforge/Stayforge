@@ -1,12 +1,17 @@
 """
 Auth View
 """
-from http.client import HTTPException
+import os
+import uuid
 
-from fastapi import APIRouter, Body
+from fastapi import APIRouter, Body, HTTPException
+from pydantic import EmailStr
 
-from .service_account import *
-from .token_manager import TokenManager, TokenRefreshRequest
+import settings
+from settings import SUPERUSER_ACCOUNT_NAME
+from . import repository
+from .service_account import pwd_context
+from .token_manager import TokenManager, TokenRefreshRequest, TokenResponse
 
 router = APIRouter()
 
@@ -32,21 +37,21 @@ async def authenticate(
         )
 ):
     truck_id = uuid.uuid4().hex
-    sa = ServiceAccount(
-        account=account,
-        secret=secret
-    )
+    sa = await repository.find_one({"account": account})
 
-    if sa.verify_secret(plain_secret=secret):
-        tm = TokenManager(truck_id=truck_id)
-        refresh_t, access_t = tm.generate_token(
-            account=account
-        )
+    try:
+        if pwd_context.verify(secret, sa.secret):
+            tm = TokenManager(truck_id=truck_id)
+            refresh_t, access_t = tm.generate_token(
+                account=account
+            )
 
-        return TokenResponse(
-            access_token=access_t.hex(),
-            refresh_token=refresh_t.hex()
-        )
+            return TokenResponse(
+                access_token=access_t.hex(),
+                refresh_token=refresh_t.hex()
+            )
+    except AttributeError:
+        pass
 
     raise HTTPException(
         status_code=401,
@@ -74,14 +79,32 @@ async def refresh_access_token(
         body: TokenRefreshRequest
 ):
     refresh_token = body.refresh_token
+
+    # Super refresh token
+    if refresh_token == os.getenv("SUPER_REFRESH_TOKEN", uuid.uuid4()):
+        tm = TokenManager()
+        refresh_t, access_t = tm.generate_token(
+            account=SUPERUSER_ACCOUNT_NAME
+        )
+
+        return TokenResponse(
+            access_token=access_t.hex(),
+            refresh_token=refresh_t.hex()
+        )
+
     if not refresh_token:
         raise HTTPException(status_code=400, detail="Missing refresh_token")
 
     _refresh_token: bytes = bytes.fromhex(refresh_token)
 
-    tm = TokenManager()
-    access_token: bytes = tm.generate_access_token(refresh_token=_refresh_token)
-
+    try:
+        tm = TokenManager()
+        access_token: bytes = tm.generate_access_token(refresh_token=_refresh_token)
+    except Exception as e:
+        raise HTTPException(
+            status_code=401,
+            detail=f"{e}"
+        )
     return TokenResponse(
         access_token=access_token.hex(),
         refresh_token=refresh_token

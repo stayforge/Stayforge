@@ -15,11 +15,11 @@ jobs:
   update-wiki:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Check out the source sa_repository
-      - name: Checkout source sa_repository
+      # Step 1: Check out the source repository
+      - name: Checkout source repository
         uses: actions/checkout@v3
 
-      # Step 2: Push updated Wiki documentation to the Stayforge.wiki sa_repository
+      # Step 2: Push updated Wiki documentation to the Stayforge.wiki repository
       - name: Push Documentation to Stayforge.wiki
         run: |
           # Configure Git user for pushing changes
@@ -37,13 +37,13 @@ jobs:
         env:
           BOT_PAT: ${{ secrets.BOT_PAT }} # GitHub personal access token for authentication
 
-  # Job 2: Update the main documentation sa_repository
+  # Job 2: Update the main documentation repository
 #  update-docs:
 #    runs-on: ubuntu-latest
 #    needs: update-wiki # Ensure this job runs after the Wiki update
 #    steps:
-#      # Step 1: Check out the source sa_repository
-#      - name: Checkout source sa_repository
+#      # Step 1: Check out the source repository
+#      - name: Checkout source repository
 #        uses: actions/checkout@v3
 #
 #      # Step 2: Get the current branch name and tag
@@ -98,22 +98,22 @@ jobs:
 #        run: |
 #          widdershins openapi.json -o api-docs.md
 #
-#      # Step 8: Push generated documentation to the target sa_repository
+#      # Step 8: Push generated documentation to the target repository
 #      - name: Push Documentation to Target Repository
 #        if: env.TAG != '' # Only push if a valid tag is generated
 #        run: |
 #          # Configure Git user for pushing changes
 #          git config --global user.name "Tokujunsystems-BOT"
 #          git config --global user.email "190532409+Tokujunsystems-BOT@users.noreply.github.com"
-#          # Clone the target documentation sa_repository
+#          # Clone the target documentation repository
 #          git clone https://x-access-token:${{ secrets.BOT_PAT }}@github.com/tokujun-t/Stayforge-Documents.git Stayforge-Documents
 #          cd Stayforge-Documents
 #          # Checkout or create the branch for updates
 #          git checkout ${BRANCH_NAME} || git checkout -b ${BRANCH_NAME}
 #          git pull origin ${BRANCH_NAME} --rebase
-#          # Copy the generated documentation to the sa_repository
+#          # Copy the generated documentation to the repository
 #          cp ../api-docs.md .
-#          # Commit and push changes to the documentation sa_repository
+#          # Commit and push changes to the documentation repository
 #          git add .
 #          git commit -m "Update Documentation for ${TAG} [skip ci]" || echo "No changes to commit"
 #          git push origin ${BRANCH_NAME}

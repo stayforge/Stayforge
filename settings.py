@@ -1,7 +1,9 @@
 import json
 import os
+import uuid
 from pathlib import Path
 
+import json5
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -57,7 +59,7 @@ def getLogger(name="stayforge"):
     return l
 
 
-logger = getLogger(__name__)
+logger = getLogger('Stayforge')
 
 if DEBUG:
     logger.setLevel(logging.DEBUG)
@@ -81,4 +83,9 @@ DEFAULT_MODEL_NAMESPACE = os.getenv("DEFAULT_MODEL_NAMESPACE", "stayforge")
 REFRESH_TOKEN_BYTES = os.getenv("REFRESH_TOKEN_BYTES", 64)
 ACCESS_TOKEN_BYTES = os.getenv("ACCESS_TOKEN_BYTES", 32)
 REFRESH_TOKEN_TTL = 60 * 60 * 24 * 30
-ACCESS_TOKEN_TTL = 60 * 10
+ACCESS_TOKEN_TTL = 60 * 60 * 24
+
+# Service Account & IAM Settings
+SUPERUSER_ACCOUNT_NAME = os.getenv("SUPERUSER_ACCOUNT_NAME", "superuser@iam.auth.stayforge.net")
+SUPERUSER_ACCOUNT_SECRET = os.getenv("SUPERUSER_ACCOUNT_SECRET", uuid.uuid4().hex)
+SUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv("SUPERUSER_ACCOUNT_IAM", '["admin"]'))

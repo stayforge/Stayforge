@@ -3,10 +3,12 @@ import os
 import redis
 
 import settings
+from repository import MongoRepository
 
 
-class MongoRepository:
+class APIMongoRepository(MongoRepository):
     def __init__(self, database, collection, client, model_class=None):
+        super().__init__(database, collection, client)
         self.database = database
         self.collection = collection
         self.client = client

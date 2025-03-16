@@ -5,11 +5,11 @@ branch
 import database
 import settings
 from .models import BranchBase
-from .. import MongoRepository
+from .. import APIMongoRepository
 
 collection_name = 'branch'
 
-repository = MongoRepository(
+repository = APIMongoRepository(
     database=settings.DATABASE_NAME,
     collection=collection_name,
     client=database.client,

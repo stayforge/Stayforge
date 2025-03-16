@@ -11,7 +11,7 @@ from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
 from . import model_classes
-from ..auth.iam import check_permission
+from ..auth.iam import role_checker
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -51,7 +51,7 @@ def create_api_routes(_model_name: str, _model_class: Type[BaseModel]):
             path=f"/{_model_name}{endpoint}",
             endpoint=handler_func,
             methods=methods,
-            dependencies=[Depends(check_permission(permission))],
+            dependencies=[Depends(role_checker(permission))],
             response_model=List[_model_class] if methods == ["GET"] else _model_class,
             tags=[_model_name],
             include_in_schema=True,

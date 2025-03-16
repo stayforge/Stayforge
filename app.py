@@ -6,7 +6,7 @@ from fastapi.openapi.utils import get_openapi
 from starlette.middleware import Middleware
 
 import settings
-from api import router as api_router
+from api import router as api_router, auth
 from docs import docs as docs
 from webhook.middleware import WebhooksMiddleware
 
@@ -29,7 +29,7 @@ app = FastAPI(
         "email": "support@stayforge.io",
     },
     middleware=middleware,
-    docs_url="/docs/swagger",
+    docs_url="/docs/",
 )
 
 description = load_description('description.md')
@@ -63,6 +63,12 @@ def custom_openapi():
 
 
 app.openapi = custom_openapi
+
+
+@app.on_event("startup")
+async def startup_event():
+    await auth.ensure_indexes()
+    await auth.create_superuser()
 
 
 def export_openapi_json(file_path: str):

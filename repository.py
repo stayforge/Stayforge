@@ -2,8 +2,8 @@ import functools
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Callable
 
-from motor.motor_asyncio import AsyncIOMotorClient
 from fastapi import Request
+from motor.motor_asyncio import AsyncIOMotorClient
 
 
 def log_method_call(log_collection: Callable[[Any], Any]):
@@ -24,7 +24,7 @@ def log_method_call(log_collection: Callable[[Any], Any]):
 
             try:
                 result = await method(self, *args, request=request, **kwargs)
-                input_data["output"] = result
+                input_data["output"] = str(result)
                 input_data["status"] = "success"
             except Exception as e:
                 input_data["output"] = str(e)
@@ -40,11 +40,17 @@ def log_method_call(log_collection: Callable[[Any], Any]):
     return decorator
 
 
+class Duplicate:
+    pass
+
+
 class MongoRepository:
-    def __init__(self, database: str, collection: str, client: AsyncIOMotorClient, log_collection: str='logs_method_call'):
+    def __init__(self, database: str, collection: str, client: AsyncIOMotorClient,
+                 log_collection: str = 'logs_method_call', model_class: Any = None):
         self.db = client[database]
         self.collection = self.db[collection]
         self.log_collection = self.db[log_collection]
+        self.model_class = model_class
 
     @log_method_call(log_collection=lambda self: self.log_collection)
     async def insert_one(self, data: Dict[str, Any], request: Optional[Request]) -> str:
@@ -57,7 +63,11 @@ class MongoRepository:
     @log_method_call(log_collection=lambda self: self.log_collection)
     async def find_one(self, query: Dict[str, Any], request: Optional[Request]) -> Optional[Dict[str, Any]]:
         document = await self.collection.find_one(filter=query)
-        return document
+        if document and self.model_class:
+            model_instance = self.model_class(**document)
+            return model_instance
+        else:
+            return document
 
     @log_method_call(log_collection=lambda self: self.log_collection)
     async def find_many(self, query: Dict[str, Any], request: Optional[Request]) -> List[Dict[str, Any]]:

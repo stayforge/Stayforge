@@ -6,10 +6,9 @@ import uuid
 from typing import List, Optional
 
 from passlib.context import CryptContext
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, EmailStr, Field, field_validator
 
 import settings
-from api.schemas import StayForgeModel
 from settings import REFRESH_TOKEN_BYTES, ACCESS_TOKEN_BYTES
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -18,28 +17,27 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 class ServiceAccountBase(BaseModel):
     account: EmailStr | str = Field(
         ...,
-        description="Service Account. It must be an email address (it can be non-real). "
+        description="Service Account. It must be **unique** and it is an email address (can be non-real). "
                     "Or a real user email address, usually used when the administrator logs into the panel.",
         example="serviceaccount@iam.auth.stayforge.io"
     )
     secret: str = Field(
         ...,
-        examples=[f"{"Password_for_HumanUser", "API_Key_for_M2M"}"],
+        examples=["Password_for_HumanUser", "API_Key_for_M2M"],
         description="`API Key` (For M2M) or `Password` (For human user).",
     )
+
+    # noinspection PyNestedDecorators
+    @field_validator("secret", mode="before")
+    @classmethod
+    def hash_secret(cls, value: str) -> str:
+        if value.startswith("$2b$"):
+            return value
+        return pwd_context.hash(value)
 
     @property
     def validated_account_name(self) -> EmailStr:
         return EmailStr(self.account)
-
-    def verify_secret(self, plain_secret: str) -> bool:
-        """Verify password or API Key"""
-        return pwd_context.verify(plain_secret, self.secret)
-
-    @classmethod
-    def hash_secret(cls, secret: str) -> str:
-        """Hash password or API Key"""
-        return pwd_context.hash(secret)
 
     @classmethod
     def generate_secret_key(cls) -> str:
@@ -47,17 +45,13 @@ class ServiceAccountBase(BaseModel):
         return str(uuid.uuid4())
 
 
-class ServiceAccount(ServiceAccountBase, StayForgeModel):
-    iam: List[str] = Field(
-        ...,
-        examples=[
-            [
-                "read",
-                "branch:write",
-                "order:admin"
-            ]
-        ],
+class ServiceAccount(ServiceAccountBase):
+    iam: List[str] | None = Field(
+        None,
+        description="A list of IAM permissions granted to the service account.",
+        example=["read", "branch:write", "order:admin"]
     )
+
 
 class TokenResponse(BaseModel):
     access_token: Optional[str] = Field(
