@@ -18,7 +18,7 @@ def load_description(file_path: str) -> str:
 
 
 middleware = [
-    Middleware(WebhooksMiddleware)
+    # Middleware(WebhooksMiddleware)
 ]
 
 app = FastAPI(
