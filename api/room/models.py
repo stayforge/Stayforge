@@ -4,32 +4,29 @@ Room Models
 
 from random import randint
 
-from pydantic import BaseModel, Field, constr
+from pydantic import BaseModel, Field
 
 from api.schemas import StayForgeModel
 
 
 class RoomBase(BaseModel):
-    room_type_id: str = Field(
-        ..., description="Reference ID of the RoomType."
+    room_type_name: str = Field(
+        ...,
+        description="Reference ID of the RoomType."
     )
-    branch_id: str = Field(
-        ..., description="Reference ID of the Branch."
+    branch_name: str = Field(
+        ...,
+        description="Reference ID of the Branch."
     )
     number: str = Field(
         ...,
         examples=[f"{randint(1, 9)}0{randint(1, 9)}"],
         description="The number of rooms, e.g., 203."
     )
-    name: constr(pattern=r'^[a-z0-9_-]+$') = Field(
-        ...,
-        examples=["happy-room-101_myhotel"],
-        description="Unique name. Only `a-z`, `0-9` and `-_` are allowed."
-    )
     name_visible: str = Field(
         None,
         examples=["Happy Room"],
-        description=""
+        description="A visual room name. You can give the room your favorite name."
     )
     priority: int = Field(
         0,

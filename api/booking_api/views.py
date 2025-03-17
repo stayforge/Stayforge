@@ -9,9 +9,9 @@ from fastapi import APIRouter
 router = APIRouter()
 
 
-@router.get("/schedule/{branch_id}", description="Return to a branch's room schedule.")
+@router.get("/schedule/{branch_name}", description="Return to a branch's room schedule.")
 async def schedule(
-        branch_id: str
+        branch_name: str
 ):
     return
 
