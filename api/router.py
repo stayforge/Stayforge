@@ -10,6 +10,7 @@ from api.auth.authenticate_view import router as auth_router
 from api.auth.role import role
 from api.booking_api.views import router as booking_api
 from api.branch.models import Branch
+from api.field_based_crud_router import FieldBasedCRUDRouter
 from api.order.models import Order
 from api.room.models import Room
 from api.room_type.models import RoomType
@@ -36,22 +37,28 @@ router.include_router(CRUDRouter(
     prefix="/service_accounts",
     tags=["Service Accounts"],
 ))
-router.include_router(CRUDRouter(
-    model=Branch,
-    db=db,
-    collection_name=branch.collection_name,
-    prefix="/branch",
-    tags=["Branches"]
-),
+
+router.include_router(
+    FieldBasedCRUDRouter(
+        model=Branch,
+        db=db,
+        collection_name=branch.collection_name,
+        identifier_field="name",  # Use name as the identifier
+        prefix="/branch",
+        tags=["Branches"]
+    ),
     dependencies=[Depends(role("Branches"))]
 )
-router.include_router(CRUDRouter(
-    model=RoomType,
-    db=db,
-    collection_name=room_type.collection_name,
-    prefix="/room_type",
-    tags=["RoomTypes"]
-),
+
+router.include_router(
+    FieldBasedCRUDRouter(
+        model=RoomType,
+        db=db,
+        collection_name=room_type.collection_name,
+        identifier_field="name",
+        prefix="/room_type",
+        tags=["RoomTypes"],
+    ),
     dependencies=[Depends(role("RoomTypes"))]
 )
 router.include_router(CRUDRouter(
@@ -59,16 +66,18 @@ router.include_router(CRUDRouter(
     db=db,
     collection_name=room.collection_name,
     prefix="/room",
-    tags=["Rooms"],
+    tags=["Rooms"]
 ),
     dependencies=[Depends(role("Rooms"))]
 )
-router.include_router(CRUDRouter(
-    model=Order,
-    db=db,
-    collection_name=order.collection_name,
-    prefix="/order",
-    tags=["Orders"],
-),
+router.include_router(
+    FieldBasedCRUDRouter(
+        model=Order,
+        db=db,
+        collection_name=order.collection_name,
+        identifier_field="num",
+        prefix="/order",
+        tags=["Orders"]
+    ),
     dependencies=[Depends(role("Orders"))]
 )
