@@ -31,7 +31,7 @@ services:
     image: mongo:latest
     container_name: mongodb
     volumes:
-      - data:/data/db
+      - data:/data/auth_db
     networks:
       - database
 

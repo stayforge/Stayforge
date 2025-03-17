@@ -23,7 +23,7 @@ class Attachments(BaseModel):
     color: str = "#36a64f"
     fields: list[dict[str, Any]] = Fields(
         title="k1",
-        value="v1",
+        value="api_factory",
         short=True
     )
 

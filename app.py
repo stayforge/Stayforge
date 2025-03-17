@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 
 import settings
-from api import router as api_router, auth
+from api import router as api_router
 from docs import docs as docs
 
 
@@ -63,12 +63,6 @@ def custom_openapi():
 app.openapi = custom_openapi
 
 
-@app.on_event("startup")
-async def startup_event():
-    await auth.ensure_indexes()
-    await auth.create_superuser()
-
-
 def export_openapi_json(file_path: str):
     with open(file_path, "w") as f:
         api_spec = app.openapi()
@@ -78,4 +72,3 @@ def export_openapi_json(file_path: str):
 
 if __name__ == '__main__':
     export_openapi_json("openapi.json")
-    exit(0)

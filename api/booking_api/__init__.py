@@ -1,5 +1,5 @@
 """
-Stayforge Booking API v1
+Stayforge Booking API api_factory
 
 Stayforge Booking API is used for application-level booking_api operations.
 """
