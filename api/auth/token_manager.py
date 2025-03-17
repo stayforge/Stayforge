@@ -2,12 +2,10 @@
 Token Generator & Manager
 """
 import hashlib
-import os
 import secrets
 import uuid
 from typing import Optional
 
-from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from pydantic import EmailStr, BaseModel, Field
 
@@ -15,8 +13,8 @@ import settings
 from api import RedisClient
 from settings import ACCESS_TOKEN_BYTES, REFRESH_TOKEN_BYTES
 
-
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
 
 class TokenManager:
     @staticmethod
@@ -91,5 +89,4 @@ class TokenRefreshRequest(BaseModel):
 
 class TokenResponse(BaseModel):
     access_token: str
-    refresh_token: str
-
+    refresh_token: Optional[str] = None
