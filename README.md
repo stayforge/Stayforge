@@ -1,4 +1,4 @@
-# Stayforge Overview
+# Overview
 
 ![Commit Activity](https://img.shields.io/github/commit-activity/m/tokujun-t/Stayforge)
 ![Codecov](https://codecov.io/gh/tokujun-t/Stayforge/branch/main/graph/badge.svg)
@@ -8,11 +8,19 @@
 ![GitHub Workflow Status](https://github.com/tokujun-t/Stayforge/actions/workflows/docker-build-push.yml/badge.svg)
 ![GitHub Workflow Status](https://github.com/tokujun-t/Stayforge/actions/workflows/python-sdk.yml/badge.svg)
 
+Stayforge is both an engine and a platform that simplifies the development and deployment of all stay-related
+applications. Originally implemented in our company’s unmanned hotel project, Stayforge has evolved to support a wide
+range of use cases. Beyond hotels, it can be applied to rental offices, parking lots, co-working spaces, serviced
+apartments, smart retail centers, and even logistics hubs.
+
+This versatile solution streamlines operational workflows by automating many of the tasks typically associated with
+property management and service deployment. Whether you’re running a modern hospitality operation, managing urban rental
+spaces, or overseeing any stay-centric business, Stayforge offers a comprehensive toolkit to accelerate innovation and
+enhance efficiency.
+
 https://www.stayforge.io
 
-
-  **Let’s take our time to read the document**
-
+**Let’s take our time to read the document**
 
 If you are too anxious and start reading from the middle of the document, you will most likely not be able to understand
 the meaning. Therefore, we recommend that you read the documentation from scratch.
