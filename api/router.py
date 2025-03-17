@@ -6,6 +6,7 @@ from fastapi_crudrouter_mongodb import CRUDRouter
 
 from api import db
 from api.auth import ServiceAccount
+from api.auth.authenticate_view import router as auth
 
 router = APIRouter()
 
@@ -16,7 +17,7 @@ router = APIRouter()
 # router.include_router(mq, prefix="/mq", tags=["Message Queue"])
 
 # Auth API
-# router.include_router(auth, prefix="/auth", tags=["Auth"])
+router.include_router(auth, prefix="/auth", tags=["Authentication"])
 
 # API v1
 router.include_router(CRUDRouter(

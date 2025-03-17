@@ -4,7 +4,6 @@ IAM Permission Checker
 
 from fastapi import HTTPException, Header
 
-from api.auth import repository
 from api.auth.token_manager import TokenManager
 
 _token_manager = TokenManager()

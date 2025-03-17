@@ -1,4 +1,5 @@
 # Stayforge
+
 ![Commit Activity](https://img.shields.io/github/commit-activity/m/tokujun-t/Stayforge)
 ![Codecov](https://codecov.io/gh/tokujun-t/Stayforge/branch/main/graph/badge.svg)
 ![Docker Pulls](https://img.shields.io/docker/pulls/tokujunsystem/stayforge.svg)
@@ -9,14 +10,63 @@
 
 https://www.stayforge.io
 
-## Setup
+# Overview
 
-Set environment variables and run Stayforge through [docker-compose.yml](docker-compose.yaml).
+If you are too anxious and start reading from the middle of the document, you will most likely not be able to understand
+the meaning. Therefore, we recommend that you read the documentation from scratch.
 
-```dotenv
-PORT=80
-MONGO_URL=mongodb://localhost
-REDIS_URL=redis://redis
+Or, you just want to quickly build a Stayforge for evaluation, we recommend using the Stayforge SaaS service (that is
+free to a certain extent), or following the Quick Start chapter in the documentation to load your own server
+environment.
+
+## How to use
+
+First, You need to deploy Stayforge first using Docker Compose or Kubernetes. The specific deployment instructions and
+procedures are explained in detail in the Depoly chapter of the Stayforge document.
+
+Second, after you deploy Stayforge, you have two options to operate Stayforge.
+
+- Use the Stayforge API to operate Stayforge, which is mainly aimed at developer users.
+- If you are not a developer, you can use Stayforge Foundry, which provides friendly graphics pages to help you run your
+  business with Stayforge.
+
+## Quick Start - Depoly Stayforge
+
+Our Stayforge SaaS service provides a free one-click deployment service to a certain extent. On that day, we welcome you
+to deploy it on your own server.
+
+The specific detailed documentation is here:
+
+You can deploy Stayforge through Docker or Kubernetes.Stayforge is Docker-based,
+and you can also deploy with Google Cloud Run, etc. to save time.
+
+## Quick Start - Use Stayforge API
+
+All operations in Stayforge are done by the Web API.
+The Stayforge API supported JWT to verify identity.
+
+### authenticate
+
+Before you start, you need to get `access_token` & `refresh_token` to get access.
+
+`access_token` is used to access the API, and the default is `60 * 60 * 24` seconds (24 hours). and,
+`refresh_token`, used to refresh the API. The default is `60 * 60 * 24 * 30` seconds (30 days).
+
+About the detailed API instructions, please refer to
+details [Authentication](#/Authentication/authenticate_api_auth_authenticate_post)
+
+### Healthcheck
+
+Healthcheck at `/api/healthcheck`. curl to check if the service is working.
+
+```shell
+curl -I https://<your service>/api/healthcheck
 ```
 
-kubectl apply -f k8s/
+### Some Links
+
+GitHub Repo
+[https://github.com/tokujun-t/Stayforge](https://github.com/tokujun-t/Stayforge)
+
+Wiki
+[https://github.com/tokujun-t/Stayforge/wiki](https://github.com/tokujun-t/Stayforge/wiki)
