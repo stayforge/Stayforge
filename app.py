@@ -30,7 +30,7 @@ app = FastAPI(
     docs_url="/docs/",
 )
 
-description = load_description('description.md')
+description = load_description('README.md')
 
 app.include_router(api_router.router, prefix="/api")
 app.include_router(docs.app, prefix="/docs", include_in_schema=False)
