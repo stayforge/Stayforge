@@ -5,7 +5,7 @@ from typing import Optional, List
 
 from bson import ObjectId
 from faker import Faker
-from pydantic import BaseModel, Field, AnyUrl, field_validator
+from pydantic import BaseModel, Field, AnyUrl, field_validator, constr
 
 import settings
 from api.order import order_types
@@ -76,10 +76,10 @@ class Guest(BaseModel):
 
 # noinspection PyNestedDecorators
 class OrderBase(BaseModel):
-    num: str = Field(
+    num: constr(pattern=r'^[A-Za-z0-9_\-#@:\/|\\\[\]\(\)\{\}<>\.!\?]+$') = Field(
         ...,
         examples=[f"{datetime.now().strftime('%Y%m%d%H%M%S')}{str(uuid.uuid4().int % 10000).zfill(4)}"],
-        description="Order number"
+        description="Order number. Only `A-Z`, `a-z`, `0-9` and `-_#@:` are allowed."
     )
     room_id: str = Field(
         None,

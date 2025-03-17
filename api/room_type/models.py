@@ -15,7 +15,7 @@ class RoomTypeBase(BaseModel):
         examples=[None, "standard", "premium"],
         description="Parent room type’s name. If set to None, it will be considered a top-level room type."
     )
-    name: constr(regex=r'^[a-z0-9_-]+$') = Field(
+    name: constr(pattern=r'^[a-z0-9_-]+$') = Field(
         ...,
         examples=["happy-room-101_myhotel"],
         description="Unique name. Only `a-z`, `0-9` and `-_` are allowed."
