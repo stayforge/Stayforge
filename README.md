@@ -55,6 +55,8 @@ Before you start, you need to get `access_token` & `refresh_token` to get access
 About the detailed API instructions, please refer to
 details [Authentication](#/Authentication/authenticate_api_auth_authenticate_post)
 
+## Tips
+
 ### Healthcheck
 
 Healthcheck at `/api/healthcheck`. curl to check if the service is working.

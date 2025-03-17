@@ -9,6 +9,7 @@ import motor.motor_asyncio
 import redis
 
 import settings
+from api import auth
 from repository import MongoRepository
 
 
@@ -27,7 +28,7 @@ class APIMongoRepository(MongoRepository):
 client = motor.motor_asyncio.AsyncIOMotorClient(settings.MONGO_URL)
 db = client.local
 # Crate index here
-db.service_account.create_index("account", unique=True)
+db[auth.collection_name].create_index("account", unique=True)
 
 """ Redis Client """
 
