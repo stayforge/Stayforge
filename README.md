@@ -67,14 +67,6 @@ details [Authentication](#/Authentication/authenticate_api_auth_authenticate_pos
 
 ## Tips
 
-### Healthcheck
-
-Healthcheck at `/api/healthcheck`. curl to check if the service is working.
-
-```shell
-curl -I https://<your service>/api/healthcheck
-```
-
 ### Some Links
 
 GitHub Repo
