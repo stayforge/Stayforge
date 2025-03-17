@@ -4,7 +4,7 @@ Room Models
 
 from random import randint
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, constr
 
 from api.schemas import StayForgeModel
 
@@ -20,6 +20,16 @@ class RoomBase(BaseModel):
         ...,
         examples=[f"{randint(1, 9)}0{randint(1, 9)}"],
         description="The number of rooms, e.g., 203."
+    )
+    name: constr(regex=r'^[a-z0-9_-]+$') = Field(
+        ...,
+        examples=["happy-room-101_myhotel"],
+        description="Unique name. Only `a-z`, `0-9` and `-_` are allowed."
+    )
+    name_visible: str = Field(
+        None,
+        examples=["Happy Room"],
+        description=""
     )
     priority: int = Field(
         0,

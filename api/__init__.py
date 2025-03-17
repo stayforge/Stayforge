@@ -9,7 +9,7 @@ import motor.motor_asyncio
 import redis
 
 import settings
-from api import auth
+from api import auth, branch, room_type, room, order
 from repository import MongoRepository
 
 
@@ -29,7 +29,10 @@ client = motor.motor_asyncio.AsyncIOMotorClient(settings.MONGO_URL)
 db = client.local
 # Crate index here
 db[auth.collection_name].create_index("account", unique=True)
-# TODO: Adding the unique to APIs like Branch
+db[branch.collection_name].create_index("name", unique=True)
+db[room_type.collection_name].create_index("name", unique=True)
+db[room.collection_name].create_index("name", unique=True)
+db[order.collection_name].create_index("num", unique=True)
 
 """ Redis Client """
 

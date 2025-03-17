@@ -4,7 +4,7 @@ Room Type Models
 
 from typing import List, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, constr
 
 from api.schemas import StayForgeModel
 
@@ -15,10 +15,10 @@ class RoomTypeBase(BaseModel):
         examples=[None, "standard", "premium"],
         description="Parent room type’s name. If set to None, it will be considered a top-level room type."
     )
-    name: str = Field(
+    name: constr(regex=r'^[a-z0-9_-]+$') = Field(
         ...,
-        examples=['standard', 'premium'],
-        description="Unique name of RoomType."
+        examples=["happy-room-101_myhotel"],
+        description="Unique name. Only `a-z`, `0-9` and `-_` are allowed."
     )
     nameVisible: str = Field(
         ...,

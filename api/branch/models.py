@@ -2,14 +2,19 @@
 Branch API
 """
 from faker import Faker
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, constr
 
 from api.schemas import StayForgeModel
 
 faker = Faker('ja_JP')
 
 class BranchBase(BaseModel):
-    name: str = Field(
+    name: constr(regex=r'^[a-z0-9_-]+$') = Field(
+        ...,
+        examples=["stayforge-hotel_bay"],
+        description="Unique name. Only `a-z`, `0-9` and `-_` are allowed."
+    )
+    name_visible: str = Field(
         ...,
         examples=[f"ホテルステイフォージ{faker.town()}"],
         description="The name of the hotel branch. By default, it combines a base name with a random town."
