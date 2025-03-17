@@ -64,10 +64,10 @@ def custom_openapi():
     ]
 
     for path, methods in openapi_schema["paths"].items():
-        # 如果 path 以 endpoints_to_override 中任一項作為前綴，則 security 為空；否則加入 BearerAuth
+        # If path is prefixed with either endpoints_to_override, security is empty;
+        # otherwise BearerAuth is added
         security_setting = [] if any(path.startswith(ep) for ep in endpoints_to_override) else [{"BearerAuth": []}]
         for method in methods:
-            print(path, method, security_setting)
             methods[method]["security"] = security_setting
     app.openapi_schema = openapi_schema
     return app.openapi_schema
