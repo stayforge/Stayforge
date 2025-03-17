@@ -1,4 +1,4 @@
-# Stayforge
+# Stayforge Overview
 
 ![Commit Activity](https://img.shields.io/github/commit-activity/m/tokujun-t/Stayforge)
 ![Codecov](https://codecov.io/gh/tokujun-t/Stayforge/branch/main/graph/badge.svg)
@@ -10,7 +10,9 @@
 
 https://www.stayforge.io
 
-# Overview
+
+  **Let’s take our time to read the document**
+
 
 If you are too anxious and start reading from the middle of the document, you will most likely not be able to understand
 the meaning. Therefore, we recommend that you read the documentation from scratch.
@@ -19,7 +21,7 @@ Or, you just want to quickly build a Stayforge for evaluation, we recommend usin
 free to a certain extent), or following the Quick Start chapter in the documentation to load your own server
 environment.
 
-## How to use
+## Quick Start
 
 First, You need to deploy Stayforge first using Docker Compose or Kubernetes. The specific deployment instructions and
 procedures are explained in detail in the Depoly chapter of the Stayforge document.
@@ -45,7 +47,7 @@ and you can also deploy with Google Cloud Run, etc. to save time.
 All operations in Stayforge are done by the Web API.
 The Stayforge API supported JWT to verify identity.
 
-### authenticate
+### Authenticate
 
 Before you start, you need to get `access_token` & `refresh_token` to get access.
 

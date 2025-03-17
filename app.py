@@ -57,21 +57,18 @@ def custom_openapi():
             "description": "Please use `access_token`."
         }
     }
-    # Set the security requirements of the whole domain (most routes will use BearerAuth)
-    openapi_schema["security"] = [{"BearerAuth": []}]
-
     # Path to cover security requirements
     endpoints_to_override = [
         "/api/auth/authenticate",
         "/api/auth/refresh_access_token"
     ]
-    # Remove security settings for all HTTP methods under this path
-    for path, methods in openapi_schema["paths"].items():
-        for endpoint in endpoints_to_override:
-            if path.startswith(endpoint):
 
-                for method in methods:
-                    methods[method]["security"] = []
+    for path, methods in openapi_schema["paths"].items():
+        # 如果 path 以 endpoints_to_override 中任一項作為前綴，則 security 為空；否則加入 BearerAuth
+        security_setting = [] if any(path.startswith(ep) for ep in endpoints_to_override) else [{"BearerAuth": []}]
+        for method in methods:
+            print(path, method, security_setting)
+            methods[method]["security"] = security_setting
     app.openapi_schema = openapi_schema
     return app.openapi_schema
 

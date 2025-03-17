@@ -39,7 +39,7 @@ router.include_router(CRUDRouter(
     prefix="/branch",
     tags=["Branches"]
 ),
-    dependencies=[Depends(role("Branches".lower()))]
+    dependencies=[Depends(role("Branches"))]
 )
 router.include_router(CRUDRouter(
     model=RoomType,
@@ -48,7 +48,7 @@ router.include_router(CRUDRouter(
     prefix="/room_type",
     tags=["RoomTypes"]
 ),
-    dependencies=[Depends(role("RoomTypes".lower()))]
+    dependencies=[Depends(role("RoomTypes"))]
 )
 router.include_router(CRUDRouter(
     model=Room,
@@ -57,7 +57,7 @@ router.include_router(CRUDRouter(
     prefix="/room",
     tags=["Rooms"],
 ),
-    dependencies=[Depends(role("Rooms".lower()))]
+    dependencies=[Depends(role("Rooms"))]
 )
 router.include_router(CRUDRouter(
     model=Order,
@@ -66,5 +66,5 @@ router.include_router(CRUDRouter(
     prefix="/order",
     tags=["Orders"],
 ),
-    dependencies=[Depends(role("Orders".lower()))]
+    dependencies=[Depends(role("Orders"))]
 )
