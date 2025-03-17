@@ -1,7 +1,8 @@
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Optional, Annotated
 
 from bson import ObjectId
+from fastapi_crudrouter_mongodb import MongoObjectId
 from pydantic import BaseModel, Field
 
 import settings
@@ -12,10 +13,7 @@ class Stayforge(BaseModel):
 
 
 class StayForgeModel(BaseModel):
-    id: str = Field(
-        str(ObjectId()),
-        description="The unique ID of this object."
-    )
+    id: Annotated[ObjectId, MongoObjectId] | None = None
     metadata: Optional[dict] = Field(
         None,
         examples=[{
