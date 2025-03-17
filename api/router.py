@@ -4,10 +4,11 @@ API Routers
 from fastapi import APIRouter, Depends
 from fastapi_crudrouter_mongodb import CRUDRouter
 
-from api import db, branch, auth, order
+from api import db, branch, auth, order, room_type, room
 from api.auth import ServiceAccount
 from api.auth.authenticate_view import router as auth_router
 from api.auth.role import role
+from api.booking_api.views import router as booking_api
 from api.branch.models import Branch
 from api.order.models import Order
 from api.room.models import Room
@@ -23,6 +24,9 @@ router = APIRouter()
 
 # Auth API
 router.include_router(auth_router, prefix="/auth", tags=["Authentication"])
+
+# Booking API
+router.include_router(booking_api, prefix="/booking_api", tags=["Booking API"])
 
 # API v1
 router.include_router(CRUDRouter(
@@ -44,7 +48,7 @@ router.include_router(CRUDRouter(
 router.include_router(CRUDRouter(
     model=RoomType,
     db=db,
-    collection_name=branch.collection_name,
+    collection_name=room_type.collection_name,
     prefix="/room_type",
     tags=["RoomTypes"]
 ),
@@ -53,7 +57,7 @@ router.include_router(CRUDRouter(
 router.include_router(CRUDRouter(
     model=Room,
     db=db,
-    collection_name=branch.collection_name,
+    collection_name=room.collection_name,
     prefix="/room",
     tags=["Rooms"],
 ),

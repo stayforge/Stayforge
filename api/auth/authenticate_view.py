@@ -13,7 +13,7 @@ from .models import pwd_context
 from .token_manager import TokenManager, TokenRefreshRequest, TokenResponse
 from .. import db
 
-router = APIRouter()
+router = APIRouter(prefix="/api/auth")
 
 
 @router.post(
@@ -40,7 +40,7 @@ async def authenticate(
     sa = await db.service_account.find_one({"account": account})
 
     try:
-        if pwd_context.verify(secret, sa.secret):
+        if pwd_context.verify(secret, sa['secret']):
             tm = TokenManager(truck_id=truck_id)
             refresh_t, access_t = tm.generate_token(
                 account=account

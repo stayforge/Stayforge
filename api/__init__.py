@@ -29,6 +29,7 @@ client = motor.motor_asyncio.AsyncIOMotorClient(settings.MONGO_URL)
 db = client.local
 # Crate index here
 db[auth.collection_name].create_index("account", unique=True)
+# TODO: Adding the unique to APIs like Branch
 
 """ Redis Client """
 

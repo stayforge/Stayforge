@@ -1,11 +1,14 @@
+import json
 import uuid
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Optional, List
 
 from bson import ObjectId
 from faker import Faker
-from pydantic import BaseModel, Field, AnyUrl
+from pydantic import BaseModel, Field, AnyUrl, field_validator
 
+import settings
+from api.order import order_types
 from api.schemas import StayForgeModel
 
 faker = Faker('ja_JP')
@@ -71,13 +74,46 @@ class Guest(BaseModel):
     id_document: Optional[IDDocument]
 
 
+# noinspection PyNestedDecorators
 class OrderBase(BaseModel):
-    num: str = Field(..., examples=["202311151300011234"], description="Order number")
-    room_id: str = Field(None, examples=[str(ObjectId())], description="Room ID")
-    guest: Guest = Field(None, description="Guest information")
-    type: str = Field(..., examples=['booked'], description="OrderType")
-    checkin_at: datetime = Field(None, description="這個房間被佔用的開始時間。")
-    checkout_at: datetime = Field(None, description="這個房間被佔用的結束時間。")
+    num: str = Field(
+        ...,
+        examples=[f"{datetime.now().strftime('%Y%m%d%H%M%S')}{str(uuid.uuid4().int % 10000).zfill(4)}"],
+        description="Order number"
+    )
+    room_id: str = Field(
+        None,
+        examples=[str(ObjectId())],
+        description="Room ID"
+    )
+    guest: Guest = Field(
+        None,
+        description="Guest information"
+    )
+    type: str = Field(
+        ...,
+        examples=order_types,
+        description="OrderType",
+    )
+    checkin_at: datetime = Field(
+        None,
+        examples=[datetime.now() + timedelta(days=1)],
+        description="The `start time` of this room being occupied."
+    )
+    checkout_at: datetime = (
+        Field(
+            None,
+            examples=[datetime.now() + timedelta(days=2)],
+            description="The `end time` of this room being occupied."
+        )
+    )
+
+    @field_validator("type", mode="before")
+    @classmethod
+    def validate_order_type(cls, value):
+        if value not in order_types:
+            raise ValueError(f"OrderType Must be one of them: {json.dumps(order_types, ensure_ascii=False)}")
+        return value
 
     @classmethod
     def generate_num(cls) -> str:
@@ -86,37 +122,6 @@ class OrderBase(BaseModel):
 
 class Order(OrderBase, StayForgeModel):
     @classmethod
-    def order_types(cls, simple_list=False) -> List[dict]:
-        _status = [
-            {
-                'booked': {
-                    "description": "Create this order means that the room is booked. "
-                                   "If checkout_at is exceeded and there is no in-using state, it will automatically be converted to close."
-                }
-            },
-            {
-                'in-using': {"description": "Create this order means that the room is in-using. "
-                                            "If checkout_at is exceeded, it will automatically be converted to wait-for-maintain"
-                             }
-            },
-            {
-                'wait-for-maintain': {
-                    "description": "When the guest check-out, the order will automatically change to this state. "
-                                   "This state does not end automatically until the close order is created."
-                }
-            },
-            {
-                'under-maintenance': {
-                    "description": "If you need to close the room for some reason, create an Order for this state. "
-                                   "**It should be noted that even if you reach checkout_at, the room will not be automatically converted to close.**"
-                }
-            },
-            {
-                'close': {
-                    "description": "After creating other types of orders, you must create a close order to end the room's occupation."
-                }
-            },
-        ]
-        if simple_list:
-            return [__ for __ in _status]
+    def order_types(cls) -> dict | List[str]:
+        _status = settings.ORDER_TYPE
         return _status

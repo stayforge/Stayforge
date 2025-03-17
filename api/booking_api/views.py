@@ -9,7 +9,7 @@ from fastapi import APIRouter
 router = APIRouter()
 
 
-@router.post("/schedule/{branch_id}", description="Return to a branch's room schedule.")
+@router.get("/schedule/{branch_id}", description="Return to a branch's room schedule.")
 async def schedule(
         branch_id: str
 ):

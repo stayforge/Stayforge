@@ -33,14 +33,13 @@ class StayForgeModel(BaseModel):
         description="The date of the object being updated."
     )
 
+    def to_mongo(self) -> dict:
+        return self.model_dump(exclude_unset=True)
+
     @classmethod
-    def from_mongo(cls, document: dict | list):
-        if document:
-            document["id"] = str(document["_id"])
-            del document["_id"]
-            if document is None:
-                raise ValueError("Document is None")
-        return cls(**document)
+    def from_mongo(cls, data: dict):
+        data['id'] = data.get('_id')
+        return cls(**data)
 
 
 class BaseResponses(BaseModel):

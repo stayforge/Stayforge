@@ -89,3 +89,26 @@ ACCESS_TOKEN_TTL = 60 * 60 * 24
 SUPERUSER_ACCOUNT_NAME = os.getenv("SUPERUSER_ACCOUNT_NAME", "superuser@role.auth.stayforge.net")
 SUPERUSER_ACCOUNT_SECRET = os.getenv("SUPERUSER_ACCOUNT_SECRET", uuid.uuid4().hex)
 SUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv("SUPERUSER_ACCOUNT_IAM", '["admin"]'))
+
+# Order Types
+ORDER_TYPE: dict = {
+
+    'booked': {
+        "description": "Create this order means that the room is booked. "
+                       "If checkout_at is exceeded and there is no in-using state, it will automatically be converted to close."
+    },
+    'in-using': {"description": "Create this order means that the room is in-using. "
+                                "If checkout_at is exceeded, it will automatically be converted to wait-for-maintain"
+                 },
+    'wait-for-maintain': {
+        "description": "When the guest check-out, the order will automatically change to this state. "
+                       "This state does not end automatically until the close order is created."
+    },
+    'under-maintenance': {
+        "description": "If you need to close the room for some reason, create an Order for this state. "
+                       "**It should be noted that even if you reach checkout_at, the room will not be automatically converted to close.**"
+    },
+    'close': {
+        "description": "After creating other types of orders, you must create a close order to end the room's occupation."
+    }
+}

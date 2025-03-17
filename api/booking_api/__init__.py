@@ -1,9 +1,7 @@
 """
 Stayforge Booking API api_factory
 
-Stayforge Booking API is used for application-level booking_api operations.
+There is Application-level API.
+Used to simplify the Order operation process of Stayforge, and facilitate handling of hold, booking, cancel booking, checkin, checkout requirements.
+You can directly connect with the reservation system, reservation website, etc.
 """
-from mq import MessageQueue
-
-mq = MessageQueue(stream_name=stream)
-mq.enqueue('')
