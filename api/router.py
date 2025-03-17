@@ -49,7 +49,6 @@ router.include_router(
     ),
     dependencies=[Depends(role("Branches"))]
 )
-
 router.include_router(
     FieldBasedCRUDRouter(
         model=RoomType,
