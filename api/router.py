@@ -1,12 +1,13 @@
 """
 API Routers
 """
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from fastapi_crudrouter_mongodb import CRUDRouter
 
 from api import db, branch, auth, order
 from api.auth import ServiceAccount
 from api.auth.authenticate_view import router as auth_router
+from api.auth.role import role
 from api.branch.models import Branch
 from api.order.models import Order
 from api.room.models import Room
@@ -36,26 +37,34 @@ router.include_router(CRUDRouter(
     db=db,
     collection_name=branch.collection_name,
     prefix="/branch",
-    tags=["Branches"],
-))
+    tags=["Branches"]
+),
+    dependencies=[Depends(role("Branches".lower()))]
+)
 router.include_router(CRUDRouter(
     model=RoomType,
     db=db,
     collection_name=branch.collection_name,
     prefix="/room_type",
-    tags=["RoomTypes"],
-))
+    tags=["RoomTypes"]
+),
+    dependencies=[Depends(role("RoomTypes".lower()))]
+)
 router.include_router(CRUDRouter(
     model=Room,
     db=db,
     collection_name=branch.collection_name,
     prefix="/room",
     tags=["Rooms"],
-))
+),
+    dependencies=[Depends(role("Rooms".lower()))]
+)
 router.include_router(CRUDRouter(
     model=Order,
     db=db,
     collection_name=order.collection_name,
     prefix="/order",
     tags=["Orders"],
-))
+),
+    dependencies=[Depends(role("Orders".lower()))]
+)

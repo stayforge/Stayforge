@@ -74,9 +74,20 @@ class TokenManager:
 
         return self.access_token
 
-    def get_account_name_by_accesstoken(self):
-        self.access_token_client.get()
-        return
+    def get_account_name_by_accesstoken(self, access_token: bytes | str) -> str:
+        """Get the account name associated with the given access token."""
+        if isinstance(access_token, str):
+            access_token = bytes.fromhex(access_token)
+
+        self.access_token_hash = self.sha256(access_token)
+        token_data = self.access_token_client.get(self.access_token_hash)
+
+        if token_data is None:
+            raise ValueError("Invalid access token")
+
+        # Extract the account name from the stored token data
+        refresh_token, account = token_data.decode().split('|')
+        return account
 
 
 class TokenRefreshRequest(BaseModel):

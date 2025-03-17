@@ -22,7 +22,7 @@ router = APIRouter()
     summary="Authenticate, Get refresh_token and access_token",
     description="This API gives you a cake(access_token) and a baker(refresh_token). "
                 f"But don’t keep the baker waiting—if you don’t put them to work within {settings.REFRESH_TOKEN_TTL} seconds, "
-                "they’ll walk out on you. No baker, no cake!",
+                "they’ll walk out on you. No baker, no cake!"
 )
 async def authenticate(
         account: EmailStr = Body(
@@ -74,7 +74,7 @@ async def authenticate(
             "Think of the `access_token` as the cake, and the Refresh Token as the baker"
             "—basically, the one that keeps the cake coming. "
             "When you've finished your cake, ask your baker to make your bread!"
-    ),
+    )
 )
 async def refresh_access_token(
         body: TokenRefreshRequest

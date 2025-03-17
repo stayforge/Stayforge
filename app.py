@@ -27,7 +27,8 @@ app = FastAPI(
         "email": "support@stayforge.io",
     },
     middleware=middleware,
-    docs_url="/docs/",
+    docs_url="/docs/swagger",
+    redoc_url="/docs/redoc",
 )
 
 description = load_description('README.md')
@@ -52,12 +53,27 @@ def custom_openapi():
         "BearerAuth": {
             "type": "http",
             "scheme": "Bearer",
-            "bearerFormat": "JWT"
+            "bearerFormat": "JWT",
+            "description": "Please use `access_token`."
         }
     }
+    # Set the security requirements of the whole domain (most routes will use BearerAuth)
+    openapi_schema["security"] = [{"BearerAuth": []}]
 
+    # Path to cover security requirements
+    endpoints_to_override = [
+        "/api/auth/authenticate",
+        "/api/auth/refresh_access_token"
+    ]
+    # Remove security settings for all HTTP methods under this path
+    for path, methods in openapi_schema["paths"].items():
+        for endpoint in endpoints_to_override:
+            if path.startswith(endpoint):
+
+                for method in methods:
+                    methods[method]["security"] = []
     app.openapi_schema = openapi_schema
-    return openapi_schema
+    return app.openapi_schema
 
 
 app.openapi = custom_openapi
