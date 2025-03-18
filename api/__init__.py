@@ -5,11 +5,10 @@ API __init__.py
 import os
 from warnings import deprecated
 
-import motor.motor_asyncio
 import redis
 
 import settings
-from api import auth, branch, room_type, room, order
+# from api import auth, branch, room_type, room, order
 from repository import MongoRepository
 
 
@@ -22,17 +21,6 @@ class APIMongoRepository(MongoRepository):
         self.client = client
         self.model_class = model_class
 
-
-""" Mongodb Client Startup """
-
-client = motor.motor_asyncio.AsyncIOMotorClient(settings.MONGO_URL)
-db = client.local
-# Crate index here
-db[auth.collection_name].create_index("account", unique=True)
-db[branch.collection_name].create_index("name", unique=True)
-db[room_type.collection_name].create_index("name", unique=True)
-db[room.collection_name].create_index("name", unique=True)
-db[order.collection_name].create_index("num", unique=True)
 
 """ Redis Client """
 

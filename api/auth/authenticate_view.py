@@ -11,7 +11,7 @@ import settings
 from settings import SUPERUSER_ACCOUNT_NAME
 from .models import pwd_context
 from .token_manager import TokenManager, TokenRefreshRequest, TokenResponse
-from .. import db
+from api.mongo_client import db
 
 router = APIRouter(prefix="/api/auth")
 

@@ -5,12 +5,22 @@ import random
 from datetime import datetime, timezone
 
 from fastapi import APIRouter
+from starlette.responses import JSONResponse
+
+from .room import get_rooms_data
 
 router = APIRouter()
 
 
+@router.get("/rooms/{branch_name}", description="Return to a branch's all room_type and room.")
+async def branch_rooms(
+        branch_name: str
+):
+    return JSONResponse(content=await get_rooms_data(branch_name))
+
+
 @router.get("/schedule/{branch_name}", description="Return to a branch's room schedule.")
-async def schedule(
+async def branch_schedule(
         branch_name: str
 ):
     return

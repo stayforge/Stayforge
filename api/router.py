@@ -4,13 +4,14 @@ API Routers
 from fastapi import APIRouter, Depends
 from fastapi_crudrouter_mongodb import CRUDRouter
 
-from api import db, branch, auth, order, room_type, room
+from api import branch, auth, order, room_type, room
 from api.auth import ServiceAccount
 from api.auth.authenticate_view import router as auth_router
 from api.auth.role import role
 from api.booking_api.views import router as booking_api
 from api.branch.models import Branch
 from api.field_based_crud_router import FieldBasedCRUDRouter
+from api.mongo_client import db
 from api.order.models import Order
 from api.room.models import Room
 from api.room_type.models import RoomType

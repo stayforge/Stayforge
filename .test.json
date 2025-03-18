@@ -1,0 +1,66 @@
+[
+  [
+    {
+      '_id': ObjectId(
+      '67d7fa33311ce6364a810e42'
+      ),
+      'metadata': {
+        'picture': ''
+      },
+      'create_at': datetime.datetime(2025,
+      3,
+      17,
+      19,
+      17,
+      10,
+      876000),
+      'update_at': datetime.datetime(2025,
+      3,
+      17,
+      19,
+      17,
+      10,
+      876000),
+      'room_type_id': '67d7f9cf311ce6364a810e41',
+      'branch_name': 'stayforge-hotel',
+      'number': '101',
+      'priority': 0
+    }
+  ],
+  [
+    {
+      '_id': ObjectId(
+      '67d7f9cf311ce6364a810e41'
+      ),
+      'metadata': {
+        'picture': ''
+      },
+      'create_at': datetime.datetime(2025,
+      3,
+      17,
+      19,
+      17,
+      10,
+      876000),
+      'update_at': datetime.datetime(2025,
+      3,
+      17,
+      19,
+      17,
+      10,
+      876000),
+      'parent': None,
+      'name': '101-tototo',
+      'nameVisible': 'tototo',
+      'description': 'string',
+      'branch': [
+        'stayforge-hotel'
+      ],
+      'basePrice': 17000,
+      'pricePolicy': 'default',
+      'min_usage': 2.0,
+      'max_usage': 720.0,
+      'allowExtension': False
+    }
+  ]
+]

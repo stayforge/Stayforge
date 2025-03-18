@@ -12,11 +12,11 @@ from api.schemas import StayForgeModel
 class RoomBase(BaseModel):
     room_type_name: str = Field(
         ...,
-        description="Reference ID of the RoomType."
+        description="Reference name of the RoomType."
     )
     branch_name: str = Field(
         ...,
-        description="Reference ID of the Branch."
+        description="Reference name of the Branch."
     )
     number: str = Field(
         ...,

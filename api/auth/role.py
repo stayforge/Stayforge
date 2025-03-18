@@ -4,7 +4,7 @@ import uuid
 from fastapi import Depends, HTTPException, Request
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 
-from api import db
+from api.mongo_client import db
 from api.auth.token_manager import TokenManager
 from settings import logger
 
