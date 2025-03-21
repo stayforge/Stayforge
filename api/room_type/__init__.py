@@ -5,9 +5,6 @@ room_type
 from typing import Optional
 from datetime import datetime
 
-from fastapi import Request
-
-from .models import RoomTypeBase
 from api.mongo_client import db
 
 collection_name = 'room_type'

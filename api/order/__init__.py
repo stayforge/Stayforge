@@ -18,13 +18,11 @@ async def get_orders_in_timeRange_by_roomType(room_type_name: str, start_time: d
     rooms =  await cursor_rooms.to_list(None)
 
     # Get orders
+    result = []
     for room in rooms:
         query = {"room_id": room['_id'], "checkin_at": {"$gte": start_time}, "checkout_at": {"$lte": end_time}}
         cursor = db[collection_name].find(query)
         orders = await cursor.to_list(None)
-        print(orders)
-    try:
-        return await cursor.to_list(None)
-    except:
-        return []
+        result.extend(orders)
+    return result
 
