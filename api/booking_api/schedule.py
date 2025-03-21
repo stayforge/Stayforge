@@ -1,4 +1,0 @@
-"""
-Booking Schedule API actions
-"""
-

@@ -1,21 +1,11 @@
 import asyncio
 import json
-from datetime import datetime
 
 import orjson
-from bson import ObjectId
 
+from api.booking_api import orjson_default
 from api.room import get_room_by_branch
 from api.room_type import get_roomType_by_branch
-
-
-# Custom default conversion function to handle ObjectId and datetime
-def orjson_default(obj):
-    if isinstance(obj, ObjectId):
-        return str(obj)
-    if isinstance(obj, datetime):
-        return obj.isoformat()
-    raise TypeError(f"Type {type(obj)} not serializable")
 
 
 async def get_rooms_data(branch_name: str) -> dict:

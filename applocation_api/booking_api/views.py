@@ -13,9 +13,7 @@ router = APIRouter()
 
 
 @router.get("/rooms/{branch_name}", description="Return to a branch's all room_type and room.")
-async def branch_rooms(
-        branch_name: str
-):
+async def branch_rooms(branch_name: str):
     return JSONResponse(content=await get_rooms_data(branch_name))
 
 
