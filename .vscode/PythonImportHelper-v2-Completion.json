@@ -1,0 +1,3193 @@
+[
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "site",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "site",
+        "description": "site",
+        "detail": "site",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "faker",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "faker",
+        "description": "faker",
+        "detail": "faker",
+        "documentation": {}
+    },
+    {
+        "label": "Faker",
+        "importPath": "faker",
+        "description": "faker",
+        "isExtraImport": true,
+        "detail": "faker",
+        "documentation": {}
+    },
+    {
+        "label": "Faker",
+        "importPath": "faker",
+        "description": "faker",
+        "isExtraImport": true,
+        "detail": "faker",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "constr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "AnyUrl",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "field_validator",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "constr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "constr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "HttpUrl",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "EmailStr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "EmailStr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "field_validator",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "EmailStr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "PrivateAttr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "StayForgeModel",
+        "importPath": "api.schemas",
+        "description": "api.schemas",
+        "isExtraImport": true,
+        "detail": "api.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "Stayforge",
+        "importPath": "api.schemas",
+        "description": "api.schemas",
+        "isExtraImport": true,
+        "detail": "api.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "StayForgeModel",
+        "importPath": "api.schemas",
+        "description": "api.schemas",
+        "isExtraImport": true,
+        "detail": "api.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "StayForgeModel",
+        "importPath": "api.schemas",
+        "description": "api.schemas",
+        "isExtraImport": true,
+        "detail": "api.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "StayForgeModel",
+        "importPath": "api.schemas",
+        "description": "api.schemas",
+        "isExtraImport": true,
+        "detail": "api.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "StayForgeModel",
+        "importPath": "api.schemas",
+        "description": "api.schemas",
+        "isExtraImport": true,
+        "detail": "api.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "StayForgeModel",
+        "importPath": "api.schemas",
+        "description": "api.schemas",
+        "isExtraImport": true,
+        "detail": "api.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "BaseResponses",
+        "importPath": "api.schemas",
+        "description": "api.schemas",
+        "isExtraImport": true,
+        "detail": "api.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Query",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Body",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "httpcore",
+        "description": "httpcore",
+        "isExtraImport": true,
+        "detail": "httpcore",
+        "documentation": {}
+    },
+    {
+        "label": "database",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "database",
+        "description": "database",
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "settings",
+        "description": "settings",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "ETCD_ENDPOINT",
+        "importPath": "settings",
+        "description": "settings",
+        "isExtraImport": true,
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "settings",
+        "description": "settings",
+        "isExtraImport": true,
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "SUPERUSER_ACCOUNT_NAME",
+        "importPath": "settings",
+        "description": "settings",
+        "isExtraImport": true,
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "settings",
+        "description": "settings",
+        "isExtraImport": true,
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "ACCESS_TOKEN_BYTES",
+        "importPath": "settings",
+        "description": "settings",
+        "isExtraImport": true,
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "REFRESH_TOKEN_BYTES",
+        "importPath": "settings",
+        "description": "settings",
+        "isExtraImport": true,
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "settings",
+        "description": "settings",
+        "isExtraImport": true,
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "MongoRepository",
+        "importPath": "repository",
+        "description": "repository",
+        "isExtraImport": true,
+        "detail": "repository",
+        "documentation": {}
+    },
+    {
+        "label": "MongoRepository",
+        "importPath": "repository",
+        "description": "repository",
+        "isExtraImport": true,
+        "detail": "repository",
+        "documentation": {}
+    },
+    {
+        "label": "MongoRepository",
+        "importPath": "repository",
+        "description": "repository",
+        "isExtraImport": true,
+        "detail": "repository",
+        "documentation": {}
+    },
+    {
+        "label": "httpx",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "httpx",
+        "description": "httpx",
+        "detail": "httpx",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Literal",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Type",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "yaml",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yaml",
+        "description": "yaml",
+        "detail": "yaml",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "requests",
+        "description": "requests",
+        "isExtraImport": true,
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "api.models_manager.errors",
+        "description": "api.models_manager.errors",
+        "isExtraImport": true,
+        "detail": "api.models_manager.errors",
+        "documentation": {}
+    },
+    {
+        "label": "ModelNotFoundError",
+        "importPath": "api.models_manager.errors",
+        "description": "api.models_manager.errors",
+        "isExtraImport": true,
+        "detail": "api.models_manager.errors",
+        "documentation": {}
+    },
+    {
+        "label": "ModelPathError",
+        "importPath": "api.models_manager.errors",
+        "description": "api.models_manager.errors",
+        "isExtraImport": true,
+        "detail": "api.models_manager.errors",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "read_document",
+        "importPath": "docs",
+        "description": "docs",
+        "isExtraImport": true,
+        "detail": "docs",
+        "documentation": {}
+    },
+    {
+        "label": "docs",
+        "importPath": "docs",
+        "description": "docs",
+        "isExtraImport": true,
+        "detail": "docs",
+        "documentation": {}
+    },
+    {
+        "label": "MessageQueue",
+        "importPath": "mq",
+        "description": "mq",
+        "isExtraImport": true,
+        "detail": "mq",
+        "documentation": {}
+    },
+    {
+        "label": "MessageQueue",
+        "importPath": "mq",
+        "description": "mq",
+        "isExtraImport": true,
+        "detail": "mq",
+        "documentation": {}
+    },
+    {
+        "label": "RedisConnectionWarning",
+        "importPath": "mq",
+        "description": "mq",
+        "isExtraImport": true,
+        "detail": "mq",
+        "documentation": {}
+    },
+    {
+        "label": "MessageQueue",
+        "importPath": "mq",
+        "description": "mq",
+        "isExtraImport": true,
+        "detail": "mq",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "order_types",
+        "importPath": "api.order",
+        "description": "api.order",
+        "isExtraImport": true,
+        "detail": "api.order",
+        "documentation": {}
+    },
+    {
+        "label": "get_orders_in_timeRange_by_roomType",
+        "importPath": "api.order",
+        "description": "api.order",
+        "isExtraImport": true,
+        "detail": "api.order",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "randint",
+        "importPath": "random",
+        "description": "random",
+        "isExtraImport": true,
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "warnings",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "warnings",
+        "description": "warnings",
+        "detail": "warnings",
+        "documentation": {}
+    },
+    {
+        "label": "catch_warnings",
+        "importPath": "warnings",
+        "description": "warnings",
+        "isExtraImport": true,
+        "detail": "warnings",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "CRUDRouter",
+        "importPath": "fastapi_crudrouter_mongodb",
+        "description": "fastapi_crudrouter_mongodb",
+        "isExtraImport": true,
+        "detail": "fastapi_crudrouter_mongodb",
+        "documentation": {}
+    },
+    {
+        "label": "CRUDRouter",
+        "importPath": "fastapi_crudrouter_mongodb",
+        "description": "fastapi_crudrouter_mongodb",
+        "isExtraImport": true,
+        "detail": "fastapi_crudrouter_mongodb",
+        "documentation": {}
+    },
+    {
+        "label": "MongoObjectId",
+        "importPath": "fastapi_crudrouter_mongodb",
+        "description": "fastapi_crudrouter_mongodb",
+        "isExtraImport": true,
+        "detail": "fastapi_crudrouter_mongodb",
+        "documentation": {}
+    },
+    {
+        "label": "MongoObjectId",
+        "importPath": "fastapi_crudrouter_mongodb",
+        "description": "fastapi_crudrouter_mongodb",
+        "isExtraImport": true,
+        "detail": "fastapi_crudrouter_mongodb",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncIOMotorClient",
+        "importPath": "motor.motor_asyncio",
+        "description": "motor.motor_asyncio",
+        "isExtraImport": true,
+        "detail": "motor.motor_asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncIOMotorClient",
+        "importPath": "motor.motor_asyncio",
+        "description": "motor.motor_asyncio",
+        "isExtraImport": true,
+        "detail": "motor.motor_asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncIOMotorClient",
+        "importPath": "motor.motor_asyncio",
+        "description": "motor.motor_asyncio",
+        "isExtraImport": true,
+        "detail": "motor.motor_asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "branch",
+        "importPath": "api",
+        "description": "api",
+        "isExtraImport": true,
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "order",
+        "importPath": "api",
+        "description": "api",
+        "isExtraImport": true,
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "room_type",
+        "importPath": "api",
+        "description": "api",
+        "isExtraImport": true,
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "room",
+        "importPath": "api",
+        "description": "api",
+        "isExtraImport": true,
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "RedisClient",
+        "importPath": "api",
+        "description": "api",
+        "isExtraImport": true,
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "auth",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "auth",
+        "description": "auth",
+        "detail": "auth",
+        "documentation": {}
+    },
+    {
+        "label": "ServiceAccount",
+        "importPath": "auth",
+        "description": "auth",
+        "isExtraImport": true,
+        "detail": "auth",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "importPath": "auth",
+        "description": "auth",
+        "isExtraImport": true,
+        "detail": "auth",
+        "documentation": {}
+    },
+    {
+        "label": "role",
+        "importPath": "auth.role",
+        "description": "auth.role",
+        "isExtraImport": true,
+        "detail": "auth.role",
+        "documentation": {}
+    },
+    {
+        "label": "Branch",
+        "importPath": "api.branch.models",
+        "description": "api.branch.models",
+        "isExtraImport": true,
+        "detail": "api.branch.models",
+        "documentation": {}
+    },
+    {
+        "label": "FieldBasedCRUDRouter",
+        "importPath": "api.field_based_crud_router",
+        "description": "api.field_based_crud_router",
+        "isExtraImport": true,
+        "detail": "api.field_based_crud_router",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "isExtraImport": true,
+        "detail": "api.mongo_client",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "isExtraImport": true,
+        "detail": "api.mongo_client",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "isExtraImport": true,
+        "detail": "api.mongo_client",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "isExtraImport": true,
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "Room",
+        "importPath": "api.room.models",
+        "description": "api.room.models",
+        "isExtraImport": true,
+        "detail": "api.room.models",
+        "documentation": {}
+    },
+    {
+        "label": "RoomType",
+        "importPath": "api.room_type.models",
+        "description": "api.room_type.models",
+        "isExtraImport": true,
+        "detail": "api.room_type.models",
+        "documentation": {}
+    },
+    {
+        "label": "asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "orjson",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "orjson",
+        "description": "orjson",
+        "detail": "orjson",
+        "documentation": {}
+    },
+    {
+        "label": "get_room_by_branch",
+        "importPath": "api.room",
+        "description": "api.room",
+        "isExtraImport": true,
+        "detail": "api.room",
+        "documentation": {}
+    },
+    {
+        "label": "get_room_by_roomType",
+        "importPath": "api.room",
+        "description": "api.room",
+        "isExtraImport": true,
+        "detail": "api.room",
+        "documentation": {}
+    },
+    {
+        "label": "get_room_by_branch",
+        "importPath": "api.room",
+        "description": "api.room",
+        "isExtraImport": true,
+        "detail": "api.room",
+        "documentation": {}
+    },
+    {
+        "label": "get_roomType_by_branch",
+        "importPath": "api.room_type",
+        "description": "api.room_type",
+        "isExtraImport": true,
+        "detail": "api.room_type",
+        "documentation": {}
+    },
+    {
+        "label": "get_roomType_by_name",
+        "importPath": "api.room_type",
+        "description": "api.room_type",
+        "isExtraImport": true,
+        "detail": "api.room_type",
+        "documentation": {}
+    },
+    {
+        "label": "get_roomType_by_branch",
+        "importPath": "api.room_type",
+        "description": "api.room_type",
+        "isExtraImport": true,
+        "detail": "api.room_type",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "starlette.responses",
+        "description": "starlette.responses",
+        "isExtraImport": true,
+        "detail": "starlette.responses",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "starlette.responses",
+        "description": "starlette.responses",
+        "isExtraImport": true,
+        "detail": "starlette.responses",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "starlette.responses",
+        "description": "starlette.responses",
+        "isExtraImport": true,
+        "detail": "starlette.responses",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "CryptContext",
+        "importPath": "passlib.context",
+        "description": "passlib.context",
+        "isExtraImport": true,
+        "detail": "passlib.context",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPBearer",
+        "importPath": "fastapi.security",
+        "description": "fastapi.security",
+        "isExtraImport": true,
+        "detail": "fastapi.security",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPAuthorizationCredentials",
+        "importPath": "fastapi.security",
+        "description": "fastapi.security",
+        "isExtraImport": true,
+        "detail": "fastapi.security",
+        "documentation": {}
+    },
+    {
+        "label": "OAuth2PasswordBearer",
+        "importPath": "fastapi.security",
+        "description": "fastapi.security",
+        "isExtraImport": true,
+        "detail": "fastapi.security",
+        "documentation": {}
+    },
+    {
+        "label": "TokenManager",
+        "importPath": "auth.token_manager",
+        "description": "auth.token_manager",
+        "isExtraImport": true,
+        "detail": "auth.token_manager",
+        "documentation": {}
+    },
+    {
+        "label": "hashlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "hashlib",
+        "description": "hashlib",
+        "detail": "hashlib",
+        "documentation": {}
+    },
+    {
+        "label": "secrets",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "secrets",
+        "description": "secrets",
+        "detail": "secrets",
+        "documentation": {}
+    },
+    {
+        "label": "get_redoc_html",
+        "importPath": "fastapi.openapi.docs",
+        "description": "fastapi.openapi.docs",
+        "isExtraImport": true,
+        "detail": "fastapi.openapi.docs",
+        "documentation": {}
+    },
+    {
+        "label": "redis",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "redis",
+        "description": "redis",
+        "detail": "redis",
+        "documentation": {}
+    },
+    {
+        "label": "unittest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "unittest",
+        "description": "unittest",
+        "detail": "unittest",
+        "documentation": {}
+    },
+    {
+        "label": "export_openapi_json",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "socket",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "socket",
+        "description": "socket",
+        "detail": "socket",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "multiprocessing",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "detail": "multiprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "Model",
+        "importPath": "api.models_manager.model_cls",
+        "description": "api.models_manager.model_cls",
+        "isExtraImport": true,
+        "detail": "api.models_manager.model_cls",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "mock_model",
+        "description": "mock_model",
+        "isExtraImport": true,
+        "detail": "mock_model",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "send_from_directory",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "fakeredis",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "fakeredis",
+        "description": "fakeredis",
+        "detail": "fakeredis",
+        "documentation": {}
+    },
+    {
+        "label": "BaseHTTPMiddleware",
+        "importPath": "starlette.middleware.base",
+        "description": "starlette.middleware.base",
+        "isExtraImport": true,
+        "detail": "starlette.middleware.base",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "starlette.requests",
+        "description": "starlette.requests",
+        "isExtraImport": true,
+        "detail": "starlette.requests",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "starlette.requests",
+        "description": "starlette.requests",
+        "isExtraImport": true,
+        "detail": "starlette.requests",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "starlette.requests",
+        "description": "starlette.requests",
+        "isExtraImport": true,
+        "detail": "starlette.requests",
+        "documentation": {}
+    },
+    {
+        "label": "sender",
+        "importPath": "webhook",
+        "description": "webhook",
+        "isExtraImport": true,
+        "detail": "webhook",
+        "documentation": {}
+    },
+    {
+        "label": "mq",
+        "importPath": "webhook",
+        "description": "webhook",
+        "isExtraImport": true,
+        "detail": "webhook",
+        "documentation": {}
+    },
+    {
+        "label": "mq",
+        "importPath": "webhook",
+        "description": "webhook",
+        "isExtraImport": true,
+        "detail": "webhook",
+        "documentation": {}
+    },
+    {
+        "label": "webhooks_manager_repository",
+        "importPath": "api.webhooks_manager.models",
+        "description": "api.webhooks_manager.models",
+        "isExtraImport": true,
+        "detail": "api.webhooks_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "asynccontextmanager",
+        "importPath": "contextlib",
+        "description": "contextlib",
+        "isExtraImport": true,
+        "detail": "contextlib",
+        "documentation": {}
+    },
+    {
+        "label": "aiofiles",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "aiofiles",
+        "description": "aiofiles",
+        "detail": "aiofiles",
+        "documentation": {}
+    },
+    {
+        "label": "get_openapi",
+        "importPath": "fastapi.openapi.utils",
+        "description": "fastapi.openapi.utils",
+        "isExtraImport": true,
+        "detail": "fastapi.openapi.utils",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "importPath": "application_api",
+        "description": "application_api",
+        "isExtraImport": true,
+        "detail": "application_api",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "importPath": "api.router",
+        "description": "api.router",
+        "isExtraImport": true,
+        "detail": "api.router",
+        "documentation": {}
+    },
+    {
+        "label": "functools",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "functools",
+        "description": "functools",
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "json5",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json5",
+        "description": "json5",
+        "detail": "json5",
+        "documentation": {}
+    },
+    {
+        "label": "bin_dir",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "bin_dir = os.path.dirname(abs_file)\nbase = bin_dir[: -len(\"bin\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"../lib/python3.13/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "base",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "base = bin_dir[: -len(\"bin\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"../lib/python3.13/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"PATH\"]",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "os.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"../lib/python3.13/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"VIRTUAL_ENV\"]",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "os.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"../lib/python3.13/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"VIRTUAL_ENV_PROMPT\"]",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "os.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"../lib/python3.13/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "prev_length",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "prev_length = len(sys.path)\nfor lib in \"../lib/python3.13/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.path[:]",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "sys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.real_prefix",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "sys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.prefix",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "sys.prefix = base",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "BranchBase",
+        "kind": 6,
+        "importPath": "api.branch.models",
+        "description": "api.branch.models",
+        "peekOfCode": "class BranchBase(BaseModel):\n    name: constr(pattern=r'^[a-z0-9_-]+$') = Field(\n        ...,\n        examples=[\"stayforge-hotel_bay\"],\n        description=\"Unique name. Only `a-z`, `0-9` and `-_` are allowed.\"\n    )\n    name_visible: str = Field(\n        ...,\n        examples=[f\"ホテルステイフォージ{faker.town()}\"],\n        description=\"The name of the hotel branch. By default, it combines a base name with a random town.\"",
+        "detail": "api.branch.models",
+        "documentation": {}
+    },
+    {
+        "label": "Branch",
+        "kind": 6,
+        "importPath": "api.branch.models",
+        "description": "api.branch.models",
+        "peekOfCode": "class Branch(BranchBase, StayForgeModel):\n    pass",
+        "detail": "api.branch.models",
+        "documentation": {}
+    },
+    {
+        "label": "faker",
+        "kind": 5,
+        "importPath": "api.branch.models",
+        "description": "api.branch.models",
+        "peekOfCode": "faker = Faker('ja_JP')\nclass BranchBase(BaseModel):\n    name: constr(pattern=r'^[a-z0-9_-]+$') = Field(\n        ...,\n        examples=[\"stayforge-hotel_bay\"],\n        description=\"Unique name. Only `a-z`, `0-9` and `-_` are allowed.\"\n    )\n    name_visible: str = Field(\n        ...,\n        examples=[f\"ホテルステイフォージ{faker.town()}\"],",
+        "detail": "api.branch.models",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "api.healthcheck.view",
+        "description": "api.healthcheck.view",
+        "peekOfCode": "router = APIRouter()\nasync def _database_healthcheck(field: str = str(uuid.uuid4())) -> dict:\n    try:\n        healthcheck_repository = MongoRepository(\n            database=settings.DATABASE_NAME,\n            collection='__healthcheck',\n            client=database.client\n        )\n        # Step 1: Create random data\n        random_data = {\"_id\": ObjectId(), \"field\": field}",
+        "detail": "api.healthcheck.view",
+        "documentation": {}
+    },
+    {
+        "label": "ModelNotFoundError",
+        "kind": 6,
+        "importPath": "api.models_manager.errors",
+        "description": "api.models_manager.errors",
+        "peekOfCode": "class ModelNotFoundError(ValueError):\n    \"\"\" 在Source中找不到插件 \"\"\"\n    def __init__(self, *args, **kwargs):\n        pass\nclass ModelNameError(ValueError):\n    \"\"\" Invalid Name format (only A-Za-z and -) \"\"\"\n    def __init__(self, *args, **kwargs):\n        pass\nclass ModelPathError(ValueError):\n    \"\"\" Invalid Path format. must be `namespace/name or name` \"\"\"",
+        "detail": "api.models_manager.errors",
+        "documentation": {}
+    },
+    {
+        "label": "ModelNameError",
+        "kind": 6,
+        "importPath": "api.models_manager.errors",
+        "description": "api.models_manager.errors",
+        "peekOfCode": "class ModelNameError(ValueError):\n    \"\"\" Invalid Name format (only A-Za-z and -) \"\"\"\n    def __init__(self, *args, **kwargs):\n        pass\nclass ModelPathError(ValueError):\n    \"\"\" Invalid Path format. must be `namespace/name or name` \"\"\"\n    def __init__(self, *args, **kwargs):\n        pass",
+        "detail": "api.models_manager.errors",
+        "documentation": {}
+    },
+    {
+        "label": "ModelPathError",
+        "kind": 6,
+        "importPath": "api.models_manager.errors",
+        "description": "api.models_manager.errors",
+        "peekOfCode": "class ModelPathError(ValueError):\n    \"\"\" Invalid Path format. must be `namespace/name or name` \"\"\"\n    def __init__(self, *args, **kwargs):\n        pass",
+        "detail": "api.models_manager.errors",
+        "documentation": {}
+    },
+    {
+        "label": "KeyValueRequest",
+        "kind": 6,
+        "importPath": "api.models_manager.etcd_proxy",
+        "description": "api.models_manager.etcd_proxy",
+        "peekOfCode": "class KeyValueRequest(BaseModel):\n    key: str\n    value: str = None\ndef get_key(model:str, key:str):\n    return f\"{model}__{key}\"\n@etcd_router.post(\"/{model}/etcd/put\")\nasync def put_data(request: KeyValueRequest, model: str = Path(...)):\n    full_key = get_key(model, request.key)\n    async with httpx.AsyncClient() as client:\n        response = await client.post(",
+        "detail": "api.models_manager.etcd_proxy",
+        "documentation": {}
+    },
+    {
+        "label": "get_key",
+        "kind": 2,
+        "importPath": "api.models_manager.etcd_proxy",
+        "description": "api.models_manager.etcd_proxy",
+        "peekOfCode": "def get_key(model:str, key:str):\n    return f\"{model}__{key}\"\n@etcd_router.post(\"/{model}/etcd/put\")\nasync def put_data(request: KeyValueRequest, model: str = Path(...)):\n    full_key = get_key(model, request.key)\n    async with httpx.AsyncClient() as client:\n        response = await client.post(\n            f\"{ETCD_ENDPOINT}/v3/kv/put\",\n            json={\"key\": full_key, \"value\": request.value}\n        )",
+        "detail": "api.models_manager.etcd_proxy",
+        "documentation": {}
+    },
+    {
+        "label": "etcd_router",
+        "kind": 5,
+        "importPath": "api.models_manager.etcd_proxy",
+        "description": "api.models_manager.etcd_proxy",
+        "peekOfCode": "etcd_router = APIRouter()\nclass KeyValueRequest(BaseModel):\n    key: str\n    value: str = None\ndef get_key(model:str, key:str):\n    return f\"{model}__{key}\"\n@etcd_router.post(\"/{model}/etcd/put\")\nasync def put_data(request: KeyValueRequest, model: str = Path(...)):\n    full_key = get_key(model, request.key)\n    async with httpx.AsyncClient() as client:",
+        "detail": "api.models_manager.etcd_proxy",
+        "documentation": {}
+    },
+    {
+        "label": "Model",
+        "kind": 6,
+        "importPath": "api.models_manager.model_cls",
+        "description": "api.models_manager.model_cls",
+        "peekOfCode": "class Model:\n    def __init__(\n            self,\n            model_url: str,\n            default_source: str = DEFAULT_MODEL_SOURCE,\n            default_namespace: str = DEFAULT_MODEL_NAMESPACE\n    ):\n        self.default_source = default_source\n        self.default_namespace = default_namespace\n        source, namespace, name = self.parse_url(model_url)",
+        "detail": "api.models_manager.model_cls",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "api.models_manager.model_cls",
+        "description": "api.models_manager.model_cls",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass Model:\n    def __init__(\n            self,\n            model_url: str,\n            default_source: str = DEFAULT_MODEL_SOURCE,\n            default_namespace: str = DEFAULT_MODEL_NAMESPACE\n    ):\n        self.default_source = default_source\n        self.default_namespace = default_namespace",
+        "detail": "api.models_manager.model_cls",
+        "documentation": {}
+    },
+    {
+        "label": "ModelsManagerInput",
+        "kind": 6,
+        "importPath": "api.models_manager.models",
+        "description": "api.models_manager.models",
+        "peekOfCode": "class ModelsManagerInput(BaseModel):\n    model: str = Field(\n        ...,\n        examples=[\n            \"demo-model\",\n            \"demo/demo-model\",\n            \"https://market.stayforge.io/model/demo/demo-model\"\n        ],\n        description=\"The host URL of the model. This is used to generate webhook URLs and other model-related paths.\"\n    )",
+        "detail": "api.models_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "ModelsManager",
+        "kind": 6,
+        "importPath": "api.models_manager.models",
+        "description": "api.models_manager.models",
+        "peekOfCode": "class ModelsManager(ModelsManagerInput, StayForgeModel):\n    etcd_host: str = Field()\n    etcd_port: int = Field(2379)\n    etcd_user: str = Field()\n    etcd_password: str = Field()\n    pass",
+        "detail": "api.models_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "collection_name",
+        "kind": 5,
+        "importPath": "api.models_manager.models",
+        "description": "api.models_manager.models",
+        "peekOfCode": "collection_name = 'model'\nlogger = settings.getLogger('models_loader')\nmodels_manager_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection=collection_name,\n    client=database.client\n)\nmodel_logger_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection='logs_model',",
+        "detail": "api.models_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "api.models_manager.models",
+        "description": "api.models_manager.models",
+        "peekOfCode": "logger = settings.getLogger('models_loader')\nmodels_manager_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection=collection_name,\n    client=database.client\n)\nmodel_logger_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection='logs_model',\n    client=database.client",
+        "detail": "api.models_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "models_manager_repository",
+        "kind": 5,
+        "importPath": "api.models_manager.models",
+        "description": "api.models_manager.models",
+        "peekOfCode": "models_manager_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection=collection_name,\n    client=database.client\n)\nmodel_logger_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection='logs_model',\n    client=database.client\n)",
+        "detail": "api.models_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "model_logger_repository",
+        "kind": 5,
+        "importPath": "api.models_manager.models",
+        "description": "api.models_manager.models",
+        "peekOfCode": "model_logger_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection='logs_model',\n    client=database.client\n)\nclass ModelsManagerInput(BaseModel):\n    model: str = Field(\n        ...,\n        examples=[\n            \"demo-model\",",
+        "detail": "api.models_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "ModelsManagerResponses",
+        "kind": 6,
+        "importPath": "api.models_manager.view",
+        "description": "api.models_manager.view",
+        "peekOfCode": "class ModelsManagerResponses(BaseResponses):\n    data: Optional[List[ModelsManager]]\n@router.get(\"/\", response_model=ModelsManagerResponses)\nasync def get_models_profile(\n        request: Request,\n        model_name: str = Query(\n            None,\n            description=\"A friendly name you can remember.\"\n        ),\n        endpoint: str = Query(",
+        "detail": "api.models_manager.view",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "api.models_manager.view",
+        "description": "api.models_manager.view",
+        "peekOfCode": "router = APIRouter()\nclass ModelsManagerResponses(BaseResponses):\n    data: Optional[List[ModelsManager]]\n@router.get(\"/\", response_model=ModelsManagerResponses)\nasync def get_models_profile(\n        request: Request,\n        model_name: str = Query(\n            None,\n            description=\"A friendly name you can remember.\"\n        ),",
+        "detail": "api.models_manager.view",
+        "documentation": {}
+    },
+    {
+        "label": "MQEnqueue",
+        "kind": 6,
+        "importPath": "api.mq.models",
+        "description": "api.mq.models",
+        "peekOfCode": "class MQEnqueue(BaseModel):\n    message: str = Field(\n        None,\n        examples=['message'],\n        description=\"The content of the message to be enqueued.\"\n    )\nclass MQDequeue(BaseModel):\n    pass",
+        "detail": "api.mq.models",
+        "documentation": {}
+    },
+    {
+        "label": "MQDequeue",
+        "kind": 6,
+        "importPath": "api.mq.models",
+        "description": "api.mq.models",
+        "peekOfCode": "class MQDequeue(BaseModel):\n    pass",
+        "detail": "api.mq.models",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "api.mq.models",
+        "description": "api.mq.models",
+        "peekOfCode": "logger = settings.getLogger('models_loader')\nclass MQEnqueue(BaseModel):\n    message: str = Field(\n        None,\n        examples=['message'],\n        description=\"The content of the message to be enqueued.\"\n    )\nclass MQDequeue(BaseModel):\n    pass",
+        "detail": "api.mq.models",
+        "documentation": {}
+    },
+    {
+        "label": "MessageQueueResponses",
+        "kind": 6,
+        "importPath": "api.mq.view",
+        "description": "api.mq.view",
+        "peekOfCode": "class MessageQueueResponses(BaseResponses):\n    data: Optional[List[MQDequeue]]\n@router.post(\"/{stream}\")\nasync def enqueue(stream: str, data: MQEnqueue, ttl: int = -1):\n    try:\n        mq = MessageQueue(stream_name=stream)\n        mq.enqueue(data.message)\n        return {\"last_message\": data.message}\n    except Exception as e:\n        raise HTTPException(status_code=500, detail=str(e))",
+        "detail": "api.mq.view",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "api.mq.view",
+        "description": "api.mq.view",
+        "peekOfCode": "router = APIRouter()\nclass MessageQueueResponses(BaseResponses):\n    data: Optional[List[MQDequeue]]\n@router.post(\"/{stream}\")\nasync def enqueue(stream: str, data: MQEnqueue, ttl: int = -1):\n    try:\n        mq = MessageQueue(stream_name=stream)\n        mq.enqueue(data.message)\n        return {\"last_message\": data.message}\n    except Exception as e:",
+        "detail": "api.mq.view",
+        "documentation": {}
+    },
+    {
+        "label": "IDDocument",
+        "kind": 6,
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "peekOfCode": "class IDDocument(BaseModel):\n    MRZ: str = Field(\n        None,\n        examples=[\"P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<\"\n                  \"L898902C36UTO7408122F1204159ZE184226B<<<<<10\"]\n    )\n    photocopy: Optional[AnyUrl | str] = Field(\n        None,\n        examples=[\"https://a.s3storage.address/photocopy/1970010112839010/1.jpg\"]\n    )",
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "Guest",
+        "kind": 6,
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "peekOfCode": "class Guest(BaseModel):\n    first_name: str = Field(\n        None,\n        examples=[faker.first_name()],\n    )\n    middle_name: str = Field(\n        None,\n        examples=[\"\"],\n    )\n    last_name: str = Field(",
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "OrderBase",
+        "kind": 6,
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "peekOfCode": "class OrderBase(BaseModel):\n    num: constr(pattern=r'^[A-Za-z0-9_\\-#@:\\/|\\\\\\[\\]\\(\\)\\{\\}<>\\.!\\?]+$') = Field(\n        ...,\n        examples=[f\"{datetime.now().strftime('%Y%m%d%H%M%S')}{str(uuid.uuid4().int % 10000).zfill(4)}\"],\n        description=\"Order number. Only `A-Z`, `a-z`, `0-9` and `-_#@:` are allowed.\"\n    )\n    room_name: str = Field(\n        None,\n        examples=[str(ObjectId())],\n        description=\"Room name\"",
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "kind": 6,
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "peekOfCode": "class Order(OrderBase, StayForgeModel):\n    @classmethod\n    def order_types(cls) -> dict | List[str]:\n        _status = settings.ORDER_TYPE\n        return _status",
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "faker",
+        "kind": 5,
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "peekOfCode": "faker = Faker('ja_JP')\nclass IDDocument(BaseModel):\n    MRZ: str = Field(\n        None,\n        examples=[\"P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<\"\n                  \"L898902C36UTO7408122F1204159ZE184226B<<<<<10\"]\n    )\n    photocopy: Optional[AnyUrl | str] = Field(\n        None,\n        examples=[\"https://a.s3storage.address/photocopy/1970010112839010/1.jpg\"]",
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "RoomBase",
+        "kind": 6,
+        "importPath": "api.room.models",
+        "description": "api.room.models",
+        "peekOfCode": "class RoomBase(BaseModel):\n    room_type_name: str = Field(\n        ...,\n        description=\"Reference name of the RoomType.\"\n    )\n    branch_name: str = Field(\n        ...,\n        description=\"Reference name of the Branch.\"\n    )\n    number: str = Field(",
+        "detail": "api.room.models",
+        "documentation": {}
+    },
+    {
+        "label": "Room",
+        "kind": 6,
+        "importPath": "api.room.models",
+        "description": "api.room.models",
+        "peekOfCode": "class Room(RoomBase, StayForgeModel):\n    pass",
+        "detail": "api.room.models",
+        "documentation": {}
+    },
+    {
+        "label": "RoomTypeBase",
+        "kind": 6,
+        "importPath": "api.room_type.models",
+        "description": "api.room_type.models",
+        "peekOfCode": "class RoomTypeBase(BaseModel):\n    parent: Optional[str] = Field(\n        None,\n        examples=[None, \"standard\", \"premium\"],\n        description=\"Parent room type’s name. If set to None, it will be considered a top-level room type.\"\n    )\n    name: constr(pattern=r'^[a-z0-9_-]+$') = Field(\n        ...,\n        examples=[\"happy-room-101_myhotel\"],\n        description=\"Unique name. Only `a-z`, `0-9` and `-_` are allowed.\"",
+        "detail": "api.room_type.models",
+        "documentation": {}
+    },
+    {
+        "label": "RoomType",
+        "kind": 6,
+        "importPath": "api.room_type.models",
+        "description": "api.room_type.models",
+        "peekOfCode": "class RoomType(RoomTypeBase, StayForgeModel):\n    pass",
+        "detail": "api.room_type.models",
+        "documentation": {}
+    },
+    {
+        "label": "WebhooksManagerInput",
+        "kind": 6,
+        "importPath": "api.webhooks_manager.models",
+        "description": "api.webhooks_manager.models",
+        "peekOfCode": "class WebhooksManagerInput(BaseModel):\n    webhook_name: str = Field(\n        ...,\n        examples=['Your application'],\n        description=\"The name of the webhook configuration.\"\n    )\n    endpoint: HttpUrl = Field(\n        ...,\n        examples=['https://yourapplication/webhook/endpoint'],\n        description=\"The URL where webhook events will be sent.\"",
+        "detail": "api.webhooks_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "WebhooksManager",
+        "kind": 6,
+        "importPath": "api.webhooks_manager.models",
+        "description": "api.webhooks_manager.models",
+        "peekOfCode": "class WebhooksManager(WebhooksManagerInput, StayForgeModel):\n    pass",
+        "detail": "api.webhooks_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "WEBHOOK_COLLECTION",
+        "kind": 5,
+        "importPath": "api.webhooks_manager.models",
+        "description": "api.webhooks_manager.models",
+        "peekOfCode": "WEBHOOK_COLLECTION = 'webhook'\nLOGS_COLLECTION = 'logs_webhook'\n# MongoDB Repositories\nwebhooks_manager_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection=WEBHOOK_COLLECTION,\n    client=database.client\n)\nwebhook_logger_repository = MongoRepository(\n    database=settings.DATABASE_NAME,",
+        "detail": "api.webhooks_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "LOGS_COLLECTION",
+        "kind": 5,
+        "importPath": "api.webhooks_manager.models",
+        "description": "api.webhooks_manager.models",
+        "peekOfCode": "LOGS_COLLECTION = 'logs_webhook'\n# MongoDB Repositories\nwebhooks_manager_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection=WEBHOOK_COLLECTION,\n    client=database.client\n)\nwebhook_logger_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection=LOGS_COLLECTION,",
+        "detail": "api.webhooks_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "webhooks_manager_repository",
+        "kind": 5,
+        "importPath": "api.webhooks_manager.models",
+        "description": "api.webhooks_manager.models",
+        "peekOfCode": "webhooks_manager_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection=WEBHOOK_COLLECTION,\n    client=database.client\n)\nwebhook_logger_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection=LOGS_COLLECTION,\n    client=database.client\n)",
+        "detail": "api.webhooks_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "webhook_logger_repository",
+        "kind": 5,
+        "importPath": "api.webhooks_manager.models",
+        "description": "api.webhooks_manager.models",
+        "peekOfCode": "webhook_logger_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection=LOGS_COLLECTION,\n    client=database.client\n)\n# Pydantic Models\nclass WebhooksManagerInput(BaseModel):\n    webhook_name: str = Field(\n        ...,\n        examples=['Your application'],",
+        "detail": "api.webhooks_manager.models",
+        "documentation": {}
+    },
+    {
+        "label": "WebhooksManagerResponses",
+        "kind": 6,
+        "importPath": "api.webhooks_manager.view",
+        "description": "api.webhooks_manager.view",
+        "peekOfCode": "class WebhooksManagerResponses(BaseResponses):\n    data: Optional[List[WebhooksManager]]\n@router.get(\"/\", response_model=WebhooksManagerResponses)\nasync def get_webhooks_profile(\n        request: Request,\n        webhook_name: str = Query(\n            None,\n            description=\"A friendly name you can remember.\"\n        ),\n        endpoint: str = Query(",
+        "detail": "api.webhooks_manager.view",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "api.webhooks_manager.view",
+        "description": "api.webhooks_manager.view",
+        "peekOfCode": "router = APIRouter()\nclass WebhooksManagerResponses(BaseResponses):\n    data: Optional[List[WebhooksManager]]\n@router.get(\"/\", response_model=WebhooksManagerResponses)\nasync def get_webhooks_profile(\n        request: Request,\n        webhook_name: str = Query(\n            None,\n            description=\"A friendly name you can remember.\"\n        ),",
+        "detail": "api.webhooks_manager.view",
+        "documentation": {}
+    },
+    {
+        "label": "handle_error",
+        "kind": 2,
+        "importPath": "api.errors",
+        "description": "api.errors",
+        "peekOfCode": "def handle_error(\n        exception: Exception, str_time: float, custom_detail: str = None\n):\n    logger.error(exception, exc_info=True)\n    return BaseResponses(\n        status=500,\n        detail=custom_detail if custom_detail else str(exception),\n        used_time=time.perf_counter() - str_time,\n        data=None\n    ), 500",
+        "detail": "api.errors",
+        "documentation": {}
+    },
+    {
+        "label": "handle_invalid_id_format_error",
+        "kind": 2,
+        "importPath": "api.errors",
+        "description": "api.errors",
+        "peekOfCode": "def handle_invalid_id_format_error(\n        str_time: float\n):\n    return BaseResponses(\n        status=400,\n        detail=\"Invalid ID format\",\n        used_time=(time.perf_counter() - str_time) * 1000,\n        data=None\n    ), 400\ndef handle_resource_not_found_error(",
+        "detail": "api.errors",
+        "documentation": {}
+    },
+    {
+        "label": "handle_resource_not_found_error",
+        "kind": 2,
+        "importPath": "api.errors",
+        "description": "api.errors",
+        "peekOfCode": "def handle_resource_not_found_error(\n        str_time: float, detail: str = \"Resource not found\"\n):\n    return BaseResponses(\n        status=404,\n        detail=detail,\n        used_time=(time.perf_counter() - str_time) * 1000,\n        data=None\n    ), 404\ndef handle_after_write_resource_not_found_error(",
+        "detail": "api.errors",
+        "documentation": {}
+    },
+    {
+        "label": "handle_after_write_resource_not_found_error",
+        "kind": 2,
+        "importPath": "api.errors",
+        "description": "api.errors",
+        "peekOfCode": "def handle_after_write_resource_not_found_error(\n        str_time: float,\n        detail: str = \"Resource maybe created/updated. But not found\"\n):\n    return BaseResponses(\n        status=409,\n        detail=detail,\n        used_time=(time.perf_counter() - str_time) * 1000,\n        data=None\n    ), 409",
+        "detail": "api.errors",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "api.errors",
+        "description": "api.errors",
+        "peekOfCode": "logger = settings.getLogger(__name__)\ndef handle_error(\n        exception: Exception, str_time: float, custom_detail: str = None\n):\n    logger.error(exception, exc_info=True)\n    return BaseResponses(\n        status=500,\n        detail=custom_detail if custom_detail else str(exception),\n        used_time=time.perf_counter() - str_time,\n        data=None",
+        "detail": "api.errors",
+        "documentation": {}
+    },
+    {
+        "label": "FieldBasedCRUDRouter",
+        "kind": 6,
+        "importPath": "api.field_based_crud_router",
+        "description": "api.field_based_crud_router",
+        "peekOfCode": "class FieldBasedCRUDRouter(CRUDRouter):\n    \"\"\"\n    A common CRUDRouter subclass,\n    using the specified field (identifier_field) as the unique identification key for query,\n    update and delete operations.\n    \"\"\"\n    def __init__(\n            self,\n            model: Type[BaseModel],\n            db: Any,",
+        "detail": "api.field_based_crud_router",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "peekOfCode": "client = AsyncIOMotorClient(settings.MONGO_URL)\ndb = client.local",
+        "detail": "api.mongo_client",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "kind": 5,
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "peekOfCode": "db = client.local",
+        "detail": "api.mongo_client",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "api.router",
+        "description": "api.router",
+        "peekOfCode": "router = APIRouter()\n# router.include_router(healthcheck, prefix=\"/healthcheck\", tags=[\"Healthcheck\"], include_in_schema=False)\n# router.include_router(webhooks_manager, prefix=\"/webhooks\", tags=[\"Webhooks Manager\"])\n# router.include_router(models_manager, prefix=\"/models\", tags=[\"Models Manager\"])\n# router.include_router(models_etcd, prefix=\"/models\", tags=[\"Models Etcd\"])\n# router.include_router(mq, prefix=\"/mq\", tags=[\"Message Queue\"])\n# API v1\nrouter.include_router(CRUDRouter(\n    model=ServiceAccount,\n    db=db,",
+        "detail": "api.router",
+        "documentation": {}
+    },
+    {
+        "label": "Stayforge",
+        "kind": 6,
+        "importPath": "api.schemas",
+        "description": "api.schemas",
+        "peekOfCode": "class Stayforge(BaseModel):\n    ver: str = settings.__version__\nclass StayForgeModel(BaseModel):\n    id: Annotated[ObjectId, MongoObjectId] | None = None\n    metadata: Optional[dict] = Field(\n        None,\n        examples=[{\n            'picture': '',\n        }],\n        description=\"Metadata of this object.\"",
+        "detail": "api.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "StayForgeModel",
+        "kind": 6,
+        "importPath": "api.schemas",
+        "description": "api.schemas",
+        "peekOfCode": "class StayForgeModel(BaseModel):\n    id: Annotated[ObjectId, MongoObjectId] | None = None\n    metadata: Optional[dict] = Field(\n        None,\n        examples=[{\n            'picture': '',\n        }],\n        description=\"Metadata of this object.\"\n    )\n    create_at: Optional[datetime] = Field(",
+        "detail": "api.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "BaseResponses",
+        "kind": 6,
+        "importPath": "api.schemas",
+        "description": "api.schemas",
+        "peekOfCode": "class BaseResponses(BaseModel):\n    data: Optional[List[dict]] = None\n    detail: str = \"Successfully.\"\n    status: int = 200\n    used_time: Optional[float] = None\n    stayforge: Stayforge = Stayforge()",
+        "detail": "api.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "orjson_default",
+        "kind": 2,
+        "importPath": "application_api.booking_api.utils",
+        "description": "application_api.booking_api.utils",
+        "peekOfCode": "def orjson_default(obj):\n    \"\"\"Custom default conversion function to handle ObjectId and datetime\"\"\"\n    if isinstance(obj, ObjectId):\n        return str(obj)\n    if isinstance(obj, datetime):\n        return obj.isoformat()\n    raise TypeError(f\"Type {type(obj)} not serializable\") \nasync def get_rooms_data(branch_name: str) -> dict:\n    # Concurrently fetch room types and room data\n    room_types, rooms = await asyncio.gather(",
+        "detail": "application_api.booking_api.utils",
+        "documentation": {}
+    },
+    {
+        "label": "RoomResponse",
+        "kind": 6,
+        "importPath": "application_api.booking_api.views",
+        "description": "application_api.booking_api.views",
+        "peekOfCode": "class RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\",\n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")",
+        "detail": "application_api.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "BookingResponse",
+        "kind": 6,
+        "importPath": "application_api.booking_api.views",
+        "description": "application_api.booking_api.views",
+        "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\",\n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")\nasync def branch_rooms(branch_name: str):\n    return await get_rooms_data(branch_name)\n@router.get(\"/schedule/{room_type_name}\",",
+        "detail": "application_api.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "RoomResponse",
+        "kind": 6,
+        "importPath": "applocation_api.booking_api.views",
+        "description": "applocation_api.booking_api.views",
+        "peekOfCode": "class RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\", \n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")",
+        "detail": "applocation_api.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "BookingResponse",
+        "kind": 6,
+        "importPath": "applocation_api.booking_api.views",
+        "description": "applocation_api.booking_api.views",
+        "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\", \n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")\nasync def branch_rooms(\n    branch_name: str,\n    start_time: Optional[datetime] = Query(None, description=\"Start time for filtering room types\"),",
+        "detail": "applocation_api.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "ServiceAccount",
+        "kind": 6,
+        "importPath": "auth.models",
+        "description": "auth.models",
+        "peekOfCode": "class ServiceAccount(BaseModel):\n    id: Annotated[ObjectId, MongoObjectId] | None = None\n    account: str = Field(\n        ...,\n        description=\"Service Account. It must be **unique** and it is an email address (can be non-real). \"\n                    \"Or a real user email address, usually used when the administrator logs into the panel.\",\n        example=\"serviceaccount@role.auth.stayforge.io\"\n    )\n    role: List[str] | None = Field(\n        None,",
+        "detail": "auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "pwd_context",
+        "kind": 5,
+        "importPath": "auth.models",
+        "description": "auth.models",
+        "peekOfCode": "pwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\nclass ServiceAccount(BaseModel):\n    id: Annotated[ObjectId, MongoObjectId] | None = None\n    account: str = Field(\n        ...,\n        description=\"Service Account. It must be **unique** and it is an email address (can be non-real). \"\n                    \"Or a real user email address, usually used when the administrator logs into the panel.\",\n        example=\"serviceaccount@role.auth.stayforge.io\"\n    )\n    role: List[str] | None = Field(",
+        "detail": "auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "role",
+        "kind": 2,
+        "importPath": "auth.role",
+        "description": "auth.role",
+        "peekOfCode": "def role(resource_name: str):\n    async def checker(\n            request: Request,\n            credentials: HTTPAuthorizationCredentials = Depends(security)\n    ):\n        access_token = credentials.credentials\n        # Super Token: This is a token used for configuration, mainly used to add Service Account.\n        # Defined by environment variable ``. Please delete this configuration after the configuration is completed.\n        if access_token == os.getenv(\"SUPER_TOKEN\", uuid.uuid4().hex):\n            logger.waring(\"Super Token used!\")",
+        "detail": "auth.role",
+        "documentation": {}
+    },
+    {
+        "label": "security",
+        "kind": 5,
+        "importPath": "auth.role",
+        "description": "auth.role",
+        "peekOfCode": "security = HTTPBearer()\n_token_manager = TokenManager()\ndef role(resource_name: str):\n    async def checker(\n            request: Request,\n            credentials: HTTPAuthorizationCredentials = Depends(security)\n    ):\n        access_token = credentials.credentials\n        # Super Token: This is a token used for configuration, mainly used to add Service Account.\n        # Defined by environment variable ``. Please delete this configuration after the configuration is completed.",
+        "detail": "auth.role",
+        "documentation": {}
+    },
+    {
+        "label": "_token_manager",
+        "kind": 5,
+        "importPath": "auth.role",
+        "description": "auth.role",
+        "peekOfCode": "_token_manager = TokenManager()\ndef role(resource_name: str):\n    async def checker(\n            request: Request,\n            credentials: HTTPAuthorizationCredentials = Depends(security)\n    ):\n        access_token = credentials.credentials\n        # Super Token: This is a token used for configuration, mainly used to add Service Account.\n        # Defined by environment variable ``. Please delete this configuration after the configuration is completed.\n        if access_token == os.getenv(\"SUPER_TOKEN\", uuid.uuid4().hex):",
+        "detail": "auth.role",
+        "documentation": {}
+    },
+    {
+        "label": "TokenManager",
+        "kind": 6,
+        "importPath": "auth.token_manager",
+        "description": "auth.token_manager",
+        "peekOfCode": "class TokenManager:\n    @staticmethod\n    def sha256(b: bytes) -> str:\n        return hashlib.sha256(b).hexdigest()\n    def __init__(self, truck_id: str = uuid.uuid4()):\n        self.truck_id = truck_id\n        self.refresh_token_ttl = settings.REFRESH_TOKEN_TTL\n        self.access_token_ttl = settings.ACCESS_TOKEN_TTL\n        self.access_token: Optional[bytes] = None\n        self.refresh_token: Optional[bytes] = None",
+        "detail": "auth.token_manager",
+        "documentation": {}
+    },
+    {
+        "label": "TokenRefreshRequest",
+        "kind": 6,
+        "importPath": "auth.token_manager",
+        "description": "auth.token_manager",
+        "peekOfCode": "class TokenRefreshRequest(BaseModel):\n    refresh_token: str = Field(\n        ...,\n        examples=[secrets.token_bytes(REFRESH_TOKEN_BYTES).hex()],\n        description=f\"Your baker, A {REFRESH_TOKEN_BYTES}-byte random byte stream turned into a fancy hex string.\"\n    )\nclass TokenResponse(BaseModel):\n    access_token: str\n    refresh_token: Optional[str] = None",
+        "detail": "auth.token_manager",
+        "documentation": {}
+    },
+    {
+        "label": "TokenResponse",
+        "kind": 6,
+        "importPath": "auth.token_manager",
+        "description": "auth.token_manager",
+        "peekOfCode": "class TokenResponse(BaseModel):\n    access_token: str\n    refresh_token: Optional[str] = None",
+        "detail": "auth.token_manager",
+        "documentation": {}
+    },
+    {
+        "label": "oauth2_scheme",
+        "kind": 5,
+        "importPath": "auth.token_manager",
+        "description": "auth.token_manager",
+        "peekOfCode": "oauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"token\")\nclass TokenManager:\n    @staticmethod\n    def sha256(b: bytes) -> str:\n        return hashlib.sha256(b).hexdigest()\n    def __init__(self, truck_id: str = uuid.uuid4()):\n        self.truck_id = truck_id\n        self.refresh_token_ttl = settings.REFRESH_TOKEN_TTL\n        self.access_token_ttl = settings.ACCESS_TOKEN_TTL\n        self.access_token: Optional[bytes] = None",
+        "detail": "auth.token_manager",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "docs.docs",
+        "description": "docs.docs",
+        "peekOfCode": "app = APIRouter()\n@app.get(\"/\", include_in_schema=False)\nasync def custom_redoc_ui_html():\n    return get_redoc_html(\n        openapi_url=settings.OPENAPI_URL,\n        title=settings.TITLE,\n        redoc_favicon_url=settings.FAVICON_URL,\n        with_google_fonts=settings.REDOC_WITH_GOOGLE_FONTS\n    )",
+        "detail": "docs.docs",
+        "documentation": {}
+    },
+    {
+        "label": "RedisConnectionWarning",
+        "kind": 6,
+        "importPath": "mq.mq",
+        "description": "mq.mq",
+        "peekOfCode": "class RedisConnectionWarning(Warning):\n    pass\nclass MessageQueue:\n    def redis_connector(self):\n        \"\"\"\n        Initialize Redis client using the provided Redis URL.\n        \"\"\"\n        return redis.StrictRedis.from_url(self.redis_url)\n    def __init__(self, stream_name: str = None):\n        \"\"\"",
+        "detail": "mq.mq",
+        "documentation": {}
+    },
+    {
+        "label": "MessageQueue",
+        "kind": 6,
+        "importPath": "mq.mq",
+        "description": "mq.mq",
+        "peekOfCode": "class MessageQueue:\n    def redis_connector(self):\n        \"\"\"\n        Initialize Redis client using the provided Redis URL.\n        \"\"\"\n        return redis.StrictRedis.from_url(self.redis_url)\n    def __init__(self, stream_name: str = None):\n        \"\"\"\n        Initialize the message queue, Redis connection, and fallback in-memory queue.\n        \"\"\"",
+        "detail": "mq.mq",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "mq.mq",
+        "description": "mq.mq",
+        "peekOfCode": "logger = settings.getLogger('MQ')\n# Custom warning for Redis connection issues\nclass RedisConnectionWarning(Warning):\n    pass\nclass MessageQueue:\n    def redis_connector(self):\n        \"\"\"\n        Initialize Redis client using the provided Redis URL.\n        \"\"\"\n        return redis.StrictRedis.from_url(self.redis_url)",
+        "detail": "mq.mq",
+        "documentation": {}
+    },
+    {
+        "label": "TestGenerateOpenapiFiles",
+        "kind": 6,
+        "importPath": "tests.api.gran_openapi_json",
+        "description": "tests.api.gran_openapi_json",
+        "peekOfCode": "class TestGenerateOpenapiFiles(unittest.TestCase):\n    def setUp(self):\n        # Setup logic to prepare for the test runs\n        self.output_file = \"_openapi.json\"\n    def tearDown(self):\n        # Cleanup logic to run after each test\n        if os.path.exists(self.output_file):\n            os.remove(self.output_file)\n    def test_openapi_json_generation(self):\n        # Call the function to test",
+        "detail": "tests.api.gran_openapi_json",
+        "documentation": {}
+    },
+    {
+        "label": "TestModelConfig",
+        "kind": 6,
+        "importPath": "tests.model.get_configs_test",
+        "description": "tests.model.get_configs_test",
+        "peekOfCode": "class TestModelConfig(unittest.TestCase):\n    @classmethod\n    def setUpClass(cls):\n        cls.model_port = find_free_port()\n        cls.model_server_url = f'http://127.0.0.1:{cls.model_port}'\n        cls.namespace = 'demo-namespace'\n        cls.model_name = 'demo-model'\n        cls.server_ready_event = multiprocessing.Event()\n        cls.model_process = multiprocessing.Process(\n            target=run_mock_model, args=(cls.model_port, cls.server_ready_event)",
+        "detail": "tests.model.get_configs_test",
+        "documentation": {}
+    },
+    {
+        "label": "find_free_port",
+        "kind": 2,
+        "importPath": "tests.model.get_configs_test",
+        "description": "tests.model.get_configs_test",
+        "peekOfCode": "def find_free_port():\n    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:\n        s.bind(('', 0))\n        return s.getsockname()[1]\ndef run_mock_model(model_port, server_ready_event):\n    logging.info(f\"Starting Flask server on port {model_port}\")\n    logging.basicConfig(level=logging.DEBUG)\n    try:\n        mock_model_app.run(port=model_port, use_reloader=False)\n        server_ready_event.set()",
+        "detail": "tests.model.get_configs_test",
+        "documentation": {}
+    },
+    {
+        "label": "run_mock_model",
+        "kind": 2,
+        "importPath": "tests.model.get_configs_test",
+        "description": "tests.model.get_configs_test",
+        "peekOfCode": "def run_mock_model(model_port, server_ready_event):\n    logging.info(f\"Starting Flask server on port {model_port}\")\n    logging.basicConfig(level=logging.DEBUG)\n    try:\n        mock_model_app.run(port=model_port, use_reloader=False)\n        server_ready_event.set()\n    except Exception as e:\n        logging.error(f\"Error while starting Flask server: {e}\")\n        server_ready_event.set()\nclass TestModelConfig(unittest.TestCase):",
+        "detail": "tests.model.get_configs_test",
+        "documentation": {}
+    },
+    {
+        "label": "script_path",
+        "kind": 5,
+        "importPath": "tests.model.get_configs_test",
+        "description": "tests.model.get_configs_test",
+        "peekOfCode": "script_path = os.path.dirname(os.path.abspath(__file__))\ndef find_free_port():\n    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:\n        s.bind(('', 0))\n        return s.getsockname()[1]\ndef run_mock_model(model_port, server_ready_event):\n    logging.info(f\"Starting Flask server on port {model_port}\")\n    logging.basicConfig(level=logging.DEBUG)\n    try:\n        mock_model_app.run(port=model_port, use_reloader=False)",
+        "detail": "tests.model.get_configs_test",
+        "documentation": {}
+    },
+    {
+        "label": "model",
+        "kind": 2,
+        "importPath": "tests.model.mock_model",
+        "description": "tests.model.mock_model",
+        "peekOfCode": "def model():\n    \"\"\"\n    Serves the 'model.yaml' file located in the script directory.\n    \"\"\"\n    return send_from_directory(script_path, 'model.yaml')\n@bp.route('/permissions.json', methods=['GET'])\ndef permissions():\n    \"\"\"\n    Serves the 'permissions.json' file located in the script directory.\n    \"\"\"",
+        "detail": "tests.model.mock_model",
+        "documentation": {}
+    },
+    {
+        "label": "permissions",
+        "kind": 2,
+        "importPath": "tests.model.mock_model",
+        "description": "tests.model.mock_model",
+        "peekOfCode": "def permissions():\n    \"\"\"\n    Serves the 'permissions.json' file located in the script directory.\n    \"\"\"\n    return send_from_directory(script_path, 'permissions.json')\n# Register the blueprint with a namespace and prefix\napp.register_blueprint(bp, url_prefix='/demo-namespace/demo-model')\nif __name__ == '__main__':\n    # Run the Flask application on port 5001\n    app.run(port=5001)",
+        "detail": "tests.model.mock_model",
+        "documentation": {}
+    },
+    {
+        "label": "script_path",
+        "kind": 5,
+        "importPath": "tests.model.mock_model",
+        "description": "tests.model.mock_model",
+        "peekOfCode": "script_path = os.path.dirname(os.path.abspath(__file__))\napp = Flask(__name__)\nbp = Blueprint('demo-model', __name__)\n@bp.route('/', methods=['GET'])\ndef model():\n    \"\"\"\n    Serves the 'model.yaml' file located in the script directory.\n    \"\"\"\n    return send_from_directory(script_path, 'model.yaml')\n@bp.route('/permissions.json', methods=['GET'])",
+        "detail": "tests.model.mock_model",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "tests.model.mock_model",
+        "description": "tests.model.mock_model",
+        "peekOfCode": "app = Flask(__name__)\nbp = Blueprint('demo-model', __name__)\n@bp.route('/', methods=['GET'])\ndef model():\n    \"\"\"\n    Serves the 'model.yaml' file located in the script directory.\n    \"\"\"\n    return send_from_directory(script_path, 'model.yaml')\n@bp.route('/permissions.json', methods=['GET'])\ndef permissions():",
+        "detail": "tests.model.mock_model",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "kind": 5,
+        "importPath": "tests.model.mock_model",
+        "description": "tests.model.mock_model",
+        "peekOfCode": "bp = Blueprint('demo-model', __name__)\n@bp.route('/', methods=['GET'])\ndef model():\n    \"\"\"\n    Serves the 'model.yaml' file located in the script directory.\n    \"\"\"\n    return send_from_directory(script_path, 'model.yaml')\n@bp.route('/permissions.json', methods=['GET'])\ndef permissions():\n    \"\"\"",
+        "detail": "tests.model.mock_model",
+        "documentation": {}
+    },
+    {
+        "label": "test_enqueue_dequeue_redis",
+        "kind": 2,
+        "importPath": "tests.mq.test_message_queue",
+        "description": "tests.mq.test_message_queue",
+        "peekOfCode": "def test_enqueue_dequeue_redis():\n    \"\"\"\n    Test enqueue and dequeue operations when Redis is available.\n    \"\"\"\n    # Use fakeredis to simulate Redis\n    fake_redis = fakeredis.FakeStrictRedis()\n    # Replace redis_url with fakeredis instance\n    mq = MessageQueue()\n    mq.redis_client = fake_redis\n    mq.redis_connected = True  # Simulate Redis connection being active",
+        "detail": "tests.mq.test_message_queue",
+        "documentation": {}
+    },
+    {
+        "label": "test_enqueue_dequeue_in_memory_queue",
+        "kind": 2,
+        "importPath": "tests.mq.test_message_queue",
+        "description": "tests.mq.test_message_queue",
+        "peekOfCode": "def test_enqueue_dequeue_in_memory_queue():\n    \"\"\"\n    Test in-memory queue behavior when Redis is unavailable.\n    \"\"\"\n    # Create a MessageQueue instance simulating Redis being unavailable\n    mq = MessageQueue()\n    mq.redis_client = None\n    mq.redis_connected = False\n    # Test enqueue (in-memory)\n    mq.enqueue(\"test_message\")",
+        "detail": "tests.mq.test_message_queue",
+        "documentation": {}
+    },
+    {
+        "label": "test_fallback_enqueue_after_redis_failure",
+        "kind": 2,
+        "importPath": "tests.mq.test_message_queue",
+        "description": "tests.mq.test_message_queue",
+        "peekOfCode": "def test_fallback_enqueue_after_redis_failure():\n    \"\"\"\n    Test automatic fallback to in-memory queue when Redis fails.\n    \"\"\"\n    # Use fakeredis to simulate Redis\n    fake_redis = fakeredis.FakeStrictRedis()\n    # Initialize Redis as connected\n    mq = MessageQueue()\n    mq.redis_client = fake_redis\n    mq.redis_connected = True",
+        "detail": "tests.mq.test_message_queue",
+        "documentation": {}
+    },
+    {
+        "label": "test_redis_connection_warning",
+        "kind": 2,
+        "importPath": "tests.mq.test_message_queue",
+        "description": "tests.mq.test_message_queue",
+        "peekOfCode": "def test_redis_connection_warning():\n    \"\"\"\n    Test if correct warning is issued when Redis cannot connect.\n    \"\"\"\n    # pytest.warns to detect warning\n    with pytest.warns(RedisConnectionWarning, match=\"Redis connection error:\"):\n        mq = MessageQueue()  # Create MessageQueue instance\n    assert mq.redis_connected is False  # Verify Redis connection state\ndef test_memory_based_queue_operations():\n    \"\"\"",
+        "detail": "tests.mq.test_message_queue",
+        "documentation": {}
+    },
+    {
+        "label": "test_memory_based_queue_operations",
+        "kind": 2,
+        "importPath": "tests.mq.test_message_queue",
+        "description": "tests.mq.test_message_queue",
+        "peekOfCode": "def test_memory_based_queue_operations():\n    \"\"\"\n    Test memory-based queue behavior when Redis is not available.\n    \"\"\"\n    # Simulate Redis being unavailable, create a MessageQueue instance\n    mq = MessageQueue()\n    mq.redis_client = None\n    mq.redis_connected = False\n    # Test enqueue operation (store to in-memory queue)\n    mq.enqueue(\"memory_queue_test_message_1\")",
+        "detail": "tests.mq.test_message_queue",
+        "documentation": {}
+    },
+    {
+        "label": "WebhooksMiddleware",
+        "kind": 6,
+        "importPath": "webhook.middleware",
+        "description": "webhook.middleware",
+        "peekOfCode": "class WebhooksMiddleware(BaseHTTPMiddleware):\n    async def dispatch(self, request: Request, call_next):\n        try:\n            # Get response\n            response = await call_next(request)\n            # Capture response body\n            response_body = b\"\"\n            async for chunk in response.body_iterator:\n                response_body += chunk\n            # Log request and response details",
+        "detail": "webhook.middleware",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "webhook.middleware",
+        "description": "webhook.middleware",
+        "peekOfCode": "logger = settings.getLogger(__name__)\nclass WebhooksMiddleware(BaseHTTPMiddleware):\n    async def dispatch(self, request: Request, call_next):\n        try:\n            # Get response\n            response = await call_next(request)\n            # Capture response body\n            response_body = b\"\"\n            async for chunk in response.body_iterator:\n                response_body += chunk",
+        "detail": "webhook.middleware",
+        "documentation": {}
+    },
+    {
+        "label": "parse_status_codes",
+        "kind": 2,
+        "importPath": "webhook.parse",
+        "description": "webhook.parse",
+        "peekOfCode": "def parse_status_codes(rules: List[str]) -> List[int]:\n    \"\"\"\n    Parses a list of string rules representing status code ranges or specific codes into a sorted list of integers. The function\n    supports inclusion and exclusion rules, where exclusion rules start with '!' and take precedence over inclusions. Ranges are\n    specified using a '-' between start and end (e.g., \"200-205\"). Invalid ranges, empty rules, or invalid numeric formats will\n    result in a ValueError being raised. Duplicate codes are automatically handled, ensuring the result contains unique entries.\n    :param rules:\n        A list of strings where each string represents a rule to define the set of status codes. Inclusion rules specify\n        individual codes (e.g., \"200\") or ranges (e.g., \"200-205\"). Exclusion rules begin with '!' and specify codes\n        or ranges to remove from the inclusion set. For example, \"200-205\" and \"!202-203\" would include 200, 201, 204, and 205.",
+        "detail": "webhook.parse",
+        "documentation": {}
+    },
+    {
+        "label": "Fields",
+        "kind": 6,
+        "importPath": "webhook.schemas",
+        "description": "webhook.schemas",
+        "peekOfCode": "class Fields(BaseModel):\n    title: Optional[str] = ''\n    name: Optional[str] = ''\n    value: Optional[str] = ''\n    short: Optional[bool] = True\nclass Attachments(BaseModel):\n    title: str = \"Stayforge\"\n    text: str = \"Text\"\n    color: str = \"#36a64f\"\n    fields: list[dict[str, Any]] = Fields(",
+        "detail": "webhook.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "Attachments",
+        "kind": 6,
+        "importPath": "webhook.schemas",
+        "description": "webhook.schemas",
+        "peekOfCode": "class Attachments(BaseModel):\n    title: str = \"Stayforge\"\n    text: str = \"Text\"\n    color: str = \"#36a64f\"\n    fields: list[dict[str, Any]] = Fields(\n        title=\"k1\",\n        value=\"api_factory\",\n        short=True\n    )\nclass Embeds(BaseModel):",
+        "detail": "webhook.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "Embeds",
+        "kind": 6,
+        "importPath": "webhook.schemas",
+        "description": "webhook.schemas",
+        "peekOfCode": "class Embeds(BaseModel):\n    title: str\n    description: str\n    url: str\n    color: int\n    fields: list[dict[str, Any]] = Fields(\n        name=\"k2\",\n        value=\"v2\"\n    )\nclass Root(BaseModel):",
+        "detail": "webhook.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "Root",
+        "kind": 6,
+        "importPath": "webhook.schemas",
+        "description": "webhook.schemas",
+        "peekOfCode": "class Root(BaseModel):\n    content: str\n    username: str = _getenv(\"USERNAME\")\n    avatar_url: str = _getenv(\"AVATAR_URL\", 'https://avatars.githubusercontent.com/u/183347404')\n    attachments: List[Attachments]\n    embeds: List[Embeds]\n    _request: Optional[Request] = PrivateAttr()\n    _responses: Optional[Response] = PrivateAttr()",
+        "detail": "webhook.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "webhook.sender",
+        "description": "webhook.sender",
+        "peekOfCode": "logger = settings.getLogger(__name__)\nasync def add_task(request, response):\n    \"\"\"\n    Handles the processing of incoming webhook requests and responses by querying the\n    webhooks manager repository, retrieving matching records based on specific criteria,\n    and enqueueing information to a messaging queue for further processing. Operates\n    asynchronously to support non-blocking operations.\n    :param request: Incoming request object that contains details such as the\n        URL path and HTTP method.\n    :type request: Request",
+        "detail": "webhook.sender",
+        "documentation": {}
+    },
+    {
+        "label": "load_description",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def load_description(file_path: str) -> str:\n    abs_path = os.path.join(os.path.dirname(__file__), file_path)\n    with open(abs_path, 'r', encoding='utf-8') as file:\n        return file.read()\nmiddleware = [\n    # Middleware(WebhooksMiddleware)\n]\n@asynccontextmanager\nasync def lifespan(app: FastAPI):\n    # Startup: export OpenAPI JSON",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "custom_openapi",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def custom_openapi():\n    if app.openapi_schema:\n        return app.openapi_schema\n    openapi_schema = get_openapi(\n        title=settings.TITLE,\n        description=description,\n        version=settings.__version__,\n        routes=app.routes,\n    )\n    openapi_schema[\"info\"][\"x-logo\"] = {",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "middleware",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "middleware = [\n    # Middleware(WebhooksMiddleware)\n]\n@asynccontextmanager\nasync def lifespan(app: FastAPI):\n    # Startup: export OpenAPI JSON\n    task = asyncio.create_task(export_openapi_json(\"openapi.json\"))\n    yield\n    # Shutdown: ensure the task is completed\n    await task",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "description",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "description = load_description('README.md')\napp = FastAPI(\n    title=settings.TITLE,\n    description=description,\n    version=settings.__version__,\n    openapi_url='/openapi.json',\n    contact={\n        \"name\": \"Stayforge Support\",\n        \"url\": \"https://stayforge.io/support\",\n        \"email\": \"support@stayforge.io\",",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = FastAPI(\n    title=settings.TITLE,\n    description=description,\n    version=settings.__version__,\n    openapi_url='/openapi.json',\n    contact={\n        \"name\": \"Stayforge Support\",\n        \"url\": \"https://stayforge.io/support\",\n        \"email\": \"support@stayforge.io\",\n    },",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.openapi",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.openapi = custom_openapi\nasync def export_openapi_json(file_path: str):\n    async with aiofiles.open(file_path, \"w\") as f:\n        api_spec = app.openapi()\n        await f.write(json.dumps(api_spec, indent=4))\n    logger.info(f\"OpenAPI JSON exported to {file_path}\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "database",
+        "description": "database",
+        "peekOfCode": "client = AsyncIOMotorClient(settings.MONGO_URL)",
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "Duplicate",
+        "kind": 6,
+        "importPath": "repository",
+        "description": "repository",
+        "peekOfCode": "class Duplicate:\n    pass\nclass MongoRepository:\n    def __init__(self, database: str, collection: str, client: AsyncIOMotorClient,\n                 log_collection: str = 'logs_method_call', model_class: Any = None):\n        self.db = client[database]\n        self.collection = self.db[collection]\n        self.log_collection = self.db[log_collection]\n        self.model_class = model_class\n    @log_method_call(log_collection=lambda self: self.log_collection)",
+        "detail": "repository",
+        "documentation": {}
+    },
+    {
+        "label": "MongoRepository",
+        "kind": 6,
+        "importPath": "repository",
+        "description": "repository",
+        "peekOfCode": "class MongoRepository:\n    def __init__(self, database: str, collection: str, client: AsyncIOMotorClient,\n                 log_collection: str = 'logs_method_call', model_class: Any = None):\n        self.db = client[database]\n        self.collection = self.db[collection]\n        self.log_collection = self.db[log_collection]\n        self.model_class = model_class\n    @log_method_call(log_collection=lambda self: self.log_collection)\n    async def insert_one(self, data: Dict[str, Any], request: Optional[Request]) -> str:\n        result = await self.collection.insert_one({",
+        "detail": "repository",
+        "documentation": {}
+    },
+    {
+        "label": "log_method_call",
+        "kind": 2,
+        "importPath": "repository",
+        "description": "repository",
+        "peekOfCode": "def log_method_call(log_collection: Callable[[Any], Any]):\n    def decorator(method: Callable):\n        @functools.wraps(method)\n        async def wrapper(self, *args, request: Optional[Request] = None, **kwargs):\n            client_host = request.client.host if request else \"Unknown\"\n            user_agent = request.headers.get(\"user-agent\") if request else \"Unknown\"\n            input_data = {\n                \"method\": method.__name__,\n                \"args\": args,\n                \"kwargs\": kwargs,",
+        "detail": "repository",
+        "documentation": {}
+    },
+    {
+        "label": "getLogger",
+        "kind": 2,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "def getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()\n    console_handler.setLevel(logging.DEBUG)\n    # Define color formats for different log levels\n    formats = {\n        logging.DEBUG: '\\033[1;34m%(levelname)s:\\033[0m\\t\\033[1;36m%(asctime)s\\033[0m - \\033[1;34m%(name)s\\033[0m - %(message)s',\n        # Blue\n        logging.INFO: '\\033[1;32m%(levelname)s:\\033[0m\\t\\033[1;36m%(asctime)s\\033[0m - \\033[1;34m%(name)s\\033[0m - %(message)s',",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "__version__",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "__version__ = \"1.0.0\"\nDEBUG = json.loads(os.getenv(\"DEBUG\", \"false\").lower())\nBASE_PATH = Path(__file__).parent\n# Metadata\nTITLE = \"Stayforge API\"\nOPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\n# etcd\nETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "DEBUG = json.loads(os.getenv(\"DEBUG\", \"false\").lower())\nBASE_PATH = Path(__file__).parent\n# Metadata\nTITLE = \"Stayforge API\"\nOPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\n# etcd\nETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")\ndef getLogger(name=\"stayforge\"):",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_PATH",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "BASE_PATH = Path(__file__).parent\n# Metadata\nTITLE = \"Stayforge API\"\nOPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\n# etcd\nETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "TITLE",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "TITLE = \"Stayforge API\"\nOPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\n# etcd\nETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "OPENAPI_URL",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "OPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\n# etcd\nETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()\n    console_handler.setLevel(logging.DEBUG)",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "FAVICON_URL",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "FAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\n# etcd\nETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()\n    console_handler.setLevel(logging.DEBUG)\n    # Define color formats for different log levels",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "REDOC_WITH_GOOGLE_FONTS",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "REDOC_WITH_GOOGLE_FONTS = True\n# etcd\nETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()\n    console_handler.setLevel(logging.DEBUG)\n    # Define color formats for different log levels\n    formats = {",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "ETCD_ENDPOINT",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "ETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()\n    console_handler.setLevel(logging.DEBUG)\n    # Define color formats for different log levels\n    formats = {\n        logging.DEBUG: '\\033[1;34m%(levelname)s:\\033[0m\\t\\033[1;36m%(asctime)s\\033[0m - \\033[1;34m%(name)s\\033[0m - %(message)s',\n        # Blue",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "logger = getLogger('Stayforge')\nif DEBUG:\n    logger.setLevel(logging.DEBUG)\n    logger.warning(\"DEBUG MODE ENABLED! DO NOT USE IN PRODUCTION.\")\n# Mongodb\nMONGO_URL = os.getenv(\"MONGO_URL\", \"mongodb://mongodb:27017\")\nDATABASE_NAME = os.getenv(\"DATABASE_NAME\", \"stayforge\")\n# Redis\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://redis:6379\")\n# API descriptions file dir",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "MONGO_URL",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "MONGO_URL = os.getenv(\"MONGO_URL\", \"mongodb://mongodb:27017\")\nDATABASE_NAME = os.getenv(\"DATABASE_NAME\", \"stayforge\")\n# Redis\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://redis:6379\")\n# API descriptions file dir\nDOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASE_NAME",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "DATABASE_NAME = os.getenv(\"DATABASE_NAME\", \"stayforge\")\n# Redis\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://redis:6379\")\n# API descriptions file dir\nDOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_BYTES = os.getenv(\"REFRESH_TOKEN_BYTES\", 64)",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "REDIS_URL",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "REDIS_URL = os.getenv(\"REDIS_URL\", \"redis://redis:6379\")\n# API descriptions file dir\nDOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_BYTES = os.getenv(\"REFRESH_TOKEN_BYTES\", 64)\nACCESS_TOKEN_BYTES = os.getenv(\"ACCESS_TOKEN_BYTES\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "DOCS_API_DESCRIPTION",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "DOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_BYTES = os.getenv(\"REFRESH_TOKEN_BYTES\", 64)\nACCESS_TOKEN_BYTES = os.getenv(\"ACCESS_TOKEN_BYTES\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_MODEL_SOURCE",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "DEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_BYTES = os.getenv(\"REFRESH_TOKEN_BYTES\", 64)\nACCESS_TOKEN_BYTES = os.getenv(\"ACCESS_TOKEN_BYTES\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_MODEL_NAMESPACE",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "DEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_BYTES = os.getenv(\"REFRESH_TOKEN_BYTES\", 64)\nACCESS_TOKEN_BYTES = os.getenv(\"ACCESS_TOKEN_BYTES\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "REFRESH_TOKEN_BYTES",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "REFRESH_TOKEN_BYTES = os.getenv(\"REFRESH_TOKEN_BYTES\", 64)\nACCESS_TOKEN_BYTES = os.getenv(\"ACCESS_TOKEN_BYTES\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "ACCESS_TOKEN_BYTES",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "ACCESS_TOKEN_BYTES = os.getenv(\"ACCESS_TOKEN_BYTES\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "REFRESH_TOKEN_TTL",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "REFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {\n        \"description\": \"Create this order means that the room is booked. \"",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "ACCESS_TOKEN_TTL",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "ACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {\n        \"description\": \"Create this order means that the room is booked. \"\n                       \"If checkout_at is exceeded and there is no in-using state, it will automatically be converted to close.\"",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "SUPERUSER_ACCOUNT_NAME",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "SUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {\n        \"description\": \"Create this order means that the room is booked. \"\n                       \"If checkout_at is exceeded and there is no in-using state, it will automatically be converted to close.\"\n    },\n    'in-using': {\"description\": \"Create this order means that the room is in-using. \"",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "SUPERUSER_ACCOUNT_SECRET",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "SUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {\n        \"description\": \"Create this order means that the room is booked. \"\n                       \"If checkout_at is exceeded and there is no in-using state, it will automatically be converted to close.\"\n    },\n    'in-using': {\"description\": \"Create this order means that the room is in-using. \"\n                                \"If checkout_at is exceeded, it will automatically be converted to wait-for-maintain\"",
+        "detail": "settings",
+        "documentation": {}
+    },
+    {
+        "label": "SUPERUSER_ACCOUNT_IAM",
+        "kind": 5,
+        "importPath": "settings",
+        "description": "settings",
+        "peekOfCode": "SUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {\n        \"description\": \"Create this order means that the room is booked. \"\n                       \"If checkout_at is exceeded and there is no in-using state, it will automatically be converted to close.\"\n    },\n    'in-using': {\"description\": \"Create this order means that the room is in-using. \"\n                                \"If checkout_at is exceeded, it will automatically be converted to wait-for-maintain\"\n                 },",
+        "detail": "settings",
+        "documentation": {}
+    }
+]

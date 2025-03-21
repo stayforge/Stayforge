@@ -1,23 +1,15 @@
+import json
 import uuid
-from datetime import datetime
-
-from bson import ObjectId
-from faker.proxy import Faker
-from pydantic import BaseModel, Field, AnyUrl
+from datetime import datetime, timedelta
 from typing import Optional, List
 
+from bson import ObjectId
+from faker import Faker
+from pydantic import BaseModel, Field, AnyUrl, field_validator, constr
+
 import settings
-import database
+from api.order import order_types
 from api.schemas import StayForgeModel
-from repository import MongoRepository
-
-collection_name = 'order'
-
-order_repository = MongoRepository(
-    database=settings.DATABASE_NAME,
-    collection=collection_name,
-    client=database.client
-)
 
 faker = Faker('ja_JP')
 
@@ -82,45 +74,54 @@ class Guest(BaseModel):
     id_document: Optional[IDDocument]
 
 
-async def create_unique_index() -> str:
-    return await database[collection_name].create_index("name", unique=True)
+# noinspection PyNestedDecorators
+class OrderBase(BaseModel):
+    num: constr(pattern=r'^[A-Za-z0-9_\-#@:\/|\\\[\]\(\)\{\}<>\.!\?]+$') = Field(
+        ...,
+        examples=[f"{datetime.now().strftime('%Y%m%d%H%M%S')}{str(uuid.uuid4().int % 10000).zfill(4)}"],
+        description="Order number. Only `A-Z`, `a-z`, `0-9` and `-_#@:` are allowed."
+    )
+    room_name: str = Field(
+        None,
+        examples=[str(ObjectId())],
+        description="Room name"
+    )
+    guest: Guest = Field(
+        None,
+        description="Guest information"
+    )
+    type: str = Field(
+        ...,
+        examples=order_types,
+        description="OrderType",
+    )
+    checkin_at: datetime = Field(
+        None,
+        examples=[datetime.now() + timedelta(days=1)],
+        description="The `start time` of this room being occupied."
+    )
+    checkout_at: datetime = (
+        Field(
+            None,
+            examples=[datetime.now() + timedelta(days=2)],
+            description="The `end time` of this room being occupied."
+        )
+    )
 
-
-class OrderInput(BaseModel):
-    num: str = Field(..., examples=["ON-20231115-1234567890"], description="Order number")
-    room_id: str = Field(None, examples=[str(ObjectId())], description="Room ID")
-    guest: Guest = Field(None, description="Guest information")
-    type: str = Field(..., examples=['booked'], description="OrderType")
-    scheduled_checkin_at: datetime = Field(None, description="Creation timestamp")
-    scheduled_checkout_at: datetime = Field(None, description="Creation timestamp")
+    @field_validator("type", mode="before")
+    @classmethod
+    def validate_order_type(cls, value):
+        if value not in order_types:
+            raise ValueError(f"OrderType Must be one of them: {json.dumps(order_types, ensure_ascii=False)}")
+        return value
 
     @classmethod
     def generate_num(cls) -> str:
         return f"ON-{datetime.now().strftime('%Y%m%d')}-{''.join([str(uuid.uuid4().int % 10) for _ in range(10)])}"
 
 
-class Order(OrderInput, StayForgeModel):
+class Order(OrderBase, StayForgeModel):
     @classmethod
-    def order_types(cls, simple_list=False) -> List[dict]:
-        _ = [
-            {'booked': {'room_using': False,
-                        "description": "If a room is set to order and 'room_using': True, the room will be marked as in use."}},
-            {'staying': {'room_using': True}},
-            {'expired': {
-                'room_using': True,
-                'bind_datetime_col': 'scheduled_checkout_at',
-                "description": "Automatically listening for orders, when the time in `bind_datetime_col` is reached,"
-                               " than it will initiate a new order, type is ‘expired’"
-            }},
-            {'dirty': {'room_using': True,
-                       "description": "The guest has exited the room. The room is being cleaned or will be cleaned soon."}},
-            {'ready': {'room_using': False, "description": "Room is already for next order."}},  #
-            {'plan_to_close': {
-                "description": "When this room is created in the ready state, it will automatically check whether there is"
-                               "this order in the history, and if so, the room will be changed to the close state. "
-                               "Used for planned maintenance."}},
-            {'close': {'room_using': True, "description": "Room is closing for maintenance."}},
-        ]
-        if simple_list:
-            return [__ for __ in _]
-        return _
+    def order_types(cls) -> dict | List[str]:
+        _status = settings.ORDER_TYPE
+        return _status

@@ -1,13 +1,13 @@
+from pathlib import Path
 from typing import Optional
+
 from pydantic import BaseModel, Field
-import settings
+
 import database
-
+import settings
 from api.schemas import StayForgeModel
-from docs.tools import get_description_md
+from docs import read_document
 from repository import MongoRepository
-
-from . import Model
 
 collection_name = 'model'
 logger = settings.getLogger('models_loader')
@@ -56,9 +56,13 @@ class ModelsManagerInput(BaseModel):
                 }
             }}
         }],
-        description=get_description_md('models_manager', 'ModelsManagerInput', 'permissions.md')
+        description=read_document(Path('models') / 'ModelsManagerInput' / 'permissions.md')
     )
 
 
 class ModelsManager(ModelsManagerInput, StayForgeModel):
+    etcd_host: str = Field()
+    etcd_port: int = Field(2379)
+    etcd_user: str = Field()
+    etcd_password: str = Field()
     pass

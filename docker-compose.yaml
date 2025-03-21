@@ -1,14 +1,23 @@
 services:
   stayforge:
-    image: tokujunsystem/stayforge:latest
+    build:
+      context: .
     container_name: stayforge
     ports:
-      - "80:80"
+      - "${PORT:-80}:${PORT:-80}"
     environment:
-      - MONGO_URL=mongodb://mongodb:27017/
+      - HOST=${HOST:-0.0.0.0}
+      - PORT=${PORT:-80}
+      - WORKERS=${WORKERS:-4}
+      - MONGO_URL=$MONGO_URL
+      - REDIS_URL=$REDIS_URL
+    depends_on:
+      - mongodb
     networks:
+      - web
       - database
       - redis
+      - etcd
 
   redis:
     image: redis:latest
@@ -18,19 +27,34 @@ services:
     networks:
       - redis
 
-
   mongodb:
     image: mongo:latest
     container_name: mongodb
     volumes:
-      - data:/data/db
+      - data:/data/auth_db
     networks:
       - database
 
+  etcd:
+    image: bitnami/etcd:latest
+    container_name: etcd
+    environment:
+      - ALLOW_NONE_AUTHENTICATION=yes
+      - ETCD_ENABLE_V2=true
+    volumes:
+      - etcd:/bitnami/etcd
+    networks:
+      - etcd
+
 networks:
+  web:
   database:
     internal: true
   redis:
     internal: true
+  etcd:
+    internal: true
 volumes:
   data:
+  redis:
+  etcd:

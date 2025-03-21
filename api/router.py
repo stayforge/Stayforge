@@ -1,21 +1,76 @@
-from fastapi import APIRouter
+"""
+API Routers
+"""
+from fastapi import APIRouter, Depends
+from fastapi_crudrouter_mongodb import CRUDRouter
 
-from api.healthcheck.view import router as healthcheck
-from api.branch.view import router as branch
-from api.order.view import router as order
-from api.room.view import router as room
-from api.room_type.view import router as room_type
-from api.key_manager.view import router as key_manager
-from api.webhooks_manager.view import router as webhooks_manager
-from api.models_manager.view import router as models_manager
+from api import branch, order, room_type, room
+import auth
+from auth import ServiceAccount
+from auth.role import role
+from api.branch.models import Branch
+from api.field_based_crud_router import FieldBasedCRUDRouter
+from api.mongo_client import db
+from api.order.models import Order
+from api.room.models import Room
+from api.room_type.models import RoomType
 
 router = APIRouter()
 
-router.include_router(healthcheck, prefix="/healthcheck", tags=["Healthcheck"], include_in_schema=False)
-router.include_router(webhooks_manager, prefix="/webhooks_manager", tags=["Webhooks Manager"])
-router.include_router(models_manager, prefix="/models_manager", tags=["Models Manager"])
-router.include_router(branch, prefix="/branch", tags=["Branches"])
-router.include_router(room, prefix="/room", tags=["Rooms"])
-router.include_router(room_type, prefix="/room_type", tags=["Room Types"])
-router.include_router(order, prefix="/order", tags=["Orders"])
-router.include_router(key_manager, prefix="/key", tags=["Key Manager"])
+# router.include_router(healthcheck, prefix="/healthcheck", tags=["Healthcheck"], include_in_schema=False)
+# router.include_router(webhooks_manager, prefix="/webhooks", tags=["Webhooks Manager"])
+# router.include_router(models_manager, prefix="/models", tags=["Models Manager"])
+# router.include_router(models_etcd, prefix="/models", tags=["Models Etcd"])
+# router.include_router(mq, prefix="/mq", tags=["Message Queue"])
+
+# API v1
+router.include_router(CRUDRouter(
+    model=ServiceAccount,
+    db=db,
+    collection_name=auth.collection_name,
+    prefix="/service_accounts",
+    tags=["Service Accounts"],
+))
+
+router.include_router(
+    FieldBasedCRUDRouter(
+        model=Branch,
+        db=db,
+        collection_name=branch.collection_name,
+        identifier_field="name",  # Use name as the identifier
+        prefix="/branch",
+        tags=["Branches"]
+    ),
+    dependencies=[Depends(role("Branches"))]
+)
+router.include_router(
+    FieldBasedCRUDRouter(
+        model=RoomType,
+        db=db,
+        collection_name=room_type.collection_name,
+        identifier_field="name",
+        prefix="/room_type",
+        tags=["Room Types"],
+    ),
+    dependencies=[Depends(role("RoomTypes"))]
+)
+router.include_router(CRUDRouter(
+    model=Room,
+    db=db,
+    collection_name=room.collection_name,
+    prefix="/room",
+    tags=["Rooms"]
+),
+    dependencies=[Depends(role("Rooms"))]
+)
+router.include_router(
+    FieldBasedCRUDRouter(
+        model=Order,
+        db=db,
+        collection_name=order.collection_name,
+        identifier_field="num",
+        prefix="/order",
+        tags=["Orders"]
+    ),
+    dependencies=[Depends(role("Orders"))]
+)

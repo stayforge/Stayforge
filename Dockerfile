@@ -1,20 +1,18 @@
 FROM python:3.13-slim AS stayforge
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . .
-
-# Install packages
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libffi-dev \
+    libssl-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+
 RUN pip install --no-cache-dir -r requirements.txt --root-user-action=ignore
-RUN pip install uvicorn --root-user-action=ignore
 
-EXPOSE 80
+COPY . .
 
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"]
-
-
+CMD ["sh", "-c", "uvicorn app:app --host ${HOST:-0.0.0.0} --port ${PORT:-8080} --workers ${WORKERS:-4}"]

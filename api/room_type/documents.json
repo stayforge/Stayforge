@@ -1,0 +1,22 @@
+{
+  "_list": {
+    "summary": "Get all {model_name}s",
+    "description": "Returns all {model_name} in a list."
+  },
+  "_get": {
+    "summary": "Get a single {model_name}s",
+    "description": "Return a single {model_name} by ID."
+  },
+  "_create": {
+    "summary": "Create a {model_name}",
+    "description": "Create a new {model_name}."
+  },
+  "_update": {
+    "summary": "Update a {model_name}",
+    "description": "Update a {model_name}."
+  },
+  "_delete": {
+    "summary": "Delete a {model_name}",
+    "description": "Delete a new {model_name}."
+  }
+}

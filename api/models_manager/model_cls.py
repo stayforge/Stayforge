@@ -1,11 +1,10 @@
-# model.py
+# models.py
 import re
 from typing import Any
 from urllib.parse import urlparse
 
 import httpx
 import yaml
-from httpx import HTTPError
 
 from requests import Response
 

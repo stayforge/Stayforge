@@ -1,13 +1,19 @@
+import asyncio
+import json
 import os
+from contextlib import asynccontextmanager
+
+import aiofiles
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
-from starlette.middleware import Middleware
 
 import settings
-from api import router as api_router
 from docs import docs as docs
-from webhook.middleware import WebhooksMiddleware
-import json
+from auth import router as auth_router
+from application_api import router as application_api_router
+from api.router import router as api_router
+
+from settings import logger
 
 
 def load_description(file_path: str) -> str:
@@ -17,10 +23,25 @@ def load_description(file_path: str) -> str:
 
 
 middleware = [
-    Middleware(WebhooksMiddleware)
+    # Middleware(WebhooksMiddleware)
 ]
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup: export OpenAPI JSON
+    task = asyncio.create_task(export_openapi_json("openapi.json"))
+    yield
+    # Shutdown: ensure the task is completed
+    await task
+
+
+description = load_description('README.md')
+
 app = FastAPI(
+    title=settings.TITLE,
+    description=description,
+    version=settings.__version__,
     openapi_url='/openapi.json',
     contact={
         "name": "Stayforge Support",
@@ -29,11 +50,32 @@ app = FastAPI(
     },
     middleware=middleware,
     docs_url="/docs/swagger",
+    redoc_url="/docs",
+    lifespan=lifespan,
 )
 
-description = load_description('description.md')
+# Auth API
+app.include_router(
+    auth_router,
+    prefix="/auth",
+    tags=["Authentication"],
+    responses={401: {"description": "Unauthorized"}},
+)
 
-app.include_router(api_router.router, prefix="/api")
+# Application-level API (includes Booking API)
+app.include_router(
+    application_api_router,
+    responses={401: {"description": "Unauthorized"}},
+)
+
+# Stayforge API
+app.include_router(
+    api_router,
+    prefix="/api",
+    responses={401: {"description": "Unauthorized"}},
+)
+
+# Document
 app.include_router(docs.app, prefix="/docs", include_in_schema=False)
 
 
@@ -49,20 +91,36 @@ def custom_openapi():
     openapi_schema["info"]["x-logo"] = {
         "url": "https://raw.githubusercontent.com/tokujun-t/Stayforge/refs/heads/dev/docs/stayforge.png"
     }
+    openapi_schema["components"]["securitySchemes"] = {
+        "BearerAuth": {
+            "type": "http",
+            "scheme": "Bearer",
+            "bearerFormat": "JWT",
+            "description": "Please use `access_token`."
+        }
+    }
+    # Path to cover security requirements
+    endpoints_to_override = [
+        "/auth/authenticate",
+        "/auth/refresh_access_token"
+    ]
+
+    for path, methods in openapi_schema["paths"].items():
+        # If path is prefixed with either endpoints_to_override, security is empty;
+        # otherwise BearerAuth is added
+        security_setting = [] if any(path.startswith(ep) for ep in endpoints_to_override) else [{"BearerAuth": []}]
+        for method in methods:
+            methods[method]["security"] = security_setting
     app.openapi_schema = openapi_schema
-    return openapi_schema
+    return app.openapi_schema
 
 
 app.openapi = custom_openapi
 
 
-def export_openapi_json(file_path: str):
-    with open(file_path, "w") as f:
+async def export_openapi_json(file_path: str):
+    async with aiofiles.open(file_path, "w") as f:
         api_spec = app.openapi()
-        json.dump(api_spec, f, indent=4)
-    print(f"OpenAPI JSON exported to {file_path}")
+        await f.write(json.dumps(api_spec, indent=4))
+    logger.info(f"OpenAPI JSON exported to {file_path}")
 
-
-if __name__ == '__main__':
-    export_openapi_json("openapi.json")
-    exit(0)

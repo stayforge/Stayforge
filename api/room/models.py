@@ -1,39 +1,39 @@
+"""
+Room Models
+"""
+
 from random import randint
 
-from bson import ObjectId
 from pydantic import BaseModel, Field
 
-import settings
-import database
 from api.schemas import StayForgeModel
-from repository import MongoRepository
-
-collection_name = 'room'
-
-room_repository = MongoRepository(
-    database=settings.DATABASE_NAME,
-    collection=collection_name,
-    client=database.client
-)
 
 
-class RoomInput(BaseModel):
-    key_id: str = Field(
-        str(ObjectId()), description="Reference ID of the key."
+class RoomBase(BaseModel):
+    room_type_name: str = Field(
+        ...,
+        description="Reference name of the RoomType."
     )
-    room_type_id: str = Field(
-        str(ObjectId()), description="Reference ID of the RoomType."
+    branch_name: str = Field(
+        ...,
+        description="Reference name of the Branch."
     )
     number: str = Field(
         ...,
         examples=[f"{randint(1, 9)}0{randint(1, 9)}"],
         description="The number of rooms, e.g., 203."
     )
+    name_visible: str = Field(
+        None,
+        examples=["Happy Room"],
+        description="A visual room name. You can give the room your favorite name."
+    )
     priority: int = Field(
-        ..., description="The OTA system will give priority to rooms with a higher value to guests. "
-                         "If the priorities are the same, then it is random."
+        0,
+        description="Stayforge will prioritize rooms with high priority numbers to guests. "
+                    "When the priority is the same, it is randomly selected according to certain rules."
     )
 
 
-class Room(RoomInput, StayForgeModel):
+class Room(RoomBase, StayForgeModel):
     pass

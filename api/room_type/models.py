@@ -1,54 +1,62 @@
-import random
-from decimal import Decimal
+"""
+Room Type Models
+"""
 
-from faker.proxy import Faker
-from pydantic import BaseModel, Field
+from typing import List, Optional
 
-import settings
-import database
+from pydantic import BaseModel, Field, constr
+
 from api.schemas import StayForgeModel
-from repository import MongoRepository
-
-collection_name = 'room_type'
-
-room_repository = MongoRepository(
-    database=settings.DATABASE_NAME,
-    collection=collection_name,
-    client=database.client
-)
-
-faker = Faker('ja_JP')
 
 
-class RoomTypeInput(BaseModel):
-    name: str = Field(
+class RoomTypeBase(BaseModel):
+    parent: Optional[str] = Field(
+        None,
+        examples=[None, "standard", "premium"],
+        description="Parent room type’s name. If set to None, it will be considered a top-level room type."
+    )
+    name: constr(pattern=r'^[a-z0-9_-]+$') = Field(
         ...,
-        examples=['スタンダード', 'プレミアム'],
-        description="The Type of RoomType"
+        examples=["happy-room-101_myhotel"],
+        description="Unique name. Only `a-z`, `0-9` and `-_` are allowed."
+    )
+    nameVisible: str = Field(
+        ...,
+        examples=['Standard', 'Premium'],
+        description="A visible name of the room type."
     )
     description: str = Field(
         None, description="Description of the room type."
     )
-    price: Decimal = Field(
-        ...,
-        examples=[random.randint(8000, 50000)],
-        description="Current price. If you deploy a price controller, this value will be updated automatically."
-    )
-    price_policy: str = Field(
+    branch: List[str] = Field(
         None,
-        description="The price controller will modify the corresponding price field based on the price policy ID."
+        examples=[None, ["branch1", "branch2"]],
+        description="Branch names that this type is available. If None, it will follow the parent settings or allow all branches by default."
     )
-    price_max: Decimal = Field(
-        None,
-        examples=[random.randint(15000, 30000)],
-        description="The max of price."
-    )
-    price_min: Decimal = Field(
+    basePrice: int = Field(
         ...,
-        examples=[random.randint(7000, 12000)],
-        description="The min of price."
+        examples=[8000],
+        description="Base price. The minimum face value is in units (such as US dollars, the minimum unit is 1 cent. Japanese yen, the minimum unit is 1 yen). If you set a price strategy, the price will automatically increase according to the strategy."
+    )
+    pricePolicy: str = Field(
+        None,
+        examples=["default"],
+        description="The price controller will modify the corresponding price field based on the price policy name."
+    )
+    min_usage: float = Field(
+        ..., examples=[1.5, 8],
+        description="Minimum usage hours."
+    )
+    max_usage: float = Field(
+        ..., examples=[24 * 30],
+        description="Maximum usage hours."
+    )
+    allowExtension: bool = Field(
+        default_factory=lambda: True,
+        examples=[True, False],
+        description="When it True, this type will marked as allowed to extend."
     )
 
 
-class RoomType(RoomTypeInput, StayForgeModel):
+class RoomType(RoomTypeBase, StayForgeModel):
     pass

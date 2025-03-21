@@ -6,7 +6,8 @@ from starlette.requests import Request
 from starlette.responses import Response
 
 import settings
-from webhook import sender
+from mq import MessageQueue
+from webhook import sender, mq
 
 logger = settings.getLogger(__name__)
 
@@ -28,7 +29,7 @@ class WebhooksMiddleware(BaseHTTPMiddleware):
             )
 
             # Create a task for the worker coroutine
-            asyncio.create_task(sender.worker(request=request, response=response))
+            asyncio.create_task(sender.add_task(request=request, response=response))
 
         except Exception as e:
             logger.error(f"Error occurred in middleware: {str(e)}")

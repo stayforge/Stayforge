@@ -8,7 +8,7 @@ import asyncio
 import yaml
 import logging
 import multiprocessing
-from api.models_manager import Model
+from api.models_manager.model_cls import Model
 from api.models_manager.errors import ModelNotFoundError, ModelPathError
 from mock_model import app as mock_model_app
 

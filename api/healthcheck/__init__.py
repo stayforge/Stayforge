@@ -1,0 +1,4 @@
+"""
+healthcheck
+"""
+from .view import *

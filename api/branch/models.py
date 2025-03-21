@@ -1,46 +1,41 @@
-from pydantic import BaseModel, Field
-
-import settings
-import database
-from api.schemas import StayForgeModel
-from repository import MongoRepository
-
+"""
+Branch API
+"""
 from faker import Faker
+from pydantic import BaseModel, Field, constr
 
-collection_name = 'key'
-
-key_repository = MongoRepository(
-    database=settings.DATABASE_NAME,
-    collection=collection_name,
-    client=database.client
-)
+from api.schemas import StayForgeModel
 
 faker = Faker('ja_JP')
 
-
-class KeyInput(BaseModel):
-    name: str = Field(
+class BranchBase(BaseModel):
+    name: constr(pattern=r'^[a-z0-9_-]+$') = Field(
+        ...,
+        examples=["stayforge-hotel_bay"],
+        description="Unique name. Only `a-z`, `0-9` and `-_` are allowed."
+    )
+    name_visible: str = Field(
         ...,
         examples=[f"ホテルステイフォージ{faker.town()}"],
-        description="The name of the hotel key. By default, it combines a base name with a random town."
+        description="The name of the hotel branch. By default, it combines a base name with a random town."
     )
     postcode: str = Field(
         "000-0000",
         examples=[faker.postcode()],
-        description="The postal code of the key location."
+        description="The postal code of the branch location."
     )
     address: str = Field(
         "000-0000",
         examples=[
             f"{faker.administrative_unit()}{faker.city()}{faker.town()}{faker.chome()}{faker.ban()}{faker.gou()}"
         ],
-        description="The full effective of the key, including administrative unit, city, town, and detailed location."
+        description="The full effective of the branch, including administrative unit, city, town, and detailed location."
     )
     telephone: str = Field(
         examples=[f"{faker.phone_number()}"],
-        description="The contact telephone number for the key."
+        description="The contact telephone number for the branch."
     )
 
 
-class Key(KeyInput, StayForgeModel):
+class Branch(BranchBase, StayForgeModel):
     pass

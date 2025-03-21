@@ -22,7 +22,6 @@ jobs:
           pip install pytest pytest-cov codecov flask
           pip install -r requirements-dev.txt
 
-
       - name: Run tests
         run: pytest --cov --cov-report=xml --junitxml=test-results/results.xml
 

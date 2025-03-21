@@ -1,7 +1,8 @@
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Optional, Annotated
 
 from bson import ObjectId
+from fastapi_crudrouter_mongodb import MongoObjectId
 from pydantic import BaseModel, Field
 
 import settings
@@ -12,20 +13,33 @@ class Stayforge(BaseModel):
 
 
 class StayForgeModel(BaseModel):
-    id: str = Field(
-        str(ObjectId()), description="Reference ID of the key."
+    id: Annotated[ObjectId, MongoObjectId] | None = None
+    metadata: Optional[dict] = Field(
+        None,
+        examples=[{
+            'picture': '',
+
+        }],
+        description="Metadata of this object."
     )
-    create_at: Optional[datetime]
-    update_at: Optional[datetime] = None
+    create_at: Optional[datetime] = Field(
+        ...,
+        examples=[datetime.now()],
+        description="The date of the object being created."
+    )
+    update_at: Optional[datetime] = Field(
+        ...,
+        examples=[datetime.now()],
+        description="The date of the object being updated."
+    )
+
+    def to_mongo(self) -> dict:
+        return self.model_dump(exclude_unset=True)
 
     @classmethod
-    def from_mongo(cls, document: dict | list):
-        if document:
-            document["id"] = str(document["_id"])
-            del document["_id"]
-            if document is None:
-                raise ValueError("Document is None")
-        return cls(**document)
+    def from_mongo(cls, data: dict):
+        data['id'] = data.get('_id')
+        return cls(**data)
 
 
 class BaseResponses(BaseModel):

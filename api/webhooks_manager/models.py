@@ -1,7 +1,12 @@
-from typing import Literal, Optional
+"""
+Webhooks Manager
+"""
+from typing import Literal, Optional, List
+
 from pydantic import BaseModel, Field, HttpUrl
-import settings
+
 import database
+import settings
 from api.schemas import StayForgeModel
 from repository import MongoRepository
 
@@ -21,6 +26,7 @@ webhook_logger_repository = MongoRepository(
     collection=LOGS_COLLECTION,
     client=database.client
 )
+
 
 # Pydantic Models
 class WebhooksManagerInput(BaseModel):
@@ -49,6 +55,18 @@ class WebhooksManagerInput(BaseModel):
         description="HTTP status to be captured. Defaults to 200.",
         examples=[200, 400, 500],
     )
+    retry_status_code: Optional[List[str]] = Field(
+        ['!200', '300', '401-409'],
+        description="Retry status code. Syntax: !200 (all except 200), 400 (single status), 500-599 (status range). "
+                    "When the other server returns the specified retry_status_code, retry will be triggered.",
+        examples=[['!200', '400', '!300-399', '500-599']]
+    ),
+    retry_times: Optional[int | str] = Field(
+        'always',
+        description="Retry times(int or 'always')",
+        examples=[10, 'always']
+    )
+
 
 class WebhooksManager(WebhooksManagerInput, StayForgeModel):
     pass

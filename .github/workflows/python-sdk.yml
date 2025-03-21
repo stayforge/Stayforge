@@ -82,7 +82,7 @@ jobs:
           java -jar openapi-generator-cli.jar generate \
           -i ./openapi.json \
           -g python \
-          -o ./output \
+          -o ./package_output \
           -c .github/openapi/config.yaml \
           --enable-post-process-file
 
@@ -96,7 +96,7 @@ jobs:
           cd stayforge-python
           git checkout ${BRANCH_NAME} || git checkout -b ${BRANCH_NAME}
           git pull origin ${BRANCH_NAME} --rebase
-          cp -r ../output/* .
+          cp -r ../package_output/* .
           git add .
           git commit -m "Update Python SDK [skip ci]" || echo "No changes to commit"
           git push origin ${BRANCH_NAME}
