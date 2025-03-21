@@ -3,7 +3,7 @@ import json
 
 import orjson
 
-from api.booking_api import orjson_default
+from .utils import orjson_default
 from api.room import get_room_by_branch
 from api.room_type import get_roomType_by_branch
 

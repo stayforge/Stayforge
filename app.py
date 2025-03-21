@@ -1,12 +1,19 @@
+import asyncio
 import json
 import os
+from contextlib import asynccontextmanager
 
+import aiofiles
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 
 import settings
-from api import router as api_router
 from docs import docs as docs
+from auth import router as auth_router
+from application_api import router as application_api_router
+from api.router import router as api_router
+
+from settings import logger
 
 
 def load_description(file_path: str) -> str:
@@ -19,7 +26,22 @@ middleware = [
     # Middleware(WebhooksMiddleware)
 ]
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup: export OpenAPI JSON
+    task = asyncio.create_task(export_openapi_json("openapi.json"))
+    yield
+    # Shutdown: ensure the task is completed
+    await task
+
+
+description = load_description('README.md')
+
 app = FastAPI(
+    title=settings.TITLE,
+    description=description,
+    version=settings.__version__,
     openapi_url='/openapi.json',
     contact={
         "name": "Stayforge Support",
@@ -28,12 +50,32 @@ app = FastAPI(
     },
     middleware=middleware,
     docs_url="/docs/swagger",
-    redoc_url="/docs/redoc",
+    redoc_url="/docs",
+    lifespan=lifespan,
 )
 
-description = load_description('README.md')
+# Auth API
+app.include_router(
+    auth_router,
+    prefix="/auth",
+    tags=["Authentication"],
+    responses={401: {"description": "Unauthorized"}},
+)
 
-app.include_router(api_router.router, prefix="/api")
+# Application-level API (includes Booking API)
+app.include_router(
+    application_api_router,
+    responses={401: {"description": "Unauthorized"}},
+)
+
+# Stayforge API
+app.include_router(
+    api_router,
+    prefix="/api",
+    responses={401: {"description": "Unauthorized"}},
+)
+
+# Document
 app.include_router(docs.app, prefix="/docs", include_in_schema=False)
 
 
@@ -59,8 +101,8 @@ def custom_openapi():
     }
     # Path to cover security requirements
     endpoints_to_override = [
-        "/api/auth/authenticate",
-        "/api/auth/refresh_access_token"
+        "/auth/authenticate",
+        "/auth/refresh_access_token"
     ]
 
     for path, methods in openapi_schema["paths"].items():
@@ -76,12 +118,9 @@ def custom_openapi():
 app.openapi = custom_openapi
 
 
-def export_openapi_json(file_path: str):
-    with open(file_path, "w") as f:
+async def export_openapi_json(file_path: str):
+    async with aiofiles.open(file_path, "w") as f:
         api_spec = app.openapi()
-        json.dump(api_spec, f, indent=4)
-    print(f"OpenAPI JSON exported to {file_path}")
+        await f.write(json.dumps(api_spec, indent=4))
+    logger.info(f"OpenAPI JSON exported to {file_path}")
 
-
-if __name__ == '__main__':
-    export_openapi_json("openapi.json")

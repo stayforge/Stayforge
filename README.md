@@ -29,6 +29,13 @@ Or, you just want to quickly build a Stayforge for evaluation, we recommend usin
 free to a certain extent), or following the Quick Start chapter in the documentation to load your own server
 environment.
 
+### Stayforge API Documents
+
+[Redocly](/docs/) | [Swagger](/docs/swagger)
+
+
+----------
+
 ## Quick Start
 
 First, You need to deploy Stayforge first using Docker Compose or Kubernetes. The specific deployment instructions and
@@ -40,7 +47,7 @@ Second, after you deploy Stayforge, you have two options to operate Stayforge.
 - If you are not a developer, you can use Stayforge Foundry, which provides friendly graphics pages to help you run your
   business with Stayforge.
 
-## Quick Start - Depoly Stayforge
+### Depoly Stayforge
 
 Our Stayforge SaaS service provides a free one-click deployment service to a certain extent. On that day, we welcome you
 to deploy it on your own server.
@@ -50,7 +57,7 @@ The specific detailed documentation is here:
 You can deploy Stayforge through Docker or Kubernetes.Stayforge is Docker-based,
 and you can also deploy with Google Cloud Run, etc. to save time.
 
-## Quick Start - Use Stayforge API
+### Use Stayforge API
 
 All operations in Stayforge are done by the Web API.
 The Stayforge API supported JWT to verify identity.

@@ -1,0 +1,12 @@
+apiVersion: api_factory-dev
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    io.kompose.service: etcd
+  name: etcd
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi

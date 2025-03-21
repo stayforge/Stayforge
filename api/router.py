@@ -4,11 +4,10 @@ API Routers
 from fastapi import APIRouter, Depends
 from fastapi_crudrouter_mongodb import CRUDRouter
 
-from api import branch, auth, order, room_type, room
-from api.auth import ServiceAccount
-from api.auth.authenticate_view import router as auth_router
-from api.auth.role import role
-from api.booking_api.views import router as booking_api
+from api import branch, order, room_type, room
+import auth
+from auth import ServiceAccount
+from auth.role import role
 from api.branch.models import Branch
 from api.field_based_crud_router import FieldBasedCRUDRouter
 from api.mongo_client import db
@@ -23,12 +22,6 @@ router = APIRouter()
 # router.include_router(models_manager, prefix="/models", tags=["Models Manager"])
 # router.include_router(models_etcd, prefix="/models", tags=["Models Etcd"])
 # router.include_router(mq, prefix="/mq", tags=["Message Queue"])
-
-# Auth API
-router.include_router(auth_router, prefix="/auth", tags=["Authentication"])
-
-# Booking API
-router.include_router(booking_api, prefix="/booking_api", tags=["Booking API"])
 
 # API v1
 router.include_router(CRUDRouter(
@@ -57,7 +50,7 @@ router.include_router(
         collection_name=room_type.collection_name,
         identifier_field="name",
         prefix="/room_type",
-        tags=["RoomTypes"],
+        tags=["Room Types"],
     ),
     dependencies=[Depends(role("RoomTypes"))]
 )

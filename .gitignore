@@ -163,3 +163,4 @@ cython_debug/
 
 openapi.json
 /stayforge/
+.DS_Store
