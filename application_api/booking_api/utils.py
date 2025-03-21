@@ -9,8 +9,9 @@ import json
 
 import orjson
 
-from api.room import get_room_by_branch
-from api.room_type import get_roomType_by_branch
+from api.order import get_orders_in_timeRange_by_roomType
+from api.room import get_room_by_branch, get_room_by_roomType
+from api.room_type import get_roomType_by_branch, get_roomType_by_name
 
 
 def orjson_default(obj):
@@ -48,6 +49,37 @@ async def get_rooms_data(branch_name: str) -> dict:
             "room_types": room_types
         }
     }
+
+    # Format output using orjson and convert to Python object via json.loads
+    return json.loads(
+        orjson.dumps(result, option=orjson.OPT_INDENT_2, default=orjson_default).decode()
+    )
+
+async def get_roomType_timetable(room_type_name: str, start_time: datetime, end_time: datetime) -> dict:
+    # Validate if room type exists
+    room_type = await get_roomType_by_name(room_type_name)
+    if not room_type:
+        raise ValueError(f"Room type '{room_type_name}' does not exist")
+
+    # Concurrently fetch room types and room data
+    rooms, orders = await asyncio.gather(
+        get_room_by_roomType(room_type_name),
+        get_orders_in_timeRange_by_roomType(room_type_name, start_time, end_time)
+    )
+    
+    data = [
+        
+    ]
+
+    result = {
+        "data": data,
+        "row": {
+            "rooms": rooms,
+            "orders": orders
+        }
+    }
+    
+    print(result)
 
     # Format output using orjson and convert to Python object via json.loads
     return json.loads(

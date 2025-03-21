@@ -8,7 +8,7 @@ from typing import List, Dict, Any
 from pydantic import BaseModel
 
 from . import router
-from .utils import get_rooms_data
+from .utils import get_roomType_timetable, get_rooms_data
 
 
 class RoomResponse(BaseModel):
@@ -31,9 +31,9 @@ async def branch_rooms(branch_name: str):
 
 @router.get("/schedule/{room_type_name}",
     response_model=Dict[str, Any],
-    description="Return to a branch's room schedule.")
-async def branch_schedule(room_type_name: str):
-    return {"message": "Schedule data will be implemented"}
+    description="Return to a room type's schedule.")
+async def branch_schedule(room_type_name: str, start_time: datetime, end_time: datetime):
+    return await get_roomType_timetable(room_type_name, start_time, end_time)
 
 
 @router.post("/hold/{room_id}",

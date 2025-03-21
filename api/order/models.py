@@ -81,10 +81,10 @@ class OrderBase(BaseModel):
         examples=[f"{datetime.now().strftime('%Y%m%d%H%M%S')}{str(uuid.uuid4().int % 10000).zfill(4)}"],
         description="Order number. Only `A-Z`, `a-z`, `0-9` and `-_#@:` are allowed."
     )
-    room_id: str = Field(
+    room_name: str = Field(
         None,
         examples=[str(ObjectId())],
-        description="Room ID"
+        description="Room name"
     )
     guest: Guest = Field(
         None,

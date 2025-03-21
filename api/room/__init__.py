@@ -14,14 +14,14 @@ collection_name = 'room'
 db[collection_name].create_index("name", unique=True)
 
 
-async def get_room_by_roomType(room_type_name: str, request: Optional[Request] = None):
+async def get_room_by_roomType(room_type_name: str):
     query = {"room_type_name": room_type_name}
     room_cursor = mongo_client.db[collection_name].find(query)
     rooms = await room_cursor.to_list(None)
     return rooms
 
 
-async def get_room_by_branch(branch_name: str, request: Optional[Request] = None):
+async def get_room_by_branch(branch_name: str):
     query = {"branch_name": branch_name}
     room_cursor = mongo_client.db[collection_name].find(query)
     rooms = await room_cursor.to_list(None)

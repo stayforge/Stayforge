@@ -260,6 +260,14 @@
         "documentation": {}
     },
     {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
         "label": "EmailStr",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -542,6 +550,22 @@
     },
     {
         "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Query",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -905,6 +929,46 @@
         "documentation": {}
     },
     {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "List",
         "importPath": "typing",
         "description": "typing",
@@ -1196,6 +1260,30 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "timezone",
         "importPath": "datetime",
         "description": "datetime",
@@ -1205,6 +1293,14 @@
     },
     {
         "label": "order_types",
+        "importPath": "api.order",
+        "description": "api.order",
+        "isExtraImport": true,
+        "detail": "api.order",
+        "documentation": {}
+    },
+    {
+        "label": "get_orders_in_timeRange_by_roomType",
         "importPath": "api.order",
         "description": "api.order",
         "isExtraImport": true,
@@ -1474,11 +1570,67 @@
         "documentation": {}
     },
     {
+        "label": "get_room_by_roomType",
+        "importPath": "api.room",
+        "description": "api.room",
+        "isExtraImport": true,
+        "detail": "api.room",
+        "documentation": {}
+    },
+    {
+        "label": "get_room_by_branch",
+        "importPath": "api.room",
+        "description": "api.room",
+        "isExtraImport": true,
+        "detail": "api.room",
+        "documentation": {}
+    },
+    {
         "label": "get_roomType_by_branch",
         "importPath": "api.room_type",
         "description": "api.room_type",
         "isExtraImport": true,
         "detail": "api.room_type",
+        "documentation": {}
+    },
+    {
+        "label": "get_roomType_by_name",
+        "importPath": "api.room_type",
+        "description": "api.room_type",
+        "isExtraImport": true,
+        "detail": "api.room_type",
+        "documentation": {}
+    },
+    {
+        "label": "get_roomType_by_branch",
+        "importPath": "api.room_type",
+        "description": "api.room_type",
+        "isExtraImport": true,
+        "detail": "api.room_type",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "starlette.responses",
+        "description": "starlette.responses",
+        "isExtraImport": true,
+        "detail": "starlette.responses",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "starlette.responses",
+        "description": "starlette.responses",
+        "isExtraImport": true,
+        "detail": "starlette.responses",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "starlette.responses",
+        "description": "starlette.responses",
+        "isExtraImport": true,
+        "detail": "starlette.responses",
         "documentation": {}
     },
     {
@@ -1712,22 +1864,6 @@
         "description": "starlette.requests",
         "isExtraImport": true,
         "detail": "starlette.requests",
-        "documentation": {}
-    },
-    {
-        "label": "Response",
-        "importPath": "starlette.responses",
-        "description": "starlette.responses",
-        "isExtraImport": true,
-        "detail": "starlette.responses",
-        "documentation": {}
-    },
-    {
-        "label": "Response",
-        "importPath": "starlette.responses",
-        "description": "starlette.responses",
-        "isExtraImport": true,
-        "detail": "starlette.responses",
         "documentation": {}
     },
     {
@@ -2150,7 +2286,7 @@
         "kind": 6,
         "importPath": "api.order.models",
         "description": "api.order.models",
-        "peekOfCode": "class OrderBase(BaseModel):\n    num: constr(pattern=r'^[A-Za-z0-9_\\-#@:\\/|\\\\\\[\\]\\(\\)\\{\\}<>\\.!\\?]+$') = Field(\n        ...,\n        examples=[f\"{datetime.now().strftime('%Y%m%d%H%M%S')}{str(uuid.uuid4().int % 10000).zfill(4)}\"],\n        description=\"Order number. Only `A-Z`, `a-z`, `0-9` and `-_#@:` are allowed.\"\n    )\n    room_id: str = Field(\n        None,\n        examples=[str(ObjectId())],\n        description=\"Room ID\"",
+        "peekOfCode": "class OrderBase(BaseModel):\n    num: constr(pattern=r'^[A-Za-z0-9_\\-#@:\\/|\\\\\\[\\]\\(\\)\\{\\}<>\\.!\\?]+$') = Field(\n        ...,\n        examples=[f\"{datetime.now().strftime('%Y%m%d%H%M%S')}{str(uuid.uuid4().int % 10000).zfill(4)}\"],\n        description=\"Order number. Only `A-Z`, `a-z`, `0-9` and `-_#@:` are allowed.\"\n    )\n    room_name: str = Field(\n        None,\n        examples=[str(ObjectId())],\n        description=\"Room name\"",
         "detail": "api.order.models",
         "documentation": {}
     },
@@ -2413,6 +2549,24 @@
         "description": "application_api.booking_api.views",
         "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\",\n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")\nasync def branch_rooms(branch_name: str):\n    return await get_rooms_data(branch_name)\n@router.get(\"/schedule/{room_type_name}\",",
         "detail": "application_api.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "RoomResponse",
+        "kind": 6,
+        "importPath": "applocation_api.booking_api.views",
+        "description": "applocation_api.booking_api.views",
+        "peekOfCode": "class RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\", \n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")",
+        "detail": "applocation_api.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "BookingResponse",
+        "kind": 6,
+        "importPath": "applocation_api.booking_api.views",
+        "description": "applocation_api.booking_api.views",
+        "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\", \n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")\nasync def branch_rooms(\n    branch_name: str,\n    start_time: Optional[datetime] = Query(None, description=\"Start time for filtering room types\"),",
+        "detail": "applocation_api.booking_api.views",
         "documentation": {}
     },
     {
