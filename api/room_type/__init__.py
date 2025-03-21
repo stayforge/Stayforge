@@ -14,8 +14,16 @@ collection_name = 'room_type'
 db[collection_name].create_index("name", unique=True)
 
 # room_type methods
-async def get_roomType_by_branch(branch_name: str, request: Optional[Request] = None):
-    query = {}
-    room_type_cursor = db[collection_name].find(query)
-    room_type = await room_type_cursor.to_list(None)
-    return room_type
+async def get_roomType_by_branch(branch_name: str):
+    """
+    Get all room types for a specific branch.
+    If branch_name is a list in the database, this will match if the branch_name is in that list.
+    """
+    query = {"branch": {"$in": [branch_name]}}  # This will match if branch_name is in the list
+    cursor = db[collection_name].find(query)
+    return await cursor.to_list(None)
+
+async def get_roomType_by_name(room_type_name: str):
+    query = {"name": room_type_name}
+    cursor = db[collection_name].find(query)
+    return await cursor.to_list(None)
