@@ -549,14 +549,6 @@
         "documentation": {}
     },
     {
-        "label": "HTTPException",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
         "label": "Body",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -1490,30 +1482,6 @@
         "documentation": {}
     },
     {
-        "label": "JSONResponse",
-        "importPath": "starlette.responses",
-        "description": "starlette.responses",
-        "isExtraImport": true,
-        "detail": "starlette.responses",
-        "documentation": {}
-    },
-    {
-        "label": "Response",
-        "importPath": "starlette.responses",
-        "description": "starlette.responses",
-        "isExtraImport": true,
-        "detail": "starlette.responses",
-        "documentation": {}
-    },
-    {
-        "label": "Response",
-        "importPath": "starlette.responses",
-        "description": "starlette.responses",
-        "isExtraImport": true,
-        "detail": "starlette.responses",
-        "documentation": {}
-    },
-    {
         "label": "load_dotenv",
         "importPath": "dotenv",
         "description": "dotenv",
@@ -1744,6 +1712,22 @@
         "description": "starlette.requests",
         "isExtraImport": true,
         "detail": "starlette.requests",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "starlette.responses",
+        "description": "starlette.responses",
+        "isExtraImport": true,
+        "detail": "starlette.responses",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "starlette.responses",
+        "description": "starlette.responses",
+        "isExtraImport": true,
+        "detail": "starlette.responses",
         "documentation": {}
     },
     {
@@ -2409,7 +2393,7 @@
         "kind": 2,
         "importPath": "application_api.booking_api.utils",
         "description": "application_api.booking_api.utils",
-        "peekOfCode": "def orjson_default(obj):\n    \"\"\"Custom default conversion function to handle ObjectId and datetime\"\"\"\n    if isinstance(obj, ObjectId):\n        return str(obj)\n    if isinstance(obj, datetime):\n        return obj.isoformat()\n    raise TypeError(f\"Type {type(obj)} not serializable\")",
+        "peekOfCode": "def orjson_default(obj):\n    \"\"\"Custom default conversion function to handle ObjectId and datetime\"\"\"\n    if isinstance(obj, ObjectId):\n        return str(obj)\n    if isinstance(obj, datetime):\n        return obj.isoformat()\n    raise TypeError(f\"Type {type(obj)} not serializable\") \nasync def get_rooms_data(branch_name: str) -> dict:\n    # Concurrently fetch room types and room data\n    room_types, rooms = await asyncio.gather(",
         "detail": "application_api.booking_api.utils",
         "documentation": {}
     },
@@ -2418,7 +2402,7 @@
         "kind": 6,
         "importPath": "application_api.booking_api.views",
         "description": "application_api.booking_api.views",
-        "peekOfCode": "class RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\", \n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")",
+        "peekOfCode": "class RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\",\n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")",
         "detail": "application_api.booking_api.views",
         "documentation": {}
     },
@@ -2427,7 +2411,7 @@
         "kind": 6,
         "importPath": "application_api.booking_api.views",
         "description": "application_api.booking_api.views",
-        "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\", \n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")\nasync def branch_rooms(branch_name: str):\n    return await get_rooms_data(branch_name)\n@router.get(\"/schedule/{branch_name}\", ",
+        "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\",\n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")\nasync def branch_rooms(branch_name: str):\n    return await get_rooms_data(branch_name)\n@router.get(\"/schedule/{room_type_name}\",",
         "detail": "application_api.booking_api.views",
         "documentation": {}
     },

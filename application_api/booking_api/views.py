@@ -5,12 +5,10 @@ import random
 from datetime import datetime, timezone
 from typing import List, Dict, Any
 
-from fastapi import HTTPException
 from pydantic import BaseModel
-from starlette.responses import JSONResponse
 
 from . import router
-from .room import get_rooms_data
+from .utils import get_rooms_data
 
 
 class RoomResponse(BaseModel):
@@ -24,21 +22,21 @@ class BookingResponse(BaseModel):
     order_num: str | None = None
 
 
-@router.get("/rooms/{branch_name}", 
+@router.get("/rooms/{branch_name}",
     response_model=RoomResponse,
     description="Return to a branch's all room_type and room.")
 async def branch_rooms(branch_name: str):
     return await get_rooms_data(branch_name)
 
 
-@router.get("/schedule/{branch_name}", 
+@router.get("/schedule/{room_type_name}",
     response_model=Dict[str, Any],
     description="Return to a branch's room schedule.")
-async def branch_schedule(branch_name: str):
+async def branch_schedule(room_type_name: str):
     return {"message": "Schedule data will be implemented"}
 
 
-@router.post("/hold/{room_id}", 
+@router.post("/hold/{room_id}",
     response_model=BookingResponse,
     description="Keep a room for x seconds, place it during this period to be booked.")
 async def hold(room_id: str, hold_time: int):
@@ -48,13 +46,13 @@ async def hold(room_id: str, hold_time: int):
     )
 
 
-@router.post("/booking/{room_id}", 
+@router.post("/booking/{room_id}",
     response_model=BookingResponse,
     description="Book a room. Make a new order and status it to 'booked'. "
                 "If the order number is not defined, it will be created and returned by Stayforge.")
 async def booking(
     room_id: str,
-    order_num: str = None
+    order_num: str=None
 ):
     if not order_num:
         order_num = f"{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}{random.randint(1000, 9999)}"
@@ -66,7 +64,7 @@ async def booking(
     )
 
 
-@router.post("/cancel/{order_num}", 
+@router.post("/cancel/{order_num}",
     response_model=BookingResponse,
     description="You can only cancel a room in booked state. "
                 "If the room is check-in, please follow the normal check-out process.")
@@ -77,7 +75,7 @@ async def cancel(order_num: str):
     )
 
 
-@router.post("/check-in/{order_num}", 
+@router.post("/check-in/{order_num}",
     response_model=BookingResponse,
     description="Check in for a booked room.")
 async def check_in(order_num: str):
@@ -87,7 +85,7 @@ async def check_in(order_num: str):
     )
 
 
-@router.post("/check-out/{order_num}", 
+@router.post("/check-out/{order_num}",
     response_model=BookingResponse,
     description="Check out from a room.")
 async def check_out(order_num: str):
