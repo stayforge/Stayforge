@@ -67,9 +67,73 @@ async def get_roomType_timetable(room_type_name: str, start_time: datetime, end_
         get_orders_in_timeRange_by_roomType(room_type_name, start_time, end_time)
     )
     
-    data = [
+    # Total number of rooms for this room type
+    total_rooms = len(rooms)
+    
+    data = []
+    
+    # Generate time slices
+    current_time = start_time
+    time_delta = (end_time - start_time) / 24  # Dividing into 24 time slices, can be adjusted
+    
+    while current_time < end_time:
+        slice_end = current_time + time_delta
         
-    ]
+        # Check orders for this time slice
+        slice_orders = [
+            order for order in orders 
+            if (order.get("start_time") < slice_end and 
+                order.get("end_time", datetime.max) > current_time)
+        ]
+        
+        # Count occupied rooms in this time slice
+        occupied_rooms = 0
+        
+        # Track unique room IDs to avoid counting a room twice
+        occupied_room_ids = set()
+        
+        for order in slice_orders:
+            # If the order has a room_id field, we can track which specific room is occupied
+            room_id = order.get("room_id")
+            
+            # Skip if we've already counted this room in this time slice
+            if room_id and room_id in occupied_room_ids:
+                continue
+                
+            # Check if order is closed and checked out before this time slice
+            is_available = False
+            
+            if order.get("type") == "close":
+                check_out_time = order.get("check_out_at")
+                if check_out_time and check_out_time <= current_time:
+                    is_available = True
+            
+            # Check for expired but not closed orders
+            end_time_order = order.get("end_time")
+            current_datetime = datetime.now()
+            if end_time_order and end_time_order < current_datetime and order.get("type") != "close":
+                is_available = False
+            
+            # Count room as occupied if not available
+            if not is_available:
+                occupied_rooms += 1
+                if room_id:
+                    occupied_room_ids.add(room_id)
+        
+        # Calculate available rooms
+        available_rooms = total_rooms - occupied_rooms
+        if available_rooms < 0:
+            available_rooms = 0  # Safeguard against negative counts
+        
+        # Add time slice data
+        data.append({
+            "start_time": current_time,
+            "end_time": slice_end,
+            "available_rooms": available_rooms,
+            "total_rooms": total_rooms
+        })
+        
+        current_time = slice_end
 
     result = {
         "data": data,
