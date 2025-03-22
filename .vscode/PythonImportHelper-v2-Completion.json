@@ -1340,11 +1340,11 @@
         "documentation": {}
     },
     {
-        "label": "Order",
-        "importPath": "api.order.models",
-        "description": "api.order.models",
+        "label": "collection_name",
+        "importPath": "api.order",
+        "description": "api.order",
         "isExtraImport": true,
-        "detail": "api.order.models",
+        "detail": "api.order",
         "documentation": {}
     },
     {
@@ -1361,6 +1361,22 @@
         "description": "api.order.models",
         "isExtraImport": true,
         "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "isExtraImport": true,
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "isExtraImport": true,
+        "detail": "api.mongo_client",
         "documentation": {}
     },
     {
@@ -2644,7 +2660,7 @@
         "kind": 6,
         "importPath": "application_api.booking_api.views",
         "description": "application_api.booking_api.views",
-        "peekOfCode": "class RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str",
+        "peekOfCode": "class RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]\nclass CreateOrderRequest(BaseModel):",
         "detail": "application_api.booking_api.views",
         "documentation": {}
     },
@@ -2653,7 +2669,16 @@
         "kind": 6,
         "importPath": "application_api.booking_api.views",
         "description": "application_api.booking_api.views",
-        "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None",
+        "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]\nclass CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime",
+        "detail": "application_api.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "OrderHistoryResponse",
+        "kind": 6,
+        "importPath": "application_api.booking_api.views",
+        "description": "application_api.booking_api.views",
+        "peekOfCode": "class OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]\nclass CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None\n    customer_username: str | None = None\n@router.get(\"/orders/{customer_username}\",",
         "detail": "application_api.booking_api.views",
         "documentation": {}
     },
@@ -2662,7 +2687,7 @@
         "kind": 6,
         "importPath": "application_api.booking_api.views",
         "description": "application_api.booking_api.views",
-        "peekOfCode": "class CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None\n@router.get(\"/rooms/{branch_name}\",\n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")\nasync def branch_rooms(branch_name: str):",
+        "peekOfCode": "class CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None\n    customer_username: str | None = None\n@router.get(\"/orders/{customer_username}\",\n    response_model=OrderHistoryResponse,\n    description=\"Return order history for a customer by username.\")",
         "detail": "application_api.booking_api.views",
         "documentation": {}
     },
@@ -2671,7 +2696,7 @@
         "kind": 5,
         "importPath": "application_api.booking_api.views",
         "description": "application_api.booking_api.views",
-        "peekOfCode": "logger = logging.getLogger(__name__)\nclass RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass CreateOrderRequest(BaseModel):\n    room_name: str",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]",
         "detail": "application_api.booking_api.views",
         "documentation": {}
     },

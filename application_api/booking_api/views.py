@@ -11,6 +11,8 @@ from fastapi import HTTPException
 from pydantic import BaseModel
 from api.order.models import Order
 from api.order.utils import create_order as create_order_db
+from api.mongo_client import db
+from api.order import collection_name
 
 from . import router
 from .utils import get_roomType_timetable, get_rooms_data
@@ -30,12 +32,40 @@ class BookingResponse(BaseModel):
     order_num: str | None = None
 
 
+class OrderHistoryResponse(BaseModel):
+    orders: List[Dict[str, Any]]
+
+
 class CreateOrderRequest(BaseModel):
     room_name: str
     type: str
     checkin_at: datetime
     checkout_at: datetime
     num: str | None = None
+    customer_username: str | None = None
+
+
+@router.get("/orders/{customer_username}",
+    response_model=OrderHistoryResponse,
+    description="Return order history for a customer by username.")
+async def get_order_history(customer_username: str):
+    try:
+        # Query orders by customer_username
+        query = {"customer_username": customer_username}
+        cursor = db[collection_name].find(query)
+        orders = await cursor.to_list(None)
+        
+        # Convert MongoDB objects to dict for response
+        orders_list = []
+        for order in orders:
+            order["_id"] = str(order["_id"])  # Convert ObjectId to string
+            orders_list.append(order)
+            
+        return OrderHistoryResponse(orders=orders_list)
+    except Exception as e:
+        logger.error(f"Failed to get order history: {str(e)}")
+        logger.error(traceback.format_exc())
+        raise HTTPException(status_code=500, detail=f"Failed to get order history: {str(e)}")
 
 
 @router.get("/rooms/{branch_name}",
@@ -89,6 +119,7 @@ async def create_new_order(request: CreateOrderRequest):
                 type=request.type,
                 checkin_at=request.checkin_at,
                 checkout_at=request.checkout_at,
+                customer_username=request.customer_username or None,
                 create_at=current_time,
                 update_at=current_time
             )
