@@ -13,67 +13,6 @@ from api.schemas import StayForgeModel
 
 faker = Faker('ja_JP')
 
-
-class IDDocument(BaseModel):
-    MRZ: str = Field(
-        None,
-        examples=["P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<"
-                  "L898902C36UTO7408122F1204159ZE184226B<<<<<10"]
-    )
-    photocopy: Optional[AnyUrl | str] = Field(
-        None,
-        examples=["https://a.s3storage.address/photocopy/1970010112839010/1.jpg"]
-    )
-
-
-class Guest(BaseModel):
-    first_name: str = Field(
-        None,
-        examples=[faker.first_name()],
-    )
-    middle_name: str = Field(
-        None,
-        examples=[""],
-    )
-    last_name: str = Field(
-        None,
-        examples=[faker.last_name()],
-    )
-    gender: str = Field(
-        None,
-        examples=["M", "F", "..."],
-    )
-    birthday: str = Field(
-        None,
-        examples=[faker.date_of_birth()],
-    )
-    nationality: str = Field(
-        None,
-        examples=["JPN"],
-    )
-    email: str = Field(
-        None,
-        examples=[faker.email()],
-    )
-    phone_number: str = Field(
-        None,
-        examples=[faker.phone_number()],
-    )
-    address: str = Field(
-        None,
-        examples=[faker.address()],
-    )
-    occupation: str = Field(
-        None,
-        examples=[faker.job()],
-    )
-    passport_number: str = Field(
-        None,
-        examples=["FH254787"],
-    )
-    id_document: Optional[IDDocument]
-
-
 # noinspection PyNestedDecorators
 class OrderBase(BaseModel):
     num: constr(pattern=r'^[A-Za-z0-9_\-#@:\/|\\\[\]\(\)\{\}<>\.!\?]+$') = Field(
@@ -85,10 +24,6 @@ class OrderBase(BaseModel):
         None,
         examples=[str(ObjectId())],
         description="Room name"
-    )
-    guest: Guest = Field(
-        None,
-        description="Guest information"
     )
     type: str = Field(
         ...,

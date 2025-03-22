@@ -1244,6 +1244,14 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "timezone",
         "importPath": "datetime",
         "description": "datetime",
@@ -1300,11 +1308,35 @@
         "documentation": {}
     },
     {
-        "label": "get_orders_in_timeRange_by_roomType",
-        "importPath": "api.order",
-        "description": "api.order",
+        "label": "db",
+        "importPath": "api.healthcheck.view",
+        "description": "api.healthcheck.view",
         "isExtraImport": true,
-        "detail": "api.order",
+        "detail": "api.healthcheck.view",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "isExtraImport": true,
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "isExtraImport": true,
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "isExtraImport": true,
+        "detail": "api.order.models",
         "documentation": {}
     },
     {
@@ -1520,14 +1552,6 @@
         "documentation": {}
     },
     {
-        "label": "Order",
-        "importPath": "api.order.models",
-        "description": "api.order.models",
-        "isExtraImport": true,
-        "detail": "api.order.models",
-        "documentation": {}
-    },
-    {
         "label": "Room",
         "importPath": "api.room.models",
         "description": "api.room.models",
@@ -1559,6 +1583,22 @@
         "importPath": "orjson",
         "description": "orjson",
         "detail": "orjson",
+        "documentation": {}
+    },
+    {
+        "label": "get_orders_in_timeRange_by_roomType",
+        "importPath": "api.order.utils",
+        "description": "api.order.utils",
+        "isExtraImport": true,
+        "detail": "api.order.utils",
+        "documentation": {}
+    },
+    {
+        "label": "create_order",
+        "importPath": "api.order.utils",
+        "description": "api.order.utils",
+        "isExtraImport": true,
+        "detail": "api.order.utils",
         "documentation": {}
     },
     {
@@ -2264,24 +2304,6 @@
         "documentation": {}
     },
     {
-        "label": "IDDocument",
-        "kind": 6,
-        "importPath": "api.order.models",
-        "description": "api.order.models",
-        "peekOfCode": "class IDDocument(BaseModel):\n    MRZ: str = Field(\n        None,\n        examples=[\"P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<\"\n                  \"L898902C36UTO7408122F1204159ZE184226B<<<<<10\"]\n    )\n    photocopy: Optional[AnyUrl | str] = Field(\n        None,\n        examples=[\"https://a.s3storage.address/photocopy/1970010112839010/1.jpg\"]\n    )",
-        "detail": "api.order.models",
-        "documentation": {}
-    },
-    {
-        "label": "Guest",
-        "kind": 6,
-        "importPath": "api.order.models",
-        "description": "api.order.models",
-        "peekOfCode": "class Guest(BaseModel):\n    first_name: str = Field(\n        None,\n        examples=[faker.first_name()],\n    )\n    middle_name: str = Field(\n        None,\n        examples=[\"\"],\n    )\n    last_name: str = Field(",
-        "detail": "api.order.models",
-        "documentation": {}
-    },
-    {
         "label": "OrderBase",
         "kind": 6,
         "importPath": "api.order.models",
@@ -2304,7 +2326,7 @@
         "kind": 5,
         "importPath": "api.order.models",
         "description": "api.order.models",
-        "peekOfCode": "faker = Faker('ja_JP')\nclass IDDocument(BaseModel):\n    MRZ: str = Field(\n        None,\n        examples=[\"P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<\"\n                  \"L898902C36UTO7408122F1204159ZE184226B<<<<<10\"]\n    )\n    photocopy: Optional[AnyUrl | str] = Field(\n        None,\n        examples=[\"https://a.s3storage.address/photocopy/1970010112839010/1.jpg\"]",
+        "peekOfCode": "faker = Faker('ja_JP')\n# noinspection PyNestedDecorators\nclass OrderBase(BaseModel):\n    num: constr(pattern=r'^[A-Za-z0-9_\\-#@:\\/|\\\\\\[\\]\\(\\)\\{\\}<>\\.!\\?]+$') = Field(\n        ...,\n        examples=[f\"{datetime.now().strftime('%Y%m%d%H%M%S')}{str(uuid.uuid4().int % 10000).zfill(4)}\"],\n        description=\"Order number. Only `A-Z`, `a-z`, `0-9` and `-_#@:` are allowed.\"\n    )\n    room_name: str = Field(\n        None,",
         "detail": "api.order.models",
         "documentation": {}
     },
@@ -2538,7 +2560,7 @@
         "kind": 6,
         "importPath": "application_api.booking_api.views",
         "description": "application_api.booking_api.views",
-        "peekOfCode": "class RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\",\n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")",
+        "peekOfCode": "class RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str",
         "detail": "application_api.booking_api.views",
         "documentation": {}
     },
@@ -2547,7 +2569,16 @@
         "kind": 6,
         "importPath": "application_api.booking_api.views",
         "description": "application_api.booking_api.views",
-        "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\",\n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")\nasync def branch_rooms(branch_name: str):\n    return await get_rooms_data(branch_name)\n@router.get(\"/schedule/{room_type_name}\",",
+        "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None",
+        "detail": "application_api.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "CreateOrderRequest",
+        "kind": 6,
+        "importPath": "application_api.booking_api.views",
+        "description": "application_api.booking_api.views",
+        "peekOfCode": "class CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None\n@router.get(\"/rooms/{branch_name}\",\n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")\nasync def branch_rooms(branch_name: str):",
         "detail": "application_api.booking_api.views",
         "documentation": {}
     },

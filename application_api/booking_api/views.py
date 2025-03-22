@@ -6,6 +6,8 @@ from datetime import datetime, timezone
 from typing import List, Dict, Any
 
 from pydantic import BaseModel
+from api.order.models import Order
+from api.order.utils import create_order as create_order_db
 
 from . import router
 from .utils import get_roomType_timetable, get_rooms_data
@@ -20,6 +22,14 @@ class BookingResponse(BaseModel):
     success: bool
     message: str
     order_num: str | None = None
+
+
+class CreateOrderRequest(BaseModel):
+    room_name: str
+    type: str
+    checkin_at: datetime
+    checkout_at: datetime
+    num: str | None = None
 
 
 @router.get("/rooms/{branch_name}",
@@ -73,6 +83,39 @@ async def cancel(order_num: str):
         success=True,
         message=f"Order {order_num} cancelled successfully"
     )
+
+
+@router.post("/create_order",
+    response_model=BookingResponse,
+    description="Create a new order with booking details.")
+async def create_order(request: CreateOrderRequest):
+    try:
+        # Generate order number if not provided
+        if not request.num:
+            request.num = Order.generate_num()
+        
+        # Create order object
+        order = Order(
+            num=request.num,
+            room_name=request.room_name,
+            type=request.type,
+            checkin_at=request.checkin_at,
+            checkout_at=request.checkout_at
+        )
+        
+        # Save to database
+        created_order = await create_order_db(order)
+        
+        return BookingResponse(
+            success=True,
+            message="Order created successfully",
+            order_num=created_order.num
+        )
+    except Exception as e:
+        return BookingResponse(
+            success=False,
+            message=f"Failed to create order: {str(e)}"
+        )
 
 
 @router.post("/check-in/{order_num}",

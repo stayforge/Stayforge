@@ -9,7 +9,7 @@ import json
 
 import orjson
 
-from api.order import get_orders_in_timeRange_by_roomType
+from api.order.utils import get_orders_in_timeRange_by_roomType
 from api.room import get_room_by_branch, get_room_by_roomType
 from api.room_type import get_roomType_by_branch, get_roomType_by_name
 
@@ -142,10 +142,9 @@ async def get_roomType_timetable(room_type_name: str, start_time: datetime, end_
             "orders": orders
         }
     }
-    
-    print(result)
 
     # Format output using orjson and convert to Python object via json.loads
     return json.loads(
         orjson.dumps(result, option=orjson.OPT_INDENT_2, default=orjson_default).decode()
     )
+
