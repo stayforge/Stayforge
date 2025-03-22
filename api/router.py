@@ -4,7 +4,7 @@ API Routers
 from fastapi import APIRouter, Depends
 from fastapi_crudrouter_mongodb import CRUDRouter
 
-from api import branch, order, room_type, room
+from api import branch, order, room_type, room, customer
 import auth
 from auth import ServiceAccount
 from auth.role import role
@@ -14,6 +14,7 @@ from api.mongo_client import db
 from api.order.models import Order
 from api.room.models import Room
 from api.room_type.models import RoomType
+from api.customer.models import Customer
 
 router = APIRouter()
 
@@ -63,6 +64,18 @@ router.include_router(CRUDRouter(
 ),
     dependencies=[Depends(role("Rooms"))]
 )
+router.include_router(
+    FieldBasedCRUDRouter(
+        model=Customer,
+        db=db,
+        collection_name=customer.collection_name,
+        identifier_field="email",
+        prefix="/customer",
+        tags=["Customers"]
+    ),
+    dependencies=[Depends(role("Customers"))]
+)
+
 router.include_router(
     FieldBasedCRUDRouter(
         model=Order,

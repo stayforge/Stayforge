@@ -120,3 +120,4 @@ async def create_new_order(request: CreateOrderRequest):
         logger.error(f"Failed to create order: {str(e)}")
         logger.error(traceback.format_exc())
         raise HTTPException(status_code=500, detail=f"Failed to create order: {str(e)}")
+    

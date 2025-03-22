@@ -60,6 +60,14 @@
         "documentation": {}
     },
     {
+        "label": "Faker",
+        "importPath": "faker",
+        "description": "faker",
+        "isExtraImport": true,
+        "detail": "faker",
+        "documentation": {}
+    },
+    {
         "label": "BaseModel",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -77,6 +85,30 @@
     },
     {
         "label": "constr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "EmailStr",
         "importPath": "pydantic",
         "description": "pydantic",
         "isExtraImport": true,
@@ -337,6 +369,14 @@
         "description": "pydantic",
         "isExtraImport": true,
         "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "StayForgeModel",
+        "importPath": "api.schemas",
+        "description": "api.schemas",
+        "isExtraImport": true,
+        "detail": "api.schemas",
         "documentation": {}
     },
     {
@@ -1487,6 +1527,14 @@
         "documentation": {}
     },
     {
+        "label": "customer",
+        "importPath": "api",
+        "description": "api",
+        "isExtraImport": true,
+        "detail": "api",
+        "documentation": {}
+    },
+    {
         "label": "RedisClient",
         "importPath": "api",
         "description": "api",
@@ -1557,6 +1605,14 @@
         "description": "api.room_type.models",
         "isExtraImport": true,
         "detail": "api.room_type.models",
+        "documentation": {}
+    },
+    {
+        "label": "Customer",
+        "importPath": "api.customer.models",
+        "description": "api.customer.models",
+        "isExtraImport": true,
+        "detail": "api.customer.models",
         "documentation": {}
     },
     {
@@ -2104,6 +2160,33 @@
         "description": "api.branch.models",
         "peekOfCode": "faker = Faker('ja_JP')\nclass BranchBase(BaseModel):\n    name: constr(pattern=r'^[a-z0-9_-]+$') = Field(\n        ...,\n        examples=[\"stayforge-hotel_bay\"],\n        description=\"Unique name. Only `a-z`, `0-9` and `-_` are allowed.\"\n    )\n    name_visible: str = Field(\n        ...,\n        examples=[f\"ホテルステイフォージ{faker.town()}\"],",
         "detail": "api.branch.models",
+        "documentation": {}
+    },
+    {
+        "label": "CustomerBase",
+        "kind": 6,
+        "importPath": "api.customer.models",
+        "description": "api.customer.models",
+        "peekOfCode": "class CustomerBase(BaseModel):\n    username: str = Field(\n        ...,\n        examples=['customer_name01'],\n        description=\"The username of the customer.\",\n        pattern=\"^[a-z0-9_]+$\"\n    )   \n    email: EmailStr = Field(\n        None,\n        examples=[faker.email()],",
+        "detail": "api.customer.models",
+        "documentation": {}
+    },
+    {
+        "label": "Customer",
+        "kind": 6,
+        "importPath": "api.customer.models",
+        "description": "api.customer.models",
+        "peekOfCode": "class Customer(CustomerBase, StayForgeModel):\n    pass",
+        "detail": "api.customer.models",
+        "documentation": {}
+    },
+    {
+        "label": "faker",
+        "kind": 5,
+        "importPath": "api.customer.models",
+        "description": "api.customer.models",
+        "peekOfCode": "faker = Faker('ja_JP')\nclass CustomerBase(BaseModel):\n    username: str = Field(\n        ...,\n        examples=['customer_name01'],\n        description=\"The username of the customer.\",\n        pattern=\"^[a-z0-9_]+$\"\n    )   \n    email: EmailStr = Field(\n        None,",
+        "detail": "api.customer.models",
         "documentation": {}
     },
     {

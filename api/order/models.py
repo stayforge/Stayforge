@@ -30,6 +30,11 @@ class OrderBase(BaseModel):
         examples=order_types,
         description="OrderType",
     )
+    customer_username: str = Field(
+        None,
+        examples=['customer_name01'],
+        description="Customer username"
+    )
     checkin_at: datetime = Field(
         None,
         examples=[datetime.now() + timedelta(days=1)],
