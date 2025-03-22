@@ -557,6 +557,14 @@
         "documentation": {}
     },
     {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "Query",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -1634,6 +1642,24 @@
         "documentation": {}
     },
     {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "traceback",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "traceback",
+        "description": "traceback",
+        "detail": "traceback",
+        "documentation": {}
+    },
+    {
         "label": "JSONResponse",
         "importPath": "starlette.responses",
         "description": "starlette.responses",
@@ -1772,15 +1798,6 @@
         "importPath": "socket",
         "description": "socket",
         "detail": "socket",
-        "documentation": {}
-    },
-    {
-        "label": "logging",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "logging",
-        "description": "logging",
-        "detail": "logging",
         "documentation": {}
     },
     {
@@ -2481,7 +2498,7 @@
         "kind": 5,
         "importPath": "api.mongo_client",
         "description": "api.mongo_client",
-        "peekOfCode": "client = AsyncIOMotorClient(settings.MONGO_URL)\ndb = client.local",
+        "peekOfCode": "client = AsyncIOMotorClient(settings.MONGO_URL)\ndb = client[settings.DATABASE_NAME]",
         "detail": "api.mongo_client",
         "documentation": {}
     },
@@ -2490,7 +2507,7 @@
         "kind": 5,
         "importPath": "api.mongo_client",
         "description": "api.mongo_client",
-        "peekOfCode": "db = client.local",
+        "peekOfCode": "db = client[settings.DATABASE_NAME]",
         "detail": "api.mongo_client",
         "documentation": {}
     },
@@ -2563,6 +2580,15 @@
         "importPath": "application_api.booking_api.views",
         "description": "application_api.booking_api.views",
         "peekOfCode": "class CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None\n@router.get(\"/rooms/{branch_name}\",\n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")\nasync def branch_rooms(branch_name: str):",
+        "detail": "application_api.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "application_api.booking_api.views",
+        "description": "application_api.booking_api.views",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass CreateOrderRequest(BaseModel):\n    room_name: str",
         "detail": "application_api.booking_api.views",
         "documentation": {}
     },

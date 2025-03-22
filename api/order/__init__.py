@@ -9,5 +9,4 @@ order_types: list = list(settings.ORDER_TYPE.keys())
 
 collection_name = 'order'
 
-db[collection_name].create_index("num", unique=True)
-
+db[collection_name].create_index("num", unique=False)
