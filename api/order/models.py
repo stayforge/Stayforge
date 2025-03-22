@@ -32,7 +32,7 @@ class OrderBase(BaseModel):
     )
     customer_username: str = Field(
         None,
-        examples=['customer_name01'],
+        examples=['customer_name01', 'customer.02@example.com'],
         description="Customer username"
     )
     checkin_at: datetime = Field(
