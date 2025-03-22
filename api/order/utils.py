@@ -1,7 +1,7 @@
 from datetime import datetime
-from api.healthcheck.view import db
 from api.order.models import Order
 from . import collection_name
+from api.mongo_client import db
 
 
 async def get_orders_in_timeRange_by_roomType(room_type_name: str, start_time: datetime, end_time: datetime):

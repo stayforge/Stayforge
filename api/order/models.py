@@ -1,11 +1,11 @@
 import json
 import uuid
 from datetime import datetime, timedelta
-from typing import Optional, List
+from typing import List
 
 from bson import ObjectId
 from faker import Faker
-from pydantic import BaseModel, Field, AnyUrl, field_validator, constr
+from pydantic import BaseModel, Field, field_validator, constr
 
 import settings
 from api.order import order_types
