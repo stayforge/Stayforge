@@ -2167,7 +2167,7 @@
         "kind": 6,
         "importPath": "api.customer.models",
         "description": "api.customer.models",
-        "peekOfCode": "class CustomerBase(BaseModel):\n    username: str = Field(\n        ...,\n        examples=['customer_name01'],\n        description=\"The username of the customer.\",\n        pattern=\"^[a-z0-9_]+$\"\n    )   \n    email: EmailStr = Field(\n        None,\n        examples=[faker.email()],",
+        "peekOfCode": "class CustomerBase(BaseModel):\n    username: str = Field(\n        ...,\n        examples=['customer_name01'],\n        description=\"The username of the customer.\",\n        pattern=\"^[a-z0-9_.-@]+$\"\n    )   \n    email: EmailStr = Field(\n        None,\n        examples=[faker.email()],",
         "detail": "api.customer.models",
         "documentation": {}
     },
@@ -2185,7 +2185,7 @@
         "kind": 5,
         "importPath": "api.customer.models",
         "description": "api.customer.models",
-        "peekOfCode": "faker = Faker('ja_JP')\nclass CustomerBase(BaseModel):\n    username: str = Field(\n        ...,\n        examples=['customer_name01'],\n        description=\"The username of the customer.\",\n        pattern=\"^[a-z0-9_]+$\"\n    )   \n    email: EmailStr = Field(\n        None,",
+        "peekOfCode": "faker = Faker('ja_JP')\nclass CustomerBase(BaseModel):\n    username: str = Field(\n        ...,\n        examples=['customer_name01'],\n        description=\"The username of the customer.\",\n        pattern=\"^[a-z0-9_.-@]+$\"\n    )   \n    email: EmailStr = Field(\n        None,",
         "detail": "api.customer.models",
         "documentation": {}
     },

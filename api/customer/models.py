@@ -13,7 +13,7 @@ class CustomerBase(BaseModel):
         ...,
         examples=['customer_name01'],
         description="The username of the customer.",
-        pattern="^[a-z0-9_]+$"
+        pattern="^[a-z0-9_.-@]+$"
     )   
     email: EmailStr = Field(
         None,
