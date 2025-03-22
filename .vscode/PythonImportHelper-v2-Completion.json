@@ -60,6 +60,14 @@
         "documentation": {}
     },
     {
+        "label": "Faker",
+        "importPath": "faker",
+        "description": "faker",
+        "isExtraImport": true,
+        "detail": "faker",
+        "documentation": {}
+    },
+    {
         "label": "BaseModel",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -92,6 +100,30 @@
         "documentation": {}
     },
     {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "EmailStr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
         "label": "BaseModel",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -133,14 +165,6 @@
     },
     {
         "label": "Field",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "AnyUrl",
         "importPath": "pydantic",
         "description": "pydantic",
         "isExtraImport": true,
@@ -356,6 +380,14 @@
         "documentation": {}
     },
     {
+        "label": "StayForgeModel",
+        "importPath": "api.schemas",
+        "description": "api.schemas",
+        "isExtraImport": true,
+        "detail": "api.schemas",
+        "documentation": {}
+    },
+    {
         "label": "Stayforge",
         "importPath": "api.schemas",
         "description": "api.schemas",
@@ -550,6 +582,14 @@
     },
     {
         "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -786,14 +826,6 @@
     },
     {
         "label": "*",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -1244,6 +1276,14 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "timezone",
         "importPath": "datetime",
         "description": "datetime",
@@ -1300,11 +1340,75 @@
         "documentation": {}
     },
     {
-        "label": "get_orders_in_timeRange_by_roomType",
+        "label": "collection_name",
         "importPath": "api.order",
         "description": "api.order",
         "isExtraImport": true,
         "detail": "api.order",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "isExtraImport": true,
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "isExtraImport": true,
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "isExtraImport": true,
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "isExtraImport": true,
+        "detail": "api.mongo_client",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "isExtraImport": true,
+        "detail": "api.mongo_client",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "isExtraImport": true,
+        "detail": "api.mongo_client",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "isExtraImport": true,
+        "detail": "api.mongo_client",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "isExtraImport": true,
+        "detail": "api.mongo_client",
         "documentation": {}
     },
     {
@@ -1439,6 +1543,14 @@
         "documentation": {}
     },
     {
+        "label": "customer",
+        "importPath": "api",
+        "description": "api",
+        "isExtraImport": true,
+        "detail": "api",
+        "documentation": {}
+    },
+    {
         "label": "RedisClient",
         "importPath": "api",
         "description": "api",
@@ -1496,38 +1608,6 @@
         "documentation": {}
     },
     {
-        "label": "db",
-        "importPath": "api.mongo_client",
-        "description": "api.mongo_client",
-        "isExtraImport": true,
-        "detail": "api.mongo_client",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "api.mongo_client",
-        "description": "api.mongo_client",
-        "isExtraImport": true,
-        "detail": "api.mongo_client",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "api.mongo_client",
-        "description": "api.mongo_client",
-        "isExtraImport": true,
-        "detail": "api.mongo_client",
-        "documentation": {}
-    },
-    {
-        "label": "Order",
-        "importPath": "api.order.models",
-        "description": "api.order.models",
-        "isExtraImport": true,
-        "detail": "api.order.models",
-        "documentation": {}
-    },
-    {
         "label": "Room",
         "importPath": "api.room.models",
         "description": "api.room.models",
@@ -1541,6 +1621,14 @@
         "description": "api.room_type.models",
         "isExtraImport": true,
         "detail": "api.room_type.models",
+        "documentation": {}
+    },
+    {
+        "label": "Customer",
+        "importPath": "api.customer.models",
+        "description": "api.customer.models",
+        "isExtraImport": true,
+        "detail": "api.customer.models",
         "documentation": {}
     },
     {
@@ -1559,6 +1647,22 @@
         "importPath": "orjson",
         "description": "orjson",
         "detail": "orjson",
+        "documentation": {}
+    },
+    {
+        "label": "get_orders_in_timeRange_by_roomType",
+        "importPath": "api.order.utils",
+        "description": "api.order.utils",
+        "isExtraImport": true,
+        "detail": "api.order.utils",
+        "documentation": {}
+    },
+    {
+        "label": "create_order",
+        "importPath": "api.order.utils",
+        "description": "api.order.utils",
+        "isExtraImport": true,
+        "detail": "api.order.utils",
         "documentation": {}
     },
     {
@@ -1607,6 +1711,24 @@
         "description": "api.room_type",
         "isExtraImport": true,
         "detail": "api.room_type",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "traceback",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "traceback",
+        "description": "traceback",
+        "detail": "traceback",
         "documentation": {}
     },
     {
@@ -1748,15 +1870,6 @@
         "importPath": "socket",
         "description": "socket",
         "detail": "socket",
-        "documentation": {}
-    },
-    {
-        "label": "logging",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "logging",
-        "description": "logging",
-        "detail": "logging",
         "documentation": {}
     },
     {
@@ -2066,6 +2179,33 @@
         "documentation": {}
     },
     {
+        "label": "CustomerBase",
+        "kind": 6,
+        "importPath": "api.customer.models",
+        "description": "api.customer.models",
+        "peekOfCode": "class CustomerBase(BaseModel):\n    username: str = Field(\n        ...,\n        examples=['customer_name01'],\n        description=\"The username of the customer.\",\n        pattern=\"^[a-z0-9_.-@]+$\"\n    )   \n    email: EmailStr = Field(\n        None,\n        examples=[faker.email()],",
+        "detail": "api.customer.models",
+        "documentation": {}
+    },
+    {
+        "label": "Customer",
+        "kind": 6,
+        "importPath": "api.customer.models",
+        "description": "api.customer.models",
+        "peekOfCode": "class Customer(CustomerBase, StayForgeModel):\n    pass",
+        "detail": "api.customer.models",
+        "documentation": {}
+    },
+    {
+        "label": "faker",
+        "kind": 5,
+        "importPath": "api.customer.models",
+        "description": "api.customer.models",
+        "peekOfCode": "faker = Faker('ja_JP')\nclass CustomerBase(BaseModel):\n    username: str = Field(\n        ...,\n        examples=['customer_name01'],\n        description=\"The username of the customer.\",\n        pattern=\"^[a-z0-9_.-@]+$\"\n    )   \n    email: EmailStr = Field(\n        None,",
+        "detail": "api.customer.models",
+        "documentation": {}
+    },
+    {
         "label": "router",
         "kind": 5,
         "importPath": "api.healthcheck.view",
@@ -2264,24 +2404,6 @@
         "documentation": {}
     },
     {
-        "label": "IDDocument",
-        "kind": 6,
-        "importPath": "api.order.models",
-        "description": "api.order.models",
-        "peekOfCode": "class IDDocument(BaseModel):\n    MRZ: str = Field(\n        None,\n        examples=[\"P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<\"\n                  \"L898902C36UTO7408122F1204159ZE184226B<<<<<10\"]\n    )\n    photocopy: Optional[AnyUrl | str] = Field(\n        None,\n        examples=[\"https://a.s3storage.address/photocopy/1970010112839010/1.jpg\"]\n    )",
-        "detail": "api.order.models",
-        "documentation": {}
-    },
-    {
-        "label": "Guest",
-        "kind": 6,
-        "importPath": "api.order.models",
-        "description": "api.order.models",
-        "peekOfCode": "class Guest(BaseModel):\n    first_name: str = Field(\n        None,\n        examples=[faker.first_name()],\n    )\n    middle_name: str = Field(\n        None,\n        examples=[\"\"],\n    )\n    last_name: str = Field(",
-        "detail": "api.order.models",
-        "documentation": {}
-    },
-    {
         "label": "OrderBase",
         "kind": 6,
         "importPath": "api.order.models",
@@ -2304,7 +2426,7 @@
         "kind": 5,
         "importPath": "api.order.models",
         "description": "api.order.models",
-        "peekOfCode": "faker = Faker('ja_JP')\nclass IDDocument(BaseModel):\n    MRZ: str = Field(\n        None,\n        examples=[\"P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<\"\n                  \"L898902C36UTO7408122F1204159ZE184226B<<<<<10\"]\n    )\n    photocopy: Optional[AnyUrl | str] = Field(\n        None,\n        examples=[\"https://a.s3storage.address/photocopy/1970010112839010/1.jpg\"]",
+        "peekOfCode": "faker = Faker('ja_JP')\n# noinspection PyNestedDecorators\nclass OrderBase(BaseModel):\n    num: constr(pattern=r'^[A-Za-z0-9_\\-#@:\\/|\\\\\\[\\]\\(\\)\\{\\}<>\\.!\\?]+$') = Field(\n        ...,\n        examples=[f\"{datetime.now().strftime('%Y%m%d%H%M%S')}{str(uuid.uuid4().int % 10000).zfill(4)}\"],\n        description=\"Order number. Only `A-Z`, `a-z`, `0-9` and `-_#@:` are allowed.\"\n    )\n    room_name: str = Field(\n        None,",
         "detail": "api.order.models",
         "documentation": {}
     },
@@ -2475,7 +2597,7 @@
         "kind": 5,
         "importPath": "api.mongo_client",
         "description": "api.mongo_client",
-        "peekOfCode": "client = AsyncIOMotorClient(settings.MONGO_URL)\ndb = client.local",
+        "peekOfCode": "client = AsyncIOMotorClient(settings.MONGO_URL)\ndb = client[settings.DATABASE_NAME]",
         "detail": "api.mongo_client",
         "documentation": {}
     },
@@ -2484,7 +2606,7 @@
         "kind": 5,
         "importPath": "api.mongo_client",
         "description": "api.mongo_client",
-        "peekOfCode": "db = client.local",
+        "peekOfCode": "db = client[settings.DATABASE_NAME]",
         "detail": "api.mongo_client",
         "documentation": {}
     },
@@ -2538,7 +2660,7 @@
         "kind": 6,
         "importPath": "application_api.booking_api.views",
         "description": "application_api.booking_api.views",
-        "peekOfCode": "class RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\",\n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")",
+        "peekOfCode": "class RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]\nclass CreateOrderRequest(BaseModel):",
         "detail": "application_api.booking_api.views",
         "documentation": {}
     },
@@ -2547,7 +2669,34 @@
         "kind": 6,
         "importPath": "application_api.booking_api.views",
         "description": "application_api.booking_api.views",
-        "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\",\n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")\nasync def branch_rooms(branch_name: str):\n    return await get_rooms_data(branch_name)\n@router.get(\"/schedule/{room_type_name}\",",
+        "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]\nclass CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime",
+        "detail": "application_api.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "OrderHistoryResponse",
+        "kind": 6,
+        "importPath": "application_api.booking_api.views",
+        "description": "application_api.booking_api.views",
+        "peekOfCode": "class OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]\nclass CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None\n    customer_username: str | None = None\n@router.get(\"/orders/{customer_username}\",",
+        "detail": "application_api.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "CreateOrderRequest",
+        "kind": 6,
+        "importPath": "application_api.booking_api.views",
+        "description": "application_api.booking_api.views",
+        "peekOfCode": "class CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None\n    customer_username: str | None = None\n@router.get(\"/orders/{customer_username}\",\n    response_model=OrderHistoryResponse,\n    description=\"Return order history for a customer by username.\")",
+        "detail": "application_api.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "application_api.booking_api.views",
+        "description": "application_api.booking_api.views",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]",
         "detail": "application_api.booking_api.views",
         "documentation": {}
     },

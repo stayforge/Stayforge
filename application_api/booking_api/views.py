@@ -2,13 +2,23 @@
 Booking API View
 """
 import random
+import logging
+import traceback
 from datetime import datetime, timezone
 from typing import List, Dict, Any
 
+from fastapi import HTTPException
 from pydantic import BaseModel
+from api.order.models import Order
+from api.order.utils import create_order as create_order_db
+from api.mongo_client import db
+from api.order import collection_name
 
 from . import router
 from .utils import get_roomType_timetable, get_rooms_data
+
+
+logger = logging.getLogger(__name__)
 
 
 class RoomResponse(BaseModel):
@@ -20,6 +30,42 @@ class BookingResponse(BaseModel):
     success: bool
     message: str
     order_num: str | None = None
+
+
+class OrderHistoryResponse(BaseModel):
+    orders: List[Dict[str, Any]]
+
+
+class CreateOrderRequest(BaseModel):
+    room_name: str
+    type: str
+    checkin_at: datetime
+    checkout_at: datetime
+    num: str | None = None
+    customer_username: str | None = None
+
+
+@router.get("/orders/{customer_username}",
+    response_model=OrderHistoryResponse,
+    description="Return order history for a customer by username.")
+async def get_order_history(customer_username: str):
+    try:
+        # Query orders by customer_username
+        query = {"customer_username": customer_username}
+        cursor = db[collection_name].find(query)
+        orders = await cursor.to_list(None)
+        
+        # Convert MongoDB objects to dict for response
+        orders_list = []
+        for order in orders:
+            order["_id"] = str(order["_id"])  # Convert ObjectId to string
+            orders_list.append(order)
+            
+        return OrderHistoryResponse(orders=orders_list)
+    except Exception as e:
+        logger.error(f"Failed to get order history: {str(e)}")
+        logger.error(traceback.format_exc())
+        raise HTTPException(status_code=500, detail=f"Failed to get order history: {str(e)}")
 
 
 @router.get("/rooms/{branch_name}",
@@ -46,50 +92,63 @@ async def hold(room_id: str, hold_time: int):
     )
 
 
-@router.post("/booking/{room_id}",
+@router.post("/create_order",
     response_model=BookingResponse,
-    description="Book a room. Make a new order and status it to 'booked'. "
-                "If the order number is not defined, it will be created and returned by Stayforge.")
-async def booking(
-    room_id: str,
-    order_num: str=None
-):
-    if not order_num:
-        order_num = f"{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}{random.randint(1000, 9999)}"
+    description="Create a new order with booking details.",
+    dependencies=[])
+async def create_new_order(request: CreateOrderRequest):
+    try:
+        # Generate order number if not provided
+        if not request.num:
+            request.num = Order.generate_num()
+        
+        logger.info(f"Creating order with num: {request.num}, room: {request.room_name}")
+        
+        # Print all the order types for debugging
+        logger.info(f"Available order types: {Order.order_types()}")
+        logger.info(f"Request order type: {request.type}")
+        
+        # Create order object
+        try:
+            # Create current timestamp for create_at and update_at
+            current_time = datetime.now()
+            
+            order = Order(
+                num=request.num,
+                room_name=request.room_name,
+                type=request.type,
+                checkin_at=request.checkin_at,
+                checkout_at=request.checkout_at,
+                customer_username=request.customer_username or None,
+                create_at=current_time,
+                update_at=current_time
+            )
+            logger.info(f"Order object created: {order}")
+        except Exception as e:
+            logger.error(f"Failed to create Order object: {str(e)}")
+            logger.error(traceback.format_exc())
+            raise HTTPException(status_code=400, detail=f"Failed to create Order object: {str(e)}")
+        
+        # Save to database
+        try:
+            logger.info(f"Calling create_order_db with order: {order.model_dump()}")
+            created_order = await create_order_db(order)
+            logger.info(f"Order created successfully: {created_order}")
+            
+            return BookingResponse(
+                success=True,
+                message="Order created successfully",
+                order_num=created_order.num
+            )
+        except Exception as e:
+            logger.error(f"Database error: {str(e)}")
+            logger.error(traceback.format_exc())
+            raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
+    except HTTPException:
+        # Re-raise HTTP exceptions
+        raise
+    except Exception as e:
+        logger.error(f"Failed to create order: {str(e)}")
+        logger.error(traceback.format_exc())
+        raise HTTPException(status_code=500, detail=f"Failed to create order: {str(e)}")
     
-    return BookingResponse(
-        success=True,
-        message=f"Room {room_id} booked successfully",
-        order_num=order_num
-    )
-
-
-@router.post("/cancel/{order_num}",
-    response_model=BookingResponse,
-    description="You can only cancel a room in booked state. "
-                "If the room is check-in, please follow the normal check-out process.")
-async def cancel(order_num: str):
-    return BookingResponse(
-        success=True,
-        message=f"Order {order_num} cancelled successfully"
-    )
-
-
-@router.post("/check-in/{order_num}",
-    response_model=BookingResponse,
-    description="Check in for a booked room.")
-async def check_in(order_num: str):
-    return BookingResponse(
-        success=True,
-        message=f"Order {order_num} checked in successfully"
-    )
-
-
-@router.post("/check-out/{order_num}",
-    response_model=BookingResponse,
-    description="Check out from a room.")
-async def check_out(order_num: str):
-    return BookingResponse(
-        success=True,
-        message=f"Order {order_num} checked out successfully"
-    )
