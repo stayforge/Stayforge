@@ -2,5 +2,11 @@
     "cSpell.words": [
         "checkin",
         "Stayforge"
+    ],
+    "python.linting.enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyArgs": [
+      "--disallow-untyped-calls",   // Disable function calls of undefined types
+      "--disallow-untyped-defs"     // Disable function definitions of undefined types
     ]
 }
