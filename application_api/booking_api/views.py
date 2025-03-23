@@ -1,10 +1,9 @@
 """
 Booking API View
 """
-import random
 import logging
 import traceback
-from datetime import datetime, timezone
+from datetime import datetime
 from typing import List, Dict, Any
 
 from fastapi import HTTPException
