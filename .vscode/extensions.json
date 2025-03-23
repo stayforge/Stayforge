@@ -6,6 +6,8 @@
         "codezombiech.gitignore",
         "mongodb.mongodb-vscode",
         "wolfieshorizon.python-auto-venv",
-        "mgesbert.python-path"
+        "mgesbert.python-path",
+        "ms-python.vscode-pylance",
+        "ms-python.python"
     ]
 }

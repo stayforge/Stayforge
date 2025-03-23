@@ -1,7 +1,0 @@
-packageName: stayforge
-projectName: Stayforge Python SDK
-packageVersion: 1.0.0
-hideGenerationTimestamp: true
-usePydanticModels: true
-generateSourceCodeOnly: true
-outputDir: ./package_output
