@@ -1,3 +1,4 @@
+aiofiles
 pymongo
 fastapi[all]
 pydantic[all]

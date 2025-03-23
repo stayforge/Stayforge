@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "rdsq.pip-requirements",
+        "graykode.ai-docstring",
+        "pythonfastapisnippet.python-fastapi-snippets",
+        "codezombiech.gitignore",
+        "mongodb.mongodb-vscode",
+        "wolfieshorizon.python-auto-venv",
+        "mgesbert.python-path"
+    ]
+}
