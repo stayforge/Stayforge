@@ -36,7 +36,7 @@ jobs:
             SHORT_SHA=$(echo "${GITHUB_SHA}" | cut -c1-7)
             echo "version=dev-${SHORT_SHA}" >> $GITHUB_OUTPUT
             echo "branch=dev" >> $GITHUB_OUTPUT
-          elif [[ "$GITHUB_REF" == refs/tags/* ]]; then
+          elif [[ "$GITHUB_REF" =~ ^refs/tags/ ]]; then
             VERSION=${GITHUB_REF_NAME:-"unknown"}
             echo "version=${VERSION}" >> $GITHUB_OUTPUT
             BRANCH=$(git branch -r --contains "$GITHUB_REF" | grep -v '\->' | head -n1 | sed 's|origin/||;s|/|-|g')
@@ -44,6 +44,7 @@ jobs:
           else
             echo "version=unknown" >> $GITHUB_OUTPUT
             echo "branch=unknown" >> $GITHUB_OUTPUT
+          fi
 
   build-docker:
     needs: build-openapi
