@@ -3,7 +3,9 @@ name: Generate OpenAPI and Release
 on:
   push:
     tags:
-      - '*.*.*'  # Trigger only on version tags
+      - '*.*.*'
+    branches:
+      - dev
 
 jobs:
   build-openapi:
@@ -30,9 +32,15 @@ jobs:
       - name: Extract version and branch
         id: extract
         run: |
-          echo "version=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
-          BRANCH=$(git branch -r --contains $GITHUB_REF | grep -v '\->' | head -n1 | sed 's|origin/||;s|/|-|g')
-          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          if [[ "$GITHUB_REF" == "refs/heads/dev" ]]; then
+            SHORT_SHA=$(echo "${GITHUB_SHA}" | cut -c1-7)
+            echo "version=dev-${SHORT_SHA}" >> $GITHUB_OUTPUT
+            echo "branch=dev" >> $GITHUB_OUTPUT
+          else
+            echo "version=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
+            BRANCH=$(git branch -r --contains $GITHUB_REF | grep -v '\->' | head -n1 | sed 's|origin/||;s|/|-|g')
+            echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          fi
 
   build-docker:
     needs: build-openapi
@@ -51,18 +59,10 @@ jobs:
       - name: Build Docker image
         run: |
           TAG=${{ needs.build-docker.outputs.version }}
-          BRANCH=${{ needs.build-docker.outputs.branch }}
-          if [ "$BRANCH" = "main" ]; then
-            docker buildx build . \
-              --platform linux/amd64,linux/arm64 \
-              --tag stayforge/stayforge:$TAG \
-              --tag stayforge/stayforge:latest \
-              --load
-          else
-            docker buildx build . \
-              --platform linux/amd64,linux/arm64 \
-              --tag stayforge/stayforge:$BRANCH-$TAG \
-              --load
+          docker buildx build . \
+            --platform linux/amd64,linux/arm64 \
+            --tag stayforge/stayforge:$TAG \
+            --load
 
   release-openapi:
     needs: build-openapi
@@ -98,9 +98,8 @@ jobs:
       - name: Push Docker image
         run: |
           TAG=${{ needs.build-docker.outputs.version }}
-          BRANCH=${{ needs.build-docker.outputs.branch }}
-          if [ "$BRANCH" = "main" ]; then
-            docker push stayforge/stayforge:$TAG
+          docker push stayforge/stayforge:$TAG
+          if [[ "$TAG" == "${{ needs.build-openapi.outputs.version }}" && "$TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            docker tag stayforge/stayforge:$TAG stayforge/stayforge:latest
             docker push stayforge/stayforge:latest
-          else
-            docker push stayforge/stayforge:$BRANCH-$TAG
+          fi
