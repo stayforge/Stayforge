@@ -68,9 +68,9 @@ jobs:
             exit 1
           fi
           docker buildx build . \
-            --platform linux/amd64,linux/arm64 \
-            --tag stayforge/stayforge:$TAG \
-            --load
+          --platform linux/amd64,linux/arm64 \
+          --tag stayforge/stayforge:$TAG \
+          --push
 
   release-openapi:
     needs: build-openapi
