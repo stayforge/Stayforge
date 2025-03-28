@@ -3,13 +3,14 @@ name: Generate OpenAPI and Release
 on:
   push:
     tags:
-      - '*.*.*'
+      - '*.*.*'  # Trigger only on version tags
 
 jobs:
   build-openapi:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.extract.outputs.version }}
+      branch: ${{ steps.extract.outputs.branch }}
 
     steps:
       - name: Checkout code
@@ -26,15 +27,19 @@ jobs:
       - name: Generate OpenAPI spec
         run: python openapi.py
 
-      - name: Extract version from tag
+      - name: Extract version and branch
         id: extract
-        run: echo "version=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
+        run: |
+          echo "version=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
+          BRANCH=$(git branch -r --contains $GITHUB_REF | grep -v '\->' | head -n1 | sed 's|origin/||;s|/|-|g')
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
 
   build-docker:
     needs: build-openapi
     runs-on: ubuntu-latest
     outputs:
       version: ${{ needs.build-openapi.outputs.version }}
+      branch: ${{ needs.build-openapi.outputs.branch }}
 
     steps:
       - name: Checkout code
@@ -45,14 +50,24 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker buildx build . \
-            --platform linux/amd64,linux/arm64 \
-            --tag stayforge/stayforge:${{ needs.build-openapi.outputs.version }} \
-            --load
+          TAG=${{ needs.build-docker.outputs.version }}
+          BRANCH=${{ needs.build-docker.outputs.branch }}
+          if [ "$BRANCH" = "main" ]; then
+            docker buildx build . \
+              --platform linux/amd64,linux/arm64 \
+              --tag stayforge/stayforge:$TAG \
+              --tag stayforge/stayforge:latest \
+              --load
+          else
+            docker buildx build . \
+              --platform linux/amd64,linux/arm64 \
+              --tag stayforge/stayforge:$BRANCH-$TAG \
+              --load
 
   release-openapi:
     needs: build-openapi
     runs-on: ubuntu-latest
+    if: needs.build-openapi.outputs.branch == 'main'
 
     steps:
       - name: Checkout code
@@ -68,6 +83,7 @@ jobs:
   release-docker:
     needs: [build-openapi, build-docker]
     runs-on: ubuntu-latest
+    if: needs.build-openapi.outputs.branch == 'main'
 
     steps:
       - name: Checkout code
@@ -81,6 +97,10 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker tag stayforge/stayforge:${{ needs.build-openapi.outputs.version }} \
-                     stayforge/stayforge:${{ needs.build-openapi.outputs.version }}
-          docker push stayforge/stayforge:${{ needs.build-openapi.outputs.version }}
+          TAG=${{ needs.build-docker.outputs.version }}
+          BRANCH=${{ needs.build-docker.outputs.branch }}
+          if [ "$BRANCH" = "main" ]; then
+            docker push stayforge/stayforge:$TAG
+            docker push stayforge/stayforge:latest
+          else
+            docker push stayforge/stayforge:$BRANCH-$TAG
