@@ -62,9 +62,9 @@ jobs:
 
       - name: Build Docker image
         run: |
-          TAG="${{ needs.build-docker.outputs.version }}"
+          TAG="${{ needs.build-openapi.outputs.version }}"
           if [[ -z "$TAG" ]]; then
-            echo "❌ TAG is empty. Aborting build."
+            echo "TAG is empty. Aborting build."
             exit 1
           fi
           docker buildx build . \
