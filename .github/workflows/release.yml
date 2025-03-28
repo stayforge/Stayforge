@@ -36,11 +36,14 @@ jobs:
             SHORT_SHA=$(echo "${GITHUB_SHA}" | cut -c1-7)
             echo "version=dev-${SHORT_SHA}" >> $GITHUB_OUTPUT
             echo "branch=dev" >> $GITHUB_OUTPUT
-          else
-            echo "version=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
-            BRANCH=$(git branch -r --contains $GITHUB_REF | grep -v '\->' | head -n1 | sed 's|origin/||;s|/|-|g')
+          elif [[ "$GITHUB_REF" == refs/tags/* ]]; then
+            VERSION=${GITHUB_REF_NAME:-"unknown"}
+            echo "version=${VERSION}" >> $GITHUB_OUTPUT
+            BRANCH=$(git branch -r --contains "$GITHUB_REF" | grep -v '\->' | head -n1 | sed 's|origin/||;s|/|-|g')
             echo "branch=$BRANCH" >> $GITHUB_OUTPUT
-          fi
+          else
+            echo "version=unknown" >> $GITHUB_OUTPUT
+            echo "branch=unknown" >> $GITHUB_OUTPUT
 
   build-docker:
     needs: build-openapi
@@ -58,7 +61,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          TAG=${{ needs.build-docker.outputs.version }}
+          TAG="${{ needs.build-docker.outputs.version }}"
+          if [[ -z "$TAG" ]]; then
+            echo "❌ TAG is empty. Aborting build."
+            exit 1
+          fi
           docker buildx build . \
             --platform linux/amd64,linux/arm64 \
             --tag stayforge/stayforge:$TAG \
@@ -98,8 +105,12 @@ jobs:
       - name: Push Docker image
         run: |
           TAG=${{ needs.build-docker.outputs.version }}
+          if [[ -z "$TAG" ]]; then
+            echo "❌ Docker tag is empty. Skipping push."
+            exit 1
+          fi
           docker push stayforge/stayforge:$TAG
-          if [[ "$TAG" == "${{ needs.build-openapi.outputs.version }}" && "$TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+          if [[ "$TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             docker tag stayforge/stayforge:$TAG stayforge/stayforge:latest
             docker push stayforge/stayforge:latest
           fi
