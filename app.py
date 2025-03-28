@@ -118,9 +118,3 @@ def custom_openapi():
 app.openapi = custom_openapi
 
 
-async def export_openapi_json(file_path: str):
-    async with aiofiles.open(file_path, "w") as f:
-        api_spec = app.openapi()
-        await f.write(json.dumps(api_spec, indent=4))
-    logger.info(f"OpenAPI JSON exported to {file_path}")
-
