@@ -3,7 +3,7 @@ API __init__.py
 """
 
 import os
-from warnings import deprecated
+from deprecated import deprecated
 
 import redis
 

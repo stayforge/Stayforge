@@ -1,0 +1,117 @@
+name: Generate OpenAPI and Release
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+    branches:
+      - dev
+
+jobs:
+  build-openapi:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.extract.outputs.version }}
+      branch: ${{ steps.extract.outputs.branch }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pyyaml aiofiles Deprecated
+
+      - name: Generate OpenAPI spec
+        run: python openapi.py
+
+      - name: Extract version and branch
+        id: extract
+        run: |
+          if [[ "$GITHUB_REF" == "refs/heads/dev" ]]; then
+            SHORT_SHA=$(echo "${GITHUB_SHA}" | cut -c1-7)
+            echo "version=dev-${SHORT_SHA}" >> $GITHUB_OUTPUT
+            echo "branch=dev" >> $GITHUB_OUTPUT
+          elif [[ "$GITHUB_REF" =~ ^refs/tags/ ]]; then
+            VERSION=${GITHUB_REF_NAME:-"unknown"}
+            echo "version=${VERSION}" >> $GITHUB_OUTPUT
+            BRANCH=$(git branch -r --contains "$GITHUB_REF" | grep -v '\->' | head -n1 | sed 's|origin/||;s|/|-|g')
+            echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          else
+            echo "version=unknown" >> $GITHUB_OUTPUT
+            echo "branch=unknown" >> $GITHUB_OUTPUT
+          fi
+
+  build-docker:
+    needs: build-openapi
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ needs.build-openapi.outputs.version }}
+      branch: ${{ needs.build-openapi.outputs.branch }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        run: |
+          TAG="${{ needs.build-openapi.outputs.version }}"
+          if [[ -z "$TAG" ]]; then
+            echo "TAG is empty. Aborting build."
+            exit 1
+          fi
+          docker buildx build . \
+          --platform linux/amd64,linux/arm64 \
+          --tag stayforge/stayforge:$TAG \
+          --push
+
+  release-openapi:
+    needs: build-openapi
+    runs-on: ubuntu-latest
+    if: needs.build-openapi.outputs.branch == 'main'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Upload OpenAPI spec to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: .openapi_spec/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  release-docker:
+    needs: [build-openapi, build-docker]
+    runs-on: ubuntu-latest
+    if: needs.build-openapi.outputs.branch == 'main'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Push Docker image
+        run: |
+          TAG=${{ needs.build-docker.outputs.version }}
+          if [[ -z "$TAG" ]]; then
+            echo "Docker tag is empty. Skipping push."
+            exit 1
+          fi
+          docker push stayforge/stayforge:$TAG
+          if [[ "$TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            docker tag stayforge/stayforge:$TAG stayforge/stayforge:latest
+            docker push stayforge/stayforge:latest
+          fi

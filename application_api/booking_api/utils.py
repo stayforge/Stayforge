@@ -56,6 +56,27 @@ async def get_rooms_data(branch_name: str) -> dict:
     )
 
 async def get_roomType_timetable(room_type_name: str, start_time: datetime, end_time: datetime) -> dict:
+    """
+    Fetches the timetable for a specific room type within a given time range by calculating the
+    availability of rooms in that category across specified time slices.
+
+    The function retrieves information about the rooms belonging to the specified category
+    and the associated bookings, then calculates availability for 24 evenly divided time
+    slices within the provided range. The availability calculation considers various
+    parameters such as room closures and overbooked conditions.
+
+    :param room_type_name: The name of the room type to retrieve the timetable for.
+    :type room_type_name: str
+    :param start_time: The beginning of the time range to calculate the timetable.
+    :type start_time: datetime
+    :param end_time: The end of the time range to calculate the timetable.
+    :type end_time: datetime
+    :return: A dictionary containing timetable data for the specified room type. It includes
+        availability information across time slices, total rooms for the type, and additional
+        details about rooms and bookings.
+    :rtype: dict
+    :raises ValueError: If the room type specified does not exist.
+    """
     # Validate if room type exists
     room_type = await get_roomType_by_name(room_type_name)
     if not room_type:
