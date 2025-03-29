@@ -75,6 +75,8 @@ jobs:
 
   release-openapi:
     runs-on: ubuntu-latest
+    needs: [ build-openapi ]
+    if: needs.build-openapi.outputs.branch == 'main'
 
     steps:
       - uses: actions/checkout@v3
@@ -87,7 +89,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   release-docker:
-    needs: [ build-openapi, build-docker ]
+    needs: [ build-docker ]
     runs-on: ubuntu-latest
     if: needs.build-openapi.outputs.branch == 'main'
 
