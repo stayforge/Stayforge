@@ -22,10 +22,6 @@ OPENAPI_URL = '/openapi.json'
 FAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'
 REDOC_WITH_GOOGLE_FONTS = True
 
-# etcd
-ETCD_ENDPOINT = os.getenv("ETCD_ENDPOINT", "etcd://etcd:2379")
-
-
 def getLogger(name="stayforge"):
     l = logging.getLogger(name)
     l.setLevel(logging.INFO if DEBUG else logging.DEBUG)
@@ -80,8 +76,8 @@ DEFAULT_MODEL_SOURCE = os.getenv("DEFAULT_MODEL_MARKET", "https://market.stayfor
 DEFAULT_MODEL_NAMESPACE = os.getenv("DEFAULT_MODEL_NAMESPACE", "stayforge")
 
 # Token
-REFRESH_TOKEN_BYTES = os.getenv("REFRESH_TOKEN_BYTES", 64)
-ACCESS_TOKEN_BYTES = os.getenv("ACCESS_TOKEN_BYTES", 32)
+REFRESH_TOKEN_LENGTH = os.getenv("REFRESH_TOKEN_LENGTH", 64)
+ACCESS_TOKEN_LENGTH = os.getenv("ACCESS_TOKEN_LENGTH", 32)
 REFRESH_TOKEN_TTL = 60 * 60 * 24 * 30
 ACCESS_TOKEN_TTL = 60 * 60 * 24
 

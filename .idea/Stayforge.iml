@@ -5,11 +5,10 @@
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/.venv1" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.13 (Stayforge)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.13 (Stayforge) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
-    <option name="requirementsPath" value="requirements_dev.txt" />
     <option name="versionSpecifier" value="Don't specify version" />
   </component>
   <component name="PyNamespacePackagesService">

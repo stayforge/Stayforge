@@ -35,36 +35,648 @@
         "documentation": {}
     },
     {
-        "label": "faker",
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {}
+    },
+    {
+        "label": "asyncio",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "faker",
-        "description": "faker",
-        "detail": "faker",
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
         "documentation": {}
     },
     {
-        "label": "Faker",
-        "importPath": "faker",
-        "description": "faker",
+        "label": "json",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "faker",
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
         "documentation": {}
     },
     {
-        "label": "Faker",
-        "importPath": "faker",
-        "description": "faker",
+        "label": "orjson",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "faker",
+        "importPath": "orjson",
+        "description": "orjson",
+        "detail": "orjson",
         "documentation": {}
     },
     {
-        "label": "Faker",
-        "importPath": "faker",
-        "description": "faker",
+        "label": "get_orders_in_timeRange_by_roomType",
+        "importPath": "api.order.utils",
+        "description": "api.order.utils",
         "isExtraImport": true,
-        "detail": "faker",
+        "detail": "api.order.utils",
+        "documentation": {}
+    },
+    {
+        "label": "create_order",
+        "importPath": "api.order.utils",
+        "description": "api.order.utils",
+        "isExtraImport": true,
+        "detail": "api.order.utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_room_by_branch",
+        "importPath": "api.room",
+        "description": "api.room",
+        "isExtraImport": true,
+        "detail": "api.room",
+        "documentation": {}
+    },
+    {
+        "label": "get_room_by_roomType",
+        "importPath": "api.room",
+        "description": "api.room",
+        "isExtraImport": true,
+        "detail": "api.room",
+        "documentation": {}
+    },
+    {
+        "label": "get_roomType_by_branch",
+        "importPath": "api.room_type",
+        "description": "api.room_type",
+        "isExtraImport": true,
+        "detail": "api.room_type",
+        "documentation": {}
+    },
+    {
+        "label": "get_roomType_by_name",
+        "importPath": "api.room_type",
+        "description": "api.room_type",
+        "isExtraImport": true,
+        "detail": "api.room_type",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "traceback",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "traceback",
+        "description": "traceback",
+        "detail": "traceback",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Literal",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Type",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Body",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
         "documentation": {}
     },
     {
@@ -276,22 +888,6 @@
         "documentation": {}
     },
     {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
         "label": "EmailStr",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -369,6 +965,119 @@
         "description": "pydantic",
         "isExtraImport": true,
         "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "isExtraImport": true,
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "isExtraImport": true,
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "api.order.models",
+        "description": "api.order.models",
+        "isExtraImport": true,
+        "detail": "api.order.models",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "isExtraImport": true,
+        "detail": "api.mongo_client",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "isExtraImport": true,
+        "detail": "api.mongo_client",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "isExtraImport": true,
+        "detail": "api.mongo_client",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "isExtraImport": true,
+        "detail": "api.mongo_client",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "api.mongo_client",
+        "description": "api.mongo_client",
+        "isExtraImport": true,
+        "detail": "api.mongo_client",
+        "documentation": {}
+    },
+    {
+        "label": "collection_name",
+        "importPath": "api.order",
+        "description": "api.order",
+        "isExtraImport": true,
+        "detail": "api.order",
+        "documentation": {}
+    },
+    {
+        "label": "order_types",
+        "importPath": "api.order",
+        "description": "api.order",
+        "isExtraImport": true,
+        "detail": "api.order",
+        "documentation": {}
+    },
+    {
+        "label": "faker",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "faker",
+        "description": "faker",
+        "detail": "faker",
+        "documentation": {}
+    },
+    {
+        "label": "Faker",
+        "importPath": "faker",
+        "description": "faker",
+        "isExtraImport": true,
+        "detail": "faker",
+        "documentation": {}
+    },
+    {
+        "label": "Faker",
+        "importPath": "faker",
+        "description": "faker",
+        "isExtraImport": true,
+        "detail": "faker",
+        "documentation": {}
+    },
+    {
+        "label": "Faker",
+        "importPath": "faker",
+        "description": "faker",
+        "isExtraImport": true,
+        "detail": "faker",
         "documentation": {}
     },
     {
@@ -453,230 +1162,6 @@
         "documentation": {}
     },
     {
-        "label": "ObjectId",
-        "importPath": "bson",
-        "description": "bson",
-        "isExtraImport": true,
-        "detail": "bson",
-        "documentation": {}
-    },
-    {
-        "label": "ObjectId",
-        "importPath": "bson",
-        "description": "bson",
-        "isExtraImport": true,
-        "detail": "bson",
-        "documentation": {}
-    },
-    {
-        "label": "ObjectId",
-        "importPath": "bson",
-        "description": "bson",
-        "isExtraImport": true,
-        "detail": "bson",
-        "documentation": {}
-    },
-    {
-        "label": "ObjectId",
-        "importPath": "bson",
-        "description": "bson",
-        "isExtraImport": true,
-        "detail": "bson",
-        "documentation": {}
-    },
-    {
-        "label": "ObjectId",
-        "importPath": "bson",
-        "description": "bson",
-        "isExtraImport": true,
-        "detail": "bson",
-        "documentation": {}
-    },
-    {
-        "label": "ObjectId",
-        "importPath": "bson",
-        "description": "bson",
-        "isExtraImport": true,
-        "detail": "bson",
-        "documentation": {}
-    },
-    {
-        "label": "ObjectId",
-        "importPath": "bson",
-        "description": "bson",
-        "isExtraImport": true,
-        "detail": "bson",
-        "documentation": {}
-    },
-    {
-        "label": "*",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "HTTPException",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "APIRouter",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "*",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "*",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "*",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "HTTPException",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "APIRouter",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Depends",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "HTTPException",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "HTTPException",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Query",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Body",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "HTTPException",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Depends",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "HTTPException",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Request",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "APIRouter",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "FastAPI",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Request",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
         "label": "request",
         "importPath": "httpcore",
         "description": "httpcore",
@@ -735,7 +1220,7 @@
         "documentation": {}
     },
     {
-        "label": "ACCESS_TOKEN_BYTES",
+        "label": "ACCESS_TOKEN_LENGTH",
         "importPath": "settings",
         "description": "settings",
         "isExtraImport": true,
@@ -743,15 +1228,7 @@
         "documentation": {}
     },
     {
-        "label": "REFRESH_TOKEN_BYTES",
-        "importPath": "settings",
-        "description": "settings",
-        "isExtraImport": true,
-        "detail": "settings",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
+        "label": "REFRESH_TOKEN_LENGTH",
         "importPath": "settings",
         "description": "settings",
         "isExtraImport": true,
@@ -798,310 +1275,6 @@
         "importPath": "re",
         "description": "re",
         "detail": "re",
-        "documentation": {}
-    },
-    {
-        "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "*",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "*",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Literal",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "*",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Type",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Annotated",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Annotated",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Callable",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
         "documentation": {}
     },
     {
@@ -1179,6 +1352,14 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "read_document",
         "importPath": "docs",
         "description": "docs",
@@ -1224,192 +1405,6 @@
         "description": "mq",
         "isExtraImport": true,
         "detail": "mq",
-        "documentation": {}
-    },
-    {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "timedelta",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "timezone",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "timezone",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "order_types",
-        "importPath": "api.order",
-        "description": "api.order",
-        "isExtraImport": true,
-        "detail": "api.order",
-        "documentation": {}
-    },
-    {
-        "label": "collection_name",
-        "importPath": "api.order",
-        "description": "api.order",
-        "isExtraImport": true,
-        "detail": "api.order",
-        "documentation": {}
-    },
-    {
-        "label": "Order",
-        "importPath": "api.order.models",
-        "description": "api.order.models",
-        "isExtraImport": true,
-        "detail": "api.order.models",
-        "documentation": {}
-    },
-    {
-        "label": "Order",
-        "importPath": "api.order.models",
-        "description": "api.order.models",
-        "isExtraImport": true,
-        "detail": "api.order.models",
-        "documentation": {}
-    },
-    {
-        "label": "Order",
-        "importPath": "api.order.models",
-        "description": "api.order.models",
-        "isExtraImport": true,
-        "detail": "api.order.models",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "api.mongo_client",
-        "description": "api.mongo_client",
-        "isExtraImport": true,
-        "detail": "api.mongo_client",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "api.mongo_client",
-        "description": "api.mongo_client",
-        "isExtraImport": true,
-        "detail": "api.mongo_client",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "api.mongo_client",
-        "description": "api.mongo_client",
-        "isExtraImport": true,
-        "detail": "api.mongo_client",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "api.mongo_client",
-        "description": "api.mongo_client",
-        "isExtraImport": true,
-        "detail": "api.mongo_client",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "api.mongo_client",
-        "description": "api.mongo_client",
-        "isExtraImport": true,
-        "detail": "api.mongo_client",
-        "documentation": {}
-    },
-    {
-        "label": "random",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "random",
-        "description": "random",
-        "detail": "random",
         "documentation": {}
     },
     {
@@ -1624,130 +1619,6 @@
         "documentation": {}
     },
     {
-        "label": "asyncio",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "asyncio",
-        "description": "asyncio",
-        "detail": "asyncio",
-        "documentation": {}
-    },
-    {
-        "label": "orjson",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "orjson",
-        "description": "orjson",
-        "detail": "orjson",
-        "documentation": {}
-    },
-    {
-        "label": "get_orders_in_timeRange_by_roomType",
-        "importPath": "api.order.utils",
-        "description": "api.order.utils",
-        "isExtraImport": true,
-        "detail": "api.order.utils",
-        "documentation": {}
-    },
-    {
-        "label": "create_order",
-        "importPath": "api.order.utils",
-        "description": "api.order.utils",
-        "isExtraImport": true,
-        "detail": "api.order.utils",
-        "documentation": {}
-    },
-    {
-        "label": "get_room_by_branch",
-        "importPath": "api.room",
-        "description": "api.room",
-        "isExtraImport": true,
-        "detail": "api.room",
-        "documentation": {}
-    },
-    {
-        "label": "get_room_by_roomType",
-        "importPath": "api.room",
-        "description": "api.room",
-        "isExtraImport": true,
-        "detail": "api.room",
-        "documentation": {}
-    },
-    {
-        "label": "get_room_by_branch",
-        "importPath": "api.room",
-        "description": "api.room",
-        "isExtraImport": true,
-        "detail": "api.room",
-        "documentation": {}
-    },
-    {
-        "label": "get_roomType_by_branch",
-        "importPath": "api.room_type",
-        "description": "api.room_type",
-        "isExtraImport": true,
-        "detail": "api.room_type",
-        "documentation": {}
-    },
-    {
-        "label": "get_roomType_by_name",
-        "importPath": "api.room_type",
-        "description": "api.room_type",
-        "isExtraImport": true,
-        "detail": "api.room_type",
-        "documentation": {}
-    },
-    {
-        "label": "get_roomType_by_branch",
-        "importPath": "api.room_type",
-        "description": "api.room_type",
-        "isExtraImport": true,
-        "detail": "api.room_type",
-        "documentation": {}
-    },
-    {
-        "label": "logging",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "logging",
-        "description": "logging",
-        "detail": "logging",
-        "documentation": {}
-    },
-    {
-        "label": "traceback",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "traceback",
-        "description": "traceback",
-        "detail": "traceback",
-        "documentation": {}
-    },
-    {
-        "label": "JSONResponse",
-        "importPath": "starlette.responses",
-        "description": "starlette.responses",
-        "isExtraImport": true,
-        "detail": "starlette.responses",
-        "documentation": {}
-    },
-    {
-        "label": "Response",
-        "importPath": "starlette.responses",
-        "description": "starlette.responses",
-        "isExtraImport": true,
-        "detail": "starlette.responses",
-        "documentation": {}
-    },
-    {
-        "label": "Response",
-        "importPath": "starlette.responses",
-        "description": "starlette.responses",
-        "isExtraImport": true,
-        "detail": "starlette.responses",
-        "documentation": {}
-    },
-    {
         "label": "load_dotenv",
         "importPath": "dotenv",
         "description": "dotenv",
@@ -1839,6 +1710,67 @@
         "documentation": {}
     },
     {
+        "label": "ast",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ast",
+        "description": "ast",
+        "detail": "ast",
+        "documentation": {}
+    },
+    {
+        "label": "click",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "click",
+        "description": "click",
+        "detail": "click",
+        "documentation": {}
+    },
+    {
+        "label": "pathspec",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pathspec",
+        "description": "pathspec",
+        "detail": "pathspec",
+        "documentation": {}
+    },
+    {
+        "label": "PROJECT_ROOT",
+        "importPath": "scripts",
+        "description": "scripts",
+        "isExtraImport": true,
+        "detail": "scripts",
+        "documentation": {}
+    },
+    {
+        "label": "PACKAGE_DIR",
+        "importPath": "scripts",
+        "description": "scripts",
+        "isExtraImport": true,
+        "detail": "scripts",
+        "documentation": {}
+    },
+    {
+        "label": "importlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "importlib",
+        "description": "importlib",
+        "detail": "importlib",
+        "documentation": {}
+    },
+    {
+        "label": "pkgutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pkgutil",
+        "description": "pkgutil",
+        "detail": "pkgutil",
+        "documentation": {}
+    },
+    {
         "label": "unittest",
         "kind": 6,
         "isExtraImport": true,
@@ -1849,6 +1781,14 @@
     },
     {
         "label": "export_openapi_json",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
         "importPath": "app",
         "description": "app",
         "isExtraImport": true,
@@ -1972,6 +1912,22 @@
         "documentation": {}
     },
     {
+        "label": "Response",
+        "importPath": "starlette.responses",
+        "description": "starlette.responses",
+        "isExtraImport": true,
+        "detail": "starlette.responses",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "starlette.responses",
+        "description": "starlette.responses",
+        "isExtraImport": true,
+        "detail": "starlette.responses",
+        "documentation": {}
+    },
+    {
         "label": "sender",
         "importPath": "webhook",
         "description": "webhook",
@@ -2012,15 +1968,6 @@
         "documentation": {}
     },
     {
-        "label": "aiofiles",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "aiofiles",
-        "description": "aiofiles",
-        "detail": "aiofiles",
-        "documentation": {}
-    },
-    {
         "label": "get_openapi",
         "importPath": "fastapi.openapi.utils",
         "description": "fastapi.openapi.utils",
@@ -2030,10 +1977,10 @@
     },
     {
         "label": "router",
-        "importPath": "application_api",
-        "description": "application_api",
+        "importPath": "api.application",
+        "description": "api.application",
         "isExtraImport": true,
-        "detail": "application_api",
+        "detail": "api.application",
         "documentation": {}
     },
     {
@@ -2042,6 +1989,24 @@
         "description": "api.router",
         "isExtraImport": true,
         "detail": "api.router",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "aiofiles",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "aiofiles",
+        "description": "aiofiles",
+        "detail": "aiofiles",
         "documentation": {}
     },
     {
@@ -2060,6 +2025,22 @@
         "importPath": "json5",
         "description": "json5",
         "detail": "json5",
+        "documentation": {}
+    },
+    {
+        "label": "setup",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "find_packages",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
         "documentation": {}
     },
     {
@@ -2141,6 +2122,60 @@
         "description": ".venv.bin.activate_this",
         "peekOfCode": "sys.prefix = base",
         "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "orjson_default",
+        "kind": 2,
+        "importPath": "api.application.booking_api.utils",
+        "description": "api.application.booking_api.utils",
+        "peekOfCode": "def orjson_default(obj):\n    \"\"\"Custom default conversion function to handle ObjectId and datetime\"\"\"\n    if isinstance(obj, ObjectId):\n        return str(obj)\n    if isinstance(obj, datetime):\n        return obj.isoformat()\n    raise TypeError(f\"Type {type(obj)} not serializable\") \nasync def get_rooms_data(branch_name: str) -> dict:\n    # Concurrently fetch room types and room data\n    room_types, rooms = await asyncio.gather(",
+        "detail": "api.application.booking_api.utils",
+        "documentation": {}
+    },
+    {
+        "label": "RoomResponse",
+        "kind": 6,
+        "importPath": "api.application.booking_api.views",
+        "description": "api.application.booking_api.views",
+        "peekOfCode": "class RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]\nclass CreateOrderRequest(BaseModel):",
+        "detail": "api.application.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "BookingResponse",
+        "kind": 6,
+        "importPath": "api.application.booking_api.views",
+        "description": "api.application.booking_api.views",
+        "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]\nclass CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime",
+        "detail": "api.application.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "OrderHistoryResponse",
+        "kind": 6,
+        "importPath": "api.application.booking_api.views",
+        "description": "api.application.booking_api.views",
+        "peekOfCode": "class OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]\nclass CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None\n    customer_username: str | None = None\n@router.get(\"/orders/{customer_username}\",",
+        "detail": "api.application.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "CreateOrderRequest",
+        "kind": 6,
+        "importPath": "api.application.booking_api.views",
+        "description": "api.application.booking_api.views",
+        "peekOfCode": "class CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None\n    customer_username: str | None = None\n@router.get(\"/orders/{customer_username}\",\n    response_model=OrderHistoryResponse,\n    description=\"Return order history for a customer by username.\")",
+        "detail": "api.application.booking_api.views",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "api.application.booking_api.views",
+        "description": "api.application.booking_api.views",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]",
+        "detail": "api.application.booking_api.views",
         "documentation": {}
     },
     {
@@ -2639,78 +2674,6 @@
         "documentation": {}
     },
     {
-        "label": "orjson_default",
-        "kind": 2,
-        "importPath": "application_api.booking_api.utils",
-        "description": "application_api.booking_api.utils",
-        "peekOfCode": "def orjson_default(obj):\n    \"\"\"Custom default conversion function to handle ObjectId and datetime\"\"\"\n    if isinstance(obj, ObjectId):\n        return str(obj)\n    if isinstance(obj, datetime):\n        return obj.isoformat()\n    raise TypeError(f\"Type {type(obj)} not serializable\") \nasync def get_rooms_data(branch_name: str) -> dict:\n    # Concurrently fetch room types and room data\n    room_types, rooms = await asyncio.gather(",
-        "detail": "application_api.booking_api.utils",
-        "documentation": {}
-    },
-    {
-        "label": "RoomResponse",
-        "kind": 6,
-        "importPath": "application_api.booking_api.views",
-        "description": "application_api.booking_api.views",
-        "peekOfCode": "class RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]\nclass CreateOrderRequest(BaseModel):",
-        "detail": "application_api.booking_api.views",
-        "documentation": {}
-    },
-    {
-        "label": "BookingResponse",
-        "kind": 6,
-        "importPath": "application_api.booking_api.views",
-        "description": "application_api.booking_api.views",
-        "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]\nclass CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime",
-        "detail": "application_api.booking_api.views",
-        "documentation": {}
-    },
-    {
-        "label": "OrderHistoryResponse",
-        "kind": 6,
-        "importPath": "application_api.booking_api.views",
-        "description": "application_api.booking_api.views",
-        "peekOfCode": "class OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]\nclass CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None\n    customer_username: str | None = None\n@router.get(\"/orders/{customer_username}\",",
-        "detail": "application_api.booking_api.views",
-        "documentation": {}
-    },
-    {
-        "label": "CreateOrderRequest",
-        "kind": 6,
-        "importPath": "application_api.booking_api.views",
-        "description": "application_api.booking_api.views",
-        "peekOfCode": "class CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None\n    customer_username: str | None = None\n@router.get(\"/orders/{customer_username}\",\n    response_model=OrderHistoryResponse,\n    description=\"Return order history for a customer by username.\")",
-        "detail": "application_api.booking_api.views",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "application_api.booking_api.views",
-        "description": "application_api.booking_api.views",
-        "peekOfCode": "logger = logging.getLogger(__name__)\nclass RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\nclass OrderHistoryResponse(BaseModel):\n    orders: List[Dict[str, Any]]",
-        "detail": "application_api.booking_api.views",
-        "documentation": {}
-    },
-    {
-        "label": "RoomResponse",
-        "kind": 6,
-        "importPath": "applocation_api.booking_api.views",
-        "description": "applocation_api.booking_api.views",
-        "peekOfCode": "class RoomResponse(BaseModel):\n    data: List[Dict[str, Any]]\n    row: Dict[str, List[Dict[str, Any]]]\nclass BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\", \n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")",
-        "detail": "applocation_api.booking_api.views",
-        "documentation": {}
-    },
-    {
-        "label": "BookingResponse",
-        "kind": 6,
-        "importPath": "applocation_api.booking_api.views",
-        "description": "applocation_api.booking_api.views",
-        "peekOfCode": "class BookingResponse(BaseModel):\n    success: bool\n    message: str\n    order_num: str | None = None\n@router.get(\"/rooms/{branch_name}\", \n    response_model=RoomResponse,\n    description=\"Return to a branch's all room_type and room.\")\nasync def branch_rooms(\n    branch_name: str,\n    start_time: Optional[datetime] = Query(None, description=\"Start time for filtering room types\"),",
-        "detail": "applocation_api.booking_api.views",
-        "documentation": {}
-    },
-    {
         "label": "ServiceAccount",
         "kind": 6,
         "importPath": "auth.models",
@@ -2769,7 +2732,7 @@
         "kind": 6,
         "importPath": "auth.token_manager",
         "description": "auth.token_manager",
-        "peekOfCode": "class TokenRefreshRequest(BaseModel):\n    refresh_token: str = Field(\n        ...,\n        examples=[secrets.token_bytes(REFRESH_TOKEN_BYTES).hex()],\n        description=f\"Your baker, A {REFRESH_TOKEN_BYTES}-byte random byte stream turned into a fancy hex string.\"\n    )\nclass TokenResponse(BaseModel):\n    access_token: str\n    refresh_token: Optional[str] = None",
+        "peekOfCode": "class TokenRefreshRequest(BaseModel):\n    refresh_token: str = Field(\n        ...,\n        examples=[secrets.token_bytes(REFRESH_TOKEN_LENGTH).hex()],\n        description=f\"Your baker, A {REFRESH_TOKEN_LENGTH}-byte random byte stream turned into a fancy hex string.\"\n    )\nclass TokenResponse(BaseModel):\n    access_token: str\n    refresh_token: Optional[str] = None",
         "detail": "auth.token_manager",
         "documentation": {}
     },
@@ -2825,6 +2788,96 @@
         "description": "mq.mq",
         "peekOfCode": "logger = settings.getLogger('MQ')\n# Custom warning for Redis connection issues\nclass RedisConnectionWarning(Warning):\n    pass\nclass MessageQueue:\n    def redis_connector(self):\n        \"\"\"\n        Initialize Redis client using the provided Redis URL.\n        \"\"\"\n        return redis.StrictRedis.from_url(self.redis_url)",
         "detail": "mq.mq",
+        "documentation": {}
+    },
+    {
+        "label": "GetenvVisitor",
+        "kind": 6,
+        "importPath": "scripts.commands.config_sample",
+        "description": "scripts.commands.config_sample",
+        "peekOfCode": "class GetenvVisitor(ast.NodeVisitor):\n    def visit_Call(self, node):\n        if (isinstance(node.func, ast.Attribute)\n                and isinstance(node.func.value, ast.Name)\n                and node.func.value.id == \"os\"\n                and node.func.attr == \"getenv\"):\n            if len(node.args) >= 1 and isinstance(node.args[0], ast.Str):\n                ENV_KEYS.add(node.args[0].s)\n        self.generic_visit(node)\ndef load_gitignore_spec(root):",
+        "detail": "scripts.commands.config_sample",
+        "documentation": {}
+    },
+    {
+        "label": "load_gitignore_spec",
+        "kind": 2,
+        "importPath": "scripts.commands.config_sample",
+        "description": "scripts.commands.config_sample",
+        "peekOfCode": "def load_gitignore_spec(root):\n    gitignore_path = os.path.join(root, \".gitignore\")\n    if os.path.exists(gitignore_path):\n        with open(gitignore_path) as f:\n            return pathspec.PathSpec.from_lines(\"gitwildmatch\", f)\n    return pathspec.PathSpec.from_lines(\"gitwildmatch\", [])\ndef scan_py_file(filepath):\n    try:\n        with open(filepath, \"r\", encoding=\"utf-8\") as f:\n            source = f.read()",
+        "detail": "scripts.commands.config_sample",
+        "documentation": {}
+    },
+    {
+        "label": "scan_py_file",
+        "kind": 2,
+        "importPath": "scripts.commands.config_sample",
+        "description": "scripts.commands.config_sample",
+        "peekOfCode": "def scan_py_file(filepath):\n    try:\n        with open(filepath, \"r\", encoding=\"utf-8\") as f:\n            source = f.read()\n            tree = ast.parse(source, filename=filepath)\n            GetenvVisitor().visit(tree)\n    except (SyntaxError, UnicodeDecodeError) as e:\n        click.echo(f\"Skip unresolved files: {filepath} ({type(e).__name__}: {e})\", err=True)\ndef walk_project(path=\".\"):\n    spec = load_gitignore_spec(path)",
+        "detail": "scripts.commands.config_sample",
+        "documentation": {}
+    },
+    {
+        "label": "walk_project",
+        "kind": 2,
+        "importPath": "scripts.commands.config_sample",
+        "description": "scripts.commands.config_sample",
+        "peekOfCode": "def walk_project(path=\".\"):\n    spec = load_gitignore_spec(path)\n    for root, dirs, files in os.walk(path):\n        dirs[:] = [d for d in dirs if not spec.match_file(os.path.relpath(os.path.join(root, d), path))]\n        for file in files:\n            filepath = os.path.join(root, file)\n            relpath = os.path.relpath(filepath, path)\n            if file.endswith(\".py\") and not spec.match_file(relpath):\n                scan_py_file(filepath)\n@click.command()",
+        "detail": "scripts.commands.config_sample",
+        "documentation": {}
+    },
+    {
+        "label": "cli",
+        "kind": 2,
+        "importPath": "scripts.commands.config_sample",
+        "description": "scripts.commands.config_sample",
+        "peekOfCode": "def cli(output):\n    click.echo(\n        f\"Scanning project root: {PROJECT_ROOT} for .env.sample generation.\"\n    )\n    walk_project(path=str(PROJECT_ROOT))\n    output_path = Path(output)\n    with open(output_path, \"w\") as f:\n        for key in sorted(ENV_KEYS):\n            f.write(f\"{key}=\\n\")\n    click.echo(f\"Generated {output_path} with {len(ENV_KEYS)} keys.\")",
+        "detail": "scripts.commands.config_sample",
+        "documentation": {}
+    },
+    {
+        "label": "ENV_KEYS",
+        "kind": 5,
+        "importPath": "scripts.commands.config_sample",
+        "description": "scripts.commands.config_sample",
+        "peekOfCode": "ENV_KEYS = set()\nclass GetenvVisitor(ast.NodeVisitor):\n    def visit_Call(self, node):\n        if (isinstance(node.func, ast.Attribute)\n                and isinstance(node.func.value, ast.Name)\n                and node.func.value.id == \"os\"\n                and node.func.attr == \"getenv\"):\n            if len(node.args) >= 1 and isinstance(node.args[0], ast.Str):\n                ENV_KEYS.add(node.args[0].s)\n        self.generic_visit(node)",
+        "detail": "scripts.commands.config_sample",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "scripts.cil",
+        "description": "scripts.cil",
+        "peekOfCode": "def main():\n    \"\"\"Stayforge CLI Tool\"\"\"\n    pass\ndef register_commands():\n    for _, module_name, _ in pkgutil.iter_modules([str(package_dir)]):\n        module = importlib.import_module(f\"{package_name}.{module_name}\")\n        if hasattr(module, \"cli\"):\n            main.add_command(module.cli, name=module_name.replace(\"_\", \"-\"))\nregister_commands()\nif __name__ == \"__main__\":",
+        "detail": "scripts.cil",
+        "documentation": {}
+    },
+    {
+        "label": "register_commands",
+        "kind": 2,
+        "importPath": "scripts.cil",
+        "description": "scripts.cil",
+        "peekOfCode": "def register_commands():\n    for _, module_name, _ in pkgutil.iter_modules([str(package_dir)]):\n        module = importlib.import_module(f\"{package_name}.{module_name}\")\n        if hasattr(module, \"cli\"):\n            main.add_command(module.cli, name=module_name.replace(\"_\", \"-\"))\nregister_commands()\nif __name__ == \"__main__\":\n    main()",
+        "detail": "scripts.cil",
+        "documentation": {}
+    },
+    {
+        "label": "package_dir",
+        "kind": 5,
+        "importPath": "scripts.cil",
+        "description": "scripts.cil",
+        "peekOfCode": "package_dir = PACKAGE_DIR / \"commands\"\npackage_name = \"scripts.commands\"\n@click.group()\ndef main():\n    \"\"\"Stayforge CLI Tool\"\"\"\n    pass\ndef register_commands():\n    for _, module_name, _ in pkgutil.iter_modules([str(package_dir)]):\n        module = importlib.import_module(f\"{package_name}.{module_name}\")\n        if hasattr(module, \"cli\"):",
+        "detail": "scripts.cil",
+        "documentation": {}
+    },
+    {
+        "label": "package_name",
+        "kind": 5,
+        "importPath": "scripts.cil",
+        "description": "scripts.cil",
+        "peekOfCode": "package_name = \"scripts.commands\"\n@click.group()\ndef main():\n    \"\"\"Stayforge CLI Tool\"\"\"\n    pass\ndef register_commands():\n    for _, module_name, _ in pkgutil.iter_modules([str(package_dir)]):\n        module = importlib.import_module(f\"{package_name}.{module_name}\")\n        if hasattr(module, \"cli\"):\n            main.add_command(module.cli, name=module_name.replace(\"_\", \"-\"))",
+        "detail": "scripts.cil",
         "documentation": {}
     },
     {
@@ -3039,7 +3092,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def load_description(file_path: str) -> str:\n    abs_path = os.path.join(os.path.dirname(__file__), file_path)\n    with open(abs_path, 'r', encoding='utf-8') as file:\n        return file.read()\nmiddleware = [\n    # Middleware(WebhooksMiddleware)\n]\n@asynccontextmanager\nasync def lifespan(app: FastAPI):\n    # Startup: export OpenAPI JSON",
+        "peekOfCode": "def load_description(file_path: str) -> str:\n    abs_path = os.path.join(os.path.dirname(__file__), file_path)\n    with open(abs_path, 'r', encoding='utf-8') as file:\n        return file.read()\nmiddleware = [\n    # Middleware(WebhooksMiddleware)\n]\ndescription = load_description('README.md')\napp = FastAPI(\n    title=settings.TITLE,",
         "detail": "app",
         "documentation": {}
     },
@@ -3057,7 +3110,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "middleware = [\n    # Middleware(WebhooksMiddleware)\n]\n@asynccontextmanager\nasync def lifespan(app: FastAPI):\n    # Startup: export OpenAPI JSON\n    task = asyncio.create_task(export_openapi_json(\"openapi.json\"))\n    yield\n    # Shutdown: ensure the task is completed\n    await task",
+        "peekOfCode": "middleware = [\n    # Middleware(WebhooksMiddleware)\n]\ndescription = load_description('README.md')\napp = FastAPI(\n    title=settings.TITLE,\n    description=description,\n    version=settings.__version__,\n    openapi_url='/openapi.json',\n    contact={",
         "detail": "app",
         "documentation": {}
     },
@@ -3084,7 +3137,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app.openapi = custom_openapi\nasync def export_openapi_json(file_path: str):\n    async with aiofiles.open(file_path, \"w\") as f:\n        api_spec = app.openapi()\n        await f.write(json.dumps(api_spec, indent=4))\n    logger.info(f\"OpenAPI JSON exported to {file_path}\")",
+        "peekOfCode": "app.openapi = custom_openapi",
         "detail": "app",
         "documentation": {}
     },
@@ -3095,6 +3148,15 @@
         "description": "database",
         "peekOfCode": "client = AsyncIOMotorClient(settings.MONGO_URL)",
         "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "openapi",
+        "description": "openapi",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nasync def export_openapi(_file_path: str, _format: str = \"json\"):\n    try:\n        api_spec = app.openapi()\n        os.makedirs(os.path.dirname(_file_path), exist_ok=True)\n        async with aiofiles.open(_file_path, \"w\", encoding=\"utf-8\") as f:\n            if _format == \"json\":\n                await f.write(json.dumps(api_spec, indent=4))\n            elif _format == \"yaml\":\n                await f.write(yaml.dump(api_spec, sort_keys=False))",
+        "detail": "openapi",
         "documentation": {}
     },
     {
@@ -3138,7 +3200,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "__version__ = \"1.0.0\"\nDEBUG = json.loads(os.getenv(\"DEBUG\", \"false\").lower())\nBASE_PATH = Path(__file__).parent\n# Metadata\nTITLE = \"Stayforge API\"\nOPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\n# etcd\nETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")",
+        "peekOfCode": "__version__ = \"1.0.0\"\nDEBUG = json.loads(os.getenv(\"DEBUG\", \"false\").lower())\nBASE_PATH = Path(__file__).parent\n# Metadata\nTITLE = \"Stayforge API\"\nOPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)",
         "detail": "settings",
         "documentation": {}
     },
@@ -3147,7 +3209,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "DEBUG = json.loads(os.getenv(\"DEBUG\", \"false\").lower())\nBASE_PATH = Path(__file__).parent\n# Metadata\nTITLE = \"Stayforge API\"\nOPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\n# etcd\nETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")\ndef getLogger(name=\"stayforge\"):",
+        "peekOfCode": "DEBUG = json.loads(os.getenv(\"DEBUG\", \"false\").lower())\nBASE_PATH = Path(__file__).parent\n# Metadata\nTITLE = \"Stayforge API\"\nOPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)",
         "detail": "settings",
         "documentation": {}
     },
@@ -3156,7 +3218,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "BASE_PATH = Path(__file__).parent\n# Metadata\nTITLE = \"Stayforge API\"\nOPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\n# etcd\nETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)",
+        "peekOfCode": "BASE_PATH = Path(__file__).parent\n# Metadata\nTITLE = \"Stayforge API\"\nOPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()",
         "detail": "settings",
         "documentation": {}
     },
@@ -3165,7 +3227,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "TITLE = \"Stayforge API\"\nOPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\n# etcd\nETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()",
+        "peekOfCode": "TITLE = \"Stayforge API\"\nOPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()\n    console_handler.setLevel(logging.DEBUG)\n    # Define color formats for different log levels",
         "detail": "settings",
         "documentation": {}
     },
@@ -3174,7 +3236,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "OPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\n# etcd\nETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()\n    console_handler.setLevel(logging.DEBUG)",
+        "peekOfCode": "OPENAPI_URL = '/openapi.json'\nFAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()\n    console_handler.setLevel(logging.DEBUG)\n    # Define color formats for different log levels\n    formats = {",
         "detail": "settings",
         "documentation": {}
     },
@@ -3183,7 +3245,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "FAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\n# etcd\nETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()\n    console_handler.setLevel(logging.DEBUG)\n    # Define color formats for different log levels",
+        "peekOfCode": "FAVICON_URL = 'https://www.stayforge.io/wp-content/uploads/2024/12/cropped-site_icon-1-32x32.png'\nREDOC_WITH_GOOGLE_FONTS = True\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()\n    console_handler.setLevel(logging.DEBUG)\n    # Define color formats for different log levels\n    formats = {\n        logging.DEBUG: '\\033[1;34m%(levelname)s:\\033[0m\\t\\033[1;36m%(asctime)s\\033[0m - \\033[1;34m%(name)s\\033[0m - %(message)s',",
         "detail": "settings",
         "documentation": {}
     },
@@ -3192,16 +3254,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "REDOC_WITH_GOOGLE_FONTS = True\n# etcd\nETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()\n    console_handler.setLevel(logging.DEBUG)\n    # Define color formats for different log levels\n    formats = {",
-        "detail": "settings",
-        "documentation": {}
-    },
-    {
-        "label": "ETCD_ENDPOINT",
-        "kind": 5,
-        "importPath": "settings",
-        "description": "settings",
-        "peekOfCode": "ETCD_ENDPOINT = os.getenv(\"ETCD_ENDPOINT\", \"etcd://etcd:2379\")\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()\n    console_handler.setLevel(logging.DEBUG)\n    # Define color formats for different log levels\n    formats = {\n        logging.DEBUG: '\\033[1;34m%(levelname)s:\\033[0m\\t\\033[1;36m%(asctime)s\\033[0m - \\033[1;34m%(name)s\\033[0m - %(message)s',\n        # Blue",
+        "peekOfCode": "REDOC_WITH_GOOGLE_FONTS = True\ndef getLogger(name=\"stayforge\"):\n    l = logging.getLogger(name)\n    l.setLevel(logging.INFO if DEBUG else logging.DEBUG)\n    console_handler = logging.StreamHandler()\n    console_handler.setLevel(logging.DEBUG)\n    # Define color formats for different log levels\n    formats = {\n        logging.DEBUG: '\\033[1;34m%(levelname)s:\\033[0m\\t\\033[1;36m%(asctime)s\\033[0m - \\033[1;34m%(name)s\\033[0m - %(message)s',\n        # Blue",
         "detail": "settings",
         "documentation": {}
     },
@@ -3228,7 +3281,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "DATABASE_NAME = os.getenv(\"DATABASE_NAME\", \"stayforge\")\n# Redis\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://redis:6379\")\n# API descriptions file dir\nDOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_BYTES = os.getenv(\"REFRESH_TOKEN_BYTES\", 64)",
+        "peekOfCode": "DATABASE_NAME = os.getenv(\"DATABASE_NAME\", \"stayforge\")\n# Redis\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://redis:6379\")\n# API descriptions file dir\nDOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = os.getenv(\"REFRESH_TOKEN_LENGTH\", 64)",
         "detail": "settings",
         "documentation": {}
     },
@@ -3237,7 +3290,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "REDIS_URL = os.getenv(\"REDIS_URL\", \"redis://redis:6379\")\n# API descriptions file dir\nDOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_BYTES = os.getenv(\"REFRESH_TOKEN_BYTES\", 64)\nACCESS_TOKEN_BYTES = os.getenv(\"ACCESS_TOKEN_BYTES\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30",
+        "peekOfCode": "REDIS_URL = os.getenv(\"REDIS_URL\", \"redis://redis:6379\")\n# API descriptions file dir\nDOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = os.getenv(\"REFRESH_TOKEN_LENGTH\", 64)\nACCESS_TOKEN_LENGTH = os.getenv(\"ACCESS_TOKEN_LENGTH\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30",
         "detail": "settings",
         "documentation": {}
     },
@@ -3246,7 +3299,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "DOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_BYTES = os.getenv(\"REFRESH_TOKEN_BYTES\", 64)\nACCESS_TOKEN_BYTES = os.getenv(\"ACCESS_TOKEN_BYTES\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings",
+        "peekOfCode": "DOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = os.getenv(\"REFRESH_TOKEN_LENGTH\", 64)\nACCESS_TOKEN_LENGTH = os.getenv(\"ACCESS_TOKEN_LENGTH\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings",
         "detail": "settings",
         "documentation": {}
     },
@@ -3255,7 +3308,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "DEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_BYTES = os.getenv(\"REFRESH_TOKEN_BYTES\", 64)\nACCESS_TOKEN_BYTES = os.getenv(\"ACCESS_TOKEN_BYTES\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)",
+        "peekOfCode": "DEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = os.getenv(\"REFRESH_TOKEN_LENGTH\", 64)\nACCESS_TOKEN_LENGTH = os.getenv(\"ACCESS_TOKEN_LENGTH\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)",
         "detail": "settings",
         "documentation": {}
     },
@@ -3264,25 +3317,25 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "DEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_BYTES = os.getenv(\"REFRESH_TOKEN_BYTES\", 64)\nACCESS_TOKEN_BYTES = os.getenv(\"ACCESS_TOKEN_BYTES\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))",
+        "peekOfCode": "DEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = os.getenv(\"REFRESH_TOKEN_LENGTH\", 64)\nACCESS_TOKEN_LENGTH = os.getenv(\"ACCESS_TOKEN_LENGTH\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))",
         "detail": "settings",
         "documentation": {}
     },
     {
-        "label": "REFRESH_TOKEN_BYTES",
+        "label": "REFRESH_TOKEN_LENGTH",
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "REFRESH_TOKEN_BYTES = os.getenv(\"REFRESH_TOKEN_BYTES\", 64)\nACCESS_TOKEN_BYTES = os.getenv(\"ACCESS_TOKEN_BYTES\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {",
+        "peekOfCode": "REFRESH_TOKEN_LENGTH = os.getenv(\"REFRESH_TOKEN_LENGTH\", 64)\nACCESS_TOKEN_LENGTH = os.getenv(\"ACCESS_TOKEN_LENGTH\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {",
         "detail": "settings",
         "documentation": {}
     },
     {
-        "label": "ACCESS_TOKEN_BYTES",
+        "label": "ACCESS_TOKEN_LENGTH",
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "ACCESS_TOKEN_BYTES = os.getenv(\"ACCESS_TOKEN_BYTES\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {",
+        "peekOfCode": "ACCESS_TOKEN_LENGTH = os.getenv(\"ACCESS_TOKEN_LENGTH\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {",
         "detail": "settings",
         "documentation": {}
     },

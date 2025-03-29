@@ -1,19 +1,15 @@
 import asyncio
-import json
 import os
 from contextlib import asynccontextmanager
 
-import aiofiles
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 
 import settings
 from docs import docs as docs
 from auth import router as auth_router
-from application_api import router as application_api_router
+from api.application import router as application_api_router
 from api.router import router as api_router
-
-from settings import logger
 
 
 def load_description(file_path: str) -> str:
@@ -25,15 +21,6 @@ def load_description(file_path: str) -> str:
 middleware = [
     # Middleware(WebhooksMiddleware)
 ]
-
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # Startup: export OpenAPI JSON
-    task = asyncio.create_task(export_openapi_json("openapi.json"))
-    yield
-    # Shutdown: ensure the task is completed
-    await task
 
 
 description = load_description('README.md')
@@ -51,7 +38,6 @@ app = FastAPI(
     middleware=middleware,
     docs_url="/docs/swagger",
     redoc_url="/docs",
-    lifespan=lifespan,
 )
 
 # Auth API

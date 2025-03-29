@@ -17,13 +17,12 @@ services:
       - web
       - database
       - redis
-      - etcd
 
   redis:
     image: redis:latest
     container_name: redis
-    #    volumes:
-    #      - redis
+#    volumes:
+#      - redis
     networks:
       - redis
 
@@ -35,26 +34,12 @@ services:
     networks:
       - database
 
-  etcd:
-    image: bitnami/etcd:latest
-    container_name: etcd
-    environment:
-      - ALLOW_NONE_AUTHENTICATION=yes
-      - ETCD_ENABLE_V2=true
-    volumes:
-      - etcd:/bitnami/etcd
-    networks:
-      - etcd
-
 networks:
   web:
   database:
     internal: true
-  redis:
-    internal: true
-  etcd:
-    internal: true
+#  redis:
+#    internal: true
 volumes:
   data:
-  redis:
-  etcd:
+#  redis:

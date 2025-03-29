@@ -11,7 +11,7 @@ from pydantic import EmailStr, BaseModel, Field
 
 import settings
 from api import RedisClient
-from settings import ACCESS_TOKEN_BYTES, REFRESH_TOKEN_BYTES
+from settings import ACCESS_TOKEN_LENGTH, REFRESH_TOKEN_LENGTH
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
@@ -39,7 +39,7 @@ class TokenManager:
 
     def generate_token(self, account: EmailStr | str) -> tuple[bytes, bytes]:
         """Generate refresh_token and store in Redis"""
-        self.refresh_token = secrets.token_bytes(REFRESH_TOKEN_BYTES)
+        self.refresh_token = secrets.token_bytes(REFRESH_TOKEN_LENGTH)
         self.refresh_token_hash = self.sha256(self.refresh_token)
 
         # Save Redis and set TTL
@@ -65,7 +65,7 @@ class TokenManager:
         self.refresh_token_client.expire(self.refresh_token_hash, self.refresh_token_ttl)
 
         # Generate a new access_token
-        self.access_token = secrets.token_bytes(ACCESS_TOKEN_BYTES)
+        self.access_token = secrets.token_bytes(ACCESS_TOKEN_LENGTH)
         self.access_token_hash = self.sha256(self.access_token)
 
         # Storage access_token and set TTL
@@ -93,8 +93,8 @@ class TokenManager:
 class TokenRefreshRequest(BaseModel):
     refresh_token: str = Field(
         ...,
-        examples=[secrets.token_bytes(REFRESH_TOKEN_BYTES).hex()],
-        description=f"Your baker, A {REFRESH_TOKEN_BYTES}-byte random byte stream turned into a fancy hex string."
+        examples=[secrets.token_bytes(REFRESH_TOKEN_LENGTH).hex()],
+        description=f"Your baker, A {REFRESH_TOKEN_LENGTH}-byte random byte stream turned into a fancy hex string."
     )
 
 
