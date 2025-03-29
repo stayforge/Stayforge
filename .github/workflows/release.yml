@@ -47,7 +47,6 @@ jobs:
           fi
 
   build-docker:
-    needs: build-openapi
     runs-on: ubuntu-latest
     outputs:
       version: ${{ needs.build-openapi.outputs.version }}
