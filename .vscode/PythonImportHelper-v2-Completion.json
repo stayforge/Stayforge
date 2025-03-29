@@ -416,14 +416,6 @@
         "documentation": {}
     },
     {
-        "label": "Tuple",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
         "label": "List",
         "importPath": "typing",
         "description": "typing",
@@ -1541,6 +1533,22 @@
         "documentation": {}
     },
     {
+        "label": "get_config_value",
+        "importPath": "scripts",
+        "description": "scripts",
+        "isExtraImport": true,
+        "detail": "scripts",
+        "documentation": {}
+    },
+    {
+        "label": "CIL_CONFIG_FILE",
+        "importPath": "scripts",
+        "description": "scripts",
+        "isExtraImport": true,
+        "detail": "scripts",
+        "documentation": {}
+    },
+    {
         "label": "set_config_value",
         "importPath": "scripts",
         "description": "scripts",
@@ -1558,14 +1566,6 @@
     },
     {
         "label": "get_config_value",
-        "importPath": "scripts",
-        "description": "scripts",
-        "isExtraImport": true,
-        "detail": "scripts",
-        "documentation": {}
-    },
-    {
-        "label": "CONFIG_DIR",
         "importPath": "scripts",
         "description": "scripts",
         "isExtraImport": true,
@@ -1605,6 +1605,14 @@
         "documentation": {}
     },
     {
+        "label": "urljoin",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
         "label": "requests",
         "kind": 6,
         "isExtraImport": true,
@@ -1619,22 +1627,6 @@
         "description": "scripts.commands.host",
         "isExtraImport": true,
         "detail": "scripts.commands.host",
-        "documentation": {}
-    },
-    {
-        "label": "HTTPAdapter",
-        "importPath": "requests.adapters",
-        "description": "requests.adapters",
-        "isExtraImport": true,
-        "detail": "requests.adapters",
-        "documentation": {}
-    },
-    {
-        "label": "Retry",
-        "importPath": "urllib3.util.retry",
-        "description": "urllib3.util.retry",
-        "isExtraImport": true,
-        "detail": "urllib3.util.retry",
         "documentation": {}
     },
     {
@@ -1686,6 +1678,22 @@
         "description": "app",
         "isExtraImport": true,
         "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "CliRunner",
+        "importPath": "click.testing",
+        "description": "click.testing",
+        "isExtraImport": true,
+        "detail": "click.testing",
+        "documentation": {}
+    },
+    {
+        "label": "env",
+        "importPath": "scripts.commands",
+        "description": "scripts.commands",
+        "isExtraImport": true,
+        "detail": "scripts.commands",
         "documentation": {}
     },
     {
@@ -1878,27 +1886,11 @@
         "documentation": {}
     },
     {
-        "label": "asynccontextmanager",
-        "importPath": "contextlib",
-        "description": "contextlib",
-        "isExtraImport": true,
-        "detail": "contextlib",
-        "documentation": {}
-    },
-    {
         "label": "get_openapi",
         "importPath": "fastapi.openapi.utils",
         "description": "fastapi.openapi.utils",
         "isExtraImport": true,
         "detail": "fastapi.openapi.utils",
-        "documentation": {}
-    },
-    {
-        "label": "docs",
-        "importPath": "docs",
-        "description": "docs",
-        "isExtraImport": true,
-        "detail": "docs",
         "documentation": {}
     },
     {
@@ -1915,6 +1907,14 @@
         "description": "api.router",
         "isExtraImport": true,
         "detail": "api.router",
+        "documentation": {}
+    },
+    {
+        "label": "docs",
+        "importPath": "docs",
+        "description": "docs",
+        "isExtraImport": true,
+        "detail": "docs",
         "documentation": {}
     },
     {
@@ -2082,7 +2082,7 @@
         "kind": 6,
         "importPath": "api.application.booking_api.views",
         "description": "api.application.booking_api.views",
-        "peekOfCode": "class CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None\n    customer_username: str | None = None\n@router.get(\"/orders/{customer_username}\",\n    response_model=OrderHistoryResponse,\n    description=\"Return order history for a customer by username.\")",
+        "peekOfCode": "class CreateOrderRequest(BaseModel):\n    room_name: str\n    type: str\n    checkin_at: datetime\n    checkout_at: datetime\n    num: str | None = None\n    customer_username: str | None = None\n@router.get(\"/orders/{customer_username}\",\n    response_model=OrderHistoryResponse,\n    description=\"Return order history for a customer by username.\",",
         "detail": "api.application.booking_api.views",
         "documentation": {}
     },
@@ -2325,7 +2325,7 @@
         "kind": 6,
         "importPath": "api.webhooks_manager.view",
         "description": "api.webhooks_manager.view",
-        "peekOfCode": "class WebhooksManagerResponses(BaseResponses):\n    data: Optional[List[WebhooksManager]]\n@router.get(\"/\", response_model=WebhooksManagerResponses)\nasync def get_webhooks_profile(\n        request: Request,\n        webhook_name: str = Query(\n            None,\n            description=\"A friendly name you can remember.\"\n        ),\n        endpoint: str = Query(",
+        "peekOfCode": "class WebhooksManagerResponses(BaseResponses):\n    data: Optional[List[WebhooksManager]]\n@router.get(\"/\", response_model=WebhooksManagerResponses,\n    operation_id=\"list_webhook_profiles\")\nasync def get_webhooks_profile(\n        request: Request,\n        webhook_name: str = Query(\n            None,\n            description=\"A friendly name you can remember.\"\n        ),",
         "detail": "api.webhooks_manager.view",
         "documentation": {}
     },
@@ -2334,7 +2334,7 @@
         "kind": 5,
         "importPath": "api.webhooks_manager.view",
         "description": "api.webhooks_manager.view",
-        "peekOfCode": "router = APIRouter()\nclass WebhooksManagerResponses(BaseResponses):\n    data: Optional[List[WebhooksManager]]\n@router.get(\"/\", response_model=WebhooksManagerResponses)\nasync def get_webhooks_profile(\n        request: Request,\n        webhook_name: str = Query(\n            None,\n            description=\"A friendly name you can remember.\"\n        ),",
+        "peekOfCode": "router = APIRouter()\nclass WebhooksManagerResponses(BaseResponses):\n    data: Optional[List[WebhooksManager]]\n@router.get(\"/\", response_model=WebhooksManagerResponses,\n    operation_id=\"list_webhook_profiles\")\nasync def get_webhooks_profile(\n        request: Request,\n        webhook_name: str = Query(\n            None,\n            description=\"A friendly name you can remember.\"",
         "detail": "api.webhooks_manager.view",
         "documentation": {}
     },
@@ -2566,55 +2566,100 @@
     {
         "label": "GetenvVisitor",
         "kind": 6,
-        "importPath": "scripts.commands.config_sample",
-        "description": "scripts.commands.config_sample",
+        "importPath": "scripts.commands.env-sample",
+        "description": "scripts.commands.env-sample",
         "peekOfCode": "class GetenvVisitor(ast.NodeVisitor):\n    def visit_Call(self, node):\n        if (isinstance(node.func, ast.Attribute)\n                and isinstance(node.func.value, ast.Name)\n                and node.func.value.id == \"os\"\n                and node.func.attr == \"getenv\"):\n            if len(node.args) >= 1 and isinstance(node.args[0], ast.Str):\n                var_name = node.args[0].s\n                default = \"\"\n                if len(node.args) >= 2:",
-        "detail": "scripts.commands.config_sample",
+        "detail": "scripts.commands.env-sample",
         "documentation": {}
     },
     {
         "label": "load_gitignore_spec",
         "kind": 2,
-        "importPath": "scripts.commands.config_sample",
-        "description": "scripts.commands.config_sample",
+        "importPath": "scripts.commands.env-sample",
+        "description": "scripts.commands.env-sample",
         "peekOfCode": "def load_gitignore_spec(root):\n    gitignore_path = os.path.join(root, \".gitignore\")\n    if os.path.exists(gitignore_path):\n        with open(gitignore_path) as f:\n            return pathspec.PathSpec.from_lines(\"gitwildmatch\", f)\n    return pathspec.PathSpec.from_lines(\"gitwildmatch\", [])\ndef scan_py_file(filepath):\n    try:\n        with open(filepath, \"r\", encoding=\"utf-8\") as f:\n            source = f.read()",
-        "detail": "scripts.commands.config_sample",
+        "detail": "scripts.commands.env-sample",
         "documentation": {}
     },
     {
         "label": "scan_py_file",
         "kind": 2,
-        "importPath": "scripts.commands.config_sample",
-        "description": "scripts.commands.config_sample",
+        "importPath": "scripts.commands.env-sample",
+        "description": "scripts.commands.env-sample",
         "peekOfCode": "def scan_py_file(filepath):\n    try:\n        with open(filepath, \"r\", encoding=\"utf-8\") as f:\n            source = f.read()\n            tree = ast.parse(source, filename=filepath)\n            GetenvVisitor().visit(tree)\n    except (SyntaxError, UnicodeDecodeError) as e:\n        click.echo(f\"Skip unresolved files: {filepath} ({type(e).__name__}: {e})\", err=True)\ndef walk_project(path=\".\"):\n    spec = load_gitignore_spec(path)",
-        "detail": "scripts.commands.config_sample",
+        "detail": "scripts.commands.env-sample",
         "documentation": {}
     },
     {
         "label": "walk_project",
         "kind": 2,
-        "importPath": "scripts.commands.config_sample",
-        "description": "scripts.commands.config_sample",
+        "importPath": "scripts.commands.env-sample",
+        "description": "scripts.commands.env-sample",
         "peekOfCode": "def walk_project(path=\".\"):\n    spec = load_gitignore_spec(path)\n    for root, dirs, files in os.walk(path):\n        dirs[:] = [d for d in dirs if not spec.match_file(os.path.relpath(os.path.join(root, d), path))]\n        for file in files:\n            filepath = os.path.join(root, file)\n            relpath = os.path.relpath(filepath, path)\n            if file.endswith(\".py\") and not spec.match_file(relpath):\n                scan_py_file(filepath)\n@click.command()",
-        "detail": "scripts.commands.config_sample",
+        "detail": "scripts.commands.env-sample",
         "documentation": {}
     },
     {
         "label": "cli",
         "kind": 2,
-        "importPath": "scripts.commands.config_sample",
-        "description": "scripts.commands.config_sample",
-        "peekOfCode": "def cli(output):\n    click.echo(\n        f\"Scanning project root: {PROJECT_ROOT} for .env.sample generation.\"\n    )\n    walk_project(path=str(PROJECT_ROOT))\n    output_path = Path(output)\n    with open(output_path, \"w\") as f:\n        for key in sorted(ENV_KEYS):\n            f.write(f\"{key}={ENV_KEYS[key]}\\n\")\n    click.echo(f\"Generated {output_path} with {len(ENV_KEYS)} keys.\")",
-        "detail": "scripts.commands.config_sample",
+        "importPath": "scripts.commands.env-sample",
+        "description": "scripts.commands.env-sample",
+        "peekOfCode": "def cli(output):\n    \"\"\"Generate a .env.sample to the current path\"\"\"\n    click.echo(\n        f\"Scanning project root: {PROJECT_ROOT} for .env.sample generation.\"\n    )\n    walk_project(path=str(PROJECT_ROOT))\n    output_path = Path(output)\n    with open(output_path, \"w\") as f:\n        for key in sorted(ENV_KEYS):\n            f.write(f\"{key}={ENV_KEYS[key]}\\n\")",
+        "detail": "scripts.commands.env-sample",
         "documentation": {}
     },
     {
         "label": "ENV_KEYS",
         "kind": 5,
-        "importPath": "scripts.commands.config_sample",
-        "description": "scripts.commands.config_sample",
+        "importPath": "scripts.commands.env-sample",
+        "description": "scripts.commands.env-sample",
         "peekOfCode": "ENV_KEYS = {}\nclass GetenvVisitor(ast.NodeVisitor):\n    def visit_Call(self, node):\n        if (isinstance(node.func, ast.Attribute)\n                and isinstance(node.func.value, ast.Name)\n                and node.func.value.id == \"os\"\n                and node.func.attr == \"getenv\"):\n            if len(node.args) >= 1 and isinstance(node.args[0], ast.Str):\n                var_name = node.args[0].s\n                default = \"\"",
-        "detail": "scripts.commands.config_sample",
+        "detail": "scripts.commands.env-sample",
+        "documentation": {}
+    },
+    {
+        "label": "authenticate_and_tokens",
+        "kind": 2,
+        "importPath": "scripts.commands.get",
+        "description": "scripts.commands.get",
+        "peekOfCode": "def authenticate_and_tokens():\n    \"\"\"\n    Authenticate with the server and return tokens (both access and refresh).\n    \"\"\"\n    host = get_config_value('host')\n    if not host:\n        click.echo(\n            \"Error: No host configured. Please use the command `stayforge host` to set your host information.\",\n            err=True\n        )",
+        "detail": "scripts.commands.get",
+        "documentation": {}
+    },
+    {
+        "label": "cli",
+        "kind": 2,
+        "importPath": "scripts.commands.get",
+        "description": "scripts.commands.get",
+        "peekOfCode": "def cli():\n    \"\"\"Quickly obtain tokens, configuration files and other information\"\"\"\n    pass\n@cli.command()\ndef accesstoken():\n    \"\"\"Retrieve and display a new Access Token.\"\"\"\n    tokens = authenticate_and_tokens()\n    access_token = tokens.get(\"access_token\")\n    if access_token:\n        click.echo(click.style(f\"New Access Token:\\n{access_token}\", fg=\"green\"))",
+        "detail": "scripts.commands.get",
+        "documentation": {}
+    },
+    {
+        "label": "accesstoken",
+        "kind": 2,
+        "importPath": "scripts.commands.get",
+        "description": "scripts.commands.get",
+        "peekOfCode": "def accesstoken():\n    \"\"\"Retrieve and display a new Access Token.\"\"\"\n    tokens = authenticate_and_tokens()\n    access_token = tokens.get(\"access_token\")\n    if access_token:\n        click.echo(click.style(f\"New Access Token:\\n{access_token}\", fg=\"green\"))\n    else:\n        click.echo(\"Error: Unable to retrieve Access Token.\", err=True)\n        sys.exit(1)\n@cli.command()",
+        "detail": "scripts.commands.get",
+        "documentation": {}
+    },
+    {
+        "label": "refreshtoken",
+        "kind": 2,
+        "importPath": "scripts.commands.get",
+        "description": "scripts.commands.get",
+        "peekOfCode": "def refreshtoken():\n    \"\"\"Retrieve and display the latest Refresh Token.\"\"\"\n    tokens = authenticate_and_tokens()\n    refresh_token = tokens.get(\"refresh_token\")\n    if refresh_token:\n        click.echo(click.style(f\"New Refresh Token:\\n{refresh_token}\", fg=\"blue\"))\n    else:\n        click.echo(\"Error: Unable to retrieve Refresh Token.\", err=True)\n        sys.exit(1)\n@cli.command()",
+        "detail": "scripts.commands.get",
+        "documentation": {}
+    },
+    {
+        "label": "cli_config",
+        "kind": 2,
+        "importPath": "scripts.commands.get",
+        "description": "scripts.commands.get",
+        "peekOfCode": "def cli_config():\n    \"\"\"Retrieve and display the CLI configuration content on `~/.stayforge/cil.toml`.\"\"\"\n    try:\n        with open(CIL_CONFIG_FILE, 'r') as config_file:\n            config_data = config_file.read()\n        click.echo(config_file.name)\n        click.echo(\"=\" * len(config_file.name))\n        click.echo(config_data)\n    except FileNotFoundError:\n        click.echo(\"Error: Configuration file not found.\", err=True)",
+        "detail": "scripts.commands.get",
         "documentation": {}
     },
     {
@@ -2649,7 +2694,7 @@
         "kind": 2,
         "importPath": "scripts.commands.login",
         "description": "scripts.commands.login",
-        "peekOfCode": "def verify_account(account, password, super_token):\n    click.echo(\"Verifying account...\")\n    try:\n        host = get_config_value(\"host\", default=None)\n        if not host:\n            click.echo(\"No API host configured. Please set the host first.\")\n            set_host(\n                url=click.prompt(host._enter_stayforge_host_text)\n            )\n            if not host:",
+        "peekOfCode": "def verify_account(account=None, secret=None, super_token=None):\n    \"\"\"Verify the account or super_token with the Stayforge API.\"\"\"\n    click.echo(\"Verifying account...\")\n    try:\n        host = get_config_value(\"host\", default=None)\n        if not host:\n            click.echo(\"No API host configured. Please set the host first.\")\n            set_host(\n                url=click.prompt(host._enter_stayforge_host_text)\n            )",
         "detail": "scripts.commands.login",
         "documentation": {}
     },
@@ -2658,17 +2703,8 @@
         "kind": 2,
         "importPath": "scripts.commands.login",
         "description": "scripts.commands.login",
-        "peekOfCode": "def cli(account, password, no_validate, super_token):\n    if not account and not super_token:\n        account = click.prompt(\"Service Account\")\n    if not password and not super_token:\n        password = click.prompt(\"Secret (or Password)\", hide_input=True)\n    if not no_validate:\n        if not verify_account(account, password, super_token):\n            return\n    if account:\n        set_config_value(\"account\", account)",
+        "peekOfCode": "def cli(account, secret, no_validate, super_token):\n    \"\"\"Set up Stayforge credentials for your environment for subsequent operations.\"\"\"\n    # Check for priority for super_token\n    if super_token:\n        click.echo(\"Super Token provided; skipping account and secret prompts.\")\n        account = None\n        secret = None\n    else:\n        # If there is no super_token, please enter your account and secret\n        if not account:",
         "detail": "scripts.commands.login",
-        "documentation": {}
-    },
-    {
-        "label": "create_retry_session",
-        "kind": 2,
-        "importPath": "scripts.commands.update",
-        "description": "scripts.commands.update",
-        "peekOfCode": "def create_retry_session() -> requests.Session:\n    \"\"\"Create a session with retry mechanism\"\"\"\n    session = requests.Session()\n    retry_strategy = Retry(\n        total=3,\n        backoff_factor=1,\n        status_forcelist=[500, 502, 503, 504],\n    )\n    adapter = HTTPAdapter(max_retries=retry_strategy)\n    session.mount(\"http://\", adapter)",
-        "detail": "scripts.commands.update",
         "documentation": {}
     },
     {
@@ -2676,25 +2712,34 @@
         "kind": 2,
         "importPath": "scripts.commands.update",
         "description": "scripts.commands.update",
-        "peekOfCode": "def get_file_size(response: requests.Response) -> Optional[int]:\n    \"\"\"Get file size from response headers\"\"\"\n    content_length = response.headers.get('content-length')\n    if content_length is not None:\n        return int(content_length)\n    return None\ndef fetch_openapi_spec(url: str) -> Tuple[Optional[dict], Optional[int]]:\n    \"\"\"Fetch OpenAPI specification from the server\"\"\"\n    session = create_retry_session()\n    try:",
+        "peekOfCode": "def get_file_size(response: requests.Response) -> int:\n    \"\"\"Get file size from response headers\"\"\"\n    content_length = response.headers.get('content-length')\n    if content_length is not None:\n        return int(content_length)\n    return 0\ndef compare_openapi_specs(local_spec: dict, server_spec: dict) -> bool:\n    \"\"\"Compare local and server OpenAPI specs\"\"\"\n    # Compare version and paths\n    if local_spec.get(\"info\", {}).get(\"version\") != server_spec.get(\"info\", {}).get(\"version\"):",
         "detail": "scripts.commands.update",
         "documentation": {}
     },
     {
-        "label": "fetch_openapi_spec",
+        "label": "compare_openapi_specs",
         "kind": 2,
         "importPath": "scripts.commands.update",
         "description": "scripts.commands.update",
-        "peekOfCode": "def fetch_openapi_spec(url: str) -> Tuple[Optional[dict], Optional[int]]:\n    \"\"\"Fetch OpenAPI specification from the server\"\"\"\n    session = create_retry_session()\n    try:\n        response = session.get(url, stream=True)\n        response.raise_for_status()\n        file_size = get_file_size(response)\n        return response.json(), file_size\n    except requests.exceptions.RequestException as e:\n        click.echo(f\"Error fetching OpenAPI specification: {e}\", err=True)",
+        "peekOfCode": "def compare_openapi_specs(local_spec: dict, server_spec: dict) -> bool:\n    \"\"\"Compare local and server OpenAPI specs\"\"\"\n    # Compare version and paths\n    if local_spec.get(\"info\", {}).get(\"version\") != server_spec.get(\"info\", {}).get(\"version\"):\n        return False\n    if set(local_spec.get(\"paths\", {}).keys()) != set(server_spec.get(\"paths\", {}).keys()):\n        return False\n    return True\ndef get_local_openapi() -> Optional[dict]:\n    \"\"\"Get local OpenAPI specification\"\"\"",
         "detail": "scripts.commands.update",
         "documentation": {}
     },
     {
-        "label": "save_openapi_spec",
+        "label": "get_local_openapi",
         "kind": 2,
         "importPath": "scripts.commands.update",
         "description": "scripts.commands.update",
-        "peekOfCode": "def save_openapi_spec(spec: dict, output_path: Path) -> bool:\n    \"\"\"Save OpenAPI specification to file\"\"\"\n    try:\n        formatted_json = json.dumps(spec, indent=2, ensure_ascii=False)\n        with open(output_path, 'w', encoding='utf-8') as f:\n            f.write(formatted_json)\n        return True\n    except (IOError, TypeError) as e:\n        click.echo(f\"Error saving OpenAPI specification: {e}\", err=True)\n        return False",
+        "peekOfCode": "def get_local_openapi() -> Optional[dict]:\n    \"\"\"Get local OpenAPI specification\"\"\"\n    try:\n        if LOCAL_OPENAPI_PATH.exists():\n            with open(LOCAL_OPENAPI_PATH, 'r', encoding='utf-8') as f:\n                return json.load(f)\n    except Exception:\n        pass\n    return None\ndef get_server_openapi() -> dict:",
+        "detail": "scripts.commands.update",
+        "documentation": {}
+    },
+    {
+        "label": "get_server_openapi",
+        "kind": 2,
+        "importPath": "scripts.commands.update",
+        "description": "scripts.commands.update",
+        "peekOfCode": "def get_server_openapi() -> dict:\n    \"\"\"Get OpenAPI specification from server\"\"\"\n    host = get_config_value('host')\n    if not host.startswith(\"http\"):\n        host = \"https://\" + host\n    url = urljoin(host, '/openapi.json')\n    response = requests.get(url, stream=True)\n    response.raise_for_status()\n    return response.json()\n@click.command()",
         "detail": "scripts.commands.update",
         "documentation": {}
     },
@@ -2703,7 +2748,25 @@
         "kind": 2,
         "importPath": "scripts.commands.update",
         "description": "scripts.commands.update",
-        "peekOfCode": "def cli():\n    \"\"\"Update the OpenAPI specification for Stayforge API\"\"\"\n    try:\n        api_url = urljoin(get_config_value('host'), '/openapi.json')\n        output_path = CONFIG_DIR / 'openapi.json'\n        # Fetch specification\n        spec, file_size = fetch_openapi_spec(api_url)\n        if not spec:\n            return 1\n        # Save specification with progress bar",
+        "peekOfCode": "def cli():\n    \"\"\"Update the OpenAPI specification for Stayforge API\"\"\"\n    try:\n        # Get the OpenAPI spec from the server\n        spec = get_server_openapi()\n        file_size = len(json.dumps(spec, indent=2, ensure_ascii=False))\n        # Save with progress bar\n        with tqdm(\n                total=file_size,\n                desc=\"Updating OpenAPI specification\",",
+        "detail": "scripts.commands.update",
+        "documentation": {}
+    },
+    {
+        "label": "CONFIG_DIR",
+        "kind": 5,
+        "importPath": "scripts.commands.update",
+        "description": "scripts.commands.update",
+        "peekOfCode": "CONFIG_DIR = Path(os.path.expanduser(\"~/.stayforge\"))\nLOCAL_OPENAPI_PATH = CONFIG_DIR / \"openapi.json\"\ndef get_file_size(response: requests.Response) -> int:\n    \"\"\"Get file size from response headers\"\"\"\n    content_length = response.headers.get('content-length')\n    if content_length is not None:\n        return int(content_length)\n    return 0\ndef compare_openapi_specs(local_spec: dict, server_spec: dict) -> bool:\n    \"\"\"Compare local and server OpenAPI specs\"\"\"",
+        "detail": "scripts.commands.update",
+        "documentation": {}
+    },
+    {
+        "label": "LOCAL_OPENAPI_PATH",
+        "kind": 5,
+        "importPath": "scripts.commands.update",
+        "description": "scripts.commands.update",
+        "peekOfCode": "LOCAL_OPENAPI_PATH = CONFIG_DIR / \"openapi.json\"\ndef get_file_size(response: requests.Response) -> int:\n    \"\"\"Get file size from response headers\"\"\"\n    content_length = response.headers.get('content-length')\n    if content_length is not None:\n        return int(content_length)\n    return 0\ndef compare_openapi_specs(local_spec: dict, server_spec: dict) -> bool:\n    \"\"\"Compare local and server OpenAPI specs\"\"\"\n    # Compare version and paths",
         "detail": "scripts.commands.update",
         "documentation": {}
     },
@@ -2750,6 +2813,15 @@
         "description": "tests.api.gran_openapi_json",
         "peekOfCode": "class TestGenerateOpenapiFiles(unittest.TestCase):\n    def setUp(self):\n        # Setup logic to prepare for the test runs\n        self.output_file = \"_openapi.json\"\n    def tearDown(self):\n        # Cleanup logic to run after each test\n        if os.path.exists(self.output_file):\n            os.remove(self.output_file)\n    def test_openapi_json_generation(self):\n        # Call the function to test",
         "detail": "tests.api.gran_openapi_json",
+        "documentation": {}
+    },
+    {
+        "label": "test_generate_env_sample",
+        "kind": 2,
+        "importPath": "tests.cil.test_config_sample",
+        "description": "tests.cil.test_config_sample",
+        "peekOfCode": "def test_generate_env_sample(tmp_path, monkeypatch):\n    runner = CliRunner()\n    # Simulate running in a clean test directory\n    test_project_dir = tmp_path / \"project\"\n    test_project_dir.mkdir()\n    pyfile = test_project_dir / \"sample.py\"\n    pyfile.write_text(\"import os\\nos.getenv('MY_VAR')\\n\")\n    # Switch directory to test directory\n    monkeypatch.chdir(test_project_dir)\n    # Execute CLI",
+        "detail": "tests.cil.test_config_sample",
         "documentation": {}
     },
     {

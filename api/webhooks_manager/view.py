@@ -15,7 +15,8 @@ class WebhooksManagerResponses(BaseResponses):
     data: Optional[List[WebhooksManager]]
 
 
-@router.get("/", response_model=WebhooksManagerResponses)
+@router.get("/", response_model=WebhooksManagerResponses,
+    operation_id="list_webhook_profiles")
 async def get_webhooks_profile(
         request: Request,
 
@@ -64,8 +65,9 @@ async def get_webhooks_profile(
         return handle_error(e, str_time)
 
 
-@router.get("/{id}", response_model=WebhooksManagerResponses)
-async def get_webhooks_profile(
+@router.get("/{id}", response_model=WebhooksManagerResponses,
+    operation_id="get_webhook_profile")
+async def get_webhook_profile_by_id(
         request: Request,
         id: str
 ):
@@ -94,7 +96,7 @@ async def get_webhooks_profile(
     409: {
         "description": "Resource maybe created. But can't found it.",
     }
-})
+}, operation_id="create_webhook_profile")
 async def create_webhooks_profile(request: Request, data: WebhooksManagerInput):
     str_time = time.perf_counter()
     try:
@@ -110,7 +112,8 @@ async def create_webhooks_profile(request: Request, data: WebhooksManagerInput):
         return handle_error(e, str_time)
 
 
-@router.delete("/{id}", response_model=WebhooksManagerResponses)
+@router.delete("/{id}", response_model=WebhooksManagerResponses,
+    operation_id="delete_webhook_profile")
 async def delete_webhooks_profile(
         request: Request,
         id: str
@@ -136,7 +139,7 @@ async def delete_webhooks_profile(
     409: {
         "description": "Resource maybe changed. But can't found it.",
     }
-})
+}, operation_id="update_webhook_profile")
 async def put_webhooks_profile(
         request: Request,
         id: str,

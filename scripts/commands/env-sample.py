@@ -1,5 +1,5 @@
 """
-.env.sample Generator
+Generate a .env.sample to the current path
 """
 
 import ast
@@ -30,7 +30,6 @@ class GetenvVisitor(ast.NodeVisitor):
                     elif isinstance(default_node, ast.Constant) and isinstance(default_node.value, str):
                         default = default_node.value
                     elif isinstance(default_node, ast.Call):
-                        # 嘗試執行簡單的像 uuid.uuid4()
                         try:
                             if (isinstance(default_node.func, ast.Attribute)
                                     and isinstance(default_node.func.value, ast.Name)
@@ -72,6 +71,7 @@ def walk_project(path="."):
 @click.command()
 @click.option('--output', '-o', default=".env.sample", help="Output file name.")
 def cli(output):
+    """Generate a .env.sample to the current path"""
     click.echo(
         f"Scanning project root: {PROJECT_ROOT} for .env.sample generation."
     )

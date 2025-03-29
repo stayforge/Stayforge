@@ -3,6 +3,7 @@ aiofiles
 pymongo
 fastapi[all]
 pydantic[all]
+pydantic[email]
 uuid
 uvicorn
 Faker

@@ -21,8 +21,8 @@ services:
   redis:
     image: redis:latest
     container_name: redis
-#    volumes:
-#      - redis
+    #    volumes:
+    #      - redis
     networks:
       - redis
 
@@ -38,8 +38,8 @@ networks:
   web:
   database:
     internal: true
-#  redis:
-#    internal: true
+  redis:
+    internal: true
 volumes:
   data:
 #  redis:

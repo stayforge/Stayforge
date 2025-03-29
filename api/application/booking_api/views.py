@@ -46,7 +46,8 @@ class CreateOrderRequest(BaseModel):
 
 @router.get("/orders/{customer_username}",
     response_model=OrderHistoryResponse,
-    description="Return order history for a customer by username.")
+    description="Return order history for a customer by username.",
+    operation_id="get_customer_order_history")
 async def get_order_history(customer_username: str):
     try:
         # Query orders by customer_username
@@ -69,21 +70,24 @@ async def get_order_history(customer_username: str):
 
 @router.get("/rooms/{branch_name}",
     response_model=RoomResponse,
-    description="Return to a branch's all room_type and room.")
+    description="Return to a branch's all room_type and room.",
+    operation_id="get_branch_rooms")
 async def branch_rooms(branch_name: str):
     return await get_rooms_data(branch_name)
 
 
 @router.get("/schedule/{room_type_name}",
     response_model=Dict[str, Any],
-    description="Return to a room type's schedule.")
+    description="Return to a room type's schedule.",
+    operation_id="get_room_type_schedule")
 async def branch_schedule(room_type_name: str, start_time: datetime, end_time: datetime):
     return await get_roomType_timetable(room_type_name, start_time, end_time)
 
 
 @router.post("/hold/{room_id}",
     response_model=BookingResponse,
-    description="Keep a room for x seconds, place it during this period to be booked.")
+    description="Keep a room for x seconds, place it during this period to be booked.",
+    operation_id="hold_room")
 async def hold(room_id: str, hold_time: int):
     return BookingResponse(
         success=True,
@@ -94,7 +98,8 @@ async def hold(room_id: str, hold_time: int):
 @router.post("/create_order",
     response_model=BookingResponse,
     description="Create a new order with booking details.",
-    dependencies=[])
+    dependencies=[],
+    operation_id="create_booking_order")
 async def create_new_order(request: CreateOrderRequest):
     try:
         # Generate order number if not provided

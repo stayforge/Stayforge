@@ -1,15 +1,13 @@
-import asyncio
 import os
-from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 
 import settings
-from docs import docs as docs
-from auth import router as auth_router
 from api.application import router as application_api_router
 from api.router import router as api_router
+from auth import router as auth_router
+from docs import docs as docs
 
 
 def load_description(file_path: str) -> str:
@@ -21,7 +19,6 @@ def load_description(file_path: str) -> str:
 middleware = [
     # Middleware(WebhooksMiddleware)
 ]
-
 
 description = load_description('README.md')
 
@@ -102,5 +99,3 @@ def custom_openapi():
 
 
 app.openapi = custom_openapi
-
-
