@@ -1,32 +1,54 @@
 """
-Connect to Stayforge API
+Connect to Stayforge API via dynamically generated CLI based on OpenAPI
 """
-import os
-from pathlib import Path
+from urllib.parse import urljoin
 
 import click
 import requests
 
-from scripts import PROJECT_ROOT, get_config_value
-
-ENV_KEYS = {}
+from scripts import get_config_value
 
 
-def get_openapi_json(host: str = os.path.join(get_config_value('host'))):
-    response = requests.get(host, 'openapi.json')
-    response.raise_for_status()  # Raise an exception for bad status codes
+@click.group()
+def cli():
+    """Stayforge API CLI (auto-generated from OpenAPI spec)"""
+    pass
+
+
+def get_openapi_json():
+    host = get_config_value("host")
+    if not host.startswith("http"):
+        host = "https://" + host
+    url = urljoin(host, "/openapi.json")
+    response = requests.get(url)
+    response.raise_for_status()
     return response.json()
 
 
-@click.command()
-@click.option('--help', '-h', help="Show help for the current server Stayforge API version.")
-def cli(output):
-    click.echo(
-        f"Scanning project root: {PROJECT_ROOT} for .env.sample generation."
-    )
+# Automatically scan OpenAPI and register GET directives
+try:
+    spec = get_openapi_json()
+    for path, methods in spec.get("paths", {}).items():
+        for method, meta in methods.items():
+            if method.lower() != "get":
+                continue
+            operation_id = meta.get("operationId") or path.strip("/").replace("/", "_")
 
-    output_path = Path(output)
-    with open(output_path, "w") as f:
-        for key in sorted(ENV_KEYS):
-            f.write(f"{key}={ENV_KEYS[key]}\n")
-    click.echo(f"Generated {output_path} with {len(ENV_KEYS)} keys.")
+
+            def make_command(endpoint_path):
+                @click.command(name=operation_id)
+                @click.option("--params", help="Query string like key=value&x=123")
+                def command(params):
+                    host = get_config_value("host")
+                    url = urljoin(host, endpoint_path)
+                    query = dict(p.split("=", 1) for p in params.split("&")) if params else {}
+                    resp = requests.get(url, params=query)
+                    click.echo(resp.text)
+
+                return command
+
+
+            cli.add_command(make_command(path))
+
+except Exception as e:
+    click.echo(f"[warn] Unable to load OpenAPI：{e}", err=True)

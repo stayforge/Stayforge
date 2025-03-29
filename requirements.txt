@@ -23,3 +23,6 @@ setuptools
 click
 pathspec
 tomli
+tqdm
+urllib3
+tomli_w

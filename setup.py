@@ -13,7 +13,8 @@ setup(
         "click",
         "pathspec",
         "tomli", "tomli_w",
-        "requests"
+        "requests", "urllib3"
+                    "tqdm"
     ],
     entry_points={
         "console_scripts": [

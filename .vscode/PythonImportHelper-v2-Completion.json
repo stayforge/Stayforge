@@ -408,6 +408,22 @@
         "documentation": {}
     },
     {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "List",
         "importPath": "typing",
         "description": "typing",
@@ -1491,6 +1507,14 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "click",
         "kind": 6,
         "isExtraImport": true,
@@ -1541,11 +1565,35 @@
         "documentation": {}
     },
     {
+        "label": "CONFIG_DIR",
+        "importPath": "scripts",
+        "description": "scripts",
+        "isExtraImport": true,
+        "detail": "scripts",
+        "documentation": {}
+    },
+    {
+        "label": "get_config_value",
+        "importPath": "scripts",
+        "description": "scripts",
+        "isExtraImport": true,
+        "detail": "scripts",
+        "documentation": {}
+    },
+    {
         "label": "PACKAGE_DIR",
         "importPath": "scripts",
         "description": "scripts",
         "isExtraImport": true,
         "detail": "scripts",
+        "documentation": {}
+    },
+    {
+        "label": "urljoin",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
         "documentation": {}
     },
     {
@@ -1574,11 +1622,27 @@
         "documentation": {}
     },
     {
-        "label": "api",
-        "importPath": "scripts.commands",
-        "description": "scripts.commands",
+        "label": "HTTPAdapter",
+        "importPath": "requests.adapters",
+        "description": "requests.adapters",
         "isExtraImport": true,
-        "detail": "scripts.commands",
+        "detail": "requests.adapters",
+        "documentation": {}
+    },
+    {
+        "label": "Retry",
+        "importPath": "urllib3.util.retry",
+        "description": "urllib3.util.retry",
+        "isExtraImport": true,
+        "detail": "urllib3.util.retry",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
         "documentation": {}
     },
     {
@@ -2599,12 +2663,48 @@
         "documentation": {}
     },
     {
+        "label": "create_retry_session",
+        "kind": 2,
+        "importPath": "scripts.commands.update",
+        "description": "scripts.commands.update",
+        "peekOfCode": "def create_retry_session() -> requests.Session:\n    \"\"\"Create a session with retry mechanism\"\"\"\n    session = requests.Session()\n    retry_strategy = Retry(\n        total=3,\n        backoff_factor=1,\n        status_forcelist=[500, 502, 503, 504],\n    )\n    adapter = HTTPAdapter(max_retries=retry_strategy)\n    session.mount(\"http://\", adapter)",
+        "detail": "scripts.commands.update",
+        "documentation": {}
+    },
+    {
+        "label": "get_file_size",
+        "kind": 2,
+        "importPath": "scripts.commands.update",
+        "description": "scripts.commands.update",
+        "peekOfCode": "def get_file_size(response: requests.Response) -> Optional[int]:\n    \"\"\"Get file size from response headers\"\"\"\n    content_length = response.headers.get('content-length')\n    if content_length is not None:\n        return int(content_length)\n    return None\ndef fetch_openapi_spec(url: str) -> Tuple[Optional[dict], Optional[int]]:\n    \"\"\"Fetch OpenAPI specification from the server\"\"\"\n    session = create_retry_session()\n    try:",
+        "detail": "scripts.commands.update",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_openapi_spec",
+        "kind": 2,
+        "importPath": "scripts.commands.update",
+        "description": "scripts.commands.update",
+        "peekOfCode": "def fetch_openapi_spec(url: str) -> Tuple[Optional[dict], Optional[int]]:\n    \"\"\"Fetch OpenAPI specification from the server\"\"\"\n    session = create_retry_session()\n    try:\n        response = session.get(url, stream=True)\n        response.raise_for_status()\n        file_size = get_file_size(response)\n        return response.json(), file_size\n    except requests.exceptions.RequestException as e:\n        click.echo(f\"Error fetching OpenAPI specification: {e}\", err=True)",
+        "detail": "scripts.commands.update",
+        "documentation": {}
+    },
+    {
+        "label": "save_openapi_spec",
+        "kind": 2,
+        "importPath": "scripts.commands.update",
+        "description": "scripts.commands.update",
+        "peekOfCode": "def save_openapi_spec(spec: dict, output_path: Path) -> bool:\n    \"\"\"Save OpenAPI specification to file\"\"\"\n    try:\n        formatted_json = json.dumps(spec, indent=2, ensure_ascii=False)\n        with open(output_path, 'w', encoding='utf-8') as f:\n            f.write(formatted_json)\n        return True\n    except (IOError, TypeError) as e:\n        click.echo(f\"Error saving OpenAPI specification: {e}\", err=True)\n        return False",
+        "detail": "scripts.commands.update",
+        "documentation": {}
+    },
+    {
         "label": "cli",
         "kind": 2,
-        "importPath": "scripts.commands.upload",
-        "description": "scripts.commands.upload",
-        "peekOfCode": "def cli():\n    \"\"\"Show the OpenAPI specification for Stayforge API\"\"\"\n    try:\n        # Get the OpenAPI spec from the local server\n        api.get_openapi_json()\n        formatted_json = json.dumps(\n            api.get_openapi_json(),\n            indent=2, ensure_ascii=False\n        )\n        # Print the formatted JSON",
-        "detail": "scripts.commands.upload",
+        "importPath": "scripts.commands.update",
+        "description": "scripts.commands.update",
+        "peekOfCode": "def cli():\n    \"\"\"Update the OpenAPI specification for Stayforge API\"\"\"\n    try:\n        api_url = urljoin(get_config_value('host'), '/openapi.json')\n        output_path = CONFIG_DIR / 'openapi.json'\n        # Fetch specification\n        spec, file_size = fetch_openapi_spec(api_url)\n        if not spec:\n            return 1\n        # Save specification with progress bar",
+        "detail": "scripts.commands.update",
         "documentation": {}
     },
     {
