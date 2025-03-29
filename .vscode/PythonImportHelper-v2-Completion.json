@@ -1474,15 +1474,6 @@
         "documentation": {}
     },
     {
-        "label": "ast",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "ast",
-        "description": "ast",
-        "detail": "ast",
-        "documentation": {}
-    },
-    {
         "label": "Path",
         "importPath": "pathlib",
         "description": "pathlib",
@@ -1513,15 +1504,6 @@
         "importPath": "click",
         "description": "click",
         "detail": "click",
-        "documentation": {}
-    },
-    {
-        "label": "pathspec",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pathspec",
-        "description": "pathspec",
-        "detail": "pathspec",
         "documentation": {}
     },
     {
@@ -1570,6 +1552,24 @@
         "description": "scripts",
         "isExtraImport": true,
         "detail": "scripts",
+        "documentation": {}
+    },
+    {
+        "label": "ast",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ast",
+        "description": "ast",
+        "detail": "ast",
+        "documentation": {}
+    },
+    {
+        "label": "pathspec",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pathspec",
+        "description": "pathspec",
+        "detail": "pathspec",
         "documentation": {}
     },
     {

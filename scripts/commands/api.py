@@ -2,13 +2,9 @@
 Connect to Stayforge API
 """
 
-import ast
-import os
-import uuid
 from pathlib import Path
 
 import click
-import pathspec
 
 from scripts import PROJECT_ROOT
 
@@ -21,7 +17,6 @@ def cli(output):
     click.echo(
         f"Scanning project root: {PROJECT_ROOT} for .env.sample generation."
     )
-
 
     output_path = Path(output)
     with open(output_path, "w") as f:

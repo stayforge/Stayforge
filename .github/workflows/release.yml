@@ -3,7 +3,7 @@ name: Generate OpenAPI and Release
 on:
   push:
     tags:
-      - '*.*.*'
+      - 'v*'
     branches:
       - dev
 
@@ -72,16 +72,14 @@ jobs:
           --tag stayforge/stayforge:$TAG \
           --push
 
+
   release-openapi:
-    needs: build-openapi
     runs-on: ubuntu-latest
-    if: needs.build-openapi.outputs.branch == 'main'
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Upload OpenAPI spec to GitHub Release
+      - name: Upload OpenAPI spec
         uses: softprops/action-gh-release@v1
         with:
           files: .openapi_spec/*
@@ -89,7 +87,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   release-docker:
-    needs: [build-openapi, build-docker]
+    needs: [ build-openapi, build-docker ]
     runs-on: ubuntu-latest
     if: needs.build-openapi.outputs.branch == 'main'
 
