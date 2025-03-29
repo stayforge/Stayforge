@@ -4,6 +4,7 @@ import uuid
 from fastapi import Depends, HTTPException, Request
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 
+import settings
 from api.mongo_client import db
 from auth.token_manager import TokenManager
 from settings import logger
@@ -22,7 +23,7 @@ def role(resource_name: str):
 
         # Super Token: This is a token used for configuration, mainly used to add Service Account.
         # Defined by environment variable ``. Please delete this configuration after the configuration is completed.
-        if access_token == os.getenv("SUPER_TOKEN", uuid.uuid4().hex):
+        if access_token == settings.SUPER_TOKEN:
             logger.waring("Super Token used!")
             return True
 

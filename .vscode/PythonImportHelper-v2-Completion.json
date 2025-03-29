@@ -147,14 +147,6 @@
         "documentation": {}
     },
     {
-        "label": "ObjectId",
-        "importPath": "bson",
-        "description": "bson",
-        "isExtraImport": true,
-        "detail": "bson",
-        "documentation": {}
-    },
-    {
         "label": "asyncio",
         "kind": 6,
         "isExtraImport": true,
@@ -265,30 +257,6 @@
     },
     {
         "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "*",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -536,38 +504,6 @@
         "documentation": {}
     },
     {
-        "label": "HTTPException",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "APIRouter",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "*",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
         "label": "*",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -721,30 +657,6 @@
     },
     {
         "label": "EmailStr",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "Field",
         "importPath": "pydantic",
         "description": "pydantic",
         "isExtraImport": true,
@@ -1137,14 +1049,6 @@
         "documentation": {}
     },
     {
-        "label": "StayForgeModel",
-        "importPath": "api.schemas",
-        "description": "api.schemas",
-        "isExtraImport": true,
-        "detail": "api.schemas",
-        "documentation": {}
-    },
-    {
         "label": "BaseResponses",
         "importPath": "api.schemas",
         "description": "api.schemas",
@@ -1184,22 +1088,6 @@
         "isExtraImport": true,
         "importPath": "settings",
         "description": "settings",
-        "detail": "settings",
-        "documentation": {}
-    },
-    {
-        "label": "ETCD_ENDPOINT",
-        "importPath": "settings",
-        "description": "settings",
-        "isExtraImport": true,
-        "detail": "settings",
-        "documentation": {}
-    },
-    {
-        "label": "*",
-        "importPath": "settings",
-        "description": "settings",
-        "isExtraImport": true,
         "detail": "settings",
         "documentation": {}
     },
@@ -1249,130 +1137,6 @@
         "description": "repository",
         "isExtraImport": true,
         "detail": "repository",
-        "documentation": {}
-    },
-    {
-        "label": "MongoRepository",
-        "importPath": "repository",
-        "description": "repository",
-        "isExtraImport": true,
-        "detail": "repository",
-        "documentation": {}
-    },
-    {
-        "label": "httpx",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "httpx",
-        "description": "httpx",
-        "detail": "httpx",
-        "documentation": {}
-    },
-    {
-        "label": "re",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "re",
-        "description": "re",
-        "detail": "re",
-        "documentation": {}
-    },
-    {
-        "label": "urlparse",
-        "importPath": "urllib.parse",
-        "description": "urllib.parse",
-        "isExtraImport": true,
-        "detail": "urllib.parse",
-        "documentation": {}
-    },
-    {
-        "label": "yaml",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "yaml",
-        "description": "yaml",
-        "detail": "yaml",
-        "documentation": {}
-    },
-    {
-        "label": "requests",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "requests",
-        "description": "requests",
-        "detail": "requests",
-        "documentation": {}
-    },
-    {
-        "label": "Response",
-        "importPath": "requests",
-        "description": "requests",
-        "isExtraImport": true,
-        "detail": "requests",
-        "documentation": {}
-    },
-    {
-        "label": "*",
-        "importPath": "api.models_manager.errors",
-        "description": "api.models_manager.errors",
-        "isExtraImport": true,
-        "detail": "api.models_manager.errors",
-        "documentation": {}
-    },
-    {
-        "label": "ModelNotFoundError",
-        "importPath": "api.models_manager.errors",
-        "description": "api.models_manager.errors",
-        "isExtraImport": true,
-        "detail": "api.models_manager.errors",
-        "documentation": {}
-    },
-    {
-        "label": "ModelPathError",
-        "importPath": "api.models_manager.errors",
-        "description": "api.models_manager.errors",
-        "isExtraImport": true,
-        "detail": "api.models_manager.errors",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "read_document",
-        "importPath": "docs",
-        "description": "docs",
-        "isExtraImport": true,
-        "detail": "docs",
-        "documentation": {}
-    },
-    {
-        "label": "docs",
-        "importPath": "docs",
-        "description": "docs",
-        "isExtraImport": true,
-        "detail": "docs",
         "documentation": {}
     },
     {
@@ -1719,6 +1483,22 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "click",
         "kind": 6,
         "isExtraImport": true,
@@ -1796,12 +1576,30 @@
         "documentation": {}
     },
     {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
         "label": "socket",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "socket",
         "description": "socket",
         "detail": "socket",
+        "documentation": {}
+    },
+    {
+        "label": "yaml",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yaml",
+        "description": "yaml",
+        "detail": "yaml",
         "documentation": {}
     },
     {
@@ -1819,6 +1617,22 @@
         "description": "api.models_manager.model_cls",
         "isExtraImport": true,
         "detail": "api.models_manager.model_cls",
+        "documentation": {}
+    },
+    {
+        "label": "ModelNotFoundError",
+        "importPath": "api.models_manager.errors",
+        "description": "api.models_manager.errors",
+        "isExtraImport": true,
+        "detail": "api.models_manager.errors",
+        "documentation": {}
+    },
+    {
+        "label": "ModelPathError",
+        "importPath": "api.models_manager.errors",
+        "description": "api.models_manager.errors",
+        "isExtraImport": true,
+        "detail": "api.models_manager.errors",
         "documentation": {}
     },
     {
@@ -1976,6 +1790,14 @@
         "documentation": {}
     },
     {
+        "label": "docs",
+        "importPath": "docs",
+        "description": "docs",
+        "isExtraImport": true,
+        "detail": "docs",
+        "documentation": {}
+    },
+    {
         "label": "router",
         "importPath": "api.application",
         "description": "api.application",
@@ -2016,15 +1838,6 @@
         "importPath": "functools",
         "description": "functools",
         "detail": "functools",
-        "documentation": {}
-    },
-    {
-        "label": "json5",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json5",
-        "description": "json5",
-        "detail": "json5",
         "documentation": {}
     },
     {
@@ -2239,150 +2052,6 @@
         "description": "api.healthcheck.view",
         "peekOfCode": "router = APIRouter()\nasync def _database_healthcheck(field: str = str(uuid.uuid4())) -> dict:\n    try:\n        healthcheck_repository = MongoRepository(\n            database=settings.DATABASE_NAME,\n            collection='__healthcheck',\n            client=database.client\n        )\n        # Step 1: Create random data\n        random_data = {\"_id\": ObjectId(), \"field\": field}",
         "detail": "api.healthcheck.view",
-        "documentation": {}
-    },
-    {
-        "label": "ModelNotFoundError",
-        "kind": 6,
-        "importPath": "api.models_manager.errors",
-        "description": "api.models_manager.errors",
-        "peekOfCode": "class ModelNotFoundError(ValueError):\n    \"\"\" 在Source中找不到插件 \"\"\"\n    def __init__(self, *args, **kwargs):\n        pass\nclass ModelNameError(ValueError):\n    \"\"\" Invalid Name format (only A-Za-z and -) \"\"\"\n    def __init__(self, *args, **kwargs):\n        pass\nclass ModelPathError(ValueError):\n    \"\"\" Invalid Path format. must be `namespace/name or name` \"\"\"",
-        "detail": "api.models_manager.errors",
-        "documentation": {}
-    },
-    {
-        "label": "ModelNameError",
-        "kind": 6,
-        "importPath": "api.models_manager.errors",
-        "description": "api.models_manager.errors",
-        "peekOfCode": "class ModelNameError(ValueError):\n    \"\"\" Invalid Name format (only A-Za-z and -) \"\"\"\n    def __init__(self, *args, **kwargs):\n        pass\nclass ModelPathError(ValueError):\n    \"\"\" Invalid Path format. must be `namespace/name or name` \"\"\"\n    def __init__(self, *args, **kwargs):\n        pass",
-        "detail": "api.models_manager.errors",
-        "documentation": {}
-    },
-    {
-        "label": "ModelPathError",
-        "kind": 6,
-        "importPath": "api.models_manager.errors",
-        "description": "api.models_manager.errors",
-        "peekOfCode": "class ModelPathError(ValueError):\n    \"\"\" Invalid Path format. must be `namespace/name or name` \"\"\"\n    def __init__(self, *args, **kwargs):\n        pass",
-        "detail": "api.models_manager.errors",
-        "documentation": {}
-    },
-    {
-        "label": "KeyValueRequest",
-        "kind": 6,
-        "importPath": "api.models_manager.etcd_proxy",
-        "description": "api.models_manager.etcd_proxy",
-        "peekOfCode": "class KeyValueRequest(BaseModel):\n    key: str\n    value: str = None\ndef get_key(model:str, key:str):\n    return f\"{model}__{key}\"\n@etcd_router.post(\"/{model}/etcd/put\")\nasync def put_data(request: KeyValueRequest, model: str = Path(...)):\n    full_key = get_key(model, request.key)\n    async with httpx.AsyncClient() as client:\n        response = await client.post(",
-        "detail": "api.models_manager.etcd_proxy",
-        "documentation": {}
-    },
-    {
-        "label": "get_key",
-        "kind": 2,
-        "importPath": "api.models_manager.etcd_proxy",
-        "description": "api.models_manager.etcd_proxy",
-        "peekOfCode": "def get_key(model:str, key:str):\n    return f\"{model}__{key}\"\n@etcd_router.post(\"/{model}/etcd/put\")\nasync def put_data(request: KeyValueRequest, model: str = Path(...)):\n    full_key = get_key(model, request.key)\n    async with httpx.AsyncClient() as client:\n        response = await client.post(\n            f\"{ETCD_ENDPOINT}/v3/kv/put\",\n            json={\"key\": full_key, \"value\": request.value}\n        )",
-        "detail": "api.models_manager.etcd_proxy",
-        "documentation": {}
-    },
-    {
-        "label": "etcd_router",
-        "kind": 5,
-        "importPath": "api.models_manager.etcd_proxy",
-        "description": "api.models_manager.etcd_proxy",
-        "peekOfCode": "etcd_router = APIRouter()\nclass KeyValueRequest(BaseModel):\n    key: str\n    value: str = None\ndef get_key(model:str, key:str):\n    return f\"{model}__{key}\"\n@etcd_router.post(\"/{model}/etcd/put\")\nasync def put_data(request: KeyValueRequest, model: str = Path(...)):\n    full_key = get_key(model, request.key)\n    async with httpx.AsyncClient() as client:",
-        "detail": "api.models_manager.etcd_proxy",
-        "documentation": {}
-    },
-    {
-        "label": "Model",
-        "kind": 6,
-        "importPath": "api.models_manager.model_cls",
-        "description": "api.models_manager.model_cls",
-        "peekOfCode": "class Model:\n    def __init__(\n            self,\n            model_url: str,\n            default_source: str = DEFAULT_MODEL_SOURCE,\n            default_namespace: str = DEFAULT_MODEL_NAMESPACE\n    ):\n        self.default_source = default_source\n        self.default_namespace = default_namespace\n        source, namespace, name = self.parse_url(model_url)",
-        "detail": "api.models_manager.model_cls",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "api.models_manager.model_cls",
-        "description": "api.models_manager.model_cls",
-        "peekOfCode": "logger = logging.getLogger(__name__)\nclass Model:\n    def __init__(\n            self,\n            model_url: str,\n            default_source: str = DEFAULT_MODEL_SOURCE,\n            default_namespace: str = DEFAULT_MODEL_NAMESPACE\n    ):\n        self.default_source = default_source\n        self.default_namespace = default_namespace",
-        "detail": "api.models_manager.model_cls",
-        "documentation": {}
-    },
-    {
-        "label": "ModelsManagerInput",
-        "kind": 6,
-        "importPath": "api.models_manager.models",
-        "description": "api.models_manager.models",
-        "peekOfCode": "class ModelsManagerInput(BaseModel):\n    model: str = Field(\n        ...,\n        examples=[\n            \"demo-model\",\n            \"demo/demo-model\",\n            \"https://market.stayforge.io/model/demo/demo-model\"\n        ],\n        description=\"The host URL of the model. This is used to generate webhook URLs and other model-related paths.\"\n    )",
-        "detail": "api.models_manager.models",
-        "documentation": {}
-    },
-    {
-        "label": "ModelsManager",
-        "kind": 6,
-        "importPath": "api.models_manager.models",
-        "description": "api.models_manager.models",
-        "peekOfCode": "class ModelsManager(ModelsManagerInput, StayForgeModel):\n    etcd_host: str = Field()\n    etcd_port: int = Field(2379)\n    etcd_user: str = Field()\n    etcd_password: str = Field()\n    pass",
-        "detail": "api.models_manager.models",
-        "documentation": {}
-    },
-    {
-        "label": "collection_name",
-        "kind": 5,
-        "importPath": "api.models_manager.models",
-        "description": "api.models_manager.models",
-        "peekOfCode": "collection_name = 'model'\nlogger = settings.getLogger('models_loader')\nmodels_manager_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection=collection_name,\n    client=database.client\n)\nmodel_logger_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection='logs_model',",
-        "detail": "api.models_manager.models",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "api.models_manager.models",
-        "description": "api.models_manager.models",
-        "peekOfCode": "logger = settings.getLogger('models_loader')\nmodels_manager_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection=collection_name,\n    client=database.client\n)\nmodel_logger_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection='logs_model',\n    client=database.client",
-        "detail": "api.models_manager.models",
-        "documentation": {}
-    },
-    {
-        "label": "models_manager_repository",
-        "kind": 5,
-        "importPath": "api.models_manager.models",
-        "description": "api.models_manager.models",
-        "peekOfCode": "models_manager_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection=collection_name,\n    client=database.client\n)\nmodel_logger_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection='logs_model',\n    client=database.client\n)",
-        "detail": "api.models_manager.models",
-        "documentation": {}
-    },
-    {
-        "label": "model_logger_repository",
-        "kind": 5,
-        "importPath": "api.models_manager.models",
-        "description": "api.models_manager.models",
-        "peekOfCode": "model_logger_repository = MongoRepository(\n    database=settings.DATABASE_NAME,\n    collection='logs_model',\n    client=database.client\n)\nclass ModelsManagerInput(BaseModel):\n    model: str = Field(\n        ...,\n        examples=[\n            \"demo-model\",",
-        "detail": "api.models_manager.models",
-        "documentation": {}
-    },
-    {
-        "label": "ModelsManagerResponses",
-        "kind": 6,
-        "importPath": "api.models_manager.view",
-        "description": "api.models_manager.view",
-        "peekOfCode": "class ModelsManagerResponses(BaseResponses):\n    data: Optional[List[ModelsManager]]\n@router.get(\"/\", response_model=ModelsManagerResponses)\nasync def get_models_profile(\n        request: Request,\n        model_name: str = Query(\n            None,\n            description=\"A friendly name you can remember.\"\n        ),\n        endpoint: str = Query(",
-        "detail": "api.models_manager.view",
-        "documentation": {}
-    },
-    {
-        "label": "router",
-        "kind": 5,
-        "importPath": "api.models_manager.view",
-        "description": "api.models_manager.view",
-        "peekOfCode": "router = APIRouter()\nclass ModelsManagerResponses(BaseResponses):\n    data: Optional[List[ModelsManager]]\n@router.get(\"/\", response_model=ModelsManagerResponses)\nasync def get_models_profile(\n        request: Request,\n        model_name: str = Query(\n            None,\n            description=\"A friendly name you can remember.\"\n        ),",
-        "detail": "api.models_manager.view",
         "documentation": {}
     },
     {
@@ -2696,7 +2365,7 @@
         "kind": 2,
         "importPath": "auth.role",
         "description": "auth.role",
-        "peekOfCode": "def role(resource_name: str):\n    async def checker(\n            request: Request,\n            credentials: HTTPAuthorizationCredentials = Depends(security)\n    ):\n        access_token = credentials.credentials\n        # Super Token: This is a token used for configuration, mainly used to add Service Account.\n        # Defined by environment variable ``. Please delete this configuration after the configuration is completed.\n        if access_token == os.getenv(\"SUPER_TOKEN\", uuid.uuid4().hex):\n            logger.waring(\"Super Token used!\")",
+        "peekOfCode": "def role(resource_name: str):\n    async def checker(\n            request: Request,\n            credentials: HTTPAuthorizationCredentials = Depends(security)\n    ):\n        access_token = credentials.credentials\n        # Super Token: This is a token used for configuration, mainly used to add Service Account.\n        # Defined by environment variable ``. Please delete this configuration after the configuration is completed.\n        if access_token == settings.SUPER_TOKEN:\n            logger.waring(\"Super Token used!\")",
         "detail": "auth.role",
         "documentation": {}
     },
@@ -2714,7 +2383,7 @@
         "kind": 5,
         "importPath": "auth.role",
         "description": "auth.role",
-        "peekOfCode": "_token_manager = TokenManager()\ndef role(resource_name: str):\n    async def checker(\n            request: Request,\n            credentials: HTTPAuthorizationCredentials = Depends(security)\n    ):\n        access_token = credentials.credentials\n        # Super Token: This is a token used for configuration, mainly used to add Service Account.\n        # Defined by environment variable ``. Please delete this configuration after the configuration is completed.\n        if access_token == os.getenv(\"SUPER_TOKEN\", uuid.uuid4().hex):",
+        "peekOfCode": "_token_manager = TokenManager()\ndef role(resource_name: str):\n    async def checker(\n            request: Request,\n            credentials: HTTPAuthorizationCredentials = Depends(security)\n    ):\n        access_token = credentials.credentials\n        # Super Token: This is a token used for configuration, mainly used to add Service Account.\n        # Defined by environment variable ``. Please delete this configuration after the configuration is completed.\n        if access_token == settings.SUPER_TOKEN:",
         "detail": "auth.role",
         "documentation": {}
     },
@@ -2795,7 +2464,7 @@
         "kind": 6,
         "importPath": "scripts.commands.config_sample",
         "description": "scripts.commands.config_sample",
-        "peekOfCode": "class GetenvVisitor(ast.NodeVisitor):\n    def visit_Call(self, node):\n        if (isinstance(node.func, ast.Attribute)\n                and isinstance(node.func.value, ast.Name)\n                and node.func.value.id == \"os\"\n                and node.func.attr == \"getenv\"):\n            if len(node.args) >= 1 and isinstance(node.args[0], ast.Str):\n                ENV_KEYS.add(node.args[0].s)\n        self.generic_visit(node)\ndef load_gitignore_spec(root):",
+        "peekOfCode": "class GetenvVisitor(ast.NodeVisitor):\n    def visit_Call(self, node):\n        if (isinstance(node.func, ast.Attribute)\n                and isinstance(node.func.value, ast.Name)\n                and node.func.value.id == \"os\"\n                and node.func.attr == \"getenv\"):\n            if len(node.args) >= 1 and isinstance(node.args[0], ast.Str):\n                var_name = node.args[0].s\n                default = \"\"\n                if len(node.args) >= 2:",
         "detail": "scripts.commands.config_sample",
         "documentation": {}
     },
@@ -2831,7 +2500,7 @@
         "kind": 2,
         "importPath": "scripts.commands.config_sample",
         "description": "scripts.commands.config_sample",
-        "peekOfCode": "def cli(output):\n    click.echo(\n        f\"Scanning project root: {PROJECT_ROOT} for .env.sample generation.\"\n    )\n    walk_project(path=str(PROJECT_ROOT))\n    output_path = Path(output)\n    with open(output_path, \"w\") as f:\n        for key in sorted(ENV_KEYS):\n            f.write(f\"{key}=\\n\")\n    click.echo(f\"Generated {output_path} with {len(ENV_KEYS)} keys.\")",
+        "peekOfCode": "def cli(output):\n    click.echo(\n        f\"Scanning project root: {PROJECT_ROOT} for .env.sample generation.\"\n    )\n    walk_project(path=str(PROJECT_ROOT))\n    output_path = Path(output)\n    with open(output_path, \"w\") as f:\n        for key in sorted(ENV_KEYS):\n            f.write(f\"{key}={ENV_KEYS[key]}\\n\")\n    click.echo(f\"Generated {output_path} with {len(ENV_KEYS)} keys.\")",
         "detail": "scripts.commands.config_sample",
         "documentation": {}
     },
@@ -2840,7 +2509,7 @@
         "kind": 5,
         "importPath": "scripts.commands.config_sample",
         "description": "scripts.commands.config_sample",
-        "peekOfCode": "ENV_KEYS = set()\nclass GetenvVisitor(ast.NodeVisitor):\n    def visit_Call(self, node):\n        if (isinstance(node.func, ast.Attribute)\n                and isinstance(node.func.value, ast.Name)\n                and node.func.value.id == \"os\"\n                and node.func.attr == \"getenv\"):\n            if len(node.args) >= 1 and isinstance(node.args[0], ast.Str):\n                ENV_KEYS.add(node.args[0].s)\n        self.generic_visit(node)",
+        "peekOfCode": "ENV_KEYS = {}\nclass GetenvVisitor(ast.NodeVisitor):\n    def visit_Call(self, node):\n        if (isinstance(node.func, ast.Attribute)\n                and isinstance(node.func.value, ast.Name)\n                and node.func.value.id == \"os\"\n                and node.func.attr == \"getenv\"):\n            if len(node.args) >= 1 and isinstance(node.args[0], ast.Str):\n                var_name = node.args[0].s\n                default = \"\"",
         "detail": "scripts.commands.config_sample",
         "documentation": {}
     },
@@ -3281,7 +2950,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "DATABASE_NAME = os.getenv(\"DATABASE_NAME\", \"stayforge\")\n# Redis\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://redis:6379\")\n# API descriptions file dir\nDOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = os.getenv(\"REFRESH_TOKEN_LENGTH\", 64)",
+        "peekOfCode": "DATABASE_NAME = os.getenv(\"DATABASE_NAME\", \"stayforge\")\n# Redis\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://redis:6379\")\n# API descriptions file dir\nDOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = int(os.getenv(\"REFRESH_TOKEN_LENGTH\", '64'))",
         "detail": "settings",
         "documentation": {}
     },
@@ -3290,7 +2959,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "REDIS_URL = os.getenv(\"REDIS_URL\", \"redis://redis:6379\")\n# API descriptions file dir\nDOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = os.getenv(\"REFRESH_TOKEN_LENGTH\", 64)\nACCESS_TOKEN_LENGTH = os.getenv(\"ACCESS_TOKEN_LENGTH\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30",
+        "peekOfCode": "REDIS_URL = os.getenv(\"REDIS_URL\", \"redis://redis:6379\")\n# API descriptions file dir\nDOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = int(os.getenv(\"REFRESH_TOKEN_LENGTH\", '64'))\nACCESS_TOKEN_LENGTH = int(os.getenv(\"ACCESS_TOKEN_LENGTH\", '32'))\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30",
         "detail": "settings",
         "documentation": {}
     },
@@ -3299,7 +2968,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "DOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = os.getenv(\"REFRESH_TOKEN_LENGTH\", 64)\nACCESS_TOKEN_LENGTH = os.getenv(\"ACCESS_TOKEN_LENGTH\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings",
+        "peekOfCode": "DOCS_API_DESCRIPTION = BASE_PATH / 'docs' / 'api_description'\n# Default models source and namespace\nDEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = int(os.getenv(\"REFRESH_TOKEN_LENGTH\", '64'))\nACCESS_TOKEN_LENGTH = int(os.getenv(\"ACCESS_TOKEN_LENGTH\", '32'))\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Super Token",
         "detail": "settings",
         "documentation": {}
     },
@@ -3308,7 +2977,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "DEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = os.getenv(\"REFRESH_TOKEN_LENGTH\", 64)\nACCESS_TOKEN_LENGTH = os.getenv(\"ACCESS_TOKEN_LENGTH\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)",
+        "peekOfCode": "DEFAULT_MODEL_SOURCE = os.getenv(\"DEFAULT_MODEL_MARKET\", \"https://market.stayforge.io/model\")\nDEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = int(os.getenv(\"REFRESH_TOKEN_LENGTH\", '64'))\nACCESS_TOKEN_LENGTH = int(os.getenv(\"ACCESS_TOKEN_LENGTH\", '32'))\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Super Token\nSUPER_TOKEN = os.getenv(\"SUPER_TOKEN\")\nSUPER_TOKEN_ALLOWED = json.loads(os.getenv(\"SUPER_TOKEN_ALLOWED\", \"false\").lower())",
         "detail": "settings",
         "documentation": {}
     },
@@ -3317,7 +2986,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "DEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = os.getenv(\"REFRESH_TOKEN_LENGTH\", 64)\nACCESS_TOKEN_LENGTH = os.getenv(\"ACCESS_TOKEN_LENGTH\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))",
+        "peekOfCode": "DEFAULT_MODEL_NAMESPACE = os.getenv(\"DEFAULT_MODEL_NAMESPACE\", \"stayforge\")\n# Token\nREFRESH_TOKEN_LENGTH = int(os.getenv(\"REFRESH_TOKEN_LENGTH\", '64'))\nACCESS_TOKEN_LENGTH = int(os.getenv(\"ACCESS_TOKEN_LENGTH\", '32'))\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Super Token\nSUPER_TOKEN = os.getenv(\"SUPER_TOKEN\")\nSUPER_TOKEN_ALLOWED = json.loads(os.getenv(\"SUPER_TOKEN_ALLOWED\", \"false\").lower())\nif SUPER_TOKEN_ALLOWED:",
         "detail": "settings",
         "documentation": {}
     },
@@ -3326,7 +2995,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "REFRESH_TOKEN_LENGTH = os.getenv(\"REFRESH_TOKEN_LENGTH\", 64)\nACCESS_TOKEN_LENGTH = os.getenv(\"ACCESS_TOKEN_LENGTH\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {",
+        "peekOfCode": "REFRESH_TOKEN_LENGTH = int(os.getenv(\"REFRESH_TOKEN_LENGTH\", '64'))\nACCESS_TOKEN_LENGTH = int(os.getenv(\"ACCESS_TOKEN_LENGTH\", '32'))\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Super Token\nSUPER_TOKEN = os.getenv(\"SUPER_TOKEN\")\nSUPER_TOKEN_ALLOWED = json.loads(os.getenv(\"SUPER_TOKEN_ALLOWED\", \"false\").lower())\nif SUPER_TOKEN_ALLOWED:\n    if not SUPER_TOKEN or len(SUPER_TOKEN) != REFRESH_TOKEN_LENGTH:\n        SUPER_TOKEN = secrets.token_hex(REFRESH_TOKEN_LENGTH)",
         "detail": "settings",
         "documentation": {}
     },
@@ -3335,7 +3004,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "ACCESS_TOKEN_LENGTH = os.getenv(\"ACCESS_TOKEN_LENGTH\", 32)\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {",
+        "peekOfCode": "ACCESS_TOKEN_LENGTH = int(os.getenv(\"ACCESS_TOKEN_LENGTH\", '32'))\nREFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Super Token\nSUPER_TOKEN = os.getenv(\"SUPER_TOKEN\")\nSUPER_TOKEN_ALLOWED = json.loads(os.getenv(\"SUPER_TOKEN_ALLOWED\", \"false\").lower())\nif SUPER_TOKEN_ALLOWED:\n    if not SUPER_TOKEN or len(SUPER_TOKEN) != REFRESH_TOKEN_LENGTH:\n        SUPER_TOKEN = secrets.token_hex(REFRESH_TOKEN_LENGTH)\n        logger.warning(\"SUPER_TOKEN is not set or is invalid. Please check your environment config `SUPER_TOKEN`.\", SUPER_TOKEN)",
         "detail": "settings",
         "documentation": {}
     },
@@ -3344,7 +3013,7 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "REFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {\n        \"description\": \"Create this order means that the room is booked. \"",
+        "peekOfCode": "REFRESH_TOKEN_TTL = 60 * 60 * 24 * 30\nACCESS_TOKEN_TTL = 60 * 60 * 24\n# Super Token\nSUPER_TOKEN = os.getenv(\"SUPER_TOKEN\")\nSUPER_TOKEN_ALLOWED = json.loads(os.getenv(\"SUPER_TOKEN_ALLOWED\", \"false\").lower())\nif SUPER_TOKEN_ALLOWED:\n    if not SUPER_TOKEN or len(SUPER_TOKEN) != REFRESH_TOKEN_LENGTH:\n        SUPER_TOKEN = secrets.token_hex(REFRESH_TOKEN_LENGTH)\n        logger.warning(\"SUPER_TOKEN is not set or is invalid. Please check your environment config `SUPER_TOKEN`.\", SUPER_TOKEN)\n# Order Types",
         "detail": "settings",
         "documentation": {}
     },
@@ -3353,34 +3022,25 @@
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "ACCESS_TOKEN_TTL = 60 * 60 * 24\n# Service Account & IAM Settings\nSUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {\n        \"description\": \"Create this order means that the room is booked. \"\n                       \"If checkout_at is exceeded and there is no in-using state, it will automatically be converted to close.\"",
+        "peekOfCode": "ACCESS_TOKEN_TTL = 60 * 60 * 24\n# Super Token\nSUPER_TOKEN = os.getenv(\"SUPER_TOKEN\")\nSUPER_TOKEN_ALLOWED = json.loads(os.getenv(\"SUPER_TOKEN_ALLOWED\", \"false\").lower())\nif SUPER_TOKEN_ALLOWED:\n    if not SUPER_TOKEN or len(SUPER_TOKEN) != REFRESH_TOKEN_LENGTH:\n        SUPER_TOKEN = secrets.token_hex(REFRESH_TOKEN_LENGTH)\n        logger.warning(\"SUPER_TOKEN is not set or is invalid. Please check your environment config `SUPER_TOKEN`.\", SUPER_TOKEN)\n# Order Types\nORDER_TYPE: dict = {",
         "detail": "settings",
         "documentation": {}
     },
     {
-        "label": "SUPERUSER_ACCOUNT_NAME",
+        "label": "SUPER_TOKEN",
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "SUPERUSER_ACCOUNT_NAME = os.getenv(\"SUPERUSER_ACCOUNT_NAME\", \"superuser@role.auth.stayforge.net\")\nSUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {\n        \"description\": \"Create this order means that the room is booked. \"\n                       \"If checkout_at is exceeded and there is no in-using state, it will automatically be converted to close.\"\n    },\n    'in-using': {\"description\": \"Create this order means that the room is in-using. \"",
+        "peekOfCode": "SUPER_TOKEN = os.getenv(\"SUPER_TOKEN\")\nSUPER_TOKEN_ALLOWED = json.loads(os.getenv(\"SUPER_TOKEN_ALLOWED\", \"false\").lower())\nif SUPER_TOKEN_ALLOWED:\n    if not SUPER_TOKEN or len(SUPER_TOKEN) != REFRESH_TOKEN_LENGTH:\n        SUPER_TOKEN = secrets.token_hex(REFRESH_TOKEN_LENGTH)\n        logger.warning(\"SUPER_TOKEN is not set or is invalid. Please check your environment config `SUPER_TOKEN`.\", SUPER_TOKEN)\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {\n        \"description\": \"Create this order means that the room is booked. \"",
         "detail": "settings",
         "documentation": {}
     },
     {
-        "label": "SUPERUSER_ACCOUNT_SECRET",
+        "label": "SUPER_TOKEN_ALLOWED",
         "kind": 5,
         "importPath": "settings",
         "description": "settings",
-        "peekOfCode": "SUPERUSER_ACCOUNT_SECRET = os.getenv(\"SUPERUSER_ACCOUNT_SECRET\", uuid.uuid4().hex)\nSUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {\n        \"description\": \"Create this order means that the room is booked. \"\n                       \"If checkout_at is exceeded and there is no in-using state, it will automatically be converted to close.\"\n    },\n    'in-using': {\"description\": \"Create this order means that the room is in-using. \"\n                                \"If checkout_at is exceeded, it will automatically be converted to wait-for-maintain\"",
-        "detail": "settings",
-        "documentation": {}
-    },
-    {
-        "label": "SUPERUSER_ACCOUNT_IAM",
-        "kind": 5,
-        "importPath": "settings",
-        "description": "settings",
-        "peekOfCode": "SUPERUSER_ACCOUNT_IAM = json5.loads(os.getenv(\"SUPERUSER_ACCOUNT_IAM\", '[\"admin\"]'))\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {\n        \"description\": \"Create this order means that the room is booked. \"\n                       \"If checkout_at is exceeded and there is no in-using state, it will automatically be converted to close.\"\n    },\n    'in-using': {\"description\": \"Create this order means that the room is in-using. \"\n                                \"If checkout_at is exceeded, it will automatically be converted to wait-for-maintain\"\n                 },",
+        "peekOfCode": "SUPER_TOKEN_ALLOWED = json.loads(os.getenv(\"SUPER_TOKEN_ALLOWED\", \"false\").lower())\nif SUPER_TOKEN_ALLOWED:\n    if not SUPER_TOKEN or len(SUPER_TOKEN) != REFRESH_TOKEN_LENGTH:\n        SUPER_TOKEN = secrets.token_hex(REFRESH_TOKEN_LENGTH)\n        logger.warning(\"SUPER_TOKEN is not set or is invalid. Please check your environment config `SUPER_TOKEN`.\", SUPER_TOKEN)\n# Order Types\nORDER_TYPE: dict = {\n    'booked': {\n        \"description\": \"Create this order means that the room is booked. \"\n                       \"If checkout_at is exceeded and there is no in-using state, it will automatically be converted to close.\"",
         "detail": "settings",
         "documentation": {}
     }

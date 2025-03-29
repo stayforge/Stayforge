@@ -166,4 +166,6 @@ openapi.json
 .DS_Store
 
 # OpenAPI Documents
-.openapi_spec/*!/stayforge.egg-info/
+.openapi_spec/*
+!/stayforge.egg-info/
+!/.env.sample

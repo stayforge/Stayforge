@@ -49,8 +49,8 @@ async def authenticate(
     if super_token:
         if not settings.DEBUG:
             raise HTTPException(status_code=400, detail="Super Token is only working on DEBUG=True. Truck ID: " + truck_id)
-        if super_token != os.getenv("SUPER_TOKEN"):
-            settings.logger.debug(f"Truck ID: {truck_id}, Super Token: {super_token}, Super Token from env: {os.getenv('SUPER_TOKEN')}")
+        if super_token != settings.SUPER_TOKEN:
+            settings.logger.debug(f"Truck ID: {truck_id}, Super Token: {super_token}, Super Token from env: {settings.SUPER_TOKEN}")
             raise HTTPException(status_code=400, detail="Super Token is incorrect. Truck ID: " + truck_id)
         else:
             refresh_t, access_t = tm.generate_token(
@@ -106,7 +106,7 @@ async def refresh_access_token(
     refresh_token = body.refresh_token
 
     # Super refresh token
-    if refresh_token == os.getenv("SUPER_REFRESH_TOKEN", uuid.uuid4()):
+    if refresh_token == settings.SUPER_TOKEN:
         tm = TokenManager()
         refresh_t, access_t = tm.generate_token(
             account=SUPERUSER_ACCOUNT_NAME
