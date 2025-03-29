@@ -1541,22 +1541,6 @@
         "documentation": {}
     },
     {
-        "label": "get_config_value",
-        "importPath": "scripts",
-        "description": "scripts",
-        "isExtraImport": true,
-        "detail": "scripts",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "scripts",
-        "description": "scripts",
-        "isExtraImport": true,
-        "detail": "scripts",
-        "documentation": {}
-    },
-    {
         "label": "PACKAGE_DIR",
         "importPath": "scripts",
         "description": "scripts",
@@ -1587,6 +1571,14 @@
         "description": "scripts.commands.host",
         "isExtraImport": true,
         "detail": "scripts.commands.host",
+        "documentation": {}
+    },
+    {
+        "label": "api",
+        "importPath": "scripts.commands",
+        "description": "scripts.commands",
+        "isExtraImport": true,
+        "detail": "scripts.commands",
         "documentation": {}
     },
     {
@@ -2609,10 +2601,10 @@
     {
         "label": "cli",
         "kind": 2,
-        "importPath": "scripts.commands.show_openapi",
-        "description": "scripts.commands.show_openapi",
-        "peekOfCode": "def cli():\n    \"\"\"Show the OpenAPI specification for Stayforge API\"\"\"\n    try:\n        # Get the OpenAPI spec from the local server\n        response = requests.get(os.path.join(get_config_value('host'), 'openapi.json'))\n        response.raise_for_status()  # Raise an exception for bad status codes\n        # Parse and format the JSON\n        spec = response.json()\n        formatted_json = json.dumps(spec, indent=2, ensure_ascii=False)\n        # Print the formatted JSON",
-        "detail": "scripts.commands.show_openapi",
+        "importPath": "scripts.commands.upload",
+        "description": "scripts.commands.upload",
+        "peekOfCode": "def cli():\n    \"\"\"Show the OpenAPI specification for Stayforge API\"\"\"\n    try:\n        # Get the OpenAPI spec from the local server\n        api.get_openapi_json()\n        formatted_json = json.dumps(\n            api.get_openapi_json(),\n            indent=2, ensure_ascii=False\n        )\n        # Print the formatted JSON",
+        "detail": "scripts.commands.upload",
         "documentation": {}
     },
     {
