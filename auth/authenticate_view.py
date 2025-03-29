@@ -10,7 +10,6 @@ from pydantic import EmailStr
 
 import settings
 from api.mongo_client import db
-from settings import SUPERUSER_ACCOUNT_NAME
 from . import router
 from .models import pwd_context
 from .token_manager import TokenManager, TokenRefreshRequest, TokenResponse
@@ -27,17 +26,17 @@ load_dotenv()
                 "they’ll walk out on you. No baker, no cake!"
 )
 async def authenticate(
-        account: EmailStr=Body(
+        account: EmailStr = Body(
             None,
             examples=["<EMAIL>"],
             description="Service Account Username (Must be an email address)"
         ),
-        secret: str=Body(
+        secret: str = Body(
             None,
             examples=["Password_for_human", "API_Key_for_M2M"],
             description="Service Account API Key (Or password for human user)"
         ),
-        super_token: str=Body(
+        super_token: str = Body(
             None,
             examples=[uuid.uuid4().hex],
             description="Super Token. You can get it from the environment variable `SUPER_TOKEN`. It only working on DEBUG=True."
@@ -45,12 +44,14 @@ async def authenticate(
 ):
     tm = TokenManager()
     truck_id = uuid.uuid4().hex
-    
+
     if super_token:
         if not settings.DEBUG:
-            raise HTTPException(status_code=400, detail="Super Token is only working on DEBUG=True. Truck ID: " + truck_id)
+            raise HTTPException(status_code=400,
+                                detail="Super Token is only working on DEBUG=True. Truck ID: " + truck_id)
         if super_token != settings.SUPER_TOKEN:
-            settings.logger.debug(f"Truck ID: {truck_id}, Super Token: {super_token}, Super Token from env: {settings.SUPER_TOKEN}")
+            settings.logger.debug(
+                f"Truck ID: {truck_id}, Super Token: {super_token}, Super Token from env: {settings.SUPER_TOKEN}")
             raise HTTPException(status_code=400, detail="Super Token is incorrect. Truck ID: " + truck_id)
         else:
             refresh_t, access_t = tm.generate_token(
@@ -79,14 +80,14 @@ async def authenticate(
     raise HTTPException(
         status_code=401,
         detail=f"Failed to authenticate. \r\n"
-                f"Reason: \n"
-                f"a. The Service Account does not exist; \n"
-                f"b. Verify the information incorrectly; \n"
-                f"c. This may also be a database problem."
-                f"You need to check whether the Service Account exists by calling '[GET]/auth/service_account/<account>'.\n"
-                f"If you deploy Stayforge for the first time, set `DEFAULT_SERVICE_ACCOUNT` and `DEFAULT_SERVICE_ACCOUNT_SECRET` "
-                f"through the environment variables.\n"
-                f"Truck ID: {truck_id}, Debug: {settings.DEBUG}"
+               f"Reason: \n"
+               f"a. The Service Account does not exist; \n"
+               f"b. Verify the information incorrectly; \n"
+               f"c. This may also be a database problem."
+               f"You need to check whether the Service Account exists by calling '[GET]/auth/service_account/<account>'.\n"
+               f"If you deploy Stayforge for the first time, set `DEFAULT_SERVICE_ACCOUNT` and `DEFAULT_SERVICE_ACCOUNT_SECRET` "
+               f"through the environment variables.\n"
+               f"Truck ID: {truck_id}, Debug: {settings.DEBUG}"
     )
 
 
@@ -109,7 +110,7 @@ async def refresh_access_token(
     if refresh_token == settings.SUPER_TOKEN:
         tm = TokenManager()
         refresh_t, access_t = tm.generate_token(
-            account=SUPERUSER_ACCOUNT_NAME
+            account=os.getenv("SUPER_TOKEN_ACCOUNT", "superuser@role.auth.stayforge.io")
         )
 
         return TokenResponse(

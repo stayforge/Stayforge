@@ -1092,14 +1092,6 @@
         "documentation": {}
     },
     {
-        "label": "SUPERUSER_ACCOUNT_NAME",
-        "importPath": "settings",
-        "description": "settings",
-        "isExtraImport": true,
-        "detail": "settings",
-        "documentation": {}
-    },
-    {
         "label": "logger",
         "importPath": "settings",
         "description": "settings",
