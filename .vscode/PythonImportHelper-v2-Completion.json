@@ -1499,6 +1499,14 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "click",
         "kind": 6,
         "isExtraImport": true,
@@ -1525,11 +1533,68 @@
         "documentation": {}
     },
     {
+        "label": "PROJECT_ROOT",
+        "importPath": "scripts",
+        "description": "scripts",
+        "isExtraImport": true,
+        "detail": "scripts",
+        "documentation": {}
+    },
+    {
+        "label": "set_config_value",
+        "importPath": "scripts",
+        "description": "scripts",
+        "isExtraImport": true,
+        "detail": "scripts",
+        "documentation": {}
+    },
+    {
+        "label": "set_config_value",
+        "importPath": "scripts",
+        "description": "scripts",
+        "isExtraImport": true,
+        "detail": "scripts",
+        "documentation": {}
+    },
+    {
+        "label": "get_config_value",
+        "importPath": "scripts",
+        "description": "scripts",
+        "isExtraImport": true,
+        "detail": "scripts",
+        "documentation": {}
+    },
+    {
         "label": "PACKAGE_DIR",
         "importPath": "scripts",
         "description": "scripts",
         "isExtraImport": true,
         "detail": "scripts",
+        "documentation": {}
+    },
+    {
+        "label": "urljoin",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "set_host",
+        "importPath": "scripts.commands.host",
+        "description": "scripts.commands.host",
+        "isExtraImport": true,
+        "detail": "scripts.commands.host",
         "documentation": {}
     },
     {
@@ -1573,15 +1638,6 @@
         "description": "app",
         "isExtraImport": true,
         "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "requests",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "requests",
-        "description": "requests",
-        "detail": "requests",
         "documentation": {}
     },
     {
@@ -2460,6 +2516,24 @@
         "documentation": {}
     },
     {
+        "label": "cli",
+        "kind": 2,
+        "importPath": "scripts.commands.api",
+        "description": "scripts.commands.api",
+        "peekOfCode": "def cli(output):\n    click.echo(\n        f\"Scanning project root: {PROJECT_ROOT} for .env.sample generation.\"\n    )\n    output_path = Path(output)\n    with open(output_path, \"w\") as f:\n        for key in sorted(ENV_KEYS):\n            f.write(f\"{key}={ENV_KEYS[key]}\\n\")\n    click.echo(f\"Generated {output_path} with {len(ENV_KEYS)} keys.\")",
+        "detail": "scripts.commands.api",
+        "documentation": {}
+    },
+    {
+        "label": "ENV_KEYS",
+        "kind": 5,
+        "importPath": "scripts.commands.api",
+        "description": "scripts.commands.api",
+        "peekOfCode": "ENV_KEYS = {}\n@click.command()\n@click.option('--output', '-o', default=\".env.sample\", help=\"Output file name.\")\ndef cli(output):\n    click.echo(\n        f\"Scanning project root: {PROJECT_ROOT} for .env.sample generation.\"\n    )\n    output_path = Path(output)\n    with open(output_path, \"w\") as f:\n        for key in sorted(ENV_KEYS):",
+        "detail": "scripts.commands.api",
+        "documentation": {}
+    },
+    {
         "label": "GetenvVisitor",
         "kind": 6,
         "importPath": "scripts.commands.config_sample",
@@ -2511,6 +2585,51 @@
         "description": "scripts.commands.config_sample",
         "peekOfCode": "ENV_KEYS = {}\nclass GetenvVisitor(ast.NodeVisitor):\n    def visit_Call(self, node):\n        if (isinstance(node.func, ast.Attribute)\n                and isinstance(node.func.value, ast.Name)\n                and node.func.value.id == \"os\"\n                and node.func.attr == \"getenv\"):\n            if len(node.args) >= 1 and isinstance(node.args[0], ast.Str):\n                var_name = node.args[0].s\n                default = \"\"",
         "detail": "scripts.commands.config_sample",
+        "documentation": {}
+    },
+    {
+        "label": "set_host",
+        "kind": 2,
+        "importPath": "scripts.commands.host",
+        "description": "scripts.commands.host",
+        "peekOfCode": "def set_host(url):\n    if not url:\n        url = click.prompt(_enter_stayforge_host_text)\n    if not url.startswith((\"http://\", \"https://\")):\n        click.echo(\"Invalid host URL. Please ensure it starts with http:// or https://\", err=True)\n        return\n    set_config_value(\"host\", url)\n    click.echo(f\"The Stayforge API host has been set as: {url}\")\n@click.command()\n@click.argument(\"url\", required=False)",
+        "detail": "scripts.commands.host",
+        "documentation": {}
+    },
+    {
+        "label": "cli",
+        "kind": 2,
+        "importPath": "scripts.commands.host",
+        "description": "scripts.commands.host",
+        "peekOfCode": "def cli(url):\n    \"\"\"Set Stayforge API host location\"\"\"\n    set_host(url)",
+        "detail": "scripts.commands.host",
+        "documentation": {}
+    },
+    {
+        "label": "_enter_stayforge_host_text",
+        "kind": 5,
+        "importPath": "scripts.commands.host",
+        "description": "scripts.commands.host",
+        "peekOfCode": "_enter_stayforge_host_text = \"Please enter the Stayforge API host (e.g. https://api.example.stayforge.io)\"\ndef set_host(url):\n    if not url:\n        url = click.prompt(_enter_stayforge_host_text)\n    if not url.startswith((\"http://\", \"https://\")):\n        click.echo(\"Invalid host URL. Please ensure it starts with http:// or https://\", err=True)\n        return\n    set_config_value(\"host\", url)\n    click.echo(f\"The Stayforge API host has been set as: {url}\")\n@click.command()",
+        "detail": "scripts.commands.host",
+        "documentation": {}
+    },
+    {
+        "label": "verify_account",
+        "kind": 2,
+        "importPath": "scripts.commands.login",
+        "description": "scripts.commands.login",
+        "peekOfCode": "def verify_account(account, password, super_token):\n    click.echo(\"Verifying account...\")\n    try:\n        host = get_config_value(\"host\", default=None)\n        if not host:\n            click.echo(\"No API host configured. Please set the host first.\")\n            set_host(\n                url=click.prompt(host._enter_stayforge_host_text)\n            )\n            if not host:",
+        "detail": "scripts.commands.login",
+        "documentation": {}
+    },
+    {
+        "label": "cli",
+        "kind": 2,
+        "importPath": "scripts.commands.login",
+        "description": "scripts.commands.login",
+        "peekOfCode": "def cli(account, password, no_validate, super_token):\n    if not account and not super_token:\n        account = click.prompt(\"Service Account\")\n    if not password and not super_token:\n        password = click.prompt(\"Secret (or Password)\", hide_input=True)\n    if not no_validate:\n        if not verify_account(account, password, super_token):\n            return\n    if account:\n        set_config_value(\"account\", account)",
+        "detail": "scripts.commands.login",
         "documentation": {}
     },
     {

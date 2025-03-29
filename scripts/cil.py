@@ -1,6 +1,7 @@
 """
 Stayforge CLI
 """
+
 import click
 import importlib
 import pkgutil

@@ -11,7 +11,9 @@ setup(
     packages=find_packages(),
     install_requires=[
         "click",
-        "pathspec"
+        "pathspec",
+        "tomli", "tomli_w",
+        "requests"
     ],
     entry_points={
         "console_scripts": [
