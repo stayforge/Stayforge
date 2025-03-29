@@ -8,29 +8,18 @@ on:
       - dev
 
 jobs:
-  build-openapi:
+  set-tag:
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.extract.outputs.version }}
-      branch: ${{ steps.extract.outputs.branch }}
+      version: ${{ steps.set-version.outputs.version }}
+      branch: ${{ steps.set-version.outputs.branch }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install pyyaml aiofiles Deprecated
-
-      - name: Generate OpenAPI spec
-        run: python openapi.py
-
-      - name: Extract version and branch
-        id: extract
+      - name: Set version and branch
+        id: set-version
         run: |
           if [[ "$GITHUB_REF" == "refs/heads/dev" ]]; then
             SHORT_SHA=$(echo "${GITHUB_SHA}" | cut -c1-7)
@@ -47,12 +36,36 @@ jobs:
             echo "version=${BRANCH_NAME}-${SHORT_SHA}" >> $GITHUB_OUTPUT
             echo "branch=${BRANCH_NAME}" >> $GITHUB_OUTPUT
           fi
+          echo "Setting version to: ${{ steps.set-version.outputs.version }}"
 
-  build-docker:
+  build-openapi:
+    needs: [ set-tag ]
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ needs.build-openapi.outputs.version }}
-      branch: ${{ needs.build-openapi.outputs.branch }}
+      version: ${{ needs.set-tag.outputs.version }}
+      branch: ${{ needs.set-tag.outputs.branch }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pyyaml aiofiles Deprecated
+
+      - name: Generate OpenAPI spec
+        run: python openapi.py
+
+  build-docker:
+    needs: [ set-tag ]
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ needs.set-tag.outputs.version }}
+      branch: ${{ needs.set-tag.outputs.branch }}
 
     steps:
       - name: Checkout code
@@ -63,7 +76,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          TAG="${{ needs.build-openapi.outputs.version }}"
+          TAG="${{ needs.set-tag.outputs.version }}"
           if [[ -z "$TAG" ]]; then
             echo "TAG is empty. Aborting build."
             exit 1
@@ -74,11 +87,10 @@ jobs:
           --tag stayforge/stayforge:$TAG \
           --push
 
-
   release-openapi:
+    needs: [ build-openapi, set-tag ]
     runs-on: ubuntu-latest
-    needs: [ build-openapi ]
-    if: needs.build-openapi.outputs.branch == 'main'
+    if: needs.set-tag.outputs.branch == 'main'
 
     steps:
       - uses: actions/checkout@v3
@@ -91,9 +103,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   release-docker:
-    needs: [ build-docker ]
+    needs: [ build-docker, set-tag ]
     runs-on: ubuntu-latest
-    if: needs.build-openapi.outputs.branch == 'main'
+    if: needs.set-tag.outputs.branch == 'main'
 
     steps:
       - name: Checkout code
@@ -107,7 +119,7 @@ jobs:
 
       - name: Push Docker image
         run: |
-          TAG=${{ needs.build-docker.outputs.version }}
+          TAG=${{ needs.set-tag.outputs.version }}
           if [[ -z "$TAG" ]]; then
             echo "Docker tag is empty. Skipping push."
             exit 1
