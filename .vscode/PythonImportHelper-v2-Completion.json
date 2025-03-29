@@ -1466,11 +1466,12 @@
         "documentation": {}
     },
     {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
+        "label": "ast",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "pathlib",
+        "importPath": "ast",
+        "description": "ast",
+        "detail": "ast",
         "documentation": {}
     },
     {
@@ -1499,11 +1500,12 @@
         "documentation": {}
     },
     {
-        "label": "PROJECT_ROOT",
-        "importPath": "scripts",
-        "description": "scripts",
+        "label": "pathspec",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "scripts",
+        "importPath": "pathspec",
+        "description": "pathspec",
+        "detail": "pathspec",
         "documentation": {}
     },
     {
@@ -1539,7 +1541,7 @@
         "documentation": {}
     },
     {
-        "label": "PACKAGE_DIR",
+        "label": "get_config_value",
         "importPath": "scripts",
         "description": "scripts",
         "isExtraImport": true,
@@ -1547,21 +1549,19 @@
         "documentation": {}
     },
     {
-        "label": "ast",
-        "kind": 6,
+        "label": "logger",
+        "importPath": "scripts",
+        "description": "scripts",
         "isExtraImport": true,
-        "importPath": "ast",
-        "description": "ast",
-        "detail": "ast",
+        "detail": "scripts",
         "documentation": {}
     },
     {
-        "label": "pathspec",
-        "kind": 6,
+        "label": "PACKAGE_DIR",
+        "importPath": "scripts",
+        "description": "scripts",
         "isExtraImport": true,
-        "importPath": "pathspec",
-        "description": "pathspec",
-        "detail": "pathspec",
+        "detail": "scripts",
         "documentation": {}
     },
     {
@@ -2508,24 +2508,6 @@
         "documentation": {}
     },
     {
-        "label": "cli",
-        "kind": 2,
-        "importPath": "scripts.commands.api",
-        "description": "scripts.commands.api",
-        "peekOfCode": "def cli(output):\n    click.echo(\n        f\"Scanning project root: {PROJECT_ROOT} for .env.sample generation.\"\n    )\n    output_path = Path(output)\n    with open(output_path, \"w\") as f:\n        for key in sorted(ENV_KEYS):\n            f.write(f\"{key}={ENV_KEYS[key]}\\n\")\n    click.echo(f\"Generated {output_path} with {len(ENV_KEYS)} keys.\")",
-        "detail": "scripts.commands.api",
-        "documentation": {}
-    },
-    {
-        "label": "ENV_KEYS",
-        "kind": 5,
-        "importPath": "scripts.commands.api",
-        "description": "scripts.commands.api",
-        "peekOfCode": "ENV_KEYS = {}\n@click.command()\n@click.option('--output', '-o', default=\".env.sample\", help=\"Output file name.\")\ndef cli(output):\n    click.echo(\n        f\"Scanning project root: {PROJECT_ROOT} for .env.sample generation.\"\n    )\n    output_path = Path(output)\n    with open(output_path, \"w\") as f:\n        for key in sorted(ENV_KEYS):",
-        "detail": "scripts.commands.api",
-        "documentation": {}
-    },
-    {
         "label": "GetenvVisitor",
         "kind": 6,
         "importPath": "scripts.commands.config_sample",
@@ -2622,6 +2604,15 @@
         "description": "scripts.commands.login",
         "peekOfCode": "def cli(account, password, no_validate, super_token):\n    if not account and not super_token:\n        account = click.prompt(\"Service Account\")\n    if not password and not super_token:\n        password = click.prompt(\"Secret (or Password)\", hide_input=True)\n    if not no_validate:\n        if not verify_account(account, password, super_token):\n            return\n    if account:\n        set_config_value(\"account\", account)",
         "detail": "scripts.commands.login",
+        "documentation": {}
+    },
+    {
+        "label": "cli",
+        "kind": 2,
+        "importPath": "scripts.commands.show_openapi",
+        "description": "scripts.commands.show_openapi",
+        "peekOfCode": "def cli():\n    \"\"\"Show the OpenAPI specification for Stayforge API\"\"\"\n    try:\n        # Get the OpenAPI spec from the local server\n        response = requests.get(os.path.join(get_config_value('host'), 'openapi.json'))\n        response.raise_for_status()  # Raise an exception for bad status codes\n        # Parse and format the JSON\n        spec = response.json()\n        formatted_json = json.dumps(spec, indent=2, ensure_ascii=False)\n        # Print the formatted JSON",
+        "detail": "scripts.commands.show_openapi",
         "documentation": {}
     },
     {
