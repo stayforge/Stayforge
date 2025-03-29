@@ -42,8 +42,10 @@ jobs:
             BRANCH=$(git branch -r --contains "$GITHUB_REF" | grep -v '\->' | head -n1 | sed 's|origin/||;s|/|-|g')
             echo "branch=$BRANCH" >> $GITHUB_OUTPUT
           else
-            echo "version=unknown" >> $GITHUB_OUTPUT
-            echo "branch=unknown" >> $GITHUB_OUTPUT
+            BRANCH_NAME=$(echo "$GITHUB_REF" | sed 's|refs/heads/||')
+            SHORT_SHA=$(echo "${GITHUB_SHA}" | cut -c1-7)
+            echo "version=${BRANCH_NAME}-${SHORT_SHA}" >> $GITHUB_OUTPUT
+            echo "branch=${BRANCH_NAME}" >> $GITHUB_OUTPUT
           fi
 
   build-docker:
@@ -66,6 +68,7 @@ jobs:
             echo "TAG is empty. Aborting build."
             exit 1
           fi
+          echo "Building Docker image with tag: $TAG"
           docker buildx build . \
           --platform linux/amd64,linux/arm64 \
           --tag stayforge/stayforge:$TAG \
